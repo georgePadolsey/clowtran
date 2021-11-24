@@ -13,7 +13,8 @@
 #undef VOID
 #include "stdlib.h"
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 #endif
 
@@ -22,12 +23,13 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-extern "C" {
+	extern "C"
+	{
 #endif
 
 #ifdef NO__STDC
 #define ONEXIT onexit
-extern VOID f_exit();
+		extern VOID f_exit();
 #else
 #ifndef KR_headers
 extern void f_exit(void);
@@ -44,105 +46,103 @@ extern VOID f_exit();
 #endif
 
 #ifdef KR_headers
-extern VOID f_init(), sig_die();
-extern int MAIN__();
+		extern VOID f_init(), sig_die();
+		extern int MAIN__();
 #define Int /* int */
 #else
-extern void f_init(void), sig_die(const char*, int);
+extern void f_init(void), sig_die(const char *, int);
 extern int MAIN__(void);
 #define Int int
 #endif
 
-static VOID sigfdie(Sigarg)
-{
-Use_Sigarg;
-sig_die("Floating Exception", 1);
-}
+		static VOID sigfdie(Sigarg)
+		{
+			Use_Sigarg;
+			sig_die("Floating Exception", 1);
+		}
 
-
-static VOID sigidie(Sigarg)
-{
-Use_Sigarg;
-sig_die("IOT Trap", 1);
-}
+		static VOID sigidie(Sigarg)
+		{
+			Use_Sigarg;
+			sig_die("IOT Trap", 1);
+		}
 
 #ifdef SIGQUIT
-static VOID sigqdie(Sigarg)
-{
-Use_Sigarg;
-sig_die("Quit signal", 1);
-}
+		static VOID sigqdie(Sigarg)
+		{
+			Use_Sigarg;
+			sig_die("Quit signal", 1);
+		}
 #endif
 
+		static VOID sigindie(Sigarg)
+		{
+			Use_Sigarg;
+			sig_die("Interrupt", 0);
+		}
 
-static VOID sigindie(Sigarg)
-{
-Use_Sigarg;
-sig_die("Interrupt", 0);
-}
-
-static VOID sigtdie(Sigarg)
-{
-Use_Sigarg;
-sig_die("Killed", 0);
-}
+		static VOID sigtdie(Sigarg)
+		{
+			Use_Sigarg;
+			sig_die("Killed", 0);
+		}
 
 #ifdef SIGTRAP
-static VOID sigtrdie(Sigarg)
-{
-Use_Sigarg;
-sig_die("Trace trap", 1);
-}
+		static VOID sigtrdie(Sigarg)
+		{
+			Use_Sigarg;
+			sig_die("Trace trap", 1);
+		}
 #endif
 
-
-int xargc;
-char **xargv;
+		int xargc;
+		char **xargv;
 
 #ifdef __cplusplus
 	}
 #endif
 
- int
+	int
 #ifdef KR_headers
-main(argc, argv) int argc; char **argv;
+		main(argc, argv) int argc;
+	char **argv;
 #else
 main(int argc, char **argv)
 #endif
-{
-xargc = argc;
-xargv = argv;
-signal1(SIGFPE, sigfdie);	/* ignore underflow, enable overflow */
+	{
+		xargc = argc;
+		xargv = argv;
+		signal1(SIGFPE, sigfdie); /* ignore underflow, enable overflow */
 #ifdef SIGIOT
-signal1(SIGIOT, sigidie);
+		signal1(SIGIOT, sigidie);
 #endif
 #ifdef SIGTRAP
-signal1(SIGTRAP, sigtrdie);
+		signal1(SIGTRAP, sigtrdie);
 #endif
 #ifdef SIGQUIT
-if(signal1(SIGQUIT,sigqdie) == SIG_IGN)
-	signal1(SIGQUIT, SIG_IGN);
+		if (signal1(SIGQUIT, sigqdie) == SIG_IGN)
+			signal1(SIGQUIT, SIG_IGN);
 #endif
-if(signal1(SIGINT, sigindie) == SIG_IGN)
-	signal1(SIGINT, SIG_IGN);
-signal1(SIGTERM,sigtdie);
+		if (signal1(SIGINT, sigindie) == SIG_IGN)
+			signal1(SIGINT, SIG_IGN);
+		signal1(SIGTERM, sigtdie);
 
 #ifdef pdp11
-	ldfps(01200); /* detect overflow as an exception */
+		ldfps(01200); /* detect overflow as an exception */
 #endif
 
-f_init();
+		f_init();
 #ifndef NO_ONEXIT
-ONEXIT(f_exit);
+		ONEXIT(f_exit);
 #endif
-MAIN__();
+		MAIN__();
 #ifdef NO_ONEXIT
-f_exit();
+		f_exit();
 #endif
-exit(0);	/* exit(0) rather than return(0) to bypass Cray bug */
-return 0;	/* For compilers that complain of missing return values; */
-		/* others will complain that this is unreachable code. */
-}
+		exit(0);  /* exit(0) rather than return(0) to bypass Cray bug */
+		return 0; /* For compilers that complain of missing return values; */
+				  /* others will complain that this is unreachable code. */
+	}
 #ifdef __cplusplus
 }
 #endif

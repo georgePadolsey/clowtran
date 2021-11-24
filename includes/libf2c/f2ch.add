@@ -148,7 +148,7 @@ extern integer s_wsli(icilist *);
 extern integer s_wsne(cilist *);
 extern integer s_wsni(icilist *);
 extern integer s_wsue(cilist *);
-extern void sig_die(char *, int);
+extern void sig_die(const char *, int);
 extern integer signal_(integer *, void (*)(int));
 extern integer system_(char *, ftnlen);
 extern double z_abs(doublecomplex *);

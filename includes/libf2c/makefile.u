@@ -13,14 +13,15 @@
 # to the CFLAGS = line below.
 
 .SUFFIXES: .c .o
-CC = cc
+CC = MACOSX_DEPLOYMENT_TARGET=11.0 c++
 SHELL = /bin/sh
-CFLAGS = -O
+LDFLAGS = -arch arm64 -platform_version macos 10.4 11.0
+CFLAGS = -g -Wall -O3 -pedantic -mmacosx-version-min=11.0 -arch arm64 -DAPPLE_OSX
 
 # compile, then strip unnecessary symbols
 .c.o:
 	$(CC) -c -DSkip_f2c_Undefs $(CFLAGS) $*.c
-	ld -r -x -o $*.xxx $*.o
+	ld $(LDFLAGS) -r -x -o $*.xxx $*.o
 	mv $*.xxx $*.o
 ## Under Solaris (and other systems that do not understand ld -x),
 ## omit -x in the ld line above.
@@ -72,8 +73,9 @@ OFILES = $(MISC) $(POW) $(CX) $(DCX) $(REAL) $(DBL) $(INT) \
 all: f2c.h signal1.h sysdep1.h libf2c.a
 
 libf2c.a: $(OFILES)
-	ar r libf2c.a $?
-	-ranlib libf2c.a
+	ar -rs libf2c.a $?
+	-ranlib -c libf2c.a
+
 
 ## Shared-library variant: the following rule works on Linux
 ## systems.  Details are system-dependent.  Under Linux, -fPIC
@@ -85,8 +87,13 @@ libf2c.a: $(OFILES)
 ## instead of "$(CC) -shared", and when running programs linked against libf2c.so,
 ## arrange for $DYLD_LIBRARY_PATH to include the directory containing libf2c.so.
 
+libf2c.dylib: $(OFILES)
+	$(CC) -dynamiclib -target arm64-apple-darwin20.5.0 -arch arm64 -o libf2c.dylib -undefined dynamic_lookup -single_module $(OFILES)
+
 libf2c.so: $(OFILES)
-	$(CC) -shared -o libf2c.so $(OFILES)
+# $(CC) -shared -target arm64-apple-darwin20.5.0 -arch arm64 -o libf2c.so $(OFILES)
+# MACOSX_DEPLOYMENT_TARGET=11.0 libtool -platform_version macos 10.4 11.0 -dynamic -arch_only arm64 -o libf2c.so -undefined dynamic_lookup -single_module $(OFILES)
+	$(CC) -shared -target arm64-apple-darwin20.5.0 -arch arm64 -o libf2c.so -undefined dynamic_lookup -single_module $(OFILES)
 
 ### If your system lacks ranlib, you don't need it; see README.
 
@@ -95,6 +102,7 @@ f77vers.o: f77vers.c
 
 i77vers.o: i77vers.c
 	$(CC) -c i77vers.c
+
 
 # To get an "f2c.h" for use with "f2c -C++", first "make hadd"
 hadd: f2c.h0 f2ch.add
@@ -126,7 +134,7 @@ install: libf2c.a
 	-ranlib $(LIBDIR)/libf2c.a
 
 clean:
-	rm -f libf2c.a *.o arith.h signal1.h sysdep1.h
+	rm -f libf2c.a *.o arith.h signal1.h sysdep1.h libf2c.so libf2c.dylib
 
 backspac.o:	fio.h
 close.o:	fio.h

@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "fio.h": "c",
+    "stdio.h": "c",
+    "complex": "c"
+  }
+}
