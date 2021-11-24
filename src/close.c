@@ -2,16 +2,12 @@
 #include "fio.h"
 
 #include "stdlib.h"
+
 #ifdef NON_UNIX_STDIO
-#ifndef unlink
-#define unlink remove
-#endif
 #else
 #ifdef MSDOS
-#include "io.h"
 #else
 #ifdef __cplusplus
-extern "C" int unlink(const char *);
 #else
 extern int unlink(const char *);
 #endif
@@ -87,11 +83,9 @@ f_exit(void)
         }
     }
     int
-#ifdef KR_headers
-    flush_()
-#else
-flush_(void)
-#endif
+
+    flush_(void)
+
     {
         int i;
         for (i = 0; i < MXUNIT; i++)

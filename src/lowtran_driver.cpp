@@ -1,4 +1,4 @@
-#include "lowtran7.1.c"
+#include "lowtran7.1.cpp"
 #include <time.h>
 #include <stdio.h>
 

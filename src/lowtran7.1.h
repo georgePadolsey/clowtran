@@ -1,6 +1,6 @@
 #pragma once
+
 // #include <complex.h> @todo change complex to this
-#define f2h_disabled 1
 
 #include "stdio.h"
 #include "math.h"

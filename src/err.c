@@ -1,22 +1,13 @@
 // #include "sysdep1.h" /* here to get stat64 on some badly designed Linux systems */
 #include "f2c.h"
-#ifdef KR_headers
-#define Const /*nothing*/
-extern char *malloc();
-#else
 #define Const const
 #include "stdlib.h"
-#endif
 #include "fio.h"
 #include "fmt.h" /* for struct syl */
 
 /* Compile this with -DNO_ISATTY if unistd.h does not exist or */
 /* if it does not define int isatty(int). */
-#ifdef NO_ISATTY
-#define isatty(x) 0
-#else
 #include <unistd.h>
-#endif
 
 #ifdef __cplusplus
 extern "C"
@@ -32,17 +23,12 @@ extern "C"
 	flag f__cplus, f__cblank;
 	Const char *f__fmtbuf;
 	flag f__external; /*1 if external io, 0 if internal */
-#ifdef KR_headers
-	int (*f__doed)(), (*f__doned)();
-	int (*f__doend)(), (*f__donewrec)(), (*f__dorevert)();
-	int (*f__getn)();  /* for formatted input */
-	void (*f__putn)(); /* for formatted output */
-#else
-int (*f__getn)(void); /* for formatted input */
-void (*f__putn)(int); /* for formatted output */
-int (*f__doed)(struct syl *, char *, ftnlen), (*f__doned)(struct syl *);
-int (*f__dorevert)(void), (*f__donewrec)(void), (*f__doend)(void);
-#endif
+
+	int (*f__getn)(void); /* for formatted input */
+	void (*f__putn)(int); /* for formatted output */
+	int (*f__doed)(struct syl *, char *, ftnlen), (*f__doned)(struct syl *);
+	int (*f__dorevert)(void), (*f__donewrec)(void), (*f__doend)(void);
+
 	flag f__sequential; /*1 if sequential io, 0 if direct*/
 	flag f__formatted;	/*1 if formatted io, 0 if unformatted*/
 	FILE *f__cf;		/*current file*/
@@ -237,13 +223,9 @@ f__nowwriting(unit *x)
 	}
 
 	int
-#ifdef KR_headers
-		err__fl(f, m, s) int f,
-		m;
-	char *s;
-#else
-err__fl(int f, int m, const char *s)
-#endif
+
+	err__fl(int f, int m, const char *s)
+
 	{
 		if (!f)
 			f__fatal(m, s);

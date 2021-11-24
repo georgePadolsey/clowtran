@@ -25,12 +25,6 @@ typedef long int logical;
 typedef short int shortlogical;
 typedef char logical1;
 typedef char integer1;
-#ifdef INTEGER_STAR_8                /* Adjust for integer*8. */
-typedef long long longint;           /* system-dependent */
-typedef unsigned long long ulongint; /* system-dependent */
-#define qbit_clear(a, b) ((a) & ~((ulongint)1 << (b)))
-#define qbit_set(a, b) ((a) | ((ulongint)1 << (b)))
-#endif
 
 #define TRUE_ (1)
 #define FALSE_ (0)
@@ -180,9 +174,10 @@ typedef struct Namelist Namelist;
             __typeof__(b) _b = (b); \
             _a < _b ? _a : _b;      \
         })
-#define bit_test(a, b) ((a) >> (b)&1)
-#define bit_clear(a, b) ((a) & ~((uinteger)1 << (b)))
-#define bit_set(a, b) ((a) | ((uinteger)1 << (b)))
+
+// #define bit_test(a, b) ((a) >> (b)&1)
+// #define bit_clear(a, b) ((a) & ~((uinteger)1 << (b)))
+// #define bit_set(a, b) ((a) | ((uinteger)1 << (b)))
 
 double pow_dd(double *ap, double *bp)
 {
