@@ -10,10 +10,10 @@ include_directories(
 
 add_executable(clowtran src/lowtran_driver.c)
 
-target_link_libraries(clowtran PRIVATE "${PROJECT_SOURCE_DIR}/includes/libf2c/libf2c.a")
+# target_link_libraries(clowtran PRIVATE "${PROJECT_SOURCE_DIR}/includes/libf2c/libf2c.a")
 
 
-target_include_directories(clowtran PRIVATE
-                            "${PROJECT_BINARY_DIR}"
-                            "${PROJECT_SOURCE_DIR}/includes/libf2c")
+# target_include_directories(clowtran PRIVATE
+                            # "${PROJECT_BINARY_DIR}"
+                            # "${PROJECT_SOURCE_DIR}/includes/libf2c")
 

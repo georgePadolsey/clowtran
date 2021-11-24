@@ -9,6 +9,12 @@
     "ccomplex": "c",
     "version": "c",
     "numeric": "c",
-    "cmath": "c"
+    "cmath": "c",
+    "s_copy.c": "cpp",
+    "math.h": "c",
+    "numbers": "c",
+    "fmt.h": "c",
+    "sysdep1.h": "c",
+    "ctype.h": "c"
   }
 }

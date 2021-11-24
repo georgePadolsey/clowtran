@@ -2,71 +2,33 @@
 // #include <complex.h> @todo change complex to this
 #define f2h_disabled 1
 
-#ifndef f2h_disabled
-#include "f2c.h"
-#endif
-
-#ifdef f2h_disabled
-
+#include "stdio.h"
 #include "math.h"
-
-typedef float real;
-typedef double doublereal;
-
-typedef long int flag;
-typedef long int ftnlen;
-typedef long int ftnint;
-
-typedef struct
-{
-    float r, i;
-} complex;
-typedef struct
-{
-    double r, i;
-} doublecomplex;
-
-typedef struct
-{
-    flag oerr;
-    ftnint ounit;
-    char *ofnm;
-    ftnlen ofnmlen;
-    char *osta;
-    char *oacc;
-    char *ofm;
-    ftnint orl;
-    char *oblnk;
-} olist;
-
-typedef struct
-{
-    flag cierr;
-    ftnint ciunit;
-    flag ciend;
-    char *cifmt;
-    ftnint cirec;
-} cilist;
-
-#define dabs(x) (double)abs(x)
-#define max(a, b)                   \
-    (                               \
-        {                           \
-            __typeof__(a) _a = (a); \
-            __typeof__(b) _b = (b); \
-            _a > _b ? _a : _b;      \
-        })
-
-#define min(a, b)                   \
-    (                               \
-        {                           \
-            __typeof__(a) _a = (a); \
-            __typeof__(b) _b = (b); \
-            _a < _b ? _a : _b;      \
-        })
-#define bit_test(a, b) ((a) >> (b)&1)
-#define bit_clear(a, b) ((a) & ~((uinteger)1 << (b)))
-#define bit_set(a, b) ((a) | ((uinteger)1 << (b)))
-#endif
-
+#include "stdlib.h"
+#include "dolio.c"
+#include "f2c.h"
+#include "fmt.c"
+#include "err.c"
+#include "c_div.c"
+#include "sfe.c"
+#include "wsle.c"
+#include "wsfe.c"
+#include "pow_ci.c"
+#include "s_copy.c"
+#include "lwrite.c"
+#include "lread.c"
+#include "util.c"
+#include "fmtlib.c"
+#include "open.c"
+#include "close.c"
+#include "pow_ri.c"
+#include "pow_zi.c"
+#include "z_div.c"
+#include "r_imag.c"
+#include "wrtfmt.c"
+#include "wref.c"
+#include "endfile.c"
+#include "rsfe.c"
+#include "rdfmt.c"
+#include "sig_die.c"
 extern int MAIN__(void);

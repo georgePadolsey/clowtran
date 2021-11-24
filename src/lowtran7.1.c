@@ -1,22 +1,13 @@
 /* lowtran7.1.f -- translated by f2c (version 20191129).
-   You must link the resulting object file with libf2c:
-	on Microsoft Windows system, link with libf2c.lib;
-	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
-	or, if you install libf2c.a in a standard place, with -lf2c -lm
-	-- in that order, at the end of the command line, as in
-		cc *.o -lf2c -lm
-	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
 
-		http://www.netlib.org/f2c/libf2c.zip
+   No need to link with libf2c anymore!
+   Copied all files locally so can work through and remove ones not needed!
 */
 
 // clang++ -g lowtran7.1.cpp -I../includes/libf2c -L../includes/libf2c -lf2c -lm -v -o test && ./test
 #include "lowtran7.1.h"
 
 // added by GP
-#include "stdlib.h"
-#include <stdio.h>
-#include <math.h>
 
 #define STRINGIZING(x) #x
 #define STR(x) STRINGIZING(x)
