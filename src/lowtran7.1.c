@@ -12,7 +12,6 @@
 
 // clang++ -g lowtran7.1.cpp -I../includes/libf2c -L../includes/libf2c -lf2c -lm -v -o test && ./test
 #include "lowtran7.1.h"
-#include "f2c.h"
 
 // added by GP
 #include "stdlib.h"
@@ -33,9 +32,9 @@ union
 {
 	struct
 	{
-		real relhum[34], hstor[34];
-		integer ich[4];
-		real vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68],
+		float relhum[34], hstor[34];
+		long ich[4];
+		float vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68],
 			absc[235] /* was [5][47] */, extc[235] /* was [5][47]
 		 */
 			,
@@ -43,9 +42,9 @@ union
 	} _1;
 	struct
 	{
-		real relhum[34], whno3[34];
-		integer ich[4];
-		real vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68],
+		float relhum[34], whno3[34];
+		long ich[4];
+		float vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68],
 			absc[235] /* was [5][47] */, extc[235] /* was [5][47]
 		 */
 			,
@@ -53,15 +52,15 @@ union
 	} _2;
 	struct
 	{
-		real relhum[34], hstor[34];
-		integer ich[4];
-		real vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68];
+		float relhum[34], hstor[34];
+		long ich[4];
+		float vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68];
 	} _3;
 	struct
 	{
-		real relhum[34], hstor[34];
-		integer ich[4];
-		real vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68],
+		float relhum[34], hstor[34];
+		long ich[4];
+		float vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68],
 			absc[235] /* was [5][47] */, extc[235] /* was [5][47]
 		 */
 			,
@@ -69,9 +68,9 @@ union
 	} _4;
 	struct
 	{
-		real relhum[34], hstor[34];
-		integer ich[4];
-		real vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68],
+		float relhum[34], hstor[34];
+		long ich[4];
+		float vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68],
 			absc[235] /* was [5][47] */, extc[235] /* was [5][47]
 		 */
 			,
@@ -89,11 +88,11 @@ union
 {
 	struct
 	{
-		integer ird, ipr, ipu, npr, ipr1;
+		long ird, ipr, ipu, npr, ipr1;
 	} _1;
 	struct
 	{
-		integer ird, ipr, ipu, nopr, nfhdrf;
+		long ird, ipr, ipu, nopr, nfhdrf;
 	} _2;
 } ifil_;
 
@@ -104,13 +103,13 @@ union
 {
 	struct
 	{
-		integer model, itype, iemsct, m1, m2, m3, im, noprt;
-		real tbound, salb;
+		long model, itype, iemsct, m1, m2, m3, im, noprt;
+		float tbound, salb;
 	} _1;
 	struct
 	{
-		integer model, itype, iemsct, m1, m2, m3, im, noprnt;
-		real tbound, salb;
+		long model, itype, iemsct, m1, m2, m3, im, noprnt;
+		float tbound, salb;
 	} _2;
 } card1_;
 
@@ -119,7 +118,7 @@ union
 
 struct
 {
-	integer m4, m5, m6, mdef, ird1, ird2;
+	long m4, m5, m6, mdef, ird1, ird2;
 } card1a_;
 
 #define card1a_1 card1a_
@@ -128,13 +127,13 @@ union
 {
 	struct
 	{
-		integer ihaze, iseasn, ivulcn, icstl, icld, ivsa;
-		real vis, wss, whh, rainrt;
+		long ihaze, iseasn, ivulcn, icstl, icld, ivsa;
+		float vis, wss, whh, rainrt;
 	} _1;
 	struct
 	{
-		integer ihaze, iseasn, ivulcn, icstl, icir, ivsa;
-		real vis, wss, whh, rainrt;
+		long ihaze, iseasn, ivulcn, icstl, icir, ivsa;
+		float vis, wss, whh, rainrt;
 	} _2;
 } card2_;
 
@@ -143,16 +142,16 @@ union
 
 struct
 {
-	real cthik, calt, cext;
+	float cthik, calt, cext;
 } card2a_;
 
 #define card2a_1 card2a_
 
 struct
 {
-	integer ireg[4];
-	real altb[4];
-	integer iregc[4];
+	long ireg[4];
+	float altb[4];
+	long iregc[4];
 } card2d_;
 
 #define card2d_1 card2d_
@@ -161,13 +160,13 @@ union
 {
 	struct
 	{
-		real h1, h2, angle, range, beta, re;
-		integer len;
+		float h1, h2, angle, range, beta, re;
+		long len;
 	} _1;
 	struct
 	{
-		real h1, h2, angle, range, beta, ree;
-		integer len;
+		float h1, h2, angle, range, beta, ree;
+		long len;
 	} _2;
 } card3_;
 
@@ -176,14 +175,14 @@ union
 
 struct
 {
-	real v1, v2, dv;
+	float v1, v2, dv;
 } card4_;
 
 #define card4_1 card4_
 
 struct
 {
-	real pi, ca, deg, gcair, bignum, bigexp;
+	float pi, ca, deg, gcair, bignum, bigexp;
 } cnstns_;
 
 #define cnstns_1 cnstns_
@@ -192,19 +191,19 @@ union
 {
 	struct
 	{
-		integer kmax, m, ikmax, nl, ml, iklo, issgeo, imult;
+		long kmax, m, ikmax, nl, ml, iklo, issgeo, imult;
 	} _1;
 	struct
 	{
-		integer kmax, m7, jkmax, nl, ml, jklo, issgeo, imult;
+		long kmax, m7, jkmax, nl, ml, jklo, issgeo, imult;
 	} _2;
 	struct
 	{
-		integer kmax, mm, ikmax, nl, ml, iklo, issgeo, imult;
+		long kmax, mm, ikmax, nl, ml, iklo, issgeo, imult;
 	} _3;
 	struct
 	{
-		integer kmax, m, ikmax, nl, ml, iklo, iss, imult;
+		long kmax, m, ikmax, nl, ml, iklo, iss, imult;
 	} _4;
 } cntrl_;
 
@@ -217,35 +216,35 @@ union
 {
 	struct
 	{
-		real zm[34], pm[34], tm[34], rfndx[34], densty[2142] /* was [63][
+		float zm[34], pm[34], tm[34], rfndx[34], densty[2142] /* was [63][
 		34] */
 			,
 			cldamt[34], rramt[34], eqlwc[34], hazec[34];
 	} _1;
 	struct
 	{
-		real zmdl[34], pm[34], tm[34], rfndx[34], densty[2142] /* was [63][
+		float zmdl[34], pm[34], tm[34], rfndx[34], densty[2142] /* was [63][
 		34] */
 			,
 			cldamt[34], rramt[34], eqlwc[34], hazec[34];
 	} _2;
 	struct
 	{
-		real z__[34], pm[34], tm[34], rfndx[34], densty[2142] /* was [63][
+		float z__[34], pm[34], tm[34], rfndx[34], densty[2142] /* was [63][
 		34] */
 			,
 			cldamt[34], rramt[34], eqlwc[34], hazec[34];
 	} _3;
 	struct
 	{
-		real z__[34], p[34], t[34], rfndx[34], densty[2142] /* was [63][
+		float z__[34], p[34], t[34], rfndx[34], densty[2142] /* was [63][
 		34] */
 			,
 			cldamt[34], rramt[34], eqlwc[34], hazec[34];
 	} _4;
 	struct
 	{
-		real zm[34], pm[34], tm[34], dum[34], densty[2142] /* was [63][
+		float zm[34], pm[34], tm[34], dum[34], densty[2142] /* was [63][
 		34] */
 			,
 			cldamt[34], rramt[34], eqlwc[34], hazec[34];
@@ -260,40 +259,40 @@ union
 
 struct
 {
-	real ah1[68], arh[68], wpaths[4284] /* was [68][63] */, pa[68], pr[68],
+	float ah1[68], arh[68], wpaths[4284] /* was [68][63] */, pa[68], pr[68],
 		atheta[35], adbeta[35];
-	integer lj[69], jturn;
-	real angsun, cszen[68];
+	long lj[69], jturn;
+	float angsun, cszen[68];
 } sols_;
 
 #define sols_1 sols_
 
 struct
 {
-	real rhh;
+	float rhh;
 } mart_;
 
 #define mart_1 mart_
 
 struct
 {
-	integer nangls;
-	real angf[50], f[200] /* was [4][50] */;
+	long nangls;
+	float angf[50], f[200] /* was [4][50] */;
 } usrdta_;
 
 #define usrdta_1 usrdta_
 
 struct
 {
-	real hmdlz[8];
+	float hmdlz[8];
 } mdlz_;
 
 #define mdlz_1 mdlz_
 
 struct
 {
-	real zvsa[10], rhvsa[10], ahvsa[10];
-	integer ihvsa[10];
+	float zvsa[10], rhvsa[10], ahvsa[10];
+	long ihvsa[10];
 } zvsaly_;
 
 #define zvsaly_1 zvsaly_
@@ -324,16 +323,16 @@ struct titl_2_
 
 struct vsbd_1_
 {
-	real vsb[10];
+	float vsb[10];
 };
 
 #define vsbd_1 (*(struct vsbd_1_ *)&vsbd_)
 
 struct
 {
-	real tbbss[68], tbbms[34], wpms[2142] /* was [34][63] */;
-	integer imsmx;
-	real wpmss[2142] /* was [34][63] */;
+	float tbbss[68], tbbms[34], wpms[2142] /* was [34][63] */;
+	long imsmx;
+	float wpmss[2142] /* was [34][63] */;
 } mnlt_;
 
 #define mnlt_1 mnlt_
@@ -342,15 +341,15 @@ union
 {
 	struct
 	{
-		real pl[68], qtheta[68];
-		integer itest;
-		real hi, hf, aht[68];
+		float pl[68], qtheta[68];
+		long itest;
+		float hi, hf, aht[68];
 	} _1;
 	struct
 	{
-		real pl[68], qtheta[68];
-		integer itest;
-		real h1s, h2s, aht[68];
+		float pl[68], qtheta[68];
+		long itest;
+		float h1s, h2s, aht[68];
 	} _2;
 } path_;
 
@@ -361,11 +360,11 @@ union
 {
 	struct
 	{
-		real tae7, tae12, tae13, tae14, tae16;
+		float tae7, tae12, tae13, tae14, tae16;
 	} _1;
 	struct
 	{
-		real taer[5];
+		float taer[5];
 	} _2;
 } aertm_;
 
@@ -376,33 +375,33 @@ union
 {
 	struct
 	{
-		integer junit[15];
-		real wmol[12], wair1;
-		integer jlow;
+		long junit[15];
+		float wmol[12], wair1;
+		long jlow;
 	} _1;
 	struct
 	{
-		integer junitp, junitt, junit1[13];
-		real wmol1[12], wair1;
-		integer jlow;
+		long junitp, junitt, junit1[13];
+		float wmol1[12], wair1;
+		long jlow;
 	} _2;
 	struct
 	{
-		integer junitp, junitt, junit1[13];
-		real wmol1[12], wair;
-		integer jlow;
+		long junitp, junitt, junit1[13];
+		float wmol1[12], wair;
+		long jlow;
 	} _3;
 	struct
 	{
-		integer junit[15];
-		real wmoli[12], wair1;
-		integer jlow;
+		long junit[15];
+		float wmoli[12], wair1;
+		long jlow;
 	} _4;
 	struct
 	{
-		integer junitp, junitt, junit[13];
-		real wmol[12], wair;
-		integer jlow;
+		long junitp, junitt, junit[13];
+		float wmol[12], wair;
+		long jlow;
 	} _5;
 } card1b_;
 
@@ -414,21 +413,21 @@ union
 
 struct mdata_1_
 {
-	real z__[50], p[50], t[50], wh[50], wco2[50], wo[50], wn2o[50], wco[50],
+	float z__[50], p[50], t[50], wh[50], wco2[50], wo[50], wn2o[50], wco[50],
 		wch4[50], wo2[50], cld[350] /* was [50][7] */, rr[350] /*
 	    was [50][7] */
 		;
 };
 struct mdata_2_
 {
-	real zz[50], p[50], t[50], wh[50], wco2[50], wo[50], wn2o[50], wco[50],
+	float zz[50], p[50], t[50], wh[50], wco2[50], wo[50], wn2o[50], wco[50],
 		wch4[50], wo2[50], cld[350] /* was [50][7] */, rr[350] /*
 	    was [50][7] */
 		;
 };
 struct mdata_3_
 {
-	real z__[50], p[50], t[50], wh[50], wco2[50], wo[50], wn2o[50], wco[50],
+	float z__[50], p[50], t[50], wh[50], wco2[50], wo[50], wn2o[50], wco[50],
 		wch4[50], wo2[50], cld1[50], cld2[50], cld3[50], cld4[50], cld5[50], cld6[50], cld7[50], rr1[50], rr2[50], rr3[50], rr4[50], rr5[50], rr6[50], rr7[50];
 };
 
@@ -438,22 +437,22 @@ struct mdata_3_
 
 struct
 {
-	real wno[50], wso2[50], wno2[50], wnh3[50], wair[50];
+	float wno[50], wso2[50], wno2[50], wnh3[50], wair[50];
 } mdata1_;
 
 #define mdata1_1 mdata1_
 
 struct trac_1_
 {
-	real ano[50], aso2[50], ano2[50], anh3[50], ano3[50], oh[50], hf[50], hcl[50], hbr[50], hi[50], clo[50], ocs[50], h2co[50], hocl[50], an2[50], hcn[50], ch3cl[50], h2o2[50], c2h2[50], c2h6[50], ph3[50];
+	float ano[50], aso2[50], ano2[50], anh3[50], ano3[50], oh[50], hf[50], hcl[50], hbr[50], hi[50], clo[50], ocs[50], h2co[50], hocl[50], an2[50], hcn[50], ch3cl[50], h2o2[50], c2h2[50], c2h6[50], ph3[50];
 };
 struct trac_2_
 {
-	real trac[1050] /* was [50][21] */;
+	float trac[1050] /* was [50][21] */;
 };
 struct trac_3_
 {
-	real ano[50], so2[50], ano2[50], anh3[50], hno3[50], oh[50], hf[50], hcl[50], hbr[50], hi[50], clo[50], ocs[50], h2co[50], hocl[50], an2[50], hcn[50], ch3cl[50], h2o2[50], c2h2[50], c2h6[50], ph3[50];
+	float ano[50], so2[50], ano2[50], anh3[50], hno3[50], oh[50], hf[50], hcl[50], hbr[50], hi[50], clo[50], ocs[50], h2co[50], hocl[50], an2[50], hcn[50], ch3cl[50], h2o2[50], c2h2[50], c2h6[50], ph3[50];
 };
 
 #define trac_1 (*(struct trac_1_ *)&trac_)
@@ -462,11 +461,11 @@ struct trac_3_
 
 struct desaer_1_
 {
-	real ext[188] /* was [47][4] */, abs__[188] /* was [47][4] */, g[188] /* was [47][4] */;
+	float ext[188] /* was [47][4] */, abs__[188] /* was [47][4] */, g[188] /* was [47][4] */;
 };
 struct desaer_2_
 {
-	real desex1[47], desex2[47], desex3[47], desex4[47], desab1[47], desab2[47], desab3[47], desab4[47], desg1[47], desg2[47], desg3[47],
+	float desex1[47], desex2[47], desex3[47], desex4[47], desab1[47], desab2[47], desab3[47], desab4[47], desg1[47], desg2[47], desg3[47],
 		desg4[47];
 };
 
@@ -475,7 +474,7 @@ struct desaer_2_
 
 struct constn_1_
 {
-	real pzero, tzero, avogad, alosmt, gascon, plank, boltz, clight, adcon,
+	float pzero, tzero, avogad, alosmt, gascon, plank, boltz, clight, adcon,
 		alzero, avmwt, airmwt, amwt[35];
 };
 
@@ -485,11 +484,11 @@ union
 {
 	struct
 	{
-		real zmdl[40], pm[40], tm[40], wmdl[520] /* was [40][13] */;
+		float zmdl[40], pm[40], tm[40], wmdl[520] /* was [40][13] */;
 	} _1;
 	struct
 	{
-		real zmdl[40], p[40], t[40], wmdl[520] /* was [40][13] */;
+		float zmdl[40], p[40], t[40], wmdl[520] /* was [40][13] */;
 	} _2;
 } nsinp_;
 
@@ -498,14 +497,14 @@ union
 
 struct mlatm_1_
 {
-	real alt[50], pmatm[300] /* was [50][6] */, tmatm[300] /* was [50][6]
+	float alt[50], pmatm[300] /* was [50][6] */, tmatm[300] /* was [50][6]
 	     */
 		,
 		amol[2400] /* was [50][8][6] */;
 };
 struct mlatm_2_
 {
-	real alt[50], p1[50], p2[50], p3[50], p4[50], p5[50], p6[50], t1[50], t2[50], t3[50], t4[50], t5[50], t6[50], amol11[50], amol12[50],
+	float alt[50], p1[50], p2[50], p3[50], p4[50], p5[50], p6[50], t1[50], t2[50], t3[50], t4[50], t5[50], t6[50], amol11[50], amol12[50],
 		amol13[50], amol14[50], amol15[50], amol16[50], amol17[50],
 		amol18[50], amol21[50], amol22[50], amol23[50], amol24[50],
 		amol25[50], amol26[50], amol27[50], amol28[50], amol31[50],
@@ -523,7 +522,7 @@ struct mlatm_2_
 
 struct prfd_1_
 {
-	real zht[34], hz2k[170] /* was [34][5] */, fawi50[34], fawi23[34],
+	float zht[34], hz2k[170] /* was [34][5] */, fawi50[34], fawi23[34],
 		spsu50[34], spsu23[34], bastfw[34], vumofw[34], hivufw[34],
 		exvufw[34], bastss[34], vumoss[34], hivuss[34], exvuss[34],
 		upnatm[34], vutono[34], vutoex[34], exupat[34];
@@ -533,15 +532,15 @@ struct prfd_1_
 
 struct
 {
-	real re, deltas, zmax;
-	integer imax, imod, ibmax, ipath;
+	float re, deltas, zmax;
+	long imax, imod, ibmax, ipath;
 } parmtr_;
 
 #define parmtr_1 parmtr_
 
 struct
 {
-	real zp[35], pp[35], tp[35], rfndxp[35], sp[35], ppsum[35], tpsum[35],
+	float zp[35], pp[35], tp[35], rfndxp[35], sp[35], ppsum[35], tpsum[35],
 		rhopsm[35], denp[2205] /* was [63][35] */, amtp[2205] /*
 	    was [63][35] */
 		;
@@ -551,7 +550,7 @@ struct
 
 struct
 {
-	real rnpath[68], rramtk[68];
+	float rnpath[68], rramtk[68];
 } rain_;
 
 #define rain_1 rain_
@@ -560,12 +559,12 @@ union
 {
 	struct
 	{
-		real xx1, xx2, xx3, xx4, xx5, yy1, yy2, yy3, yy4, yy5, zz1, zz2, zz3,
+		float xx1, xx2, xx3, xx4, xx5, yy1, yy2, yy3, yy4, yy5, zz1, zz2, zz3,
 			zz4, zz5;
 	} _1;
 	struct
 	{
-		real extv[5], absv[5], asyv[5];
+		float extv[5], absv[5], asyv[5];
 	} _2;
 } aer_;
 
@@ -574,14 +573,14 @@ union
 
 struct
 {
-	real teb1, teb2, tasp1, tasp2, tmsp1, tmsp2, teb2sv;
+	float teb1, teb2, tasp1, tasp2, tmsp1, tmsp2, teb2sv;
 } srad_;
 
 #define srad_1 srad_
 
 struct
 {
-	real abb[19], btop[50], bmid[34], tmd[34], tmols[34], taers[34], tcont[34], dcont[34];
+	float abb[19], btop[50], bmid[34], tmd[34], tmols[34], taers[34], tcont[34], dcont[34];
 } tran_;
 
 #define tran_1 tran_
@@ -590,19 +589,19 @@ union
 {
 	struct
 	{
-		real tle[34], cosbar[34], omega0[34], upf[340] /* was [10][34] */,
+		float tle[34], cosbar[34], omega0[34], upf[340] /* was [10][34] */,
 			dnf[340] /* was [10][34] */, taer[50], dtx7[34], daers[34], asyik[34], asydm[34], strn[35], dmols[34], dstrn[35],
 			fdnsrf, fdnsrt;
-		integer ikdm;
-		real fdntrf, fdntrt;
+		long ikdm;
+		float fdntrf, fdntrt;
 	} _1;
 	struct
 	{
-		real tle[34], cosbar[34], omega0[34], upf[340] /* was [10][34] */,
+		float tle[34], cosbar[34], omega0[34], upf[340] /* was [10][34] */,
 			dnf[340] /* was [10][34] */, taer[50], dtx7[34], daers[34], asyik[34], asydm[34], strn[35], dmols[34], dstrn[35],
 			fdnsrf, fdnsrt;
-		integer ikmx;
-		real fdntrf, fdntrt;
+		long ikmx;
+		float fdntrf, fdntrt;
 	} _2;
 } msrd_;
 
@@ -611,19 +610,19 @@ union
 
 struct
 {
-	integer icall;
-	real fphs, falb, forbit;
+	long icall;
+	float fphs, falb, forbit;
 } icll_;
 
 #define icll_1 icll_
 
 struct h2o_1_
 {
-	real cph2o[3515];
+	float cph2o[3515];
 };
 struct h2o_2_
 {
-	real c11h2o[70], c21h2o[126], c22h2o[5], c31h2o[126], c32h2o[2], c41h2o[126], c42h2o[52], c51h2o[126], c52h2o[52], c61h2o[126], c62h2o[52], c71h2o[126], c72h2o[126], c73h2o[116], c81h2o[126], c82h2o[126],
+	float c11h2o[70], c21h2o[126], c22h2o[5], c31h2o[126], c32h2o[2], c41h2o[126], c42h2o[52], c51h2o[126], c52h2o[52], c61h2o[126], c62h2o[52], c71h2o[126], c72h2o[126], c73h2o[116], c81h2o[126], c82h2o[126],
 		c83h2o[118], c91h2o[126], c92h2o[126], c93h2o[71], ca1h2o[126],
 		ca2h2o[126], ca3h2o[126], ca4h2o[7], cb1h2o[126], cb2h2o[126],
 		cb3h2o[54], cc1h2o[126], cc2h2o[126], cc3h2o[106], cd1h2o[126],
@@ -635,11 +634,11 @@ struct h2o_2_
 
 struct o3_1_
 {
-	real cpo3[447];
+	float cpo3[447];
 };
 struct o3_2_
 {
-	real c11o3[41], c21o3[126], c22o3[27], c31o3[126], c32o3[8], c41o3[36],
+	float c11o3[41], c21o3[126], c22o3[27], c31o3[126], c32o3[8], c41o3[36],
 		c51o3[83];
 };
 
@@ -648,11 +647,11 @@ struct o3_2_
 
 struct ufmix1_1_
 {
-	real cpco2[1219];
+	float cpco2[1219];
 };
 struct ufmix1_2_
 {
-	real c11co2[83], c21co2[121], c31co2[126], c32co2[85], c41co2[126],
+	float c11co2[83], c21co2[121], c31co2[126], c32co2[85], c41co2[126],
 		c42co2[12], c51co2[62], c61co2[126], c62co2[45], c71co2[126],
 		c72co2[99], c81co2[126], c82co2[82];
 };
@@ -662,11 +661,11 @@ struct ufmix1_2_
 
 struct ufmix2_1_
 {
-	real cpco[173], cpch4[493], cpn2o[704], cpo2[382];
+	float cpco[173], cpch4[493], cpn2o[704], cpo2[382];
 };
 struct ufmix2_2_
 {
-	real c11co[36], c21co[126], c22co[11], c11ch4[126], c12ch4[126], c13ch4[126], c14ch4[115], c11n2o[25], c21n2o[126], c22n2o[126], c23n2o[112], c31n2o[126], c32n2o[126], c33n2o[63], c11o2[54], c21o2[126],
+	float c11co[36], c21co[126], c22co[11], c11ch4[126], c12ch4[126], c13ch4[126], c14ch4[115], c11n2o[25], c21n2o[126], c22n2o[126], c23n2o[112], c31n2o[126], c32n2o[126], c33n2o[63], c11o2[54], c21o2[126],
 		c22o2[126], c23o2[76];
 };
 
@@ -675,11 +674,11 @@ struct ufmix2_2_
 
 struct traceg_1_
 {
-	real cpnh3[431], cpno[62], cpno2[142], cpso2[226];
+	float cpnh3[431], cpno[62], cpno2[142], cpso2[226];
 };
 struct traceg_2_
 {
-	real c11nh3[78], c21nh3[126], c22nh3[126], c23nh3[101], c11no[62], c11no2[126], c12no2[16], c11so2[38], c21so2[126], c22so2[62];
+	float c11nh3[78], c21nh3[126], c22nh3[126], c23nh3[101], c11no[62], c11no2[126], c12no2[16], c11so2[38], c21so2[126], c22so2[62];
 };
 
 #define traceg_1 (*(struct traceg_1_ *)&traceg_)
@@ -687,7 +686,7 @@ struct traceg_2_
 
 struct wnlohi_1_
 {
-	integer iwlh2o[15], iwlo3[6], iwlco2[11], iwlco[4], iwlch4[5], iwln2o[12],
+	long iwlh2o[15], iwlo3[6], iwlco2[11], iwlco[4], iwlch4[5], iwln2o[12],
 		iwlo2[7], iwlnh3[3], iwlno[2], iwlno2[4], iwlso2[5], iwhh2o[15],
 		iwho3[6], iwhco2[11], iwhco[4], iwhch4[5], iwhn2o[12], iwho2[7],
 		iwhnh3[3], iwhno[2], iwhno2[4], iwhso2[5];
@@ -699,15 +698,15 @@ union
 {
 	struct
 	{
-		real a1[11], b1[11], c1[11];
-		integer ibnd[11];
-		real a[11], cps[11];
+		float a1[11], b1[11], c1[11];
+		long ibnd[11];
+		float a[11], cps[11];
 	} _1;
 	struct
 	{
-		real aa[11], bb[11], cc[11];
-		integer ibnd[11];
-		real a[11], cps[11];
+		float aa[11], bb[11], cc[11];
+		long ibnd[11];
+		float a[11], cps[11];
 	} _2;
 } aabbcc_;
 
@@ -716,14 +715,14 @@ union
 
 struct
 {
-	real sun, umb[34], dmb[34], umbs[34], dmbs[34];
+	float sun, umb[34], dmb[34], umbs[34], dmbs[34];
 } dirst_;
 
 #define dirst_1 dirst_
 
 struct abc_1_
 {
-	real factor[3], anh3[2], aco2[10], aco[3], ach4[4], ano2[3], an2o[11],
+	float factor[3], anh3[2], aco2[10], aco[3], ach4[4], ano2[3], an2o[11],
 		ao2[6], ao3[5], aso2[4], ah2o[14], ano, aanh3[2], bbnh3[2], ccnh3[2], aaco2[10], bbco2[10], ccco2[10], aaco[3], bbco[3], ccco[3],
 		aach4[4], bbch4[4], ccch4[4], aano2[3], bbno2[3], ccno2[3], aan2o[11], bbn2o[11], ccn2o[11], aao2[6], bbo2[6], cco2[6], aao3[5],
 		bbo3[5], cco3[5], aaso2[4], bbso2[4], ccso2[4], aah2o[14], bbh2o[14], cch2o[14], aano, bbno, ccno;
@@ -733,11 +732,11 @@ struct abc_1_
 
 struct c4c8_1_
 {
-	real c4[133], c8[102];
+	float c4[133], c8[102];
 };
 struct c4c8_2_
 {
-	real c401[114], c4115[19], c8[102];
+	float c401[114], c4115[19], c8[102];
 };
 
 #define c4c8_1 (*(struct c4c8_1_ *)&c4c8_)
@@ -745,15 +744,15 @@ struct c4c8_2_
 
 struct sh2o_1_
 {
-	real v1, v2, dv;
-	integer npt;
-	real s296[2003];
+	float v1, v2, dv;
+	long npt;
+	float s296[2003];
 };
 struct sh2o_2_
 {
-	real v1, v2, dv;
-	integer npt;
-	real s0000[2], s0001[50], s0051[50], s0101[50], s0151[50], s0201[50],
+	float v1, v2, dv;
+	long npt;
+	float s0000[2], s0001[50], s0051[50], s0101[50], s0151[50], s0201[50],
 		s0251[50], s0301[50], s0351[50], s0401[50], s0451[50], s0501[50],
 		s0551[50], s0601[50], s0651[50], s0701[50], s0751[50], s0801[50],
 		s0851[50], s0901[50], s0951[50], s1001[50], s1051[50], s1101[50],
@@ -767,15 +766,15 @@ struct sh2o_2_
 
 struct s260_1_
 {
-	real v1, v2, dv;
-	integer npt;
-	real s260[2003];
+	float v1, v2, dv;
+	long npt;
+	float s260[2003];
 };
 struct s260_2_
 {
-	real v1, v2, dv;
-	integer npt;
-	real s0000[2], s0001[50], s0051[50], s0101[50], s0151[50], s0201[50],
+	float v1, v2, dv;
+	long npt;
+	float s0000[2], s0001[50], s0051[50], s0101[50], s0151[50], s0201[50],
 		s0251[50], s0301[50], s0351[50], s0401[50], s0451[50], s0501[50],
 		s0551[50], s0601[50], s0651[50], s0701[50], s0751[50], s0801[50],
 		s0851[50], s0901[50], s0951[50], s1001[50], s1051[50], s1101[50],
@@ -789,15 +788,15 @@ struct s260_2_
 
 struct fh2o_1_
 {
-	real v1, v2, dv;
-	integer npt;
-	real f296[2003];
+	float v1, v2, dv;
+	long npt;
+	float f296[2003];
 };
 struct fh2o_2_
 {
-	real v1, v2, dv;
-	integer npt;
-	real f0000[2], f0001[50], f0051[50], f0101[50], f0151[50], f0201[50],
+	float v1, v2, dv;
+	long npt;
+	float f0000[2], f0001[50], f0051[50], f0101[50], f0151[50], f0201[50],
 		f0251[50], f0301[50], f0351[50], f0401[50], f0451[50], f0501[50],
 		f0551[50], f0601[50], f0651[50], f0701[50], f0751[50], f0801[50],
 		f0851[50], f0901[50], f0951[50], f1001[50], f1051[50], f1101[50],
@@ -811,15 +810,15 @@ struct fh2o_2_
 
 struct o3hh0_1_
 {
-	real v1s, v2s, dvs;
-	integer npts;
-	real s[2687];
+	float v1s, v2s, dvs;
+	long npts;
+	float s[2687];
 };
 struct o3hh0_2_
 {
-	real v1c, v2c, dvc;
-	integer nc;
-	real o30001[80], o30081[80], o30161[80], o30241[80], o30321[80], o30401[7], c00001[80], c00081[80], c00161[80], c00241[80], c00321[80],
+	float v1c, v2c, dvc;
+	long nc;
+	float o30001[80], o30081[80], o30161[80], o30241[80], o30321[80], o30401[7], c00001[80], c00081[80], c00161[80], c00241[80], c00321[80],
 		c00401[80], c00481[80], c00561[80], c00641[80], c00721[80],
 		c00801[80], c00881[80], c00961[80], c01041[80], c01121[80],
 		c01201[80], c01281[80], c01361[80], c01441[80], c01521[80],
@@ -832,15 +831,15 @@ struct o3hh0_2_
 
 struct o3hh1_1_
 {
-	real v1s, v2s, dvs;
-	integer npts;
-	real s[2690];
+	float v1s, v2s, dvs;
+	long npts;
+	float s[2690];
 };
 struct o3hh1_2_
 {
-	real v1c, v2c, dvc;
-	integer nc;
-	real o31001[88], c10086[80], c10166[80], c10246[65], c10311[16], c10327[80], c10407[1], c10001[80], c10081[80], c10161[80], c10241[80],
+	float v1c, v2c, dvc;
+	long nc;
+	float o31001[88], c10086[80], c10166[80], c10246[65], c10311[16], c10327[80], c10407[1], c10001[80], c10081[80], c10161[80], c10241[80],
 		c10321[80], c10401[80], c10481[80], c10561[80], c10641[80],
 		c10721[80], c10801[80], c10881[80], c10961[80], c11041[80],
 		c11121[80], c11201[80], c11281[80], c11361[80], c11441[80],
@@ -853,15 +852,15 @@ struct o3hh1_2_
 
 struct o3hh2_1_
 {
-	real v1s, v2s, dvs;
-	integer npts;
-	real s[2690];
+	float v1s, v2s, dvs;
+	long npts;
+	float s[2690];
 };
 struct o3hh2_2_
 {
-	real v1c, v2c, dvc;
-	integer nc;
-	real o32001[88], c20086[80], c20166[80], c20246[65], c20311[16], c20327[80], c20407[1], c20001[80], c20081[80], c20161[80], c20241[80],
+	float v1c, v2c, dvc;
+	long nc;
+	float o32001[88], c20086[80], c20166[80], c20246[65], c20311[16], c20327[80], c20407[1], c20001[80], c20081[80], c20161[80], c20241[80],
 		c20321[80], c20401[80], c20481[80], c20561[80], c20641[80],
 		c20721[80], c20801[80], c20881[80], c20961[80], c21041[80],
 		c21121[80], c21201[80], c21281[80], c21361[80], c21441[80],
@@ -874,15 +873,15 @@ struct o3hh2_2_
 
 struct o3uvf_1_
 {
-	real v1, v2, dv;
-	integer npt;
-	real s[133];
+	float v1, v2, dv;
+	long npt;
+	float s[133];
 };
 struct o3uvf_2_
 {
-	real v1o1, v2o1, dvo1;
-	integer npt1;
-	real c02281[80], c02361[53];
+	float v1o1, v2o1, dvo1;
+	long npt1;
+	float c02281[80], c02361[53];
 };
 
 #define o3uvf_1 (*(struct o3uvf_1_ *)&o3uvf_)
@@ -890,15 +889,15 @@ struct o3uvf_2_
 
 struct o2c_1_
 {
-	real o2dray[74], o2c001[74], o2s0[74], o2a[74], o2b[74], v1o2, v2o2, dvo2;
-	integer npto2;
+	float o2dray[74], o2c001[74], o2s0[74], o2a[74], o2b[74], v1o2, v2o2, dvo2;
+	long npto2;
 };
 
 #define o2c_1 (*(struct o2c_1_ *)&o2c_)
 
 struct extd_1_
 {
-	real vx2[47], rurext[188] /* was [47][4] */, rurabs[188] /* was [47][4]
+	float vx2[47], rurext[188] /* was [47][4] */, rurabs[188] /* was [47][4]
 	     */
 		,
 		rursym[188] /* was [47][4] */, urbext[188] /* was [47][4]
@@ -926,7 +925,7 @@ struct extd_1_
 };
 struct extd_2_
 {
-	real vx2[47], rure1[47], rure2[47], rure3[47], rure4[47], rura1[47],
+	float vx2[47], rure1[47], rure2[47], rure3[47], rure4[47], rura1[47],
 		rura2[47], rura3[47], rura4[47], rurg1[47], rurg2[47], rurg3[47],
 		rurg4[47], urbe1[47], urbe2[47], urbe3[47], urbe4[47], urba1[47],
 		urba2[47], urba3[47], urba4[47], urbg1[47], urbg2[47], urbg3[47],
@@ -947,11 +946,11 @@ struct extd_2_
 
 struct cirr_1_
 {
-	real ci32xt[47], ci32ab[47], ci32g[47], cir2xt[47], cir2ab[47], cir2g[47];
+	float ci32xt[47], ci32ab[47], ci32g[47], cir2xt[47], cir2ab[47], cir2g[47];
 };
 struct cirr_2_
 {
-	real ci64xt[47], ci64ab[47], ci64g[47], cir4xt[47], cir4ab[47], cir4g[47];
+	float ci64xt[47], ci64ab[47], ci64g[47], cir4xt[47], cir4ab[47], cir4g[47];
 };
 
 #define cirr_1 (*(struct cirr_1_ *)&cirr_)
@@ -959,7 +958,7 @@ struct cirr_2_
 
 struct a_1_
 {
-	real t1qext[160] /* was [40][4] */, t2qext[160] /* was [40][4] */,
+	float t1qext[160] /* was [40][4] */, t2qext[160] /* was [40][4] */,
 		t3qext[160] /* was [40][4] */, t1qabs[160] /* was [40][4] */,
 		t2qabs[160] /* was [40][4] */, t3qabs[160] /* was [40][4] */,
 		alam[40], arel[4];
@@ -969,18 +968,18 @@ struct a_1_
 
 struct
 {
-	real pmol1, pmol2, paer1, paer2;
+	float pmol1, pmol2, paer1, paer2;
 } srads_;
 
 #define srads_1 srads_
 
 struct sundat_1_
 {
-	real solara[1440], solarb[2910];
+	float solara[1440], solarb[2910];
 };
 struct sundat_2_
 {
-	real suna01[41], suna02[144], suna03[144], suna04[144], suna05[144],
+	float suna01[41], suna02[144], suna03[144], suna04[144], suna05[144],
 		suna06[144], suna07[144], suna08[144], suna09[144], suna10[144],
 		suna11[103], sunb01[144], sunb02[144], sunb03[144], sunb04[144],
 		sunb05[144], sunb06[144], sunb07[144], sunb08[144], sunb09[144],
@@ -994,13 +993,13 @@ struct sundat_2_
 
 struct mnmphs_1_
 {
-	integer mnum[702] /* was [27][26] */;
-	real phsfnc[2380] /* was [34][70] */;
+	long mnum[702] /* was [27][26] */;
+	float phsfnc[2380] /* was [34][70] */;
 };
 struct mnmphs_2_
 {
-	integer mum1[27], mum2[27], mum3[27], mum4[27], mum5[27], mum6[27], mum7[27], mum8[27], mum9[27], mum10[27], mum11[27], mum12[27], mum13[27], mum14[27], mum15[27], mum16[27], mum17[27], mum18[27], mum19[27], mum20[27], mum21[27], mum22[27], mum23[27], mum24[27], mum25[27], mum26[27];
-	real phsf1[34], phsf2[34], phsf3[34], phsf4[34], phsf5[34], phsf6[34],
+	long mum1[27], mum2[27], mum3[27], mum4[27], mum5[27], mum6[27], mum7[27], mum8[27], mum9[27], mum10[27], mum11[27], mum12[27], mum13[27], mum14[27], mum15[27], mum16[27], mum17[27], mum18[27], mum19[27], mum20[27], mum21[27], mum22[27], mum23[27], mum24[27], mum25[27], mum26[27];
+	float phsf1[34], phsf2[34], phsf3[34], phsf4[34], phsf5[34], phsf6[34],
 		phsf7[34], phsf8[34], phsf9[34], phsf10[34], phsf11[34], phsf12[34], phsf13[34], phsf14[34], phsf15[34], phsf16[34], phsf17[34],
 		phsf18[34], phsf19[34], phsf20[34], phsf21[34], phsf22[34],
 		phsf23[34], phsf24[34], phsf25[34], phsf26[34], phsf27[34],
@@ -1020,11 +1019,11 @@ struct mnmphs_2_
 
 struct shur_1_
 {
-	real shn[430];
+	float shn[430];
 };
 struct shur_2_
 {
-	real shn001[70], shn076[75], shn151[75], shn226[75], shn301[75], shn376[54], shdum[6];
+	float shn001[70], shn076[75], shn151[75], shn226[75], shn301[75], shn376[54], shdum[6];
 };
 
 #define shur_1 (*(struct shur_1_ *)&shur_)
@@ -1034,7 +1033,7 @@ struct shur_2_
 
 struct
 {
-	real e_1[3515];
+	float e_1[3515];
 } h2o_ = {-.59366f, -.16679f, .42846f, .87819f, 1.26357f, 1.59247f,
 		  1.86372f, 2.11483f, 2.3181f, 2.4404f, 2.55998f, 2.69879f, 2.7981f,
 		  2.89747f, 2.98118f, 3.04863f, 3.09568f, 3.15381f, 3.22984f,
@@ -1615,7 +1614,7 @@ struct
 
 struct
 {
-	real e_1[447];
+	float e_1[447];
 } o3_ = {-2.0427f, -1.8966f, -1.6263f, -1.3896f, -1.217f, -1.0996f,
 		 -1.0214f, -.9673f, -.9249f, -.8896f, -.8612f, -.8417f, -.836f,
 		 -.8483f, -.8785f, -.9273f, -.9932f, -1.072f, -1.1639f, -1.2662f,
@@ -1690,7 +1689,7 @@ struct
 
 struct
 {
-	real e_1[1219];
+	float e_1[1219];
 } ufmix1_ = {-9.8495f, -9.6484f, -9.4472f, -9.2461f, -9.0449f, -8.9544f,
 			 -8.6127f, -8.4076f, -8.271f, -8.0391f, -7.9485f, -7.9638f,
 			 -7.7849f, -7.6278f, -7.1418f, -6.7823f, -6.3826f, -6.0323f,
@@ -1892,7 +1891,7 @@ struct
 
 struct
 {
-	real e_1[1752];
+	float e_1[1752];
 } ufmix2_ = {-4.6868f, -4.4127f, -3.9461f, -3.5662f, -3.2921f, -3.1081f,
 			 -2.9807f, -2.8977f, -2.858f, -2.8461f, -2.8587f, -2.9029f,
 			 -2.9646f, -3.048f, -3.1589f, -3.2836f, -3.4277f, -3.5993f,
@@ -2180,7 +2179,7 @@ struct
 
 struct
 {
-	real e_1[861];
+	float e_1[861];
 } traceg_ = {-5.7142f, -5.2854f, -4.5163f, -3.9795f, -3.4393f, -2.8735f,
 			 -2.4947f, -2.229f, -2.0624f, -1.9616f, -1.8707f, -1.7712f,
 			 -1.6473f, -1.5376f, -1.4315f, -1.3328f, -1.2391f, -1.1768f,
@@ -2319,7 +2318,7 @@ struct
 
 struct
 {
-	integer e_1[148];
+	long e_1[148];
 } wnlohi_ = {0, 350, 1005, 1645, 2535, 3425, 4315, 6155, 8005, 9620,
 			 11545, 13075, 14865, 16340, -999, 0, 515, 1630, 2670, 2850, -999,
 			 425, 840, 1805, 3070, 3760, 4530, 5905, 7395, 8030, 9340, -999, 0,
@@ -2337,7 +2336,7 @@ struct
 
 struct
 {
-	real e_1[255];
+	float e_1[255];
 } abc_ = {1.f, .09f, .015f, .4704f, .6035f, .6176f, .681f, .6033f,
 		  .6146f, .6513f, .605f, .616f, .707f, .707f, .707f, .6397f, .6133f,
 		  .6133f, .5844f, .5844f, .5844f, .5844f, .7249f, .7249f, .7249f,
@@ -2381,7 +2380,7 @@ struct
 
 struct
 {
-	real e_1[235];
+	float e_1[235];
 } c4c8_ = {2.93e-4f, 3.86e-4f, 5.09e-4f, 6.56e-4f, 8.85e-4f, .00106f,
 		   .00131f, .00173f, .00227f, .00273f, .00336f, .00395f, .00546f,
 		   .00719f, .009f, .0113f, .0136f, .0166f, .0196f, .0216f, .0236f,
@@ -2414,9 +2413,9 @@ struct
 
 struct
 {
-	real e_1[3];
-	integer e_2;
-	real e_3[2003];
+	float e_1[3];
+	long e_2;
+	float e_3[2003];
 } sh2o_ = {-20.f, 2e4f, 10.f, 2003, .11109f, .10573f, .10162f, .10573f,
 		   .11109f, .12574f, .13499f, .14327f, .15065f, .15164f, .15022f,
 		   .13677f, .13115f, .12253f, .11271f, .1007f, .087495f, .080118f,
@@ -2819,9 +2818,9 @@ struct
 
 struct
 {
-	real e_1[3];
-	integer e_2;
-	real e_3[2003];
+	float e_1[3];
+	long e_2;
+	float e_3[2003];
 } s260_ = {-20.f, 2e4f, 10.f, 2003, .1775f, .17045f, .16457f, .17045f,
 		   .1775f, .20036f, .21347f, .22454f, .23428f, .23399f, .23022f,
 		   .20724f, .19712f, .18317f, .16724f, .1478f, .12757f, .11626f,
@@ -3224,9 +3223,9 @@ struct
 
 struct
 {
-	real e_1[3];
-	integer e_2;
-	real e_3[2003];
+	float e_1[3];
+	long e_2;
+	float e_3[2003];
 } fh2o_ = {-20.f, 2e4f, 10.f, 2003, .012859f, .011715f, .011038f,
 		   .011715f, .012859f, .015326f, .016999f, .018321f, .019402f,
 		   .01957f, .019432f, .017572f, .01676f, .01548f, .013984f, .012266f,
@@ -3606,9 +3605,9 @@ struct
 
 struct
 {
-	real e_1[3];
-	integer e_2;
-	real e_3[2687];
+	float e_1[3];
+	long e_2;
+	float e_3[2687];
 } o3hh0_ = {27370.f, 40800.f, 5.f, 2687, .001f, .00115f, .00125f, .0014f,
 			.0015f, .00159304f, .00162396f, .00176216f, .00190036f,
 			.00203856f, .00216538f, .00202324f, .0018811f, .00173896f,
@@ -4063,9 +4062,9 @@ struct
 
 struct
 {
-	real e_1[3];
-	integer e_2;
-	real e_3[2690];
+	float e_1[3];
+	long e_2;
+	float e_3[2690];
 } o3hh1_ = {27370.f, 40800.f, 5.f, 2690, .0013f, .0013f, .0013f, .0013f,
 			.0013f, .0013f, .0013f, .0013f, .0013f, .0013f, .0013f, .0013f,
 			.0013f, .0013f, .0013f, .0013f, .0013f, .0013f, .0013f, .0013f,
@@ -4617,9 +4616,9 @@ struct
 
 struct
 {
-	real e_1[3];
-	integer e_2;
-	real e_3[2690];
+	float e_1[3];
+	long e_2;
+	float e_3[2690];
 } o3hh2_ = {27370.f, 40800.f, 5.f, 2690, 1e-5f, 1e-5f, 1e-5f, 1e-5f,
 			1e-5f, 1e-5f, 1e-5f, 1e-5f, 1e-5f, 1e-5f, 1e-5f, 1e-5f, 1e-5f,
 			1e-5f, 1e-5f, 1e-5f, 1e-5f, 1e-5f, 1e-5f, 1e-5f, 1e-5f, 1e-5f,
@@ -5189,9 +5188,9 @@ struct
 
 struct
 {
-	real e_1[3];
-	integer e_2;
-	real e_3[133];
+	float e_1[3];
+	long e_2;
+	float e_3[133];
 } o3uvf_ = {40800.f, 5.4e4f, 100.f, 133, 991.204f, 976.325f, 972.05f,
 			951.049f, 923.53f, 902.306f, 890.51f, 860.115f, 839.094f,
 			827.926f, 795.525f, 773.583f, 755.018f, 731.076f, 710.415f,
@@ -5218,14 +5217,14 @@ struct
 
 struct
 {
-	integer fill_1[148];
-	real e_2[225];
-	integer e_3;
+	long fill_1[148];
+	float e_2[225];
+	long e_3;
 } o2c_ = {{0}, 0.f, 1.1e-9f, 2.2e-9f, 4.4e-9f, 8.81e-9f, 1.76e-8f, 3.53e-8f, 7.05e-8f, 1.41e-7f, 1.58e-7f, 1.74e-7f, 1.9e-7f, 2.07e-7f, 2.53e-7f, 3.07e-7f, 3.57e-7f, 4.01e-7f, 4.45e-7f, 5.08e-7f, 5.7e-7f, 5.99e-7f, 6.27e-7f, 6.5e-7f, 6.72e-7f, 7.63e-7f, 8.73e-7f, 1.01e-6f, 1.09e-6f, 1.21e-6f, 1.33e-6f, 1.39e-6f, 1.45e-6f, 1.48e-6f, 1.4e-6f, 1.34e-6f, 1.26e-6f, 1.18e-6f, 1.14e-6f, 1.09e-6f, 1.05e-6f, 1.05e-6f, 1.05e-6f, 1.04e-6f, 1.03e-6f, 9.92e-7f, 9.45e-7f, 8.76e-7f, 8.06e-7f, 7.66e-7f, 7.26e-7f, 6.4e-7f, 5.55e-7f, 4.69e-7f, 4.16e-7f, 3.64e-7f, 3.11e-7f, 2.66e-7f, 2.22e-7f, 1.77e-7f, 1.7e-7f, 1.62e-7f, 1.55e-7f, 1.43e-7f, 1.3e-7f, 1.18e-7f, 9.05e-8f, 6.29e-8f, 3.16e-8f, 1.57e-8f, 7.86e-9f, 3.93e-9f, 1.96e-9f, 9.82e-10f, 0.f, 0.f, 1.47e-4f, 1.47e-4f, 1.47e-4f, 1.47e-4f, 1.47e-4f, 1.47e-4f, 1.47e-4f, 1.47e-4f, .00122f, .00204f, .00217f, .00226f, .00126f, 3.62e-4f, -.00198f, -.00545f, -.00786f, -.00624f, -.00475f, -.00506f, -.00533f, -.00586f, -.00635f, -.00644f, -.00679f, -.00741f, -.00769f, -.0078f, -.00788f, -.00844f, -.00894f, -.00899f, -.00922f, -.00892f, -.00857f, -.00839f, -.00854f, -.00871f, -.00889f, -.00856f, -.00823f, -.00796f, -.00768f, -.00715f, -.00638f, -.0057f, -.00491f, -.00468f, -.00443f, -.00333f, -.00184f, 3.13e-4f, -1.64e-5f, -4.17e-4f, -9.16e-4f, -.00206f, -.00343f, -.00515f, -.00365f, -.00172f, 9.26e-4f, .00168f, .00262f, .0038f, .00551f, .00889f, .00889f, .00889f, .00889f, .00889f, .00889f, .00889f, 0.f, 0.f, 3.06e-5f, -3.06e-5f, -3.06e-5f, -3.06e-5f, -3.06e-5f, -3.06e-5f, -3.06e-5f, -3.06e-5f, -2.18e-5f, -1.59e-5f, -3.46e-6f, 6.42e-6f, 3.6e-6f, -1.4e-6f, 1.57e-5f, 4.71e-5f, 6.56e-5f, 3.03e-5f, -1.92e-6f, 7.05e-6f, 1.49e-5f, 2e-5f, 2.45e-5f, 1.58e-5f, 8.41e-6f, 2.01e-6f, 5.55e-6f, 1.08e-5f, 1.5e-5f, 1.93e-5f, 2.3e-5f, 2.43e-5f, 2.26e-5f, 1.84e-5f, 1.57e-5f, 1.69e-5f, 1.97e-5f, 2.26e-5f, 2.58e-5f, 2.35e-5f, 2.12e-5f, 1.85e-5f, 1.56e-5f, 1.25e-5f, 8.72e-6f, 7.6e-6f, 5.77e-6f, 3.34e-8f, -6.52e-6f, -9.77e-6f, -1.57e-5f, -2.73e-5f, -1.8e-5f, -6.41e-6f, 8.17e-6f, 3.26e-5f, 6.26e-5f, 1.01e-4f, 7.55e-5f, 4.3e-5f, -1.13e-6f, -5.78e-6f, -1.2e-5f, -2.08e-5f, -2.35e-5f, -3.64e-5f, 3.64e-5f, -3.64e-5f, -3.64e-5f, -3.64e-5f, -3.64e-5f, -3.64e-5f, 0.f, 1395.f, 1760.f, 5.f, 74};
 
 struct
 {
-	real e_1[3854];
+	float e_1[3854];
 } extd_ = {.2f, .3f, .3371f, .55f, .6943f, 1.06f, 1.536f, 2.f, 2.25f,
 		   2.5f, 2.7f, 3.f, 3.3923f, 3.75f, 4.5f, 5.f, 5.5f, 6.f, 6.2f, 6.5f,
 		   7.2f, 7.9f, 8.2f, 8.7f, 9.f, 9.2f, 10.f, 10.591f, 11.f, 11.5f,
@@ -5751,7 +5750,7 @@ struct
 
 struct
 {
-	real e_1[282];
+	float e_1[282];
 } cirr_ = {.9947f, .9968f, .9972f, 1.f, 1.002f, 1.005f, 1.01f, 1.013f,
 		   1.016f, 1.018f, 1.019f, 1.016f, 1.023f, 1.026f, 1.03f, 1.033f,
 		   1.036f, 1.037f, 1.038f, 1.04f, 1.043f, 1.047f, 1.049f, 1.051f,
@@ -5792,7 +5791,7 @@ struct
 
 struct
 {
-	real e_1[1004];
+	float e_1[1004];
 } a_ = {-3.2949f, -3.4662f, -3.5275f, -3.8505f, -4.0388f, -4.441f,
 		-4.8584f, -5.172f, -5.3272f, -5.4342f, -5.2765f, -4.5101f,
 		-5.373f, -5.7468f, -5.7579f, -5.8333f, -5.8552f, -5.178f, -5.291f,
@@ -5946,7 +5945,7 @@ struct
 
 struct
 {
-	real e_1[4350];
+	float e_1[4350];
 } sundat_ = {0.f, 4.5756e-8f, 7.01e-7f, 3.458e-6f, 1.0728e-5f, 2.57e-5f,
 			 5.2496e-5f, 9.6003e-5f, 1.6193e-4f, 2.5766e-4f, 3.91e-4f,
 			 5.6923e-4f, 8.0203e-4f, .0011006f, .0014768f, .001946f, .0025213f,
@@ -6571,8 +6570,8 @@ struct
 
 struct
 {
-	integer e_1[702];
-	real e_2[2380];
+	long e_1[702];
+	float e_2[2380];
 } mnmphs_ = {3, 5, 4, 4, 4, 6, 8, 22, 21, 22, 26, 26, 26, 27, 29, 1, 34,
 			 34, 34, 34, 33, 33, 36, 36, 36, 36, 23, 3, 5, 4, 4, 4, 6, 8, 22,
 			 21, 21, 22, 26, 26, 27, 29, 1, 34, 33, 33, 33, 46, 46, 34, 34, 36,
@@ -6962,13 +6961,13 @@ struct
 
 struct
 {
-	real e_1[10];
+	float e_1[10];
 } vsbd_ = {23.f, 5.f, 0.f, 23.f, 5.f, 50.f, 23.f, .2f, .5f, 0.f};
 
 struct
 {
-	real e_1[424];
-	integer fill_2[6];
+	float e_1[424];
+	long fill_2[6];
 } shur_ = {-8.f, -8.f, -8.f, -6.30103f, -6.f, -5.94896f, -5.94896f,
 		   -5.55139f, -5.17613f, -4.90612f, -4.56059f, -4.3001f, -4.30739f,
 		   -4.34455f, -4.35231f, -4.50777f, -4.41705f, -3.93569f, -3.70298f,
@@ -7043,14 +7042,14 @@ struct
 
 struct
 {
-	real e_1[50];
-	integer fill_2[450];
-	real e_3[700];
+	float e_1[50];
+	long fill_2[450];
+	float e_3[700];
 } mdata_ = {0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f, 12.f, 13.f, 14.f, 15.f, 16.f, 17.f, 18.f, 19.f, 20.f, 21.f, 22.f, 23.f, 24.f, 25.f, 27.5f, 30.f, 32.5f, 35.f, 37.5f, 40.f, 42.5f, 45.f, 47.5f, 50.f, 55.f, 60.f, 65.f, 70.f, 75.f, 80.f, 85.f, 90.f, 95.f, 100.f, 105.f, 110.f, 115.f, 120.f, {0}, 0.f, 0.f, 0.f, .2f, .35f, 1.f, 1.f, 1.f, .3f, .15f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .3f, .4f, .3f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .15f, .3f, .15f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .1f, .15f, .15f, .1f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .3f, .65f, .4f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 2.f, 1.78f, 1.43f, 1.22f, .86f, .22f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 5.f, 4.f, 3.4f, 2.6f, .8f, .2f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 12.5f, 10.5f, 8.f, 6.f, 2.5f, .8f, .2f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 25.f, 21.5f, 17.5f, 12.f, 7.5f, 4.2f, 2.5f, 1.f, .7f, .2f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 75.f, 70.f, 65.f, 60.f, 45.f, 20.f, 12.5f, 7.f, 3.5f, 1.f, .2f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
 
 struct
 {
-	real e_1[1050];
+	float e_1[1050];
 } trac_ = {3e-4f, 3e-4f, 3e-4f, 3e-4f, 3e-4f, 3e-4f, 3e-4f, 3e-4f, 3e-4f,
 		   3e-4f, 3e-4f, 3e-4f, 3e-4f, 2.99e-4f, 2.95e-4f, 2.83e-4f,
 		   2.68e-4f, 2.52e-4f, 2.4e-4f, 2.44e-4f, 2.55e-4f, 2.77e-4f,
@@ -7215,7 +7214,7 @@ struct
 
 struct
 {
-	real e_1[564];
+	float e_1[564];
 } desaer_ = {.08733f, .071336f, .065754f, .04008f, .028958f, .014537f,
 			 .0071554f, .0043472f, .0035465f, .0029225f, .0025676f, .0043573f,
 			 .0057479f, .0029073f, .0020109f, .001889f, .0018525f, .0018915f,
@@ -7305,14 +7304,14 @@ struct
 
 struct
 {
-	real e_1[8];
-	integer fill_2[1];
-	real e_3[38];
+	float e_1[8];
+	long fill_2[1];
+	float e_3[38];
 } constn_ = {1013.25f, 273.15f, 6.022045e23f, 2.68675e19f, 83144100.f, 6.626176e-27f, 1.380662e-16f, 29979245800.f, {0}, .1f, 36.f, 28.964f, 18.015f, 44.01f, 47.998f, 44.01f, 28.011f, 16.043f, 31.999f, 30.01f, 64.06f, 46.01f, 17.03f, 63.01f, 17.f, 20.01f, 36.46f, 80.92f, 127.91f, 51.45f, 60.08f, 30.03f, 52.46f, 28.014f, 27.03f, 50.49f, 34.01f, 26.03f, 30.07f, 34.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
 
 struct
 {
-	real e_1[3050];
+	float e_1[3050];
 } mlatm_ = {0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f,
 			12.f, 13.f, 14.f, 15.f, 16.f, 17.f, 18.f, 19.f, 20.f, 21.f, 22.f,
 			23.f, 24.f, 25.f, 27.5f, 30.f, 32.5f, 35.f, 37.5f, 40.f, 42.5f,
@@ -7695,182 +7694,182 @@ struct
 
 struct
 {
-	real e_1[37];
-	integer fill_2[31];
-	real e_3[3];
-	integer fill_4[31];
-	real e_5[3];
-	integer fill_6[31];
-	real e_7[3];
-	integer fill_8[31];
-	real e_9[3];
-	integer fill_10[31];
-	real e_11[544];
+	float e_1[37];
+	long fill_2[31];
+	float e_3[3];
+	long fill_4[31];
+	float e_5[3];
+	long fill_6[31];
+	float e_7[3];
+	long fill_8[31];
+	float e_9[3];
+	long fill_10[31];
+	float e_11[544];
 } prfd_ = {0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f, 12.f, 13.f, 14.f, 15.f, 16.f, 17.f, 18.f, 19.f, 20.f, 21.f, 22.f, 23.f, 24.f, 25.f, 30.f, 35.f, 40.f, 45.f, 50.f, 70.f, 100.f, 99999.f, .0662f, .0415f, .026f, {0}, .158f, .0991f, .0621f, {0}, .379f, .379f, .0621f, {0}, .77f, .77f, .0621f, {0}, 1.94f, 1.94f, .0621f, {0}, 0.f, 0.f, 0.f, .0114f, .00643f, .00485f, .00354f, .00231f, .00141f, 9.8e-4f, 7.87e-4f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .0272f, .012f, .00485f, .00354f, .00231f, .00141f, 9.8e-4f, 7.87e-4f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .0146f, .0102f, .00931f, .00771f, .00623f, .00337f, .00182f, .00114f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .0346f, .0185f, .00931f, .00771f, .00623f, .00337f, .00182f, .00114f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 7.14e-4f, 6.64e-4f, 6.23e-4f, 6.45e-4f, 6.43e-4f, 6.41e-4f, 6e-4f, 5.62e-4f, 4.91e-4f, 4.23e-4f, 3.52e-4f, 2.95e-4f, 2.42e-4f, 1.9e-4f, 1.5e-4f, 3.32e-5f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .00179f, .00221f, .00275f, .00289f, .00292f, .00273f, .00246f, .0021f, .00171f, .00135f, .00109f, 8.6e-4f, 6.6e-4f, 5.15e-4f, 4.09e-4f, 7.6e-5f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .00231f, .00325f, .00452f, .0064f, .00781f, .00942f, .0107f, .011f, .0086f, .0051f, .0027f, .00146f, 8.9e-4f, 5.8e-4f, 4.09e-4f, 7.6e-5f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .00231f, .00325f, .00452f, .0064f, .0101f, .0235f, .061f, .1f, .04f, .00915f, .00313f, .00146f, 8.9e-4f, 5.8e-4f, 4.09e-4f, 7.6e-5f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 7.99e-4f, 6.41e-4f, 5.17e-4f, 4.42e-4f, 3.95e-4f, 3.82e-4f, 4.25e-4f, 5.2e-4f, 5.81e-4f, 5.89e-4f, 5.02e-4f, 4.2e-4f, 3e-4f, 1.98e-4f, 1.31e-4f, 3.32e-5f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .00212f, .00245f, .0028f, .00289f, .00292f, .00273f, .00246f, .0021f, .00171f, .00135f, .00109f, 8.6e-4f, 6.6e-4f, 5.15e-4f, 4.09e-4f, 7.6e-5f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .00212f, .00245f, .0028f, .0036f, .00523f, .00811f, .012f, .0152f, .0153f, .0117f, .00709f, .0045f, .0024f, .00128f, 7.76e-4f, 7.6e-5f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, .00212f, .00245f, .0028f, .0036f, .00523f, .00811f, .0127f, .0232f, .0485f, .1f, .055f, .0061f, .0024f, .00128f, 7.76e-4f, 7.6e-5f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 3.32e-5f, 1.64e-5f, 7.99e-6f, 4.01e-6f, 2.1e-6f, 1.6e-7f, 9.31e-10f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 7.6e-5f, 2.45e-5f, 7.99e-6f, 4.01e-6f, 2.1e-6f, 1.6e-7f, 9.31e-10f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 7.6e-5f, 7.2e-5f, 6.95e-5f, 6.6e-5f, 5.04e-5f, 1.03e-5f, 4.5e-7f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 3.32e-5f, 4.25e-5f, 5.59e-5f, 6.6e-5f, 5.04e-5f, 1.03e-5f, 4.5e-7f, 0.f};
 
 /* Table of constant values */
 
-static integer c__1 = 1;
-static integer c__9 = 9;
-static integer c__2 = 2;
-static integer c__5 = 5;
-static integer c__18 = 18;
-static doublereal c_b749 = .63;
-static doublereal c_b750 = .981;
-static doublereal c_b751 = .3324;
-static doublereal c_b752 = 1.1406;
-static doublereal c_b753 = -2.6343;
-static doublereal c_b754 = .9834;
-static doublereal c_b755 = -2.5294;
-static doublereal c_b756 = 1.0443;
-static doublereal c_b757 = -2.4359;
-static doublereal c_b758 = .9681;
-static doublereal c_b759 = -1.9537;
-static doublereal c_b760 = .9555;
-static doublereal c_b761 = -1.5378;
-static doublereal c_b762 = .9362;
-static doublereal c_b763 = -1.6338;
-static doublereal c_b764 = .9233;
-static doublereal c_b765 = -.9398;
-static doublereal c_b766 = .8658;
-static doublereal c_b767 = -.1034;
-static doublereal c_b768 = .8874;
-static doublereal c_b769 = -.2576;
-static doublereal c_b770 = .7982;
-static doublereal c_b771 = .0588;
-static doublereal c_b772 = .8088;
-static doublereal c_b773 = .2816;
-static doublereal c_b774 = .6642;
-static doublereal c_b775 = .2764;
-static doublereal c_b776 = .6656;
-static doublereal c_b777 = .5061;
-static doublereal c_b778 = .42;
-static doublereal c_b779 = 1.3909;
-static doublereal c_b780 = .4221;
-static doublereal c_b781 = .7678;
-static doublereal c_b782 = .3739;
-static doublereal c_b783 = .1225;
-static doublereal c_b784 = .177;
-static doublereal c_b785 = .9827;
-static doublereal c_b786 = .3921;
-static doublereal c_b787 = .1942;
-static doublereal c_b788 = .6705;
-static doublereal c_b789 = -2.256;
-static doublereal c_b790 = .7038;
-static doublereal c_b791 = -5.0768;
-static doublereal c_b792 = .7258;
-static doublereal c_b793 = -1.674;
-static doublereal c_b794 = .6982;
-static doublereal c_b795 = -1.8107;
-static doublereal c_b796 = .8867;
-static doublereal c_b797 = -.5327;
-static doublereal c_b798 = .7883;
-static doublereal c_b799 = -1.3244;
-static doublereal c_b800 = .6899;
-static doublereal c_b801 = -.8152;
-static doublereal c_b802 = .6035;
-static doublereal c_b803 = .6026;
-static doublereal c_b804 = .7589;
-static doublereal c_b805 = .6911;
-static doublereal c_b806 = .9267;
-static doublereal c_b807 = .1716;
-static doublereal c_b808 = .7139;
-static doublereal c_b809 = -.4185;
-static doublereal c_b810 = .3783;
-static doublereal c_b811 = .9399;
-static doublereal c_b812 = .7203;
-static doublereal c_b813 = -.1836;
-static doublereal c_b814 = .7764;
-static doublereal c_b815 = 1.1931;
-static doublereal c_b816 = 1.1879;
-static doublereal c_b817 = 2.9738;
-static doublereal c_b818 = .9353;
-static doublereal c_b819 = .1936;
-static doublereal c_b820 = .8023;
-static doublereal c_b821 = -.9111;
-static doublereal c_b822 = .6968;
-static doublereal c_b823 = .3377;
-static doublereal c_b824 = .5265;
-static doublereal c_b825 = -.4702;
-static doublereal c_b826 = .3956;
-static doublereal c_b827 = -.0545;
-static doublereal c_b828 = .2943;
-static doublereal c_b829 = 1.2316;
-static doublereal c_b830 = .2135;
-static doublereal c_b831 = .0733;
-static real c_b1128 = 90.f;
-static real c_b1257 = 0.f;
-static doublereal c_b1423 = 1.5873015873015872;
-static real c_b1471 = 1.f;
-static doublereal c_b1631 = .21;
-static doublereal c_b1641 = .84;
-static doublereal c_b1642 = .846;
-static doublereal c_b1661 = 10.;
-static doublereal c_b1716 = 2.;
-static real c_b1750 = 10.f;
-static real c_b1804 = 33.333f;
-static doublereal c_b1830 = .33333;
-static doublereal c_b1937 = 1.5;
-static real c_b2008 = 20.f;
-static real c_b2088 = 1.83899f;
-static real c_b2089 = 1639.f;
-static real c_b2090 = 52340.4f;
-static real c_b2091 = 10399.2f;
-static real c_b2092 = 588.24f;
-static real c_b2093 = 345005.f;
-static real c_b2094 = 259913.f;
-static real c_b2095 = 161.29f;
-static real c_b2096 = 43319.7f;
-static real c_b2097 = 27661.2f;
-static doublereal c_b2098 = .25;
-static real c_b2113 = 1.79907f;
-static real c_b2114 = 3352.27f;
-static real c_b2115 = 999140.f;
-static real c_b2116 = 151963.f;
-static real c_b2118 = 50483.5f;
-static real c_b2119 = 9246.27f;
-static real c_b2121 = 844697.f;
-static real c_b2122 = 1076150.f;
-static real c_b2138 = .25f;
-static real c_b2139 = 300.f;
-static real c_b2140 = .47f;
-static real c_b2141 = 3.f;
-static real c_b2142 = .39f;
-static real c_b2143 = 17.f;
-static real c_b2144 = .45f;
-static real c_b2145 = 1.3f;
-static real c_b2146 = .41f;
-static real c_b2147 = 62.f;
-static real c_b2148 = .35f;
-static real c_b2149 = 1.7f;
-static real c_b2162 = .4f;
-static real c_b2163 = 2.f;
-static real c_b2172 = .22f;
-static real c_b2173 = 1.8f;
-static real c_b2180 = .12f;
-static real c_b2181 = 6.1f;
-static real c_b2182 = .042f;
-static real c_b2183 = .6f;
-static real c_b2186 = .165f;
-static real c_b2187 = 2.4f;
-static real c_b2194 = .01f;
-static real c_b2195 = 4.95f;
-static real c_b2196 = .05f;
-static real c_b2200 = .009f;
-static real c_b2204 = .27f;
-static real c_b2205 = 2.97f;
-static real c_b2206 = .04f;
-static real c_b2210 = .06f;
-static real c_b2214 = .025f;
-static integer c__4 = 4;
-static integer c__3 = 3;
+static long c__1 = 1;
+static long c__9 = 9;
+static long c__2 = 2;
+static long c__5 = 5;
+static long c__18 = 18;
+static double c_b749 = .63;
+static double c_b750 = .981;
+static double c_b751 = .3324;
+static double c_b752 = 1.1406;
+static double c_b753 = -2.6343;
+static double c_b754 = .9834;
+static double c_b755 = -2.5294;
+static double c_b756 = 1.0443;
+static double c_b757 = -2.4359;
+static double c_b758 = .9681;
+static double c_b759 = -1.9537;
+static double c_b760 = .9555;
+static double c_b761 = -1.5378;
+static double c_b762 = .9362;
+static double c_b763 = -1.6338;
+static double c_b764 = .9233;
+static double c_b765 = -.9398;
+static double c_b766 = .8658;
+static double c_b767 = -.1034;
+static double c_b768 = .8874;
+static double c_b769 = -.2576;
+static double c_b770 = .7982;
+static double c_b771 = .0588;
+static double c_b772 = .8088;
+static double c_b773 = .2816;
+static double c_b774 = .6642;
+static double c_b775 = .2764;
+static double c_b776 = .6656;
+static double c_b777 = .5061;
+static double c_b778 = .42;
+static double c_b779 = 1.3909;
+static double c_b780 = .4221;
+static double c_b781 = .7678;
+static double c_b782 = .3739;
+static double c_b783 = .1225;
+static double c_b784 = .177;
+static double c_b785 = .9827;
+static double c_b786 = .3921;
+static double c_b787 = .1942;
+static double c_b788 = .6705;
+static double c_b789 = -2.256;
+static double c_b790 = .7038;
+static double c_b791 = -5.0768;
+static double c_b792 = .7258;
+static double c_b793 = -1.674;
+static double c_b794 = .6982;
+static double c_b795 = -1.8107;
+static double c_b796 = .8867;
+static double c_b797 = -.5327;
+static double c_b798 = .7883;
+static double c_b799 = -1.3244;
+static double c_b800 = .6899;
+static double c_b801 = -.8152;
+static double c_b802 = .6035;
+static double c_b803 = .6026;
+static double c_b804 = .7589;
+static double c_b805 = .6911;
+static double c_b806 = .9267;
+static double c_b807 = .1716;
+static double c_b808 = .7139;
+static double c_b809 = -.4185;
+static double c_b810 = .3783;
+static double c_b811 = .9399;
+static double c_b812 = .7203;
+static double c_b813 = -.1836;
+static double c_b814 = .7764;
+static double c_b815 = 1.1931;
+static double c_b816 = 1.1879;
+static double c_b817 = 2.9738;
+static double c_b818 = .9353;
+static double c_b819 = .1936;
+static double c_b820 = .8023;
+static double c_b821 = -.9111;
+static double c_b822 = .6968;
+static double c_b823 = .3377;
+static double c_b824 = .5265;
+static double c_b825 = -.4702;
+static double c_b826 = .3956;
+static double c_b827 = -.0545;
+static double c_b828 = .2943;
+static double c_b829 = 1.2316;
+static double c_b830 = .2135;
+static double c_b831 = .0733;
+static float c_b1128 = 90.f;
+static float c_b1257 = 0.f;
+static double c_b1423 = 1.5873015873015872;
+static float c_b1471 = 1.f;
+static double c_b1631 = .21;
+static double c_b1641 = .84;
+static double c_b1642 = .846;
+static double c_b1661 = 10.;
+static double c_b1716 = 2.;
+static float c_b1750 = 10.f;
+static float c_b1804 = 33.333f;
+static double c_b1830 = .33333;
+static double c_b1937 = 1.5;
+static float c_b2008 = 20.f;
+static float c_b2088 = 1.83899f;
+static float c_b2089 = 1639.f;
+static float c_b2090 = 52340.4f;
+static float c_b2091 = 10399.2f;
+static float c_b2092 = 588.24f;
+static float c_b2093 = 345005.f;
+static float c_b2094 = 259913.f;
+static float c_b2095 = 161.29f;
+static float c_b2096 = 43319.7f;
+static float c_b2097 = 27661.2f;
+static double c_b2098 = .25;
+static float c_b2113 = 1.79907f;
+static float c_b2114 = 3352.27f;
+static float c_b2115 = 999140.f;
+static float c_b2116 = 151963.f;
+static float c_b2118 = 50483.5f;
+static float c_b2119 = 9246.27f;
+static float c_b2121 = 844697.f;
+static float c_b2122 = 1076150.f;
+static float c_b2138 = .25f;
+static float c_b2139 = 300.f;
+static float c_b2140 = .47f;
+static float c_b2141 = 3.f;
+static float c_b2142 = .39f;
+static float c_b2143 = 17.f;
+static float c_b2144 = .45f;
+static float c_b2145 = 1.3f;
+static float c_b2146 = .41f;
+static float c_b2147 = 62.f;
+static float c_b2148 = .35f;
+static float c_b2149 = 1.7f;
+static float c_b2162 = .4f;
+static float c_b2163 = 2.f;
+static float c_b2172 = .22f;
+static float c_b2173 = 1.8f;
+static float c_b2180 = .12f;
+static float c_b2181 = 6.1f;
+static float c_b2182 = .042f;
+static float c_b2183 = .6f;
+static float c_b2186 = .165f;
+static float c_b2187 = 2.4f;
+static float c_b2194 = .01f;
+static float c_b2195 = 4.95f;
+static float c_b2196 = .05f;
+static float c_b2200 = .009f;
+static float c_b2204 = .27f;
+static float c_b2205 = 2.97f;
+static float c_b2206 = .04f;
+static float c_b2210 = .06f;
+static float c_b2214 = .025f;
+static long c__4 = 4;
+static long c__3 = 3;
 
 /* Main program */ int MAIN__(void)
 {
 	/* Initialized data */
 
-	static integer irpt = 0;
-	static integer maxgeo = 68;
+	static long irpt = 0;
+	static long maxgeo = 68;
 
 	/* Format strings */
 	static char fmt_1000[] = "(\0021\002,20x,\002***** LOWTRAN 7 *****\002)";
@@ -7988,66 +7987,66 @@ static integer c__3 = 3;
 	static char fmt_1630[] = "(\0020 CARD 5 *****\002,i5)";
 
 	/* System generated locals */
-	integer i__1, i__2;
-	real r__1;
+	long i__1, i__2;
+	float r__1;
 	olist o__1;
 
 	/* Builtin functions */
-	integer f_open(olist *);
-	double asin(doublereal);
-	integer s_wsfe(cilist *), e_wsfe(void), s_rsfe(cilist *), do_fio(integer *, char *, ftnlen), e_rsfe(void);
-	/* Subroutine */ void s_copy(char *, char *, ftnlen, ftnlen);
+	long f_open(olist *);
+	double asin(double);
+	long s_wsfe(cilist *), e_wsfe(void), s_rsfe(cilist *), do_fio(long *, char *, long), e_rsfe(void);
+	/* Subroutine */ void s_copy(char *, char *, long, long);
 	// GP: have changed int -> void return type as return type not used anywhere
 	// otherwise it messes with f2c and overloads with different return type
-	integer s_wsle(cilist *), do_lio(integer *, integer *, char *, ftnlen),
+	long s_wsle(cilist *), do_lio(long *, long *, char *, long),
 		e_wsle(void);
-	/* Subroutine */ int s_stop(char *, ftnlen);
+	/* Subroutine */ int s_stop(char *, long);
 
 	/* Local variables */
-	static real g;
-	static integer i__, j, k, n, i1, i2, i3, i4, i5, ia, ib, ic, ii, ik;
-	static real ro;
-	static integer mm1;
-	static real h1s, h2s;
-	static integer mm2, mm3;
-	extern /* Subroutine */ int geo_(integer *, real *, integer *);
-	static integer iph;
-	extern /* Subroutine */ int vsa_(integer *, real *, real *, real *, real *, real *, real *, real *, integer *);
-	static integer iday, mdel;
-	static real time;
-	static integer lens, jprt;
-	static real plst[68], w15sv, alam1, alam2, parm1, parm2, parm3, parm4;
-	static integer iflga, iseed;
-	static real betas;
-	static integer mdels, iflgt;
-	static real cprob;
+	static float g;
+	static long i__, j, k, n, i1, i2, i3, i4, i5, ia, ib, ic, ii, ik;
+	static float ro;
+	static long mm1;
+	static float h1s, h2s;
+	static long mm2, mm3;
+	extern /* Subroutine */ int geo_(long *, float *, long *);
+	static long iph;
+	extern /* Subroutine */ int vsa_(long *, float *, float *, float *, float *, float *, float *, float *, long *);
+	static long iday, mdel;
+	static float time;
+	static long lens, jprt;
+	static float plst[68], w15sv, alam1, alam2, parm1, parm2, parm3, parm4;
+	static long iflga, iseed;
+	static float betas;
+	static long mdels, iflgt;
+	static float cprob;
 	extern /* Subroutine */ int rdexa_(void);
-	static integer iparm;
-	static real rangs, zcvsa;
+	static long iparm;
+	static float rangs, zcvsa;
 	extern /* Subroutine */ int rdnsm_(void);
-	static integer ihvul;
-	static real psipo;
-	static integer ihmet, issgs;
-	extern /* Subroutine */ int ssgeo_(integer *, integer *, integer *, real *, real *, real *, real *, real *, real *, integer *);
-	static integer irain;
-	extern /* Subroutine */ int trans_(integer *, integer *, integer *, real *);
-	static real ztvsa, bendng, anglem;
+	static long ihvul;
+	static float psipo;
+	static long ihmet, issgs;
+	extern /* Subroutine */ int ssgeo_(long *, long *, long *, float *, float *, float *, float *, float *, float *, long *);
+	static long irain;
+	extern /* Subroutine */ int trans_(long *, long *, long *, float *);
+	static float ztvsa, bendng, anglem;
 	extern /* Subroutine */ int exabin_(void);
-	static real gndalt;
-	extern /* Subroutine */ int marine_(real *, integer *, real *, real *,
-										integer *, real *, real *, integer *);
-	static real angles;
-	extern /* Subroutine */ int aernsm_(integer *, real *), stdmdl_(void),
+	static float gndalt;
+	extern /* Subroutine */ int marine_(float *, long *, float *, float *,
+										long *, float *, float *, long *);
+	static float angles;
+	extern /* Subroutine */ int aernsm_(long *, float *), stdmdl_(void),
 		aertmp_(void);
-	static real csensv[68];
-	static integer ierror, isourc;
+	static float csensv[68];
+	static long ierror, isourc;
 	extern /* Subroutine */ int equlwc_(void);
-	static real qthets[68];
-	extern /* Subroutine */ int cirrus_(real *, real *, integer *, real *,
-										real *);
-	static real zinvsa;
-	extern /* Subroutine */ int subsol_(real *, real *, real *, integer *);
-	static integer itypes;
+	static float qthets[68];
+	extern /* Subroutine */ int cirrus_(float *, float *, long *, float *,
+										float *);
+	static float zinvsa;
+	extern /* Subroutine */ int subsol_(float *, float *, float *, long *);
+	static long itypes;
 
 	/* Fortran I/O blocks */
 	static cilist io___4 = {0, 0, 0, fmt_1000, 0};
@@ -9114,7 +9113,7 @@ L100:
 
 	// card1b_3.wmol1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-	real newArr[] = {93.96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	float newArr[] = {93.96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	card1_1.model = 1;
 	card1_1.itype = 2;
@@ -9197,42 +9196,42 @@ L100:
 
 	s_rsfe(&io___8);
 
-	do_fio(&c__1, (char *)&card1_1.model, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.itype, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.iemsct, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&card1_1.model, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.itype, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.iemsct, (long)sizeof(long));
 
-	do_fio(&c__1, (char *)&cntrl_1.imult, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&cntrl_1.imult, (long)sizeof(long));
 
-	do_fio(&c__1, (char *)&card1_1.m1, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.m2, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.m3, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m4, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m5, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m6, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.mdef, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.im, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.noprt, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.tbound, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card1_1.salb, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card1_1.m1, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.m2, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.m3, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m4, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m5, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m6, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.mdef, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.im, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.noprt, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.tbound, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card1_1.salb, (long)sizeof(float));
 	e_rsfe();
 #endif
 	io___9.ciunit = ifil_1.ipr;
 	s_wsfe(&io___9);
-	do_fio(&c__1, (char *)&card1_1.model, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.itype, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.iemsct, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&cntrl_1.imult, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.m1, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.m2, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.m3, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m4, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m5, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m6, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.mdef, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.im, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.noprt, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.tbound, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card1_1.salb, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card1_1.model, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.itype, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.iemsct, (long)sizeof(long));
+	do_fio(&c__1, (char *)&cntrl_1.imult, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.m1, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.m2, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.m3, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m4, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m5, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m6, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.mdef, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.im, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.noprt, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.tbound, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card1_1.salb, (long)sizeof(float));
 	e_wsfe();
 	if (cntrl_1.imult == 1 && card1_1.noprt == 1)
 	{
@@ -9288,46 +9287,46 @@ L110:
 	io___10.ciunit = ifil_1.ird;
 	s_rsfe(&io___10);
 
-	do_fio(&c__1, (char *)&card2_1.ihaze, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.iseasn, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.ivulcn, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.icstl, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.icld, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.ivsa, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.vis, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2_1.wss, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2_1.whh, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2_1.rainrt, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&gndalt, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card2_1.ihaze, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.iseasn, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.ivulcn, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.icstl, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.icld, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.ivsa, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.vis, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.wss, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.whh, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.rainrt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&gndalt, (long)sizeof(float));
 	e_rsfe();
 #endif
 	io___12.ciunit = ifil_1.ipr;
 	s_wsfe(&io___12);
-	do_fio(&c__1, (char *)&card2_1.ihaze, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.iseasn, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.ivulcn, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.icstl, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.icld, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.ivsa, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.vis, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2_1.wss, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2_1.whh, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2_1.rainrt, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&gndalt, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card2_1.ihaze, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.iseasn, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.ivulcn, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.icstl, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.icld, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.ivsa, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.vis, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.wss, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.whh, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.rainrt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&gndalt, (long)sizeof(float));
 	e_wsfe();
 
 	if (gndalt > 0.f)
 	{
 		io___13.ciunit = ifil_1.ipr;
 		s_wsfe(&io___13);
-		do_fio(&c__1, (char *)&gndalt, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&gndalt, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (gndalt >= 6.f)
 	{
 		io___14.ciunit = ifil_1.ipr;
 		s_wsfe(&io___14);
-		do_fio(&c__1, (char *)&gndalt, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&gndalt, (long)sizeof(float));
 		e_wsfe();
 		gndalt = 0.f;
 	}
@@ -9364,7 +9363,7 @@ L205:
 	}
 	io___15.ciunit = ifil_1.ipr;
 	s_wsfe(&io___15);
-	do_fio(&c__1, (char *)&card2_1.rainrt, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card2_1.rainrt, (long)sizeof(float));
 	e_wsfe();
 L210:
 	_BLNK__1.ich[3] = 18;
@@ -9400,22 +9399,22 @@ L210:
 	io___19.ciunit = ifil_1.ird;
 	s_rsfe(&io___19);
 
-	do_fio(&c__1, (char *)&card2a_1.cthik, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2a_1.calt, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2a_1.cext, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card2a_1.cthik, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2a_1.calt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2a_1.cext, (long)sizeof(float));
 
-	do_fio(&c__1, (char *)&iseed, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&iseed, (long)sizeof(long));
 
 	e_rsfe();
 #endif
 	io___20.ciunit = ifil_1.ipr;
 	s_wsfe(&io___20);
 
-	do_fio(&c__1, (char *)&card2a_1.cthik, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2a_1.calt, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2a_1.cext, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card2a_1.cthik, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2a_1.calt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2a_1.cext, (long)sizeof(float));
 
-	do_fio(&c__1, (char *)&iseed, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&iseed, (long)sizeof(long));
 
 	e_wsfe();
 
@@ -9436,16 +9435,16 @@ L230:
 	io___24.ciunit = ifil_1.ird;
 
 	s_rsfe(&io___24);
-	do_fio(&c__1, (char *)&zcvsa, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&ztvsa, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&zinvsa, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&zcvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&ztvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&zinvsa, (long)sizeof(float));
 	e_rsfe();
 #endif
 	io___25.ciunit = ifil_1.ipr;
 	s_wsfe(&io___25);
-	do_fio(&c__1, (char *)&zcvsa, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&ztvsa, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&zinvsa, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&zcvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&ztvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&zinvsa, (long)sizeof(float));
 	e_wsfe();
 
 	/*                                                                       LWT10430 */
@@ -9464,12 +9463,12 @@ L240:
 	{
 		if (mdels != 0)
 		{
-			s_copy(titl_1.hmodel + (i__ + 29 << 2), titl_1.hmodel + (i__ + mdels * 5 - 6 << 2), (ftnlen)4, (ftnlen)4);
+			s_copy(titl_1.hmodel + (i__ + 29 << 2), titl_1.hmodel + (i__ + mdels * 5 - 6 << 2), (long)4, (long)4);
 		}
 		/* L250: */
 		if (mdels == 0)
 		{
-			s_copy(titl_1.hmodel + (i__ + 29 << 2), titl_1.hmodel + (i__ + 34 << 2), (ftnlen)4, (ftnlen)4);
+			s_copy(titl_1.hmodel + (i__ + 29 << 2), titl_1.hmodel + (i__ + 34 << 2), (long)4, (long)4);
 		}
 	}
 	/*                                                                       LWT10530 */
@@ -9489,28 +9488,28 @@ L240:
 
 			s_rsfe(&io___27);
 
-			do_fio(&c__1, (char *)&cntrl_1.ml, (ftnlen)sizeof(integer));
+			do_fio(&c__1, (char *)&cntrl_1.ml, (long)sizeof(long));
 
-			do_fio(&c__1, (char *)&card1a_1.ird1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&card1a_1.ird2, (ftnlen)sizeof(integer));
+			do_fio(&c__1, (char *)&card1a_1.ird1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&card1a_1.ird2, (long)sizeof(long));
 
 			for (i__ = 1; i__ <= 5; ++i__)
 			{
-				do_fio(&c__1, titl_1.hmodel + (i__ + 29 << 2), (ftnlen)4);
+				do_fio(&c__1, titl_1.hmodel + (i__ + 29 << 2), (long)4);
 			}
 			e_rsfe();
 #endif
 			io___28.ciunit = ifil_1.ipr;
 			s_wsfe(&io___28);
 
-			do_fio(&c__1, (char *)&cntrl_1.ml, (ftnlen)sizeof(integer));
+			do_fio(&c__1, (char *)&cntrl_1.ml, (long)sizeof(long));
 
-			do_fio(&c__1, (char *)&card1a_1.ird1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&card1a_1.ird2, (ftnlen)sizeof(integer));
+			do_fio(&c__1, (char *)&card1a_1.ird1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&card1a_1.ird2, (long)sizeof(long));
 
 			for (i__ = 1; i__ <= 5; ++i__)
 			{
-				do_fio(&c__1, titl_1.hmodel + (i__ + 29 << 2), (ftnlen)4);
+				do_fio(&c__1, titl_1.hmodel + (i__ + 29 << 2), (long)4);
 			}
 			e_wsfe();
 			if (card2_1.ivsa == 1)
@@ -9552,47 +9551,47 @@ L240:
 	{
 		io___31.ciunit = ifil_1.ipr;
 		s_wsfe(&io___31);
-		do_fio(&c__1, (char *)&card2a_1.cthik, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&card2a_1.cthik, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (iflgt == 1)
 	{
 		io___32.ciunit = ifil_1.ipr;
 		s_wsfe(&io___32);
-		do_fio(&c__1, (char *)&card2a_1.cthik, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&card2a_1.cthik, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (iflgt == 2)
 	{
 		io___33.ciunit = ifil_1.ipr;
 		s_wsfe(&io___33);
-		do_fio(&c__1, (char *)&card2a_1.cthik, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&card2a_1.cthik, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (iflga == 0)
 	{
 		io___34.ciunit = ifil_1.ipr;
 		s_wsfe(&io___34);
-		do_fio(&c__1, (char *)&card2a_1.calt, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&card2a_1.calt, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (iflga == 1)
 	{
 		io___35.ciunit = ifil_1.ipr;
 		s_wsfe(&io___35);
-		do_fio(&c__1, (char *)&card2a_1.calt, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&card2a_1.calt, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (iflga == 2)
 	{
 		io___36.ciunit = ifil_1.ipr;
 		s_wsfe(&io___36);
-		do_fio(&c__1, (char *)&card2a_1.calt, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&card2a_1.calt, (long)sizeof(float));
 		e_wsfe();
 	}
 	io___37.ciunit = ifil_1.ipr;
 	s_wsfe(&io___37);
-	do_fio(&c__1, (char *)&cprob, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&cprob, (long)sizeof(float));
 	e_wsfe();
 /*                                                                       LWT11000 */
 /*       END OF CIRRUS MODEL SET UP                                      LWT11010 */
@@ -9640,24 +9639,24 @@ L300:
 	io___50.ciunit = ifil_1.ird;
 	s_rsfe(&io___50);
 
-	do_fio(&c__1, (char *)&card3_1.h1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.h2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.angle, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.range, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.beta, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&ro, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.len, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.h2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.angle, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.range, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.beta, (long)sizeof(float));
+	do_fio(&c__1, (char *)&ro, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.len, (long)sizeof(long));
 	e_rsfe();
 #endif
 	io___52.ciunit = ifil_1.ipr;
 	s_wsfe(&io___52);
-	do_fio(&c__1, (char *)&card3_1.h1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.h2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.angle, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.range, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.beta, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&ro, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.len, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.h2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.angle, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.range, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.beta, (long)sizeof(float));
+	do_fio(&c__1, (char *)&ro, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.len, (long)sizeof(long));
 	e_wsfe();
 
 	goto L320;
@@ -9670,27 +9669,27 @@ L315:
 	io___53.ciunit = ifil_1.ird;
 	s_rsfe(&io___53);
 
-	do_fio(&c__1, (char *)&card3_1.h1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.h2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.angle, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.h2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.angle, (long)sizeof(float));
 
-	do_fio(&c__1, (char *)&iday, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&ro, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&isourc, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&anglem, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&iday, (long)sizeof(long));
+	do_fio(&c__1, (char *)&ro, (long)sizeof(float));
+	do_fio(&c__1, (char *)&isourc, (long)sizeof(long));
+	do_fio(&c__1, (char *)&anglem, (long)sizeof(float));
 	e_rsfe();
 #endif
 	io___54.ciunit = ifil_1.ipr;
 	s_wsfe(&io___54);
 
-	do_fio(&c__1, (char *)&card3_1.h1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.h2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_1.angle, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.h2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.angle, (long)sizeof(float));
 
-	do_fio(&c__1, (char *)&iday, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&ro, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&isourc, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&anglem, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&iday, (long)sizeof(long));
+	do_fio(&c__1, (char *)&ro, (long)sizeof(float));
+	do_fio(&c__1, (char *)&isourc, (long)sizeof(long));
+	do_fio(&c__1, (char *)&anglem, (long)sizeof(float));
 	e_wsfe();
 
 	card1_1.itype = 3;
@@ -9704,8 +9703,8 @@ L320:
 	{
 		io___55.ciunit = ifil_1.ipr;
 		s_wsfe(&io___55);
-		do_fio(&c__1, (char *)&card3_1.h1, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.zm[0], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.zm[0], (long)sizeof(float));
 		e_wsfe();
 		card3_1.h1 = model_1.zm[0];
 	}
@@ -9750,18 +9749,18 @@ L320:
 #ifdef DO_FIO
 	io___63.ciunit = ifil_1.ird;
 	s_rsfe(&io___63);
-	do_fio(&c__1, (char *)&iparm, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&iph, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&iday, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&isourc, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&iparm, (long)sizeof(long));
+	do_fio(&c__1, (char *)&iph, (long)sizeof(long));
+	do_fio(&c__1, (char *)&iday, (long)sizeof(long));
+	do_fio(&c__1, (char *)&isourc, (long)sizeof(long));
 	e_rsfe();
 #endif
 	io___64.ciunit = ifil_1.ipr;
 	s_wsfe(&io___64);
-	do_fio(&c__1, (char *)&iparm, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&iph, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&iday, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&isourc, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&iparm, (long)sizeof(long));
+	do_fio(&c__1, (char *)&iph, (long)sizeof(long));
+	do_fio(&c__1, (char *)&iday, (long)sizeof(long));
+	do_fio(&c__1, (char *)&isourc, (long)sizeof(long));
 	e_wsfe();
 	/*                                                                       LWT11730 */
 	/* *****CARD 3A2                                                          LWT11740 */
@@ -9772,26 +9771,26 @@ L320:
 #ifdef DO_FIO
 	io___65.ciunit = ifil_1.ird;
 	s_rsfe(&io___65);
-	do_fio(&c__1, (char *)&parm1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&parm2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&parm3, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&parm4, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&time, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&psipo, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&anglem, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&g, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&parm1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&parm2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&parm3, (long)sizeof(float));
+	do_fio(&c__1, (char *)&parm4, (long)sizeof(float));
+	do_fio(&c__1, (char *)&time, (long)sizeof(float));
+	do_fio(&c__1, (char *)&psipo, (long)sizeof(float));
+	do_fio(&c__1, (char *)&anglem, (long)sizeof(float));
+	do_fio(&c__1, (char *)&g, (long)sizeof(float));
 	e_rsfe();
 #endif
 	io___66.ciunit = ifil_1.ipr;
 	s_wsfe(&io___66);
-	do_fio(&c__1, (char *)&parm1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&parm2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&parm3, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&parm4, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&time, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&psipo, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&anglem, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&g, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&parm1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&parm2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&parm3, (long)sizeof(float));
+	do_fio(&c__1, (char *)&parm4, (long)sizeof(float));
+	do_fio(&c__1, (char *)&time, (long)sizeof(float));
+	do_fio(&c__1, (char *)&psipo, (long)sizeof(float));
+	do_fio(&c__1, (char *)&anglem, (long)sizeof(float));
+	do_fio(&c__1, (char *)&g, (long)sizeof(float));
 	e_wsfe();
 	/*                                                                       LWT11800 */
 	if (iph == 0)
@@ -9820,12 +9819,12 @@ L320:
 #ifdef DO_FIO
 	io___67.ciunit = ifil_1.ird;
 	s_rsfe(&io___67);
-	do_fio(&c__1, (char *)&usrdta_1.nangls, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&usrdta_1.nangls, (long)sizeof(long));
 	e_rsfe();
 #endif
 	io___68.ciunit = ifil_1.ipr;
 	s_wsfe(&io___68);
-	do_fio(&c__1, (char *)&usrdta_1.nangls, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&usrdta_1.nangls, (long)sizeof(long));
 	e_wsfe();
 	/*                                                                       LWT11910 */
 	/* *****CARD 3B2                                                          LWT11920 */
@@ -9839,11 +9838,11 @@ L320:
 	i__1 = usrdta_1.nangls;
 	for (i__ = 1; i__ <= i__1; ++i__)
 	{
-		do_fio(&c__1, (char *)&usrdta_1.angf[i__ - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 4], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 3], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 2], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 1], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&usrdta_1.angf[i__ - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 4], (long)sizeof(float));
+		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 3], (long)sizeof(float));
+		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 2], (long)sizeof(float));
+		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 1], (long)sizeof(float));
 	}
 	e_rsfe();
 #endif
@@ -9852,11 +9851,11 @@ L320:
 	i__1 = usrdta_1.nangls;
 	for (i__ = 1; i__ <= i__1; ++i__)
 	{
-		do_fio(&c__1, (char *)&usrdta_1.angf[i__ - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 4], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 3], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 2], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 1], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&usrdta_1.angf[i__ - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 4], (long)sizeof(float));
+		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 3], (long)sizeof(float));
+		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 2], (long)sizeof(float));
+		do_fio(&c__1, (char *)&usrdta_1.f[(i__ << 2) - 1], (long)sizeof(float));
 	}
 	e_wsfe();
 /*                                                                       LWT11980 */
@@ -9877,17 +9876,17 @@ L400:
 	io___71.ciunit = ifil_1.ird;
 	s_rsfe(&io___71);
 
-	do_fio(&c__1, (char *)&card4_1.v1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card4_1.v2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card4_1.dv, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card4_1.v1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card4_1.v2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card4_1.dv, (long)sizeof(float));
 
 	e_rsfe();
 #endif
 	io___72.ciunit = ifil_1.ipr;
 	s_wsfe(&io___72);
-	do_fio(&c__1, (char *)&card4_1.v1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card4_1.v2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card4_1.dv, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card4_1.v1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card4_1.v2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card4_1.dv, (long)sizeof(float));
 	e_wsfe();
 	if (card2_1.ihaze == 3)
 	{
@@ -9913,7 +9912,7 @@ L500:
 	s_wsfe(&io___74);
 	for (i1 = 1; i1 <= 6; ++i1)
 	{
-		do_fio(&c__1, titl_1.htrrad + (i1 + (card1_1.iemsct + 1) * 6 - 7 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.htrrad + (i1 + (card1_1.iemsct + 1) * 6 - 7 << 2), (long)4);
 	}
 	e_wsfe();
 	if (isourc == 1)
@@ -9964,28 +9963,28 @@ L500:
 	}
 	io___83.ciunit = ifil_1.ipr;
 	s_wsfe(&io___83);
-	do_fio(&c__1, (char *)&mm1, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&mm1, (long)sizeof(long));
 	for (i1 = 1; i1 <= 5; ++i1)
 	{
-		do_fio(&c__1, titl_1.hmodel + (i1 + mm1 * 5 - 6 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hmodel + (i1 + mm1 * 5 - 6 << 2), (long)4);
 	}
-	do_fio(&c__1, (char *)&mm2, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&mm2, (long)sizeof(long));
 	for (i2 = 1; i2 <= 5; ++i2)
 	{
-		do_fio(&c__1, titl_1.hmodel + (i2 + mm2 * 5 - 6 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hmodel + (i2 + mm2 * 5 - 6 << 2), (long)4);
 	}
-	do_fio(&c__1, (char *)&mm3, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&mm3, (long)sizeof(long));
 	for (i3 = 1; i3 <= 5; ++i3)
 	{
-		do_fio(&c__1, titl_1.hmodel + (i3 + mm3 * 5 - 6 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hmodel + (i3 + mm3 * 5 - 6 << 2), (long)4);
 	}
 	e_wsfe();
 	io___86.ciunit = ifil_1.ipr;
 	s_wsfe(&io___86);
-	do_fio(&c__1, (char *)&card1a_1.m4, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m5, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m6, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.mdef, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&card1a_1.m4, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m5, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m6, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.mdef, (long)sizeof(long));
 	e_wsfe();
 /*                                                                       LWT12520 */
 L510:
@@ -10027,40 +10026,40 @@ L510:
 	s_wsfe(&io___89);
 	for (i__ = 1; i__ <= 5; ++i__)
 	{
-		do_fio(&c__1, titl_1.hhaze + (i__ + card2_1.ihaze * 5 - 6 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hhaze + (i__ + card2_1.ihaze * 5 - 6 << 2), (long)4);
 	}
-	do_fio(&c__1, (char *)&card2_1.vis, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card2_1.vis, (long)sizeof(float));
 	for (i2 = 1; i2 <= 5; ++i2)
 	{
-		do_fio(&c__1, titl_1.hhaze + (i2 + 24 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hhaze + (i2 + 24 << 2), (long)4);
 	}
 	for (ii = 1; ii <= 5; ++ii)
 	{
-		do_fio(&c__1, titl_1.hhaze + (ii + 24 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hhaze + (ii + 24 << 2), (long)4);
 	}
 	for (ia = 1; ia <= 5; ++ia)
 	{
-		do_fio(&c__1, titl_1.hseasn + (ia + card2_1.iseasn * 5 - 6 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hseasn + (ia + card2_1.iseasn * 5 - 6 << 2), (long)4);
 	}
 	for (i3 = 1; i3 <= 5; ++i3)
 	{
-		do_fio(&c__1, titl_1.hhaze + (i3 + ihvul * 5 - 6 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hhaze + (i3 + ihvul * 5 - 6 << 2), (long)4);
 	}
 	for (ib = 1; ib <= 5; ++ib)
 	{
-		do_fio(&c__1, titl_1.hvulcn + (ib + card2_1.ivulcn * 5 - 6 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hvulcn + (ib + card2_1.ivulcn * 5 - 6 << 2), (long)4);
 	}
 	for (ic = 1; ic <= 5; ++ic)
 	{
-		do_fio(&c__1, titl_1.hseasn + (ic + card2_1.iseasn * 5 - 6 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hseasn + (ic + card2_1.iseasn * 5 - 6 << 2), (long)4);
 	}
 	for (i4 = 1; i4 <= 5; ++i4)
 	{
-		do_fio(&c__1, titl_1.hhaze + (i4 + 74 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hhaze + (i4 + 74 << 2), (long)4);
 	}
 	for (i5 = 1; i5 <= 5; ++i5)
 	{
-		do_fio(&c__1, titl_1.hmet + (i5 + ihmet * 5 - 6 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hmet + (i5 + ihmet * 5 - 6 << 2), (long)4);
 	}
 	e_wsfe();
 L520:
@@ -10068,29 +10067,29 @@ L520:
 	{
 		io___95.ciunit = ifil_1.ipr;
 		s_wsfe(&io___95);
-		do_fio(&c__1, (char *)&card3_1.h1, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.range, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.range, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (card1_1.itype == 2)
 	{
 		io___96.ciunit = ifil_1.ipr;
 		s_wsfe(&io___96);
-		do_fio(&c__1, (char *)&card3_1.h1, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.h2, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.angle, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.range, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.beta, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.len, (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.h2, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.angle, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.range, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.beta, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.len, (long)sizeof(long));
 		e_wsfe();
 	}
 	if (card1_1.itype == 3)
 	{
 		io___97.ciunit = ifil_1.ipr;
 		s_wsfe(&io___97);
-		do_fio(&c__1, (char *)&card3_1.h1, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.h2, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.angle, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.h2, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.angle, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (card1_1.iemsct != 2)
@@ -10113,24 +10112,24 @@ L520:
 	{
 		io___99.ciunit = ifil_1.ipr;
 		s_wsfe(&io___99);
-		do_fio(&c__1, (char *)&parm1, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&parm2, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&parm3, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&parm4, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&time, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&psipo, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&iday, (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&parm1, (long)sizeof(float));
+		do_fio(&c__1, (char *)&parm2, (long)sizeof(float));
+		do_fio(&c__1, (char *)&parm3, (long)sizeof(float));
+		do_fio(&c__1, (char *)&parm4, (long)sizeof(float));
+		do_fio(&c__1, (char *)&time, (long)sizeof(float));
+		do_fio(&c__1, (char *)&psipo, (long)sizeof(float));
+		do_fio(&c__1, (char *)&iday, (long)sizeof(long));
 		e_wsfe();
 	}
 	if (iparm == 2)
 	{
 		io___100.ciunit = ifil_1.ipr;
 		s_wsfe(&io___100);
-		do_fio(&c__1, (char *)&parm1, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&parm2, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&time, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&psipo, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&iday, (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&parm1, (long)sizeof(float));
+		do_fio(&c__1, (char *)&parm2, (long)sizeof(float));
+		do_fio(&c__1, (char *)&time, (long)sizeof(float));
+		do_fio(&c__1, (char *)&psipo, (long)sizeof(float));
+		do_fio(&c__1, (char *)&iday, (long)sizeof(long));
 		e_wsfe();
 	}
 	if (isourc == 0)
@@ -10143,14 +10142,14 @@ L520:
 	{
 		io___102.ciunit = ifil_1.ipr;
 		s_wsfe(&io___102);
-		do_fio(&c__1, (char *)&anglem, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&anglem, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (iph == 0)
 	{
 		io___103.ciunit = ifil_1.ipr;
 		s_wsfe(&io___103);
-		do_fio(&c__1, (char *)&g, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&g, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (iph == 1)
@@ -10167,8 +10166,8 @@ L520:
 	}
 L550:
 
-	card4_1.v1 = (real)((integer)(card4_1.v1 / 5.f + .1f)) * 5.f;
-	card4_1.v2 = (real)((integer)(card4_1.v2 / 5.f + .1f)) * 5.f;
+	card4_1.v1 = (float)((long)(card4_1.v1 / 5.f + .1f)) * 5.f;
+	card4_1.v2 = (float)((long)(card4_1.v2 / 5.f + .1f)) * 5.f;
 	/*     TO AVOID THE DIFFICULTY FOR V1=0                                  LWT13260 */
 	alam1 = 99999.98f;
 	if (card4_1.v1 > 0.f)
@@ -10180,14 +10179,14 @@ L550:
 	{
 		card4_1.dv = 5.f;
 	}
-	card4_1.dv = (real)((integer)(card4_1.dv / 5 + .1f)) * 5.f;
+	card4_1.dv = (float)((long)(card4_1.dv / 5 + .1f)) * 5.f;
 	io___108.ciunit = ifil_1.ipr;
 	s_wsfe(&io___108);
-	do_fio(&c__1, (char *)&card4_1.v1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&alam1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card4_1.v2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&alam2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card4_1.dv, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card4_1.v1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&alam1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card4_1.v2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&alam2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card4_1.dv, (long)sizeof(float));
 	e_wsfe();
 	/*                                                                       LWT13360 */
 	/*                                                                       LWT13370 */
@@ -10365,134 +10364,134 @@ L558:
 L560:
 	io___120.ciunit = ifil_1.ipu;
 	s_wsfe(&io___120);
-	do_fio(&c__1, (char *)&card1_1.model, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.itype, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.iemsct, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&cntrl_1.imult, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.m1, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.m2, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.m3, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m4, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m5, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m6, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.mdef, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.im, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.noprt, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.tbound, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card1_1.salb, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card1_1.model, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.itype, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.iemsct, (long)sizeof(long));
+	do_fio(&c__1, (char *)&cntrl_1.imult, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.m1, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.m2, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.m3, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m4, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m5, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m6, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.mdef, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.im, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.noprt, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.tbound, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card1_1.salb, (long)sizeof(float));
 	e_wsfe();
 	io___121.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___121);
-	do_fio(&c__1, (char *)&card1_1.model, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.itype, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.iemsct, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&cntrl_1.imult, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.m1, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.m2, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.m3, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m4, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m5, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.m6, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1a_1.mdef, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.im, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.noprt, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card1_1.tbound, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card1_1.salb, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card1_1.model, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.itype, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.iemsct, (long)sizeof(long));
+	do_fio(&c__1, (char *)&cntrl_1.imult, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.m1, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.m2, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.m3, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m4, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m5, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.m6, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1a_1.mdef, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.im, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.noprt, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card1_1.tbound, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card1_1.salb, (long)sizeof(float));
 	e_wsfe();
 	io___122.ciunit = ifil_1.ipu;
 	s_wsfe(&io___122);
-	do_fio(&c__1, (char *)&card2_1.ihaze, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.iseasn, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.ivulcn, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.icstl, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.icld, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.ivsa, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.vis, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2_1.wss, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2_1.whh, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2_1.rainrt, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&gndalt, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card2_1.ihaze, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.iseasn, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.ivulcn, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.icstl, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.icld, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.ivsa, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.vis, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.wss, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.whh, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.rainrt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&gndalt, (long)sizeof(float));
 	e_wsfe();
 	io___123.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___123);
-	do_fio(&c__1, (char *)&card2_1.ihaze, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.iseasn, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.ivulcn, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.icstl, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.icld, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.ivsa, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&card2_1.vis, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2_1.wss, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2_1.whh, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2_1.rainrt, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&gndalt, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card2_1.ihaze, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.iseasn, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.ivulcn, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.icstl, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.icld, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.ivsa, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2_1.vis, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.wss, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.whh, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.rainrt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&gndalt, (long)sizeof(float));
 	e_wsfe();
 	io___124.ciunit = ifil_1.ipu;
 	s_wsfe(&io___124);
-	do_fio(&c__1, (char *)&card2a_1.cthik, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2a_1.calt, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2a_1.cext, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&iseed, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&card2a_1.cthik, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2a_1.calt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2a_1.cext, (long)sizeof(float));
+	do_fio(&c__1, (char *)&iseed, (long)sizeof(long));
 	e_wsfe();
 	io___125.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___125);
-	do_fio(&c__1, (char *)&card2a_1.cthik, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2a_1.calt, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card2a_1.cext, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&iseed, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&card2a_1.cthik, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2a_1.calt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2a_1.cext, (long)sizeof(float));
+	do_fio(&c__1, (char *)&iseed, (long)sizeof(long));
 	e_wsfe();
 	io___126.ciunit = ifil_1.ipu;
 	s_wsfe(&io___126);
-	do_fio(&c__1, (char *)&zcvsa, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&ztvsa, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&zinvsa, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&zcvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&ztvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&zinvsa, (long)sizeof(float));
 	e_wsfe();
 	io___127.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___127);
-	do_fio(&c__1, (char *)&zcvsa, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&ztvsa, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&zinvsa, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&zcvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&ztvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&zinvsa, (long)sizeof(float));
 	e_wsfe();
 	io___128.ciunit = ifil_1.ipu;
 	s_wsfe(&io___128);
-	do_fio(&c__1, (char *)&cntrl_1.ml, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&cntrl_1.ml, (long)sizeof(long));
 	for (i__ = 1; i__ <= 5; ++i__)
 	{
-		do_fio(&c__1, titl_1.hmodel + (i__ + 29 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hmodel + (i__ + 29 << 2), (long)4);
 	}
 	e_wsfe();
 	io___129.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___129);
-	do_fio(&c__1, (char *)&cntrl_1.ml, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&cntrl_1.ml, (long)sizeof(long));
 	for (i__ = 1; i__ <= 5; ++i__)
 	{
-		do_fio(&c__1, titl_1.hmodel + (i__ + 29 << 2), (ftnlen)4);
+		do_fio(&c__1, titl_1.hmodel + (i__ + 29 << 2), (long)4);
 	}
 	e_wsfe();
 	if (card1_1.model != 0)
 	{
 		io___130.ciunit = ifil_1.ipu;
 		s_wsfe(&io___130);
-		do_fio(&c__1, (char *)&card3_1.h1, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.h2, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.angle, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.range, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.beta, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&ro, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.len, (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.h2, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.angle, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.range, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.beta, (long)sizeof(float));
+		do_fio(&c__1, (char *)&ro, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.len, (long)sizeof(long));
 		e_wsfe();
 	}
 	if (card1_1.model != 0)
 	{
 		io___131.ciunit = ifil_1.ipr1;
 		s_wsfe(&io___131);
-		do_fio(&c__1, (char *)&card3_1.h1, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.h2, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.angle, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.range, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.beta, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&ro, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_1.len, (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.h2, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.angle, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.range, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.beta, (long)sizeof(float));
+		do_fio(&c__1, (char *)&ro, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.len, (long)sizeof(long));
 		e_wsfe();
 	}
 	mdlz_1.hmdlz[7] = card3_1.range;
@@ -10502,7 +10501,7 @@ L560:
 		s_wsfe(&io___132);
 		for (k = 1; k <= 8; ++k)
 		{
-			do_fio(&c__1, (char *)&mdlz_1.hmdlz[k - 1], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&mdlz_1.hmdlz[k - 1], (long)sizeof(float));
 		}
 		e_wsfe();
 	}
@@ -10512,58 +10511,58 @@ L560:
 		s_wsfe(&io___133);
 		for (k = 1; k <= 8; ++k)
 		{
-			do_fio(&c__1, (char *)&mdlz_1.hmdlz[k - 1], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&mdlz_1.hmdlz[k - 1], (long)sizeof(float));
 		}
 		e_wsfe();
 	}
 	io___134.ciunit = ifil_1.ipu;
 	s_wsfe(&io___134);
-	do_fio(&c__1, (char *)&iparm, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&iph, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&iday, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&isourc, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&iparm, (long)sizeof(long));
+	do_fio(&c__1, (char *)&iph, (long)sizeof(long));
+	do_fio(&c__1, (char *)&iday, (long)sizeof(long));
+	do_fio(&c__1, (char *)&isourc, (long)sizeof(long));
 	e_wsfe();
 	io___135.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___135);
-	do_fio(&c__1, (char *)&iparm, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&iph, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&iday, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&isourc, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&iparm, (long)sizeof(long));
+	do_fio(&c__1, (char *)&iph, (long)sizeof(long));
+	do_fio(&c__1, (char *)&iday, (long)sizeof(long));
+	do_fio(&c__1, (char *)&isourc, (long)sizeof(long));
 	e_wsfe();
 	io___136.ciunit = ifil_1.ipu;
 	s_wsfe(&io___136);
-	do_fio(&c__1, (char *)&parm1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&parm2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&parm3, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&parm4, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&time, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&psipo, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&anglem, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&g, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&parm1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&parm2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&parm3, (long)sizeof(float));
+	do_fio(&c__1, (char *)&parm4, (long)sizeof(float));
+	do_fio(&c__1, (char *)&time, (long)sizeof(float));
+	do_fio(&c__1, (char *)&psipo, (long)sizeof(float));
+	do_fio(&c__1, (char *)&anglem, (long)sizeof(float));
+	do_fio(&c__1, (char *)&g, (long)sizeof(float));
 	e_wsfe();
 	io___137.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___137);
-	do_fio(&c__1, (char *)&parm1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&parm2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&parm3, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&parm4, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&time, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&psipo, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&anglem, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&g, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&parm1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&parm2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&parm3, (long)sizeof(float));
+	do_fio(&c__1, (char *)&parm4, (long)sizeof(float));
+	do_fio(&c__1, (char *)&time, (long)sizeof(float));
+	do_fio(&c__1, (char *)&psipo, (long)sizeof(float));
+	do_fio(&c__1, (char *)&anglem, (long)sizeof(float));
+	do_fio(&c__1, (char *)&g, (long)sizeof(float));
 	e_wsfe();
 	io___138.ciunit = ifil_1.ipu;
 	s_wsfe(&io___138);
-	do_fio(&c__1, (char *)&card4_1.v1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card4_1.v2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card4_1.dv, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card4_1.v1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card4_1.v2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card4_1.dv, (long)sizeof(float));
 	e_wsfe();
 	io___139.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___139);
 
-	do_fio(&c__1, (char *)&card4_1.v1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card4_1.v2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card4_1.dv, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card4_1.v1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card4_1.v2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card4_1.dv, (long)sizeof(float));
 	e_wsfe();
 	printf("\nLINE with READ, CHECK:");
 	printf(FILE_LINE);
@@ -10571,16 +10570,16 @@ L560:
 #ifdef DO_FIO
 	io___140.ciunit = ifil_1.ird;
 	s_rsfe(&io___140);
-	do_fio(&c__1, (char *)&irpt, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&irpt, (long)sizeof(long));
 	e_rsfe();
 #endif
 	io___141.ciunit = ifil_1.ipu;
 	s_wsfe(&io___141);
-	do_fio(&c__1, (char *)&irpt, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&irpt, (long)sizeof(long));
 	e_wsfe();
 	io___142.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___142);
-	do_fio(&c__1, (char *)&irpt, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&irpt, (long)sizeof(long));
 	e_wsfe();
 	/*                                                                       LWT14890 */
 	irain = 0;
@@ -10606,16 +10605,16 @@ L630:
 #ifdef DO_FIO
 		io___144.ciunit = ifil_1.ird;
 		s_rsfe(&io___144);
-		do_fio(&c__1, (char *)&irpt, (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&irpt, (long)sizeof(long));
 		e_rsfe();
 #endif
 		io___145.ciunit = ifil_1.ipu;
 		s_wsfe(&io___145);
-		do_fio(&c__1, (char *)&irpt, (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&irpt, (long)sizeof(long));
 		e_wsfe();
 		io___146.ciunit = ifil_1.ipr1;
 		s_wsfe(&io___146);
-		do_fio(&c__1, (char *)&irpt, (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&irpt, (long)sizeof(long));
 		e_wsfe();
 	}
 	io___147.ciunit = ifil_1.ipu;
@@ -10627,7 +10626,7 @@ L630:
 	/*                                                                       LWT15090 */
 	io___149.ciunit = ifil_1.ipr;
 	s_wsfe(&io___149);
-	do_fio(&c__1, (char *)&irpt, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&irpt, (long)sizeof(long));
 	e_wsfe();
 	if (irpt == 0)
 	{
@@ -10640,9 +10639,9 @@ L630:
 	if (irpt > 1 && card1_1.iemsct >= 2)
 	{
 		s_wsle(&io___150);
-		do_lio(&c__9, &c__1, "/!! ERROR IN INPUT IEMSCT GE 2 IRPT GT 1!", (ftnlen)41);
+		do_lio(&c__9, &c__1, "/!! ERROR IN INPUT IEMSCT GE 2 IRPT GT 1!", (long)41);
 		e_wsle();
-		s_stop("", (ftnlen)0);
+		s_stop("", (long)0);
 	}
 	if (irpt > 4)
 	{
@@ -10660,8 +10659,8 @@ L630:
 		goto L400;
 	}
 L900:
-	// remove stop! GP
-	// s_stop("", (ftnlen)0);
+	// remove stop
+	// s_stop("", (long)0);
 	/* @    END                                                               LWT15201 */
 	/* @    THE FOLLOWING TIME AND DATE SUBROUTINES APPLY TO A CDC 6600       LWT15210 */
 	/* @    SUBROUTINE FDATE(HDATE)                                           LWT15220 */
@@ -10676,14 +10675,14 @@ L900:
 	return 0;
 } /* MAIN__ */
 
-/* Subroutine */ int aernsm_(integer *jprt, real *gndalt)
+/* Subroutine */ int aernsm_(long *jprt, float *gndalt)
 {
 	/* Initialized data */
 
 	static char ahlvsa[4 * 5] = {'V', 'S', 'A', ' ', 'D', 'E', 'F', 'I', 'N', 'E', 'D', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
 	static char ahus[4 * 5] = {'U', 'S', 'E', 'R', ' ', 'D', 'E', 'F', 'I', 'N', 'E', 'D', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
 	static char ahahol[4 * 5 * 13] = {'C', 'U', 'M', 'U', 'L', 'U', 'S', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'A', 'L', 'T', 'O', 'S', 'T', 'R', 'A', 'T', 'U', 'S', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'S', 'T', 'R', 'A', 'T', 'U', 'S', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'S', 'T', 'R', 'A', 'T', 'U', 'S', ' ', 'S', 'T', 'R', 'A', 'T', 'O', ' ', 'C', 'U', 'M', ' ', ' ', 'N', 'I', 'M', 'B', 'O', 'S', 'T', 'R', 'A', 'T', 'U', 'S', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'D', 'R', 'I', 'Z', 'Z', 'L', 'E', ' ', '2', '.', '0', ' ', 'M', 'M', '/', 'H', 'R', ' ', ' ', ' ', 'L', 'T', ' ', 'R', 'A', 'I', 'N', ' ', '5', '.', '0', ' ', 'M', 'M', '/', 'H', 'R', ' ', ' ', ' ', 'M', 'O', 'D', ' ', 'R', 'A', 'I', 'N', ' ', '1', '2', '.', '5', ' ', 'M', 'M', '/', 'H', 'R', ' ', 'H', 'E', 'A', 'V', 'Y', ' ', 'R', 'A', 'I', 'N', ' ', '2', '5', ' ', 'M', 'M', '/', 'H', 'R', ' ', 'E', 'X', 'T', 'R', 'E', 'M', 'E', ' ', 'R', 'A', 'I', 'N', ' ', '7', '5', 'M', 'M', '/', 'H', 'R', 'U', 'S', 'E', 'R', ' ', 'A', 'T', 'M', 'O', 'S', 'P', 'H', 'E', 'R', 'E', ' ', ' ', ' ', ' ', ' ', 'U', 'S', 'E', 'R', ' ', 'R', 'A', 'I', 'N', ' ', 'N', 'O', ' ', 'C', 'L', 'O', 'U', 'D', ' ', ' ', 'C', 'I', 'R', 'R', 'U', 'S', ' ', 'C', 'L', 'O', 'U', 'D', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
-	static real cldtop[10] = {3.f, 3.f, 1.f, 2.f, .66f, 1.f, .66f, .66f, 3.f, 3.f};
+	static float cldtop[10] = {3.f, 3.f, 1.f, 2.f, .66f, 1.f, .66f, .66f, 3.f, 3.f};
 
 	/* Format strings */
 	static char fmt_910[] = "(\002  ERROR ML GT 24 AND ARMY MODEL TOP LAYER "
@@ -10711,63 +10710,63 @@ L900:
 	static char fmt_915[] = "(2f10.3,2f8.2,1p3e10.3,1x,5a4,5a4,5a4)";
 
 	/* System generated locals */
-	integer i__1;
-	doublereal d__1, d__2;
+	long i__1;
+	double d__1, d__2;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), e_wsfe(void);
-	/* Subroutine */ int s_stop(char *, ftnlen);
-	integer do_fio(integer *, char *, ftnlen), s_rsfe(cilist *), e_rsfe(void);
-	double exp(doublereal), pow_dd(doublereal *, doublereal *);
-	/* Subroutine */ void s_copy(char *, char *, ftnlen, ftnlen);
+	long s_wsfe(cilist *), e_wsfe(void);
+	/* Subroutine */ int s_stop(char *, long);
+	long do_fio(long *, char *, long), s_rsfe(cilist *), e_rsfe(void);
+	double exp(double), pow_dd(double *, double *);
+	/* Subroutine */ void s_copy(char *, char *, long, long);
 	// GP: have changed int return type -> void to fix cpp error with overloading with f2c
 	/* Local variables */
-	static integer i__, j, k, l, n;
-	static real t0;
+	static long i__, j, k, l, n;
+	static float t0;
 	static char bl[1];
-	static integer ii, ij;
-	static real ta, rh;
-	static integer km, nn, kk;
-	static real ts;
-	static integer ic1, ih1[34], is1[34];
-	static real fac;
-	static integer icl;
-	static real asc;
-	static integer ihh;
-	static real con, zgn[34];
-	extern integer jou_(char *, ftnlen);
-	static real zsc, cld0, cld1, cld2;
-	static integer iha1, ird0;
-	static real haz1, haz2;
-	static integer ivl1[34];
-	static real vis1;
-	static integer ity1[34];
-	static real cldd;
-	static integer ichr;
-	static real haze;
+	static long ii, ij;
+	static float ta, rh;
+	static long km, nn, kk;
+	static float ts;
+	static long ic1, ih1[34], is1[34];
+	static float fac;
+	static long icl;
+	static float asc;
+	static long ihh;
+	static float con, zgn[34];
+	extern long jou_(char *, long);
+	static float zsc, cld0, cld1, cld2;
+	static long iha1, ird0;
+	static float haz1, haz2;
+	static long ivl1[34];
+	static float vis1;
+	static long ity1[34];
+	static float cldd;
+	static long ichr;
+	static float haze;
 	static char hhol[4 * 5];
-	static integer idsr, icld1, isea1;
+	static long idsr, icld1, isea1;
 	static char ahol1[4 * 5], ahol2[4 * 5], ahol3[4 * 5];
-	static integer ivul1;
-	extern /* Subroutine */ int check_(real *, integer *, integer *);
-	static integer icldc;
+	static long ivul1;
+	extern /* Subroutine */ int check_(float *, long *, long *);
+	static long icldc;
 	static char jchar[1 * 15];
-	static integer icldl;
-	static real ahaze;
-	static integer iclds;
-	static real ahast[34];
+	static long icldl;
+	static float ahaze;
+	static long iclds;
+	static float ahast[34];
 	extern /* Subroutine */ int cirr18_(void);
-	static integer iconv;
-	extern /* Subroutine */ int flayz_(integer *, integer *, integer *, real *, real *, integer *);
-	static real wtemp, rratz;
-	extern /* Subroutine */ int defalt_(real *, real *, real *), laycld_(integer *, real *, real *, integer *, real *, real *), marine_(real *, integer *, real *, real *, integer *, real *, real *, integer *), cldprf_(integer *, integer *, integer *, integer *),
-		aerprf_(integer *, real *, real *, integer *, integer *, integer *, integer *), desatt_(real *, real *);
-	static integer ityaer;
-	extern /* Subroutine */ int layvsa_(integer *, real *, real *, integer *,
-										real *);
-	static real eqlwcz;
-	extern /* Subroutine */ int vsansm_(integer *, real *, integer *),
-		convrt_(real *, real *);
+	static long iconv;
+	extern /* Subroutine */ int flayz_(long *, long *, long *, float *, float *, long *);
+	static float wtemp, rratz;
+	extern /* Subroutine */ int defalt_(float *, float *, float *), laycld_(long *, float *, float *, long *, float *, float *), marine_(float *, long *, float *, float *, long *, float *, float *, long *), cldprf_(long *, long *, long *, long *),
+		aerprf_(long *, float *, float *, long *, long *, long *, long *), desatt_(float *, float *);
+	static long ityaer;
+	extern /* Subroutine */ int layvsa_(long *, float *, float *, long *,
+										float *);
+	static float eqlwcz;
+	extern /* Subroutine */ int vsansm_(long *, float *, long *),
+		convrt_(float *, float *);
 
 	/* Fortran I/O blocks */
 	static cilist io___166 = {0, 0, 0, fmt_910, 0};
@@ -10811,14 +10810,14 @@ L900:
 	iconv = 1;
 	ird0 = 1;
 	icldl = card2_1.icld;
-	if ((real)card1_2.model == 0.f || card1_2.model == 7)
+	if ((float)card1_2.model == 0.f || card1_2.model == 7)
 	{
 		if (card1_2.im != 1)
 		{
 			return 0;
 		}
 	}
-	if ((real)card1_2.model > 0.f && card1_2.model < 7)
+	if ((float)card1_2.model > 0.f && card1_2.model < 7)
 	{
 		ird0 = 0;
 	}
@@ -10851,7 +10850,7 @@ L900:
 		}
 		if (card1_2.model == 0)
 		{
-			s_stop("", (ftnlen)0);
+			s_stop("", (long)0);
 		}
 	}
 	icl = 0;
@@ -10922,8 +10921,8 @@ L900:
 	{
 		io___179.ciunit = ifil_1.ipr;
 		s_wsfe(&io___179);
-		do_fio(&c__1, (char *)&card1_2.model, (ftnlen)sizeof(integer));
-		do_fio(&c__1, (char *)&card2_1.icld, (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&card1_2.model, (long)sizeof(long));
+		do_fio(&c__1, (char *)&card2_1.icld, (long)sizeof(long));
 		e_wsfe();
 		if (card1_2.model == 7)
 		{
@@ -11040,31 +11039,31 @@ L900:
 #ifdef DO_FIO
 			io___194.ciunit = ifil_1.ird;
 			s_rsfe(&io___194);
-			do_fio(&c__1, (char *)&model_2.zmdl[k - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&mdata_1.p[k - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&mdata_1.t[k - 1], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&model_2.zmdl[k - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&mdata_1.p[k - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&mdata_1.t[k - 1], (long)sizeof(float));
 
-			do_fio(&c__1, (char *)&card1b_1.wmol[0], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&card1b_1.wmol[1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&card1b_1.wmol[2], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&card1b_1.wmol[0], (long)sizeof(float));
+			do_fio(&c__1, (char *)&card1b_1.wmol[1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&card1b_1.wmol[2], (long)sizeof(float));
 
 			for (km = 1; km <= 14; ++km)
 			{
-				do_fio(&c__1, jchar + (km - 1), (ftnlen)1);
+				do_fio(&c__1, jchar + (km - 1), (long)1);
 			}
 			e_rsfe();
 #endif
 			io___195.ciunit = ifil_1.ipr;
 			s_wsfe(&io___195);
-			do_fio(&c__1, (char *)&model_2.zmdl[k - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&mdata_1.p[k - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&mdata_1.t[k - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&card1b_1.wmol[0], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&card1b_1.wmol[1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&card1b_1.wmol[2], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&model_2.zmdl[k - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&mdata_1.p[k - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&mdata_1.t[k - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&card1b_1.wmol[0], (long)sizeof(float));
+			do_fio(&c__1, (char *)&card1b_1.wmol[1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&card1b_1.wmol[2], (long)sizeof(float));
 			for (km = 1; km <= 14; ++km)
 			{
-				do_fio(&c__1, jchar + (km - 1), (ftnlen)1);
+				do_fio(&c__1, jchar + (km - 1), (long)1);
 			}
 			e_wsfe();
 		}
@@ -11078,7 +11077,7 @@ L900:
 			s_rsfe(&io___196);
 			for (km = 4; km <= 12; ++km)
 			{
-				do_fio(&c__1, (char *)&card1b_1.wmol[km - 1], (ftnlen)sizeof(real));
+				do_fio(&c__1, (char *)&card1b_1.wmol[km - 1], (long)sizeof(float));
 			}
 			e_rsfe();
 #endif
@@ -11086,7 +11085,7 @@ L900:
 			s_wsfe(&io___197);
 			for (km = 4; km <= 12; ++km)
 			{
-				do_fio(&c__1, (char *)&card1b_1.wmol[km - 1], (ftnlen)sizeof(real));
+				do_fio(&c__1, (char *)&card1b_1.wmol[km - 1], (long)sizeof(float));
 			}
 			e_wsfe();
 		}
@@ -11125,26 +11124,26 @@ L900:
 #ifdef DO_FIO
 			io___198.ciunit = ifil_1.ird;
 			s_rsfe(&io___198);
-			do_fio(&c__1, (char *)&ahaze, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&eqlwcz, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&rratz, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&iha1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&icld1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&ivul1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&isea1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&ichr, (ftnlen)sizeof(integer));
+			do_fio(&c__1, (char *)&ahaze, (long)sizeof(float));
+			do_fio(&c__1, (char *)&eqlwcz, (long)sizeof(float));
+			do_fio(&c__1, (char *)&rratz, (long)sizeof(float));
+			do_fio(&c__1, (char *)&iha1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&icld1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&ivul1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&isea1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&ichr, (long)sizeof(long));
 			e_rsfe();
 #endif
 			io___199.ciunit = ifil_1.ipr;
 			s_wsfe(&io___199);
-			do_fio(&c__1, (char *)&ahaze, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&eqlwcz, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&rratz, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&iha1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&icld1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&ivul1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&isea1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&ichr, (ftnlen)sizeof(integer));
+			do_fio(&c__1, (char *)&ahaze, (long)sizeof(float));
+			do_fio(&c__1, (char *)&eqlwcz, (long)sizeof(float));
+			do_fio(&c__1, (char *)&rratz, (long)sizeof(float));
+			do_fio(&c__1, (char *)&iha1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&icld1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&ivul1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&isea1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&ichr, (long)sizeof(long));
 			e_wsfe();
 		}
 		else
@@ -11186,7 +11185,7 @@ L900:
 		for (km = 1; km <= 15; ++km)
 		{
 			/* L12: */
-			card1b_1.junit[km - 1] = jou_(jchar + (km - 1), (ftnlen)1);
+			card1b_1.junit[km - 1] = jou_(jchar + (km - 1), (long)1);
 		}
 		if (ird0 == 0)
 		{
@@ -11623,8 +11622,8 @@ L900:
 		{
 			io___212.ciunit = ifil_1.ipr;
 			s_wsfe(&io___212);
-			do_fio(&c__1, (char *)&_BLNK__2.relhum[k - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&model_2.zmdl[k - 1], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&_BLNK__2.relhum[k - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&model_2.zmdl[k - 1], (long)sizeof(float));
 			e_wsfe();
 		}
 		if (_BLNK__2.relhum[k - 1] > 100.f)
@@ -11635,8 +11634,8 @@ L900:
 		{
 			io___213.ciunit = ifil_1.ipr;
 			s_wsfe(&io___213);
-			do_fio(&c__1, (char *)&_BLNK__2.relhum[k - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&model_2.zmdl[k - 1], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&_BLNK__2.relhum[k - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&model_2.zmdl[k - 1], (long)sizeof(float));
 			e_wsfe();
 		}
 		if (_BLNK__2.relhum[k - 1] < 0.f)
@@ -11673,12 +11672,12 @@ L900:
 		/*                                                                       ANS 5740 */
 		if (*gndalt > 0.f && model_2.zmdl[k - 1] < 6.f)
 		{
-			j = (integer)(zsc + 1e-6f) + 1;
-			fac = zsc - (real)(j - 1);
+			j = (long)(zsc + 1e-6f) + 1;
+			fac = zsc - (float)(j - 1);
 		}
 		else
 		{
-			j = (integer)(model_2.zmdl[k - 1] + 1e-6f) + 1;
+			j = (long)(model_2.zmdl[k - 1] + 1e-6f) + 1;
 			if (model_2.zmdl[k - 1] >= 25.f)
 			{
 				j = (model_2.zmdl[k - 1] - 25.f) / 5.f + 26.f;
@@ -11695,12 +11694,12 @@ L900:
 			{
 				j = 32;
 			}
-			fac = model_2.zmdl[k - 1] - (real)(j - 1);
+			fac = model_2.zmdl[k - 1] - (float)(j - 1);
 			if (j < 26)
 			{
 				goto L125;
 			}
-			fac = (model_2.zmdl[k - 1] - (real)(j - 26) * 5.f - 25.f) / 5.f;
+			fac = (model_2.zmdl[k - 1] - (float)(j - 26) * 5.f - 25.f) / 5.f;
 			if (j >= 31)
 			{
 				fac = (model_2.zmdl[k - 1] - 50.f) / 20.f;
@@ -11746,8 +11745,8 @@ L900:
 		{
 			goto L48;
 		}
-		d__1 = (doublereal)(haz2 / haz1);
-		d__2 = (doublereal)fac;
+		d__1 = (double)(haz2 / haz1);
+		d__2 = (double)fac;
 		haze = haz1 * pow_dd(&d__1, &d__2);
 	L48:
 		if (model_2.cldamt[k - 1] > 0.f)
@@ -11784,10 +11783,10 @@ L900:
 	}
 	for (ii = 1; ii <= 5; ++ii)
 	{
-		s_copy(hhol + (ii - 1 << 2), ahahol + (ii + ihh * 5 - 6 << 2), (ftnlen)4, (ftnlen)4);
+		s_copy(hhol + (ii - 1 << 2), ahahol + (ii + ihh * 5 - 6 << 2), (long)4, (long)4);
 		if (card2_1.ivsa != 0)
 		{
-			s_copy(hhol + (ii - 1 << 2), ahlvsa + (ii - 1 << 2), (ftnlen)4, (ftnlen)4);
+			s_copy(hhol + (ii - 1 << 2), ahlvsa + (ii - 1 << 2), (long)4, (long)4);
 		}
 		/* L105: */
 	}
@@ -11797,7 +11796,7 @@ L900:
 		{
 			io___227.ciunit = ifil_1.ipr;
 			s_wsfe(&io___227);
-			do_fio(&c__5, hhol, (ftnlen)4);
+			do_fio(&c__5, hhol, (long)4);
 			e_wsfe();
 		}
 	}
@@ -11817,10 +11816,10 @@ L900:
 	{
 		for (ij = 1; ij <= 5; ++ij)
 		{
-			s_copy(ahol1 + (ij - 1 << 2), titl_2.blank, (ftnlen)4, (ftnlen)4);
-			s_copy(ahol2 + (ij - 1 << 2), titl_2.blank, (ftnlen)4, (ftnlen)4);
+			s_copy(ahol1 + (ij - 1 << 2), titl_2.blank, (long)4, (long)4);
+			s_copy(ahol2 + (ij - 1 << 2), titl_2.blank, (long)4, (long)4);
 			/* L52: */
-			s_copy(ahol3 + (ij - 1 << 2), titl_2.blank, (ftnlen)4, (ftnlen)4);
+			s_copy(ahol3 + (ij - 1 << 2), titl_2.blank, (long)4, (long)4);
 		}
 		ityaer = ity1[kk - 1];
 		if (ityaer <= 0)
@@ -11848,51 +11847,51 @@ L900:
 		ivul1 = ivl1[kk - 1];
 		for (ij = 1; ij <= 5; ++ij)
 		{
-			s_copy(ahol1 + (ij - 1 << 2), titl_2.hz + (ij + ityaer * 5 - 6 << 2), (ftnlen)4, (ftnlen)4);
+			s_copy(ahol1 + (ij - 1 << 2), titl_2.hz + (ij + ityaer * 5 - 6 << 2), (long)4, (long)4);
 			if (card2_1.ivsa == 1)
 			{
-				s_copy(ahol1 + (ij - 1 << 2), hhol + (ij - 1 << 2), (ftnlen)4,
-					   (ftnlen)4);
+				s_copy(ahol1 + (ij - 1 << 2), hhol + (ij - 1 << 2), (long)4,
+					   (long)4);
 			}
 			if (model_2.cldamt[kk - 1] > 0.f || model_2.rramt[kk - 1] > 0.f)
 			{
-				s_copy(ahol1 + (ij - 1 << 2), hhol + (ij - 1 << 2), (ftnlen)4,
-					   (ftnlen)4);
+				s_copy(ahol1 + (ij - 1 << 2), hhol + (ij - 1 << 2), (long)4,
+					   (long)4);
 			}
 			if (card2_1.ihaze == 0)
 			{
-				s_copy(ahol1 + (ij - 1 << 2), hhol + (ij - 1 << 2), (ftnlen)4,
-					   (ftnlen)4);
+				s_copy(ahol1 + (ij - 1 << 2), hhol + (ij - 1 << 2), (long)4,
+					   (long)4);
 			}
-			s_copy(ahol2 + (ij - 1 << 2), ahus + (ij - 1 << 2), (ftnlen)4, (ftnlen)4);
+			s_copy(ahol2 + (ij - 1 << 2), ahus + (ij - 1 << 2), (long)4, (long)4);
 			if (ahast[kk - 1] == 0.f)
 			{
-				s_copy(ahol2 + (ij - 1 << 2), ahol1 + (ij - 1 << 2), (ftnlen)4, (ftnlen)4);
+				s_copy(ahol2 + (ij - 1 << 2), ahol1 + (ij - 1 << 2), (long)4, (long)4);
 			}
 			if (model_2.cldamt[kk - 1] > 0.f || model_2.rramt[kk - 1] > 0.f)
 			{
-				s_copy(ahol2 + (ij - 1 << 2), hhol + (ij - 1 << 2), (ftnlen)4,
-					   (ftnlen)4);
+				s_copy(ahol2 + (ij - 1 << 2), hhol + (ij - 1 << 2), (long)4,
+					   (long)4);
 			}
 			/* L54: */
 			if (zgn[kk - 1] > 2.f)
 			{
-				s_copy(ahol3 + (ij - 1 << 2), titl_2.seasn + (ij + isea1 * 5 - 6 << 2), (ftnlen)4, (ftnlen)4);
+				s_copy(ahol3 + (ij - 1 << 2), titl_2.seasn + (ij + isea1 * 5 - 6 << 2), (long)4, (long)4);
 			}
 		}
 		/* L60: */
 		io___234.ciunit = ifil_1.ipr;
 		s_wsfe(&io___234);
-		do_fio(&c__1, (char *)&model_2.zmdl[kk - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&mdata_1.p[kk - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&mdata_1.t[kk - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&_BLNK__2.relhum[kk - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&mdata_1.wh[kk - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_2.cldamt[kk - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_2.rramt[kk - 1], (ftnlen)sizeof(real));
-		do_fio(&c__5, ahol1, (ftnlen)4);
-		do_fio(&c__5, ahol2, (ftnlen)4);
-		do_fio(&c__5, ahol3, (ftnlen)4);
+		do_fio(&c__1, (char *)&model_2.zmdl[kk - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&mdata_1.p[kk - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&mdata_1.t[kk - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&_BLNK__2.relhum[kk - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&mdata_1.wh[kk - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_2.cldamt[kk - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_2.rramt[kk - 1], (long)sizeof(float));
+		do_fio(&c__5, ahol1, (long)4);
+		do_fio(&c__5, ahol2, (long)4);
+		do_fio(&c__5, ahol3, (long)4);
 		e_wsfe();
 	}
 	return 0;
@@ -11913,14 +11912,14 @@ L900:
 							 ",f6.4)";
 
 	/* Builtin functions */
-	integer s_rsfe(cilist *), do_fio(integer *, char *, ftnlen), e_rsfe(void),
+	long s_rsfe(cilist *), do_fio(long *, char *, long), e_rsfe(void),
 		s_wsfe(cilist *), e_wsfe(void);
 
 	/* Local variables */
-	static integer i__, ik;
-	static real vx[47];
-	static integer ihc;
-	static real title[18];
+	static long i__, ik;
+	static float vx[47];
+	static long ihc;
+	static float title[18];
 
 	/* Fortran I/O blocks */
 	static cilist io___235 = {0, 0, 0, fmt_1200, 0};
@@ -11944,7 +11943,7 @@ L900:
 	s_rsfe(&io___235);
 	for (ik = 1; ik <= 4; ++ik)
 	{
-		do_fio(&c__1, (char *)&card2d_1.ireg[ik - 1], (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&card2d_1.ireg[ik - 1], (long)sizeof(long));
 	}
 	e_rsfe();
 #endif
@@ -11953,7 +11952,7 @@ L900:
 	for (ik = 1; ik <= 4; ++ik)
 	{
 
-		do_fio(&c__1, (char *)&card2d_1.ireg[ik - 1], (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&card2d_1.ireg[ik - 1], (long)sizeof(long));
 	}
 	e_wsfe();
 
@@ -11972,14 +11971,14 @@ L900:
 		io___239.ciunit = ifil_1.ird;
 
 		s_rsfe(&io___239);
-		do_fio(&c__1, (char *)&_BLNK__1.awccon[ihc - 1], (ftnlen)sizeof(real));
-		do_fio(&c__18, (char *)&title[0], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&_BLNK__1.awccon[ihc - 1], (long)sizeof(float));
+		do_fio(&c__18, (char *)&title[0], (long)sizeof(float));
 		e_rsfe();
 #endif
 		io___241.ciunit = ifil_1.ipr;
 		s_wsfe(&io___241);
-		do_fio(&c__1, (char *)&_BLNK__1.awccon[ihc - 1], (ftnlen)sizeof(real));
-		do_fio(&c__18, (char *)&title[0], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&_BLNK__1.awccon[ihc - 1], (long)sizeof(float));
+		do_fio(&c__18, (char *)&title[0], (long)sizeof(float));
 		e_wsfe();
 		io___242.ciunit = ifil_1.ipr;
 		s_wsfe(&io___242);
@@ -11994,10 +11993,10 @@ L900:
 		s_rsfe(&io___243);
 		for (i__ = 1; i__ <= 47; ++i__)
 		{
-			do_fio(&c__1, (char *)&vx[i__ - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.extc[ihc + i__ * 5 - 6], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.absc[ihc + i__ * 5 - 6], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.asym[ihc + i__ * 5 - 6], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&vx[i__ - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.extc[ihc + i__ * 5 - 6], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.absc[ihc + i__ * 5 - 6], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.asym[ihc + i__ * 5 - 6], (long)sizeof(float));
 		}
 		e_rsfe();
 #endif
@@ -12005,10 +12004,10 @@ L900:
 		s_wsfe(&io___246);
 		for (i__ = 1; i__ <= 47; ++i__)
 		{
-			do_fio(&c__1, (char *)&vx[i__ - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.extc[ihc + i__ * 5 - 6], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.absc[ihc + i__ * 5 - 6], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.asym[ihc + i__ * 5 - 6], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&vx[i__ - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.extc[ihc + i__ * 5 - 6], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.absc[ihc + i__ * 5 - 6], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.asym[ihc + i__ * 5 - 6], (long)sizeof(float));
 		}
 		e_wsfe();
 	L1300:;
@@ -12020,10 +12019,10 @@ L900:
 {
 	/* Initialized data */
 
-	static real camean[5] = {11.f, 10.f, 8.f, 7.f, 5.f};
+	static float camean[5] = {11.f, 10.f, 8.f, 7.f, 5.f};
 	static struct
 	{
-		real e_1[10];
+		float e_1[10];
 	} equiv_1 = {7.5f, 7.3f, 4.5f, 4.5f, 2.5f, 16.5f, 13.5f, 14.f, 9.5f,
 				 10.f};
 
@@ -12039,14 +12038,14 @@ L900:
 	static char fmt_1226[] = "(15x,\002CIRRUS PROFILE EXTINCT \002,f10.3)";
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), e_wsfe(void), do_fio(integer *, char *, ftnlen);
+	long s_wsfe(cilist *), e_wsfe(void), do_fio(long *, char *, long);
 
 	/* Local variables */
-	static integer mdl;
-	static real hmax;
-#define cbase ((real *)&equiv_1)
-#define cbase1 ((real *)&equiv_1)
-#define cbase2 ((real *)&equiv_1 + 5)
+	static long mdl;
+	static float hmax;
+#define cbase ((float *)&equiv_1)
+#define cbase1 ((float *)&equiv_1)
+#define cbase2 ((float *)&equiv_1 + 5)
 
 	/* Fortran I/O blocks */
 	static cilist io___255 = {0, 0, 0, fmt_1219, 0};
@@ -12136,15 +12135,15 @@ L27:
 	}
 	io___257.ciunit = ifil_1.ipr;
 	s_wsfe(&io___257);
-	do_fio(&c__1, (char *)&card2a_1.cthik, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card2a_1.cthik, (long)sizeof(float));
 	e_wsfe();
 	io___258.ciunit = ifil_1.ipr;
 	s_wsfe(&io___258);
-	do_fio(&c__1, (char *)&card2a_1.calt, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card2a_1.calt, (long)sizeof(float));
 	e_wsfe();
 	io___259.ciunit = ifil_1.ipr;
 	s_wsfe(&io___259);
-	do_fio(&c__1, (char *)&card2a_1.cext, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&card2a_1.cext, (long)sizeof(float));
 	e_wsfe();
 	/*                                                                       C18  900 */
 	/*       END OF CIRRUS MODEL SET UP                                      C18  910 */
@@ -12155,12 +12154,12 @@ L27:
 #undef cbase1
 #undef cbase
 
-/* Subroutine */ int desatt_(real *wspd, real *vis)
+/* Subroutine */ int desatt_(float *wspd, float *vis)
 {
 	/* Initialized data */
 
-	static real wind[4] = {0.f, 10.f, 20.f, 30.f};
-	static real raysct = .01159f;
+	static float wind[4] = {0.f, 10.f, 20.f, 30.f};
+	static float raysct = .01159f;
 
 	/* Format strings */
 	static char fmt_999[] = "(\002 WARNING: WIND SPEED IS BEYOND 30 M/S; RAD"
@@ -12170,16 +12169,16 @@ L27:
 							".3)";
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), e_wsfe(void);
-	double log(doublereal), exp(doublereal);
-	integer do_fio(integer *, char *, ftnlen);
+	long s_wsfe(cilist *), e_wsfe(void);
+	double log(double), exp(double);
+	long do_fio(long *, char *, long);
 
 	/* Local variables */
-	static real b, desg[47], ext55;
-	static integer wavel;
-	static real slope;
-	static integer nwspd;
-	static real desabs[47], dessca[47], desext[47];
+	static float b, desg[47], ext55;
+	static long wavel;
+	static float slope;
+	static long nwspd;
+	static float desabs[47], dessca[47], desext[47];
 
 	/* Fortran I/O blocks */
 	static cilist io___263 = {0, 6, 0, fmt_999, 0};
@@ -12213,7 +12212,7 @@ L27:
 		*wspd = 10.f;
 	}
 	/*                                                                       DES  440 */
-	nwspd = (integer)(*wspd / 10) + 1;
+	nwspd = (long)(*wspd / 10) + 1;
 	if (nwspd >= 5)
 	{
 		s_wsfe(&io___263);
@@ -12280,8 +12279,8 @@ L27:
 		/* L200: */
 	}
 	s_wsfe(&io___272);
-	do_fio(&c__1, (char *)&(*vis), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*wspd), (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&(*vis), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*wspd), (long)sizeof(float));
 	e_wsfe();
 	return 0;
 	/*                                                                       DES 1000 */
@@ -12315,30 +12314,30 @@ L27:
 /*     ASYMMETRY PARAMETER                                               DST 1050 */
 /*                                                                       DST 1060 */
 
-/* Subroutine */ int flayz_(integer *ml, integer *model, integer *icld, real *zmdl, real *gndalt, integer *ivsa)
+/* Subroutine */ int flayz_(long *ml, long *model, long *icld, float *zmdl, float *gndalt, long *ivsa)
 {
 	/* Initialized data */
 
-	static real zcld[16] = {0.f, .16f, .33f, .66f, 1.f, 1.5f, 2.f, 2.4f, 2.7f, 3.f,
-							3.5f, 4.f, 4.5f, 5.f, 5.5f, 6.f};
-	static real znewv[24] = {1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f,
-							 12.f, 14.f, 16.f, 18.f, 20.f, 22.f, 25.f, 30.f, 35.f, 40.f, 50.f, 70.f, 100.f};
-	static real znew[17] = {7.f, 8.f, 9.f, 10.f, 12.f, 14.f, 16.f, 18.f, 20.f, 22.f,
-							25.f, 30.f, 35.f, 40.f, 50.f, 70.f, 100.f};
-	static real zaer[34] = {0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f,
-							11.f, 12.f, 13.f, 14.f, 15.f, 16.f, 17.f, 18.f, 19.f, 20.f, 21.f, 22.f, 23.f,
-							24.f, 25.f, 30.f, 35.f, 40.f, 45.f, 50.f, 70.f, 100.f, 1e3f};
+	static float zcld[16] = {0.f, .16f, .33f, .66f, 1.f, 1.5f, 2.f, 2.4f, 2.7f, 3.f,
+							 3.5f, 4.f, 4.5f, 5.f, 5.5f, 6.f};
+	static float znewv[24] = {1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f, 11.f,
+							  12.f, 14.f, 16.f, 18.f, 20.f, 22.f, 25.f, 30.f, 35.f, 40.f, 50.f, 70.f, 100.f};
+	static float znew[17] = {7.f, 8.f, 9.f, 10.f, 12.f, 14.f, 16.f, 18.f, 20.f, 22.f,
+							 25.f, 30.f, 35.f, 40.f, 50.f, 70.f, 100.f};
+	static float zaer[34] = {0.f, 1.f, 2.f, 3.f, 4.f, 5.f, 6.f, 7.f, 8.f, 9.f, 10.f,
+							 11.f, 12.f, 13.f, 14.f, 15.f, 16.f, 17.f, 18.f, 19.f, 20.f, 21.f, 22.f, 23.f,
+							 24.f, 25.f, 30.f, 35.f, 40.f, 45.f, 50.f, 70.f, 100.f, 1e3f};
 
 	/* System generated locals */
-	integer i__1;
+	long i__1;
 
 	/* Local variables */
-	static integer i__, j, k, ii, ij, ik, il, ml1;
-	static real zk1, zst[34], cld0, cld1, cld2, cld3, cldd;
-	static integer mdel;
-	static real dalt;
-	static integer ijii;
-	static real hmxvsa;
+	static long i__, j, k, ii, ij, ik, il, ml1;
+	static float zk1, zst[34], cld0, cld1, cld2, cld3, cldd;
+	static long mdel;
+	static float dalt;
+	static long ijii;
+	static float hmxvsa;
 
 	/*                                                                       FLA  110 */
 	/*     SUBROUTINE TO CREATE FINAL LOWTRAN BOUNDARIES                     FLA  120 */
@@ -12437,7 +12436,7 @@ L12:
 	for (i__ = 1; i__ <= 6; ++i__)
 	{
 		/* L15: */
-		zmdl[i__] = (real)(i__ - 1) * dalt + *gndalt;
+		zmdl[i__] = (float)(i__ - 1) * dalt + *gndalt;
 	}
 L90:
 	if (*icld == 18 || *icld == 19)
@@ -12528,7 +12527,7 @@ L600:
 	return 0;
 } /* flayz_ */
 
-/* Subroutine */ int convrt_(real *p, real *t)
+/* Subroutine */ int convrt_(float *p, float *t)
 {
 
 	/* Format strings */
@@ -12536,16 +12535,16 @@ L600:
 							" \002,i5)";
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void);
-	/* Subroutine */ int s_stop(char *, ftnlen);
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void);
+	/* Subroutine */ int s_stop(char *, long);
 
 	/* Local variables */
-	static real b;
-	static integer k;
-	static real r__, wtem, wmol;
-	static integer junit;
-	static real rhoair;
-	extern /* Subroutine */ int watvap_(real *, real *);
+	static float b;
+	static long k;
+	static float r__, wtem, wmol;
+	static long junit;
+	static float rhoair;
+	extern /* Subroutine */ int watvap_(float *, float *);
 
 	/* Fortran I/O blocks */
 	static cilist io___307 = {0, 0, 0, fmt_951, 0};
@@ -12642,20 +12641,20 @@ L600:
 L299:
 	io___307.ciunit = ifil_1.ipr;
 	s_wsfe(&io___307);
-	do_fio(&c__1, (char *)&junit, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&junit, (long)sizeof(long));
 	e_wsfe();
-	s_stop("", (ftnlen)0);
+	s_stop("", (long)0);
 	return 0;
 } /* convrt_ */
 
-/* Subroutine */ int watvap_(real *p, real *t)
+/* Subroutine */ int watvap_(float *p, float *t)
 {
 	/* Initialized data */
 
-	static real c1 = 18.9766f;
-	static real c2 = -14.9595f;
-	static real c3 = -2.43882f;
-	static real xlosch = 2.6868e19f;
+	static float c1 = 18.9766f;
+	static float c2 = -14.9595f;
+	static float c3 = -2.43882f;
+	static float xlosch = 2.6868e19f;
 
 	/* Format strings */
 	static char fmt_951[] = "(/,\002  **** ERROR IN WATVAP ****, JUNIT = "
@@ -12664,17 +12663,17 @@ L299:
 						   " HUMIDTY = \002,g10.3,\002 IS GREATER THAN 100 PERCENT\002)";
 
 	/* System generated locals */
-	real r__1;
+	float r__1;
 
 	/* Builtin functions */
-	double exp(doublereal);
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void);
-	/* Subroutine */ int s_stop(char *, ftnlen);
+	double exp(double);
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void);
+	/* Subroutine */ int s_stop(char *, long);
 
 	/* Local variables */
-	static real a, b, r__, atd, rhp, pss, wtem, wmol, denst;
-	static integer junit;
-	static real rhoair, dennum;
+	static float a, b, r__, atd, rhp, pss, wtem, wmol, denst;
+	static long junit;
+	static float rhoair, dennum;
 
 	/* Fortran I/O blocks */
 	static cilist io___321 = {0, 0, 0, fmt_951, 0};
@@ -12810,9 +12809,9 @@ L170:
 L199:
 	io___321.ciunit = ifil_1.ipr;
 	s_wsfe(&io___321);
-	do_fio(&c__1, (char *)&junit, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&junit, (long)sizeof(long));
 	e_wsfe();
-	s_stop("JUNIT", (ftnlen)5);
+	s_stop("JUNIT", (long)5);
 L200:
 	card1b_3.wmol1[0] = card1b_3.wmol1[0] * 2.989e-23f * card1b_3.wair;
 	/* Computing 2nd power */
@@ -12828,7 +12827,7 @@ L200:
 	}
 	io___325.ciunit = ifil_1.ipr;
 	s_wsfe(&io___325);
-	do_fio(&c__1, (char *)&rhp, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&rhp, (long)sizeof(float));
 	e_wsfe();
 L230:
 	return 0;
@@ -12853,18 +12852,18 @@ L230:
 {
 	/* Initialized data */
 
-	static real pzero = 1013.25f;
-	static real tzero = 273.15f;
-	static real xlosch = 2.6868e24f;
-	static real rv = .0046152f;
-	static real con = 3.3429e21f;
-	static real a0 = 83.42f;
-	static real a1 = 185.08f;
-	static real a2 = 4.11f;
-	static real b1 = 1.14e5f;
-	static real b2 = 62400.f;
-	static real c0 = 43.49f;
-	static real c1 = 1.7e4f;
+	static float pzero = 1013.25f;
+	static float tzero = 273.15f;
+	static float xlosch = 2.6868e24f;
+	static float rv = .0046152f;
+	static float con = 3.3429e21f;
+	static float a0 = 83.42f;
+	static float a1 = 185.08f;
+	static float a2 = 4.11f;
+	static float b1 = 1.14e5f;
+	static float b2 = 62400.f;
+	static float c0 = 43.49f;
+	static float c1 = 1.7e4f;
 
 	/* Format strings */
 	static char fmt_910[] = "(\0021\002,/,\002  ATMOSPHERIC PROFILES\002,//,"
@@ -12895,17 +12894,17 @@ L230:
 	static char fmt_906[] = "(i4,0pf9.2,f9.3,f7.1,1x,1p11e9.2)";
 
 	/* System generated locals */
-	integer i__1;
-	real r__1, r__2, r__3;
-	doublereal d__1, d__2;
+	long i__1;
+	float r__1, r__2, r__3;
+	double d__1, d__2;
 
 	/* Builtin functions */
-	double sqrt(doublereal), log(doublereal), pow_dd(doublereal *, doublereal *);
-	integer s_wsfe(cilist *), e_wsfe(void), do_fio(integer *, char *, ftnlen);
+	double sqrt(double), log(double), pow_dd(double *, double *);
+	long s_wsfe(cilist *), e_wsfe(void), do_fio(long *, char *, long);
 
 	/* Local variables */
-	static integer i__, k;
-	static real f1, f2, dt, pp, tt, ts, avw, pss, ppw, tss, wo2d, relh, cono2,
+	static long i__, k;
+	static float f1, f2, dt, pp, tt, ts, avw, pss, ppw, tss, wo2d, relh, cono2,
 		cono3, conco, rhlog, conno, wtemp, conch4, conco2, conh2o,
 		connh3, conn2o, conno2, rhoh2o, conso2, conjoe, rhoair, rhofrn,
 		rhzero;
@@ -13029,7 +13028,7 @@ L230:
 		model_1.densty[i__ * 63 - 2] = 0.f;
 		if (model_1.rramt[i__ - 1] != 0.f)
 		{
-			d__1 = (doublereal)model_1.rramt[i__ - 1];
+			d__1 = (double)model_1.rramt[i__ - 1];
 			model_1.densty[i__ * 63 - 61] = pow_dd(&d__1, &c_b749);
 			model_1.densty[i__ * 63 - 3] = model_1.densty[i__ * 63 - 61] *
 										   mdata_1.t[i__ - 1];
@@ -13043,188 +13042,188 @@ L230:
 		}
 		/*  --- FOR H2O -----                                                    STD 1350 */
 		conh2o = mdata_1.wh[i__ - 1] * .1f;
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 47] = conh2o * pow_dd(&d__1, &c_b750) *
 										pow_dd(&d__2, &c_b751);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 46] = conh2o * pow_dd(&d__1, &c_b752) *
 										pow_dd(&d__2, &c_b753);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 45] = conh2o * pow_dd(&d__1, &c_b754) *
 										pow_dd(&d__2, &c_b755);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 44] = conh2o * pow_dd(&d__1, &c_b756) *
 										pow_dd(&d__2, &c_b757);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 43] = conh2o * pow_dd(&d__1, &c_b758) *
 										pow_dd(&d__2, &c_b759);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 42] = conh2o * pow_dd(&d__1, &c_b760) *
 										pow_dd(&d__2, &c_b761);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 41] = conh2o * pow_dd(&d__1, &c_b762) *
 										pow_dd(&d__2, &c_b763);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 40] = conh2o * pow_dd(&d__1, &c_b764) *
 										pow_dd(&d__2, &c_b765);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 39] = conh2o * pow_dd(&d__1, &c_b766) *
 										pow_dd(&d__2, &c_b767);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 38] = conh2o * pow_dd(&d__1, &c_b768) *
 										pow_dd(&d__2, &c_b769);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 37] = conh2o * pow_dd(&d__1, &c_b770) *
 										pow_dd(&d__2, &c_b771);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 36] = conh2o * pow_dd(&d__1, &c_b772) *
 										pow_dd(&d__2, &c_b773);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 35] = conh2o * pow_dd(&d__1, &c_b774) *
 										pow_dd(&d__2, &c_b775);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 34] = conh2o * pow_dd(&d__1, &c_b776) *
 										pow_dd(&d__2, &c_b777);
 		/*  --- FOR O3                                                           STD 1510 */
 		cono3 = conjoe * mdata1_1.wair[i__ - 1] * mdata_1.wo[i__ - 1];
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 33] = cono3 * pow_dd(&d__1, &c_b778) *
 										pow_dd(&d__2, &c_b779);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 32] = cono3 * pow_dd(&d__1, &c_b780) *
 										pow_dd(&d__2, &c_b781);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 31] = cono3 * pow_dd(&d__1, &c_b782) *
 										pow_dd(&d__2, &c_b783);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 30] = cono3 * pow_dd(&d__1, &c_b784) *
 										pow_dd(&d__2, &c_b785);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 29] = cono3 * pow_dd(&d__1, &c_b786) *
 										pow_dd(&d__2, &c_b787);
 		/*  --- FOR CO2                                                          STD 1580 */
 		conco2 = conjoe * mdata1_1.wair[i__ - 1] * mdata_1.wco2[i__ - 1];
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 28] = conco2 * pow_dd(&d__1, &c_b788) *
 										pow_dd(&d__2, &c_b789);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 27] = conco2 * pow_dd(&d__1, &c_b790) *
 										pow_dd(&d__2, &c_b791);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 26] = conco2 * pow_dd(&d__1, &c_b792) *
 										pow_dd(&d__2, &c_b793);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 25] = conco2 * pow_dd(&d__1, &c_b794) *
 										pow_dd(&d__2, &c_b795);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 24] = conco2 * pow_dd(&d__1, &c_b796) *
 										pow_dd(&d__2, &c_b797);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 23] = conco2 * pow_dd(&d__1, &c_b798) *
 										pow_dd(&d__2, &c_b799);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 22] = conco2 * pow_dd(&d__1, &c_b800) *
 										pow_dd(&d__2, &c_b801);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 21] = conco2 * pow_dd(&d__1, &c_b802) *
 										pow_dd(&d__2, &c_b803);
 		/*  --- FOR CO                                                           STD 1680 */
 		conco = conjoe * mdata1_1.wair[i__ - 1] * mdata_1.wco[i__ - 1];
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 20] = conco * pow_dd(&d__1, &c_b804) *
 										pow_dd(&d__2, &c_b805);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 19] = conco * pow_dd(&d__1, &c_b806) *
 										pow_dd(&d__2, &c_b807);
 		/*  --- FOR CH4                                                          STD 1720 */
 		conch4 = conjoe * mdata1_1.wair[i__ - 1] * mdata_1.wch4[i__ - 1];
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 18] = conch4 * pow_dd(&d__1, &c_b808) *
 										pow_dd(&d__2, &c_b809);
 		/*  --- FOR N2O                                                          STD 1750 */
 		conn2o = conjoe * mdata1_1.wair[i__ - 1] * mdata_1.wn2o[i__ - 1];
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 17] = conn2o * pow_dd(&d__1, &c_b810) *
 										pow_dd(&d__2, &c_b811);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 16] = conn2o * pow_dd(&d__1, &c_b812) *
 										pow_dd(&d__2, &c_b813);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 15] = conn2o * pow_dd(&d__1, &c_b814) *
 										pow_dd(&d__2, &c_b815);
 		/*  --- FOR O2                                                           STD 1800 */
 		cono2 = conjoe * mdata1_1.wair[i__ - 1] * mdata_1.wo2[i__ - 1];
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 14] = cono2 * pow_dd(&d__1, &c_b816) *
 										pow_dd(&d__2, &c_b817);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 13] = cono2 * pow_dd(&d__1, &c_b818) *
 										pow_dd(&d__2, &c_b819);
 		/*  --- FOR NH3                                                          STD 1840 */
 		connh3 = conjoe * mdata1_1.wair[i__ - 1] * mdata1_1.wnh3[i__ - 1];
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 12] = connh3 * pow_dd(&d__1, &c_b820) *
 										pow_dd(&d__2, &c_b821);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 11] = connh3 * pow_dd(&d__1, &c_b822) *
 										pow_dd(&d__2, &c_b823);
 		/*  --- FOR NO                                                           STD 1880 */
 		conno = conjoe * mdata1_1.wair[i__ - 1] * mdata1_1.wno[i__ - 1];
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 10] = conno * pow_dd(&d__1, &c_b824) *
 										pow_dd(&d__2, &c_b825);
 		/*  --- FOR NO2                                                          STD 1910 */
 		conno2 = conjoe * mdata1_1.wair[i__ - 1] * mdata1_1.wno2[i__ - 1];
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 9] = conno2 * pow_dd(&d__1, &c_b826) *
 									   pow_dd(&d__2, &c_b827);
 		/*  --- FOR SO2                                                          STD 1940 */
 		conso2 = conjoe * mdata1_1.wair[i__ - 1] * mdata1_1.wso2[i__ - 1];
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 8] = conso2 * pow_dd(&d__1, &c_b828) *
 									   pow_dd(&d__2, &c_b829);
-		d__1 = (doublereal)pss;
-		d__2 = (doublereal)tss;
+		d__1 = (double)pss;
+		d__2 = (double)tss;
 		model_1.densty[i__ * 63 - 7] = conso2 * pow_dd(&d__1, &c_b830) *
 									   pow_dd(&d__2, &c_b831);
 		/* ***********************************************************************STD 1980 */
@@ -13266,17 +13265,17 @@ L230:
 	{
 		io___370.ciunit = ifil_1.ipr;
 		s_wsfe(&io___370);
-		do_fio(&c__1, (char *)&i__, (ftnlen)sizeof(integer));
-		do_fio(&c__1, (char *)&model_1.zm[i__ - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.pm[i__ - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.tm[i__ - 1], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&i__, (long)sizeof(long));
+		do_fio(&c__1, (char *)&model_1.zm[i__ - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.pm[i__ - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.tm[i__ - 1], (long)sizeof(float));
 		for (k = 4; k <= 6; ++k)
 		{
-			do_fio(&c__1, (char *)&model_1.densty[k + i__ * 63 - 64], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&model_1.densty[k + i__ * 63 - 64], (long)sizeof(float));
 		}
-		do_fio(&c__1, (char *)&model_1.rfndx[i__ - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 56], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 6], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&model_1.rfndx[i__ - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 56], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 6], (long)sizeof(float));
 		e_wsfe();
 		/* L30: */
 	}
@@ -13288,21 +13287,21 @@ L230:
 	{
 		io___373.ciunit = ifil_1.ipr;
 		s_wsfe(&io___373);
-		do_fio(&c__1, (char *)&i__, (ftnlen)sizeof(integer));
-		do_fio(&c__1, (char *)&model_1.zm[i__ - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.pm[i__ - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.tm[i__ - 1], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&i__, (long)sizeof(long));
+		do_fio(&c__1, (char *)&model_1.zm[i__ - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.pm[i__ - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.tm[i__ - 1], (long)sizeof(float));
 		for (k = 10; k <= 11; ++k)
 		{
-			do_fio(&c__1, (char *)&model_1.densty[k + i__ * 63 - 64], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&model_1.densty[k + i__ * 63 - 64], (long)sizeof(float));
 		}
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 57], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 52], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 51], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 50], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 49], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 48], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&_BLNK__1.relhum[i__ - 1], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 57], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 52], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 51], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 50], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 49], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 48], (long)sizeof(float));
+		do_fio(&c__1, (char *)&_BLNK__1.relhum[i__ - 1], (long)sizeof(float));
 		e_wsfe();
 		/* L35: */
 	}
@@ -13314,21 +13313,21 @@ L230:
 	{
 		io___375.ciunit = ifil_1.ipr;
 		s_wsfe(&io___375);
-		do_fio(&c__1, (char *)&i__, (ftnlen)sizeof(integer));
-		do_fio(&c__1, (char *)&model_1.zm[i__ - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.pm[i__ - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.tm[i__ - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 47], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 33], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 28], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 20], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 18], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 17], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 14], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 12], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 10], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 9], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 8], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&i__, (long)sizeof(long));
+		do_fio(&c__1, (char *)&model_1.zm[i__ - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.pm[i__ - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.tm[i__ - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 47], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 33], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 28], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 20], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 18], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 17], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 14], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 12], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 10], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 9], (long)sizeof(float));
+		do_fio(&c__1, (char *)&model_1.densty[i__ * 63 - 8], (long)sizeof(float));
 		e_wsfe();
 		/* L39: */
 	}
@@ -13336,23 +13335,23 @@ L40:
 	return 0;
 } /* stdmdl_ */
 
-/* Subroutine */ int laycld_(integer *k, real *cldatz, real *rratz, integer *icld1, real *gndalt, real *rainrt)
+/* Subroutine */ int laycld_(long *k, float *cldatz, float *rratz, long *icld1, float *gndalt, float *rainrt)
 {
 	/* Initialized data */
 
-	static real zcld[16] = {0.f, .16f, .33f, .66f, 1.f, 1.5f, 2.f, 2.4f, 2.7f, 3.f,
-							3.5f, 4.f, 4.5f, 5.f, 5.5f, 6.f};
-	static real cldtp = 6.0001f;
-	static real delz = .02f;
+	static float zcld[16] = {0.f, .16f, .33f, .66f, 1.f, 1.5f, 2.f, 2.4f, 2.7f, 3.f,
+							 3.5f, 4.f, 4.5f, 5.f, 5.5f, 6.f};
+	static float cldtp = 6.0001f;
+	static float delz = .02f;
 
 	/* System generated locals */
-	real r__1;
+	float r__1;
 
 	/* Local variables */
-	static integer mc, mk, mr;
-	static real zk, fac;
-	static integer icld;
-	static real zdif;
+	static long mc, mk, mr;
+	static float zk, fac;
+	static long icld;
+	static float zdif;
 
 	/*                                                                       LAY  110 */
 	/*      THIS SUBROUTINE RESTRUCTURES THE ATMOSPHERIC PROFILE             LAY  120 */
@@ -13473,8 +13472,8 @@ L30:
 	/*     RETURN                                                            LAY  850 */
 } /* laycld_ */
 
-/* Subroutine */ int layvsa_(integer *k, real *rh, real *ahaze, integer *iha1,
-							 real *znew)
+/* Subroutine */ int layvsa_(long *k, float *rh, float *ahaze, long *iha1,
+							 float *znew)
 {
 	/*                                                                       LVS  110 */
 	/*     RETURNS HAZE FOR VSA OPTION                                       LVS  120 */
@@ -13503,7 +13502,7 @@ L30:
 	return 0;
 } /* layvsa_ */
 
-integer jou_(char *char__, ftnlen char_len)
+long jou_(char *char__, long char_len)
 {
 	/* Initialized data */
 
@@ -13529,21 +13528,21 @@ integer jou_(char *char__, ftnlen char_len)
 								  'I',
 								  'J',
 								  'K'};
-	static integer indx1[22] = {1, 2, 3, 4, 5, 6, 0, 0, 0, 0, 10, 10, 11, 12, 13, 14, 15, 16,
-								17, 18, 19, 20};
+	static long indx1[22] = {1, 2, 3, 4, 5, 6, 0, 0, 0, 0, 10, 10, 11, 12, 13, 14, 15, 16,
+							 17, 18, 19, 20};
 
 	/* Format strings */
 	static char fmt_910[] = "(\0020 INVALID PARAMETER :\002,2x,a1)";
 
 	/* System generated locals */
-	integer ret_val;
+	long ret_val;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void);
-	/* Subroutine */ int s_stop(char *, ftnlen);
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void);
+	/* Subroutine */ int s_stop(char *, long);
 
 	/* Local variables */
-	static integer i__, indx;
+	static long i__, indx;
 
 	/* Fortran I/O blocks */
 	static cilist io___390 = {0, 0, 0, fmt_910, 0};
@@ -13566,25 +13565,25 @@ L110:
 	{
 		io___390.ciunit = ifil_2.ipr;
 		s_wsfe(&io___390);
-		do_fio(&c__1, char__, (ftnlen)1);
+		do_fio(&c__1, char__, (long)1);
 		e_wsfe();
-		s_stop(" JOU: BAD PARAM ", (ftnlen)16);
+		s_stop(" JOU: BAD PARAM ", (long)16);
 	}
 	/* L920: */
 	ret_val = indx;
 	return ret_val;
 } /* jou_ */
 
-/* Subroutine */ int check_(real *v, integer *iv, integer *key)
+/* Subroutine */ int check_(float *v, long *iv, long *key)
 {
 	/* Initialized data */
 
-	static real pmb = 1013.25f;
-	static real ptorr = 760.f;
-	static real degk = 273.15f;
+	static float pmb = 1013.25f;
+	static float ptorr = 760.f;
+	static float degk = 273.15f;
 
 	/* Builtin functions */
-	/* Subroutine */ int s_stop(char *, ftnlen);
+	/* Subroutine */ int s_stop(char *, long);
 
 	/*                                                                       CHE  110 */
 	/*      UNITS CONVERSION FOR P AND T                                     CHE  120 */
@@ -13618,7 +13617,7 @@ L100:
 	{
 		goto L120;
 	}
-	s_stop("CHECK(P)", (ftnlen)8);
+	s_stop("CHECK(P)", (long)8);
 L110:
 	*v *= pmb;
 	return 0;
@@ -13631,7 +13630,7 @@ L120:
 L200:
 	if (*iv > 11)
 	{
-		s_stop("CHECK(T)", (ftnlen)8);
+		s_stop("CHECK(T)", (long)8);
 	}
 	*v += degk;
 	return 0;
@@ -13647,7 +13646,7 @@ L300:
 	{
 		goto L320;
 	}
-	s_stop("CHECK(R)", (ftnlen)8);
+	s_stop("CHECK(R)", (long)8);
 L310:
 	*v /= 1e3f;
 	return 0;
@@ -13656,19 +13655,19 @@ L320:
 	return 0;
 } /* check_ */
 
-/* Subroutine */ int vsansm_(integer *k, real *ahaze, integer *iha1)
+/* Subroutine */ int vsansm_(long *k, float *ahaze, long *iha1)
 {
 	/* System generated locals */
-	doublereal d__1, d__2;
+	double d__1, d__2;
 
 	/* Builtin functions */
-	double pow_dd(doublereal *, doublereal *);
+	double pow_dd(double *, double *);
 
 	/* Local variables */
-	static integer j, jl, km, kn, jp;
-	static real dz, fac, dif;
-	static integer jml, jls;
-	static real dlin, wmol[13];
+	static long j, jl, km, kn, jp;
+	static float dz, fac, dif;
+	static long jml, jls;
+	static float dlin, wmol[13];
 
 	/*                                                                       VSA  220 */
 	/*                                                                       VSA  280 */
@@ -13737,23 +13736,23 @@ L115:
 	fac = (zvsaly_1.zvsa[kn - 1] - nsinp_1.zmdl[jl - 1]) / dif;
 	if (nsinp_1.pm[jp - 1] > 0.f && nsinp_1.pm[jl - 1] > 0.f)
 	{
-		d__1 = (doublereal)(nsinp_1.pm[jp - 1] / nsinp_1.pm[jl - 1]);
-		d__2 = (doublereal)fac;
+		d__1 = (double)(nsinp_1.pm[jp - 1] / nsinp_1.pm[jl - 1]);
+		d__2 = (double)fac;
 		mdata_1.p[*k - 1] = nsinp_1.pm[jl - 1] * pow_dd(&d__1, &d__2);
 	}
 	if (nsinp_1.tm[jp - 1] > 0.f && nsinp_1.tm[jl - 1] > 0.f)
 	{
-		d__1 = (doublereal)(nsinp_1.tm[jp - 1] / nsinp_1.tm[jl - 1]);
-		d__2 = (doublereal)fac;
+		d__1 = (double)(nsinp_1.tm[jp - 1] / nsinp_1.tm[jl - 1]);
+		d__2 = (double)fac;
 		mdata_1.t[*k - 1] = nsinp_1.tm[jl - 1] * pow_dd(&d__1, &d__2);
 	}
 	for (km = 1; km <= 13; ++km)
 	{
 		if (nsinp_1.wmdl[jp + km * 40 - 41] > 0.f && nsinp_1.wmdl[jl + km * 40 - 41] > 0.f)
 		{
-			d__1 = (doublereal)(nsinp_1.wmdl[jl + km * 40 - 41] *
-								nsinp_1.wmdl[jp + km * 40 - 41] / nsinp_1.wmdl[jl + km * 40 - 41]);
-			d__2 = (doublereal)fac;
+			d__1 = (double)(nsinp_1.wmdl[jl + km * 40 - 41] *
+							nsinp_1.wmdl[jp + km * 40 - 41] / nsinp_1.wmdl[jl + km * 40 - 41]);
+			d__2 = (double)fac;
 			wmol[km - 1] = pow_dd(&d__1, &d__2);
 		}
 		/* L130: */
@@ -13824,24 +13823,24 @@ L140:
 	static char fmt_82[] = "(10x,3f10.3,4i5)";
 
 	/* System generated locals */
-	integer i__1;
+	long i__1;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void),
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void),
 		s_rsfe(cilist *), e_rsfe(void);
 
 	/* Local variables */
-	static integer k, km;
-	extern integer jou_(char *, ftnlen);
-	static integer iha1, ird0, icld1, isea1, ivul1;
-	extern /* Subroutine */ int check_(real *, integer *, integer *);
+	static long k, km;
+	extern long jou_(char *, long);
+	static long iha1, ird0, icld1, isea1, ivul1;
+	extern /* Subroutine */ int check_(float *, long *, long *);
 	static char jchar[1 * 15];
-	static real ahaze;
-	static integer iconv;
-	static real rratz;
-	extern /* Subroutine */ int defalt_(real *, real *, real *);
-	static real eqlwcz;
-	extern /* Subroutine */ int convrt_(real *, real *);
+	static float ahaze;
+	static long iconv;
+	static float rratz;
+	extern /* Subroutine */ int defalt_(float *, float *, float *);
+	static float eqlwcz;
+	extern /* Subroutine */ int convrt_(float *, float *);
 
 	/* Fortran I/O blocks */
 	static cilist io___406 = {0, 0, 0, fmt_900, 0};
@@ -13859,7 +13858,7 @@ L140:
 	{
 		io___406.ciunit = ifil_1.ipr;
 		s_wsfe(&io___406);
-		do_fio(&c__1, (char *)&cntrl_1.ml, (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&cntrl_1.ml, (long)sizeof(long));
 		e_wsfe();
 		cntrl_1.ml = 24;
 	}
@@ -13879,7 +13878,7 @@ L140:
 		}
 		ird0 = 1;
 		iconv = 1;
-		if ((real)card1_2.model > 0.f && card1_2.model < 7)
+		if ((float)card1_2.model > 0.f && card1_2.model < 7)
 		{
 			ird0 = 0;
 		}
@@ -13948,30 +13947,30 @@ L140:
 #ifdef DO_FIO
 		io___412.ciunit = ifil_1.ird;
 		s_rsfe(&io___412);
-		do_fio(&c__1, (char *)&nsinp_2.zmdl[k - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&nsinp_2.p[k - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&nsinp_2.t[k - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card1b_1.wmol[0], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card1b_1.wmol[1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card1b_1.wmol[2], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&nsinp_2.zmdl[k - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&nsinp_2.p[k - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&nsinp_2.t[k - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&card1b_1.wmol[0], (long)sizeof(float));
+		do_fio(&c__1, (char *)&card1b_1.wmol[1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&card1b_1.wmol[2], (long)sizeof(float));
 		for (km = 1; km <= 15; ++km)
 		{
-			do_fio(&c__1, jchar + (km - 1), (ftnlen)1);
+			do_fio(&c__1, jchar + (km - 1), (long)1);
 		}
 		e_rsfe();
 #endif
 		io___413.ciunit = ifil_1.ipr;
 		s_wsfe(&io___413);
-		do_fio(&c__1, (char *)&nsinp_2.zmdl[k - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&nsinp_2.p[k - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&nsinp_2.t[k - 1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card1b_1.wmol[0], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card1b_1.wmol[1], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card1b_1.wmol[2], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&nsinp_2.zmdl[k - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&nsinp_2.p[k - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&nsinp_2.t[k - 1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&card1b_1.wmol[0], (long)sizeof(float));
+		do_fio(&c__1, (char *)&card1b_1.wmol[1], (long)sizeof(float));
+		do_fio(&c__1, (char *)&card1b_1.wmol[2], (long)sizeof(float));
 
 		for (km = 1; km <= 15; ++km)
 		{
-			do_fio(&c__1, jchar + (km - 1), (ftnlen)1);
+			do_fio(&c__1, jchar + (km - 1), (long)1);
 		}
 		e_wsfe();
 		if (nsinp_2.zmdl[k - 1] <= 2.f)
@@ -13986,7 +13985,7 @@ L140:
 			for (km = 4; km <= 12; ++km)
 			{
 
-				do_fio(&c__1, (char *)&card1b_1.wmol[km - 1], (ftnlen)sizeof(real));
+				do_fio(&c__1, (char *)&card1b_1.wmol[km - 1], (long)sizeof(float));
 			}
 			e_rsfe();
 			io___415.ciunit = ifil_1.ipr;
@@ -13994,7 +13993,7 @@ L140:
 			for (km = 4; km <= 12; ++km)
 			{
 
-				do_fio(&c__1, (char *)&card1b_1.wmol[km - 1], (ftnlen)sizeof(real));
+				do_fio(&c__1, (char *)&card1b_1.wmol[km - 1], (long)sizeof(float));
 			}
 			e_wsfe();
 #endif
@@ -14032,30 +14031,30 @@ L140:
 #ifdef DO_FIO
 			io___416.ciunit = ifil_1.ird;
 			s_rsfe(&io___416);
-			do_fio(&c__1, (char *)&ahaze, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&eqlwcz, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&rratz, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&iha1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&icld1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&ivul1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&isea1, (ftnlen)sizeof(integer));
+			do_fio(&c__1, (char *)&ahaze, (long)sizeof(float));
+			do_fio(&c__1, (char *)&eqlwcz, (long)sizeof(float));
+			do_fio(&c__1, (char *)&rratz, (long)sizeof(float));
+			do_fio(&c__1, (char *)&iha1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&icld1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&ivul1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&isea1, (long)sizeof(long));
 			e_rsfe();
 #endif
 			io___424.ciunit = ifil_1.ipr;
 			s_wsfe(&io___424);
-			do_fio(&c__1, (char *)&ahaze, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&eqlwcz, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&rratz, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&iha1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&icld1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&ivul1, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&isea1, (ftnlen)sizeof(integer));
+			do_fio(&c__1, (char *)&ahaze, (long)sizeof(float));
+			do_fio(&c__1, (char *)&eqlwcz, (long)sizeof(float));
+			do_fio(&c__1, (char *)&rratz, (long)sizeof(float));
+			do_fio(&c__1, (char *)&iha1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&icld1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&ivul1, (long)sizeof(long));
+			do_fio(&c__1, (char *)&isea1, (long)sizeof(long));
 			e_wsfe();
 		}
 		for (km = 1; km <= 15; ++km)
 		{
 			/* L12: */
-			card1b_1.junit[km - 1] = jou_(jchar + (km - 1), (ftnlen)1);
+			card1b_1.junit[km - 1] = jou_(jchar + (km - 1), (long)1);
 		}
 		if (card1_2.m1 != 0)
 		{
@@ -14080,7 +14079,7 @@ L140:
 	return 0;
 } /* rdnsm_ */
 
-/* Subroutine */ int defalt_(real *z__, real *p, real *t)
+/* Subroutine */ int defalt_(float *z__, float *p, float *t)
 {
 
 	/* Format strings */
@@ -14088,21 +14087,21 @@ L140:
 						   " \002,f10.3)";
 
 	/* System generated locals */
-	integer i__1;
+	long i__1;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void);
-	/* Subroutine */ int s_stop(char *, ftnlen);
-	double log(doublereal), exp(doublereal);
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void);
+	/* Subroutine */ int s_stop(char *, long);
+	double log(double), exp(double);
 
 	/* Local variables */
-	static integer k;
-	static real a1, a2, a3, a4;
-	static integer i0, i1, i2, i3;
-	static real x1, x2, x3, x4, z0, z1, z2, z3;
-	static integer im, im50, itr;
-	static real den1, den2, den3, den4;
-	static integer matm, nmol, ilower, iupper;
+	static long k;
+	static float a1, a2, a3, a4;
+	static long i0, i1, i2, i3;
+	static float x1, x2, x3, x4, z0, z1, z2, z3;
+	static long im, im50, itr;
+	static float den1, den2, den3, den4;
+	static long matm, nmol, ilower, iupper;
 
 	/* Fortran I/O blocks */
 	static cilist io___441 = {0, 0, 0, fmt_80, 0};
@@ -14215,9 +14214,9 @@ L29:
 	iupper = 2;
 	io___441.ciunit = ifil_1.ipr;
 	s_wsfe(&io___441);
-	do_fio(&c__1, (char *)&(*z__), (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&(*z__), (long)sizeof(float));
 	e_wsfe();
-	s_stop("DEFAULTZ", (ftnlen)8);
+	s_stop("DEFAULTZ", (long)8);
 /*     I3=I2                                                             DEF 1100 */
 /*     GO TO 31                                                          DEF 1110 */
 /*                                                                       DEF 1120 */
@@ -14324,14 +14323,14 @@ L40:
 	/* L70: */
 } /* defalt_ */
 
-/* Subroutine */ int aerprf_(integer *i__, real *vis, real *haze, integer *ihaze, integer *iseasn, integer *ivulcn, integer *n)
+/* Subroutine */ int aerprf_(long *i__, float *vis, float *haze, long *ihaze, long *iseasn, long *ivulcn, long *n)
 {
 	/* Initialized data */
 
-	static real vs[5] = {50.f, 23.f, 10.f, 5.f, 2.f};
+	static float vs[5] = {50.f, 23.f, 10.f, 5.f, 2.f};
 
-	static integer j;
-	static real hazi, const__;
+	static long j;
+	static float hazi, const__;
 
 	/* ***********************************************************************AER  110 */
 	/*     WILL COMPUTE DENSITY    PROFILES FOR AEROSOLS                     AER  120 */
@@ -14515,11 +14514,11 @@ L200:
 	return 0;
 } /* aerprf_ */
 
-/* Subroutine */ int geo_(integer *ierror, real *bendng, integer *maxgeo)
+/* Subroutine */ int geo_(long *ierror, float *bendng, long *maxgeo)
 {
 	/* Initialized data */
 
-	static integer kmol[17] = {1, 2, 3, 11, 8, 5, 9, 10, 4, 6, 7, 12, 13, 14, 16, 15, 17};
+	static long kmol[17] = {1, 2, 3, 11, 8, 5, 9, 10, 4, 6, 7, 12, 13, 14, 16, 15, 17};
 
 	/* Format strings */
 	static char fmt_36[] = "(\0020HORIZONTAL PATH AT ALTITUDE = \002,f10.3"
@@ -14572,29 +14571,29 @@ L200:
 							" 20.\002)";
 
 	/* System generated locals */
-	integer i__1, i__2;
-	real r__1;
+	long i__1, i__2;
+	float r__1;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void);
-	double exp(doublereal);
-	/* Subroutine */ int s_stop(char *, ftnlen);
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void);
+	double exp(double);
+	/* Subroutine */ int s_stop(char *, long);
 
 	/* Local variables */
-	static integer i__, j, k, l, i2, i1, j1, ik, il, lp, lz;
-	static real w15;
-	static integer ih1, ii1, ih2;
-	static real fac, phi;
-	static integer ldel, iamt;
-	static real hmin;
-	static integer jmax;
-	static real wtem;
-	static integer immax, jmaxp1;
-	extern /* Subroutine */ int geoinp_(real *, real *, real *, real *, real *, integer *, integer *, real *, real *, integer *), rfpath_(real *, real *, real *, real *, integer *, real *, integer *, real *,
-																																		  real *, real *);
-	static integer jmaxst;
-	extern /* Subroutine */ int expint_(real *, real *, real *, real *);
-	static real amttot;
+	static long i__, j, k, l, i2, i1, j1, ik, il, lp, lz;
+	static float w15;
+	static long ih1, ii1, ih2;
+	static float fac, phi;
+	static long ldel, iamt;
+	static float hmin;
+	static long jmax;
+	static float wtem;
+	static long immax, jmaxp1;
+	extern /* Subroutine */ int geoinp_(float *, float *, float *, float *, float *, long *, long *, float *, float *, long *), rfpath_(float *, float *, float *, float *, long *, float *, long *, float *,
+																																		float *, float *);
+	static long jmaxst;
+	extern /* Subroutine */ int expint_(float *, float *, float *, float *);
+	static float amttot;
 
 	/* Fortran I/O blocks */
 	static cilist io___469 = {0, 0, 0, fmt_36, 0};
@@ -14710,9 +14709,9 @@ L200:
 L145:
 	io___469.ciunit = ifil_1.ipr;
 	s_wsfe(&io___469);
-	do_fio(&c__1, (char *)&card3_2.h1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_2.range, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card1_2.model, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&card3_2.h1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_2.range, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card1_2.model, (long)sizeof(long));
 	e_wsfe();
 	cntrl_1.ikmax = 1;
 	immax = 1;
@@ -14921,14 +14920,14 @@ L230:
 		{
 			io___488.ciunit = ifil_1.ipr;
 			s_wsfe(&io___488);
-			do_fio(&c__1, (char *)&j, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&rfrpth_1.zp[lz - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.tbby[j - 1], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&j, (long)sizeof(long));
+			do_fio(&c__1, (char *)&rfrpth_1.zp[lz - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.tbby[j - 1], (long)sizeof(float));
 			for (k = 4; k <= 8; ++k)
 			{
-				do_fio(&c__1, (char *)&_BLNK__1.wpath[j + kmol[k - 1] * 68 - 69], (ftnlen)sizeof(real));
+				do_fio(&c__1, (char *)&_BLNK__1.wpath[j + kmol[k - 1] * 68 - 69], (long)sizeof(float));
 			}
-			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3875], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3875], (long)sizeof(float));
 			e_wsfe();
 		}
 		/* L300: */
@@ -14957,11 +14956,11 @@ L230:
 		{
 			io___490.ciunit = ifil_1.ipr;
 			s_wsfe(&io___490);
-			do_fio(&c__1, (char *)&j, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&rfrpth_1.zp[lz - 1], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&j, (long)sizeof(long));
+			do_fio(&c__1, (char *)&rfrpth_1.zp[lz - 1], (long)sizeof(float));
 			for (k = 9; k <= 15; ++k)
 			{
-				do_fio(&c__1, (char *)&_BLNK__1.wpath[j + kmol[k - 1] * 68 - 69], (ftnlen)sizeof(real));
+				do_fio(&c__1, (char *)&_BLNK__1.wpath[j + kmol[k - 1] * 68 - 69], (long)sizeof(float));
 			}
 			e_wsfe();
 		}
@@ -14997,19 +14996,19 @@ L315:
 		{
 			io___492.ciunit = ifil_1.ipr;
 			s_wsfe(&io___492);
-			do_fio(&c__1, (char *)&j, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&rfrpth_1.zp[lz - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 1087], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 2039], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 2379], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 2923], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3059], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3127], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3331], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3467], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3603], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3671], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3739], (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&j, (long)sizeof(long));
+			do_fio(&c__1, (char *)&rfrpth_1.zp[lz - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 1087], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 2039], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 2379], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 2923], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3059], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3127], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3331], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3467], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3603], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3671], (long)sizeof(float));
+			do_fio(&c__1, (char *)&_BLNK__1.wpath[j + 3739], (long)sizeof(float));
 			e_wsfe();
 		}
 		/* L312: */
@@ -15017,15 +15016,15 @@ L315:
 	io___493.ciunit = ifil_1.ipr;
 	s_wsfe(&io___493);
 
-	do_fio(&c__1, (char *)&card3_2.h1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_2.h2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_2.angle, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_2.range, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_2.beta, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&phi, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&hmin, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*bendng), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&card3_2.len, (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&card3_2.h1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_2.h2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_2.angle, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_2.range, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_2.beta, (long)sizeof(float));
+	do_fio(&c__1, (char *)&phi, (long)sizeof(float));
+	do_fio(&c__1, (char *)&hmin, (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*bendng), (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_2.len, (long)sizeof(long));
 
 	e_wsfe();
 L320:
@@ -15067,32 +15066,32 @@ L320:
 	s_wsfe(&io___495);
 	for (k = 4; k <= 16; ++k)
 	{
-		do_fio(&c__1, (char *)&_BLNK__1.w[kmol[k - 1] - 1], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&_BLNK__1.w[kmol[k - 1] - 1], (long)sizeof(float));
 	}
 	e_wsfe();
 	/*                                                                       GEO 2900 */
 	io___496.ciunit = ifil_1.ipr;
 	s_wsfe(&io___496);
-	do_fio(&c__1, (char *)&_BLNK__1.w[16], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__1.w[30], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__1.w[35], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__1.w[43], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__1.w[45], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__1.w[46], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__1.w[49], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__1.w[51], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__1.w[53], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__1.w[54], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__1.w[55], (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&_BLNK__1.w[16], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__1.w[30], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__1.w[35], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__1.w[43], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__1.w[45], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__1.w[46], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__1.w[49], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__1.w[51], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__1.w[53], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__1.w[54], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__1.w[55], (long)sizeof(float));
 	e_wsfe();
 	if (jmaxst > *maxgeo)
 	{
 		io___497.ciunit = ifil_1.ipr;
 		s_wsfe(&io___497);
-		do_fio(&c__1, (char *)&(*maxgeo), (ftnlen)sizeof(integer));
-		do_fio(&c__1, (char *)&jmaxst, (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&(*maxgeo), (long)sizeof(long));
+		do_fio(&c__1, (char *)&jmaxst, (long)sizeof(long));
 		e_wsfe();
-		s_stop("GEO :JMAXST .GT. MAXGEO", (ftnlen)23);
+		s_stop("GEO :JMAXST .GT. MAXGEO", (long)23);
 	}
 	i__1 = jmaxst;
 	for (ik = 1; ik <= i__1; ++ik)
@@ -15107,9 +15106,9 @@ L320:
 	return 0;
 } /* geo_ */
 
-/* Subroutine */ int geoinp_(real *h1, real *h2, real *angle, real *range,
-							 real *beta, integer *itype, integer *len, real *hmin, real *phi,
-							 integer *ierror)
+/* Subroutine */ int geoinp_(float *h1, float *h2, float *angle, float *range,
+							 float *beta, long *itype, long *len, float *hmin, float *phi,
+							 long *ierror)
 {
 	/* Format strings */
 	static char fmt_10[] = "(//,\002 CASE 3A: GIVEN H1,H2=SPACE,ANGLE\002)";
@@ -15151,17 +15150,17 @@ L320:
 						   "\002  HMIN = \002,g12.6)";
 
 	/* System generated locals */
-	real r__1, r__2, r__3;
+	float r__1, r__2, r__3;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), e_wsfe(void), do_fio(integer *, char *, ftnlen);
-	double cos(doublereal), sqrt(doublereal), sin(doublereal), acos(doublereal);
+	long s_wsfe(cilist *), e_wsfe(void), do_fio(long *, char *, long);
+	double cos(double), sqrt(double), sin(double), acos(double);
 
 	/* Local variables */
-	static real r1, r2, h2st;
-	static integer iter;
-	static real zarg1, zarg2, zarg3, erarg1, erarg2, erarg3;
-	extern /* Subroutine */ int fdbeta_(real *, real *, real *, real *, real *, integer *, real *, integer *), reduce_(real *, real *, real *, real *, integer *), fndhmn_(real *, real *, real *, integer *, integer *, real *, real *, integer *);
+	static float r1, r2, h2st;
+	static long iter;
+	static float zarg1, zarg2, zarg3, erarg1, erarg2, erarg3;
+	extern /* Subroutine */ int fdbeta_(float *, float *, float *, float *, float *, long *, float *, long *), reduce_(float *, float *, float *, float *, long *), fndhmn_(float *, float *, float *, long *, long *, float *, float *, long *);
 
 	/* Fortran I/O blocks */
 	static cilist io___501 = {0, 0, 0, fmt_10, 0};
@@ -15269,7 +15268,7 @@ L120:
 	{
 		io___504.ciunit = ifil_1.ipr;
 		s_wsfe(&io___504);
-		do_fio(&c__1, (char *)&(*len), (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&(*len), (long)sizeof(long));
 		e_wsfe();
 	}
 	h2st = *h2;
@@ -15324,7 +15323,7 @@ L133:
 	{
 		io___509.ciunit = ifil_1.ipr;
 		s_wsfe(&io___509);
-		do_fio(&c__1, (char *)&(*range), (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&(*range), (long)sizeof(float));
 		e_wsfe();
 	}
 L135:
@@ -15441,7 +15440,7 @@ L200:
 		return 0;
 	}
 	*len = 0;
-	if (*hmin < dmin(*h1, *h2))
+	if (*hmin < min(*h1, *h2))
 	{
 		*len = 1;
 	}
@@ -15460,12 +15459,12 @@ L200:
 	{
 		io___517.ciunit = ifil_1.ipr;
 		s_wsfe(&io___517);
-		do_fio(&c__1, (char *)&(*h1), (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&(*h2), (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&(*angle), (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&(*phi), (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&(*hmin), (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&(*len), (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&(*h1), (long)sizeof(float));
+		do_fio(&c__1, (char *)&(*h2), (long)sizeof(float));
+		do_fio(&c__1, (char *)&(*angle), (long)sizeof(float));
+		do_fio(&c__1, (char *)&(*phi), (long)sizeof(float));
+		do_fio(&c__1, (char *)&(*hmin), (long)sizeof(float));
+		do_fio(&c__1, (char *)&(*len), (long)sizeof(long));
 		e_wsfe();
 	}
 	return 0;
@@ -15475,31 +15474,31 @@ L200:
 L9001:
 	io___518.ciunit = ifil_1.ipr;
 	s_wsfe(&io___518);
-	do_fio(&c__1, (char *)&(*h1), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*hmin), (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&(*h1), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*hmin), (long)sizeof(float));
 	e_wsfe();
 	goto L9900;
 L9002:
 	io___519.ciunit = ifil_1.ipr;
 	s_wsfe(&io___519);
-	do_fio(&c__1, (char *)&(*itype), (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&(*itype), (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&(*itype), (long)sizeof(long));
+	do_fio(&c__1, (char *)&(*itype), (long)sizeof(long));
 	e_wsfe();
 	goto L9900;
 L9003:
 	io___520.ciunit = ifil_1.ipr;
 	s_wsfe(&io___520);
-	do_fio(&c__1, (char *)&(*h1), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*h2), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*range), (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&(*h1), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*h2), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*range), (long)sizeof(float));
 	e_wsfe();
 	goto L9900;
 L9004:
 	io___521.ciunit = ifil_1.ipr;
 	s_wsfe(&io___521);
-	do_fio(&c__1, (char *)&(*h1), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*h2), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*angle), (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&(*h1), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*h2), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*angle), (long)sizeof(float));
 	e_wsfe();
 	goto L9900;
 L9007:
@@ -15510,18 +15509,18 @@ L9007:
 L9008:
 	io___523.ciunit = ifil_1.ipr;
 	s_wsfe(&io___523);
-	do_fio(&c__1, (char *)&parmtr_1.zmax, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*h1), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*h2), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*hmin), (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&parmtr_1.zmax, (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*h1), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*h2), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*hmin), (long)sizeof(float));
 	e_wsfe();
 L9900:
 	*ierror = 1;
 	return 0;
 } /* geoinp_ */
 
-/* Subroutine */ int reduce_(real *h1, real *h2, real *angle, real *phi,
-							 integer *iter)
+/* Subroutine */ int reduce_(float *h1, float *h2, float *angle, float *phi,
+							 long *iter)
 {
 	/* Format strings */
 	static char fmt_20[] = "(///,\002 FROM SUBROUTINE REDUCE: \002,/,4x,\002"
@@ -15531,15 +15530,15 @@ L9900:
 						   "TO \002,\002THE ZENITH ANGLE AT ZMAX = \002,f10.3,\002 DEG\002)";
 
 	/* Builtin functions */
-	double sin(doublereal), asin(doublereal);
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void);
+	double sin(double), asin(double);
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void);
 
 	/* Local variables */
-	static real sh, gamma, cpath;
-	extern doublereal andex_(real *, real *, real *);
-	static real czmax;
-	extern /* Subroutine */ int findsh_(real *, real *, real *);
-	static real angmax;
+	static float sh, gamma, cpath;
+	extern double andex_(float *, float *, float *);
+	static float czmax;
+	extern /* Subroutine */ int findsh_(float *, float *, float *);
+	static float angmax;
 
 	/* Fortran I/O blocks */
 	static cilist io___529 = {0, 0, 0, fmt_20, 0};
@@ -15580,22 +15579,22 @@ L120:
 L130:
 	io___529.ciunit = ifil_1.ipr;
 	s_wsfe(&io___529);
-	do_fio(&c__1, (char *)&parmtr_1.zmax, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&angmax, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&parmtr_1.zmax, (long)sizeof(float));
+	do_fio(&c__1, (char *)&angmax, (long)sizeof(float));
 	e_wsfe();
 	/* L200: */
 	return 0;
 } /* reduce_ */
 
-/* Subroutine */ int fdbeta_(real *h1, real *h2, real *betas, real *angle,
-							 real *phi, integer *len, real *hmin, integer *ierror)
+/* Subroutine */ int fdbeta_(float *h1, float *h2, float *betas, float *angle,
+							 float *phi, long *len, float *hmin, long *ierror)
 {
 	/* Initialized data */
 
-	static real tolrnc = .005f;
-	static integer itermx = 10;
-	static real betd = .04f;
-	static real zer = 0.f;
+	static float tolrnc = .005f;
+	static long itermx = 10;
+	static float betd = .04f;
+	static float zer = 0.f;
 
 	/* Format strings */
 	static char fmt_24[] = "(///,\002 CASE 2D: GIVEN H1, H2,  BETA:\002,//"
@@ -15615,33 +15614,33 @@ L130:
 						   " = \002,f15.9,\002    BETA = \002,f15.9))";
 
 	/* System generated locals */
-	real r__1;
-	doublereal d__1, d__2, d__3;
+	float r__1;
+	double d__1, d__2, d__3;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), e_wsfe(void);
-	double cos(doublereal), sqrt(doublereal), acos(doublereal), sin(doublereal);
-	integer do_fio(integer *, char *, ftnlen);
+	long s_wsfe(cilist *), e_wsfe(void);
+	double cos(double), sqrt(double), acos(double), sin(double);
+	long do_fio(long *, char *, long);
 
 	/* Local variables */
-	static real dc, ha, hb;
-	static doublereal ra, rb, sg;
-	static real dang;
-	static doublereal beta;
-	static integer iter;
-	static real temp, beta1, beta2;
-	static doublereal dbeta;
-	static integer iflag;
-	static real betap;
-	static integer iamtb;
-	static real range, hming;
-	static doublereal angle1, angle2;
-	static real angls1, angls2, bendng, anglep;
-	extern /* Subroutine */ int fndhmn_(real *, real *, real *, integer *,
-										integer *, real *, real *, integer *);
-	static integer iorder;
-	extern /* Subroutine */ int rfpath_(real *, real *, real *, real *,
-										integer *, real *, integer *, real *, real *, real *);
+	static float dc, ha, hb;
+	static double ra, rb, sg;
+	static float dang;
+	static double beta;
+	static long iter;
+	static float temp, beta1, beta2;
+	static double dbeta;
+	static long iflag;
+	static float betap;
+	static long iamtb;
+	static float range, hming;
+	static double angle1, angle2;
+	static float angls1, angls2, bendng, anglep;
+	extern /* Subroutine */ int fndhmn_(float *, float *, float *, long *,
+										long *, float *, float *, long *);
+	static long iorder;
+	extern /* Subroutine */ int rfpath_(float *, float *, float *, float *,
+										long *, float *, long *, float *, float *, float *);
 
 	/* Fortran I/O blocks */
 	static cilist io___540 = {0, 0, 0, fmt_24, 0};
@@ -15713,14 +15712,14 @@ L120:
 	rfpath_(&ha, &hb, &angls1, phi, len, hmin, &iamtb, &beta1, &range, &bendng);
 	io___551.ciunit = ifil_1.ipr;
 	s_wsfe(&io___551);
-	do_fio(&c__1, (char *)&iter, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&angle1, (ftnlen)sizeof(doublereal));
-	do_fio(&c__1, (char *)&beta, (ftnlen)sizeof(doublereal));
-	do_fio(&c__1, (char *)&zer, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&sg, (ftnlen)sizeof(doublereal));
-	do_fio(&c__1, (char *)&hming, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&zer, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&zer, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&iter, (long)sizeof(long));
+	do_fio(&c__1, (char *)&angle1, (long)sizeof(double));
+	do_fio(&c__1, (char *)&beta, (long)sizeof(double));
+	do_fio(&c__1, (char *)&zer, (long)sizeof(float));
+	do_fio(&c__1, (char *)&sg, (long)sizeof(double));
+	do_fio(&c__1, (char *)&hming, (long)sizeof(float));
+	do_fio(&c__1, (char *)&zer, (long)sizeof(float));
+	do_fio(&c__1, (char *)&zer, (long)sizeof(float));
 	e_wsfe();
 	/*                                                                       FDB  580 */
 	/*     OBTAIN DERIVATIVE                                                 FDB  590 */
@@ -15764,14 +15763,14 @@ L310:
 	dbeta = beta - beta1;
 	io___555.ciunit = ifil_1.ipr;
 	s_wsfe(&io___555);
-	do_fio(&c__1, (char *)&iter, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&angle1, (ftnlen)sizeof(doublereal));
-	do_fio(&c__1, (char *)&beta1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&dbeta, (ftnlen)sizeof(doublereal));
-	do_fio(&c__1, (char *)&range, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*hmin), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*phi), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&bendng, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&iter, (long)sizeof(long));
+	do_fio(&c__1, (char *)&angle1, (long)sizeof(double));
+	do_fio(&c__1, (char *)&beta1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&dbeta, (long)sizeof(double));
+	do_fio(&c__1, (char *)&range, (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*hmin), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*phi), (long)sizeof(float));
+	do_fio(&c__1, (char *)&bendng, (long)sizeof(float));
 	e_wsfe();
 	if (iflag == 1 && beta1 < beta)
 	{
@@ -15815,14 +15814,14 @@ L320:
 	dbeta = beta - beta2;
 	io___561.ciunit = ifil_1.ipr;
 	s_wsfe(&io___561);
-	do_fio(&c__1, (char *)&iter, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&angle2, (ftnlen)sizeof(doublereal));
-	do_fio(&c__1, (char *)&beta2, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&dbeta, (ftnlen)sizeof(doublereal));
-	do_fio(&c__1, (char *)&range, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*hmin), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*phi), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&bendng, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&iter, (long)sizeof(long));
+	do_fio(&c__1, (char *)&angle2, (long)sizeof(double));
+	do_fio(&c__1, (char *)&beta2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&dbeta, (long)sizeof(double));
+	do_fio(&c__1, (char *)&range, (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*hmin), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*phi), (long)sizeof(float));
+	do_fio(&c__1, (char *)&bendng, (long)sizeof(float));
 	e_wsfe();
 	if (beta2 < beta && *hmin < 0.f)
 	{
@@ -15876,14 +15875,14 @@ L9005:
 L9006:
 	io___564.ciunit = ifil_1.ipr;
 	s_wsfe(&io___564);
-	do_fio(&c__1, (char *)&(*h1), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*h2), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&beta, (ftnlen)sizeof(doublereal));
-	do_fio(&c__1, (char *)&iter, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&angle1, (ftnlen)sizeof(doublereal));
-	do_fio(&c__1, (char *)&beta1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&angle2, (ftnlen)sizeof(doublereal));
-	do_fio(&c__1, (char *)&beta2, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&(*h1), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*h2), (long)sizeof(float));
+	do_fio(&c__1, (char *)&beta, (long)sizeof(double));
+	do_fio(&c__1, (char *)&iter, (long)sizeof(long));
+	do_fio(&c__1, (char *)&angle1, (long)sizeof(double));
+	do_fio(&c__1, (char *)&beta1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&angle2, (long)sizeof(double));
+	do_fio(&c__1, (char *)&beta2, (long)sizeof(float));
 	e_wsfe();
 /*    1    ANGLE3,BETA3                                                  FDB 1340 */
 L9900:
@@ -15891,13 +15890,13 @@ L9900:
 	return 0;
 } /* fdbeta_ */
 
-/* Subroutine */ int fndhmn_(real *h1, real *angle, real *h2, integer *len,
-							 integer *iter, real *hmin, real *phi, integer *ierror)
+/* Subroutine */ int fndhmn_(float *h1, float *angle, float *h2, long *len,
+							 long *iter, float *hmin, float *phi, long *ierror)
 {
 	/* Initialized data */
 
-	static real dh = 1.f;
-	static real eta = 5e-8f;
+	static float dh = 1.f;
+	static float eta = 5e-8f;
 
 	/* Format strings */
 	static char fmt_22[] = "(///,\002 TANGENT PATH WITH H1 = \002,f10.3,\002"
@@ -15913,20 +15912,20 @@ L9900:
 						   "     = \002,f12.5,\002 KM\002)";
 
 	/* System generated locals */
-	real r__1;
+	float r__1;
 
 	/* Builtin functions */
-	double sin(doublereal);
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void);
-	double asin(doublereal);
-	/* Subroutine */ int s_stop(char *, ftnlen);
+	double sin(double);
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void);
+	double asin(double);
+	/* Subroutine */ int s_stop(char *, long);
 
 	/* Local variables */
-	static integer n;
-	static real dc, sh, ht, ch2, ct1, ct2, ct3, ht1, ht2, ht3, cmin, gamma;
-	extern doublereal andex_(real *, real *, real *);
-	static real cpath;
-	extern /* Subroutine */ int findsh_(real *, real *, real *);
+	static long n;
+	static float dc, sh, ht, ch2, ct1, ct2, ct3, ht1, ht2, ht3, cmin, gamma;
+	extern double andex_(float *, float *, float *);
+	static float cpath;
+	extern /* Subroutine */ int findsh_(float *, float *, float *);
 
 	/* Fortran I/O blocks */
 	static cilist io___581 = {0, 0, 0, fmt_22, 0};
@@ -16043,8 +16042,8 @@ L155:
 	{
 		io___581.ciunit = ifil_1.ipr;
 		s_wsfe(&io___581);
-		do_fio(&c__1, (char *)&(*h1), (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&(*angle), (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&(*h1), (long)sizeof(float));
+		do_fio(&c__1, (char *)&(*angle), (long)sizeof(float));
 		e_wsfe();
 	}
 L160:
@@ -16066,24 +16065,24 @@ L210:
 	dc = cpath - ct3;
 	io___583.ciunit = ifil_1.ipr;
 	s_wsfe(&io___583);
-	do_fio(&c__1, (char *)&n, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&cpath, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&ct3, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&dc, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&ht3, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&n, (long)sizeof(long));
+	do_fio(&c__1, (char *)&cpath, (long)sizeof(float));
+	do_fio(&c__1, (char *)&ct3, (long)sizeof(float));
+	do_fio(&c__1, (char *)&dc, (long)sizeof(float));
+	do_fio(&c__1, (char *)&ht3, (long)sizeof(float));
 	e_wsfe();
-	s_stop("20", (ftnlen)2);
+	s_stop("20", (long)2);
 	return 0;
 } /* fndhmn_ */
 
-/* Subroutine */ int findsh_(real *h__, real *sh, real *gamma)
+/* Subroutine */ int findsh_(float *h__, float *sh, float *gamma)
 {
 	/* System generated locals */
-	integer i__1;
+	long i__1;
 
 	/* Local variables */
-	static integer i1, i2, im;
-	extern /* Subroutine */ int scalht_(real *, real *, real *, real *, real *, real *);
+	static long i1, i2, im;
+	extern /* Subroutine */ int scalht_(float *, float *, float *, float *, float *, float *);
 
 	/* *****GIVEN AN ALTITUDE H, THIS SUBROUTINE FINDS THE LAYER BOUNDARIES   FIN  110 */
 	/* *****ZM(I1) AND ZM(I2) WHICH CONTAIN H,  THEN CALCULATES THE SCALE     FIN  120 */
@@ -16106,18 +16105,18 @@ L110:
 	return 0;
 } /* findsh_ */
 
-/* Subroutine */ int scalht_(real *z1, real *z2, real *rfndx1, real *rfndx2,
-							 real *sh, real *gamma)
+/* Subroutine */ int scalht_(float *z1, float *z2, float *rfndx1, float *rfndx2,
+							 float *sh, float *gamma)
 {
 	/* System generated locals */
-	real r__1;
-	doublereal d__1, d__2;
+	float r__1;
+	double d__1, d__2;
 
 	/* Builtin functions */
-	double log(doublereal), pow_dd(doublereal *, doublereal *);
+	double log(double), pow_dd(double *, double *);
 
 	/* Local variables */
-	static real rf1, rf2, ratio;
+	static float rf1, rf2, ratio;
 
 	/* ***********************************************************************SCA  110 */
 	/*     THIS SUBROUTINE CALCULATES THE SCALE HEIGHT SH OF THE (INDEX OF   SCA  120 */
@@ -16133,8 +16132,8 @@ L110:
 		goto L100;
 	}
 	*sh = (*z2 - *z1) / log(ratio);
-	d__1 = (doublereal)(rf2 / rf1);
-	d__2 = (doublereal)(-(*z1) / (*z2 - *z1));
+	d__1 = (double)(rf2 / rf1);
+	d__2 = (double)(-(*z1) / (*z2 - *z1));
 	*gamma = rf1 * pow_dd(&d__1, &d__2);
 	goto L110;
 L100:
@@ -16146,16 +16145,16 @@ L110:
 	return 0;
 } /* scalht_ */
 
-doublereal radref_(real *h__, real *sh, real *gamma)
+double radref_(float *h__, float *sh, float *gamma)
 {
 	/* System generated locals */
-	real ret_val;
+	float ret_val;
 
 	/* Builtin functions */
-	double exp(doublereal);
+	double exp(double);
 
 	/* Local variables */
-	static real hsh;
+	static float hsh;
 
 	/* ***********************************************************************RDF  110 */
 	/*     COMPUTES THE RADIUS OF CURVATURE OF THE REFRACTED RAY FOR         RDF  120 */
@@ -16177,9 +16176,9 @@ L20:
 	return ret_val;
 } /* radref_ */
 
-/* Subroutine */ int rfpath_(real *h1, real *h2, real *angle, real *phi,
-							 integer *len, real *hmin, integer *iamt, real *beta, real *range,
-							 real *bendng)
+/* Subroutine */ int rfpath_(float *h1, float *h2, float *angle, float *phi,
+							 long *len, float *hmin, long *iamt, float *beta, float *range,
+							 float *bendng)
 {
 	/* Initialized data */
 
@@ -16207,39 +16206,39 @@ L20:
 	static char fmt_28[] = "(\002 \002,t11,a2,\002 TO \002,a2,/)";
 
 	/* System generated locals */
-	integer i__1;
+	long i__1;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), e_wsfe(void);
-	double sin(doublereal);
-	integer do_fio(integer *, char *, ftnlen);
-	double asin(doublereal), cos(doublereal);
+	long s_wsfe(cilist *), e_wsfe(void);
+	double sin(double);
+	long do_fio(long *, char *, long);
+	double asin(double), cos(double);
 
 	/* Local variables */
-	static integer j;
-	static real s;
-	static integer j1, j2;
-	static real ha, hb;
-	static integer ja, ka, jd;
-	static real sh, ds;
-	static integer jo, j2a, j2b, jha, max__;
-	static real pbar;
-	extern /* Subroutine */ int fill_(real *, real *, integer *);
-	static real tbar;
-	static integer jmax;
-	static real dbend, dbeta, gamma;
-	static integer ihigh;
-	static real cosai, cpath;
-	extern doublereal andex_(real *, real *, real *);
-	static real sinai, theta;
-	extern /* Subroutine */ int layer_(integer *, real *, real *, real *,
-									   real *, real *, integer *, real *, real *);
-	static integer ihlow, jnext;
-	static real anglea;
-	extern /* Subroutine */ int findsh_(real *, real *, real *);
-	static real rhobar;
-	extern /* Subroutine */ int scalht_(real *, real *, real *, real *, real *, real *);
-	static integer iorder;
+	static long j;
+	static float s;
+	static long j1, j2;
+	static float ha, hb;
+	static long ja, ka, jd;
+	static float sh, ds;
+	static long jo, j2a, j2b, jha, max__;
+	static float pbar;
+	extern /* Subroutine */ int fill_(float *, float *, long *);
+	static float tbar;
+	static long jmax;
+	static float dbend, dbeta, gamma;
+	static long ihigh;
+	static float cosai, cpath;
+	extern double andex_(float *, float *, float *);
+	static float sinai, theta;
+	extern /* Subroutine */ int layer_(long *, float *, float *, float *,
+									   float *, float *, long *, float *, float *);
+	static long ihlow, jnext;
+	static float anglea;
+	extern /* Subroutine */ int findsh_(float *, float *, float *);
+	static float rhobar;
+	extern /* Subroutine */ int scalht_(float *, float *, float *, float *, float *, float *);
+	static long iorder;
 
 	/* Fortran I/O blocks */
 	static cilist io___598 = {0, 0, 0, fmt_20, 0};
@@ -16330,7 +16329,7 @@ L116:
 	{
 		io___606.ciunit = ifil_1.ipr;
 		s_wsfe(&io___606);
-		do_fio(&c__1, hlow + (ihlow - 1 << 1), (ftnlen)2);
+		do_fio(&c__1, hlow + (ihlow - 1 << 1), (long)2);
 		e_wsfe();
 	}
 	sinai = 1.f;
@@ -16364,20 +16363,20 @@ L116:
 		{
 			io___618.ciunit = ifil_1.ipr;
 			s_wsfe(&io___618);
-			do_fio(&c__1, (char *)&j, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&rfrpth_1.zp[j - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&rfrpth_1.zp[j], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&theta, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&ds, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&s, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&dbeta, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&(*beta), (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&(*phi), (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&dbend, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&(*bendng), (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&pbar, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&tbar, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&rhobar, (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&j, (long)sizeof(long));
+			do_fio(&c__1, (char *)&rfrpth_1.zp[j - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&rfrpth_1.zp[j], (long)sizeof(float));
+			do_fio(&c__1, (char *)&theta, (long)sizeof(float));
+			do_fio(&c__1, (char *)&ds, (long)sizeof(float));
+			do_fio(&c__1, (char *)&s, (long)sizeof(float));
+			do_fio(&c__1, (char *)&dbeta, (long)sizeof(float));
+			do_fio(&c__1, (char *)&(*beta), (long)sizeof(float));
+			do_fio(&c__1, (char *)&(*phi), (long)sizeof(float));
+			do_fio(&c__1, (char *)&dbend, (long)sizeof(float));
+			do_fio(&c__1, (char *)&(*bendng), (long)sizeof(float));
+			do_fio(&c__1, (char *)&pbar, (long)sizeof(float));
+			do_fio(&c__1, (char *)&tbar, (long)sizeof(float));
+			do_fio(&c__1, (char *)&rhobar, (long)sizeof(float));
 			e_wsfe();
 		}
 		j2a = j2 - j + 1;
@@ -16404,9 +16403,9 @@ L116:
 	{
 		io___621.ciunit = ifil_1.ipr;
 		s_wsfe(&io___621);
-		do_fio(&c__1, (char *)&s, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&(*beta), (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&(*bendng), (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&s, (long)sizeof(float));
+		do_fio(&c__1, (char *)&(*beta), (long)sizeof(float));
+		do_fio(&c__1, (char *)&(*bendng), (long)sizeof(float));
 		e_wsfe();
 	}
 	jnext = jha;
@@ -16464,8 +16463,8 @@ L150:
 	{
 		io___628.ciunit = ifil_1.ipr;
 		s_wsfe(&io___628);
-		do_fio(&c__1, hlow + (ihlow - 1 << 1), (ftnlen)2);
-		do_fio(&c__1, hlow + (ihigh - 1 << 1), (ftnlen)2);
+		do_fio(&c__1, hlow + (ihlow - 1 << 1), (long)2);
+		do_fio(&c__1, hlow + (ihigh - 1 << 1), (long)2);
 		e_wsfe();
 	}
 	i__1 = j2;
@@ -16496,20 +16495,20 @@ L150:
 		{
 			io___629.ciunit = ifil_1.ipr;
 			s_wsfe(&io___629);
-			do_fio(&c__1, (char *)&j, (ftnlen)sizeof(integer));
-			do_fio(&c__1, (char *)&rfrpth_1.zp[j - 1], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&rfrpth_1.zp[j], (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&theta, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&ds, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&s, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&dbeta, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&(*beta), (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&(*phi), (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&dbend, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&(*bendng), (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&pbar, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&tbar, (ftnlen)sizeof(real));
-			do_fio(&c__1, (char *)&rhobar, (ftnlen)sizeof(real));
+			do_fio(&c__1, (char *)&j, (long)sizeof(long));
+			do_fio(&c__1, (char *)&rfrpth_1.zp[j - 1], (long)sizeof(float));
+			do_fio(&c__1, (char *)&rfrpth_1.zp[j], (long)sizeof(float));
+			do_fio(&c__1, (char *)&theta, (long)sizeof(float));
+			do_fio(&c__1, (char *)&ds, (long)sizeof(float));
+			do_fio(&c__1, (char *)&s, (long)sizeof(float));
+			do_fio(&c__1, (char *)&dbeta, (long)sizeof(float));
+			do_fio(&c__1, (char *)&(*beta), (long)sizeof(float));
+			do_fio(&c__1, (char *)&(*phi), (long)sizeof(float));
+			do_fio(&c__1, (char *)&dbend, (long)sizeof(float));
+			do_fio(&c__1, (char *)&(*bendng), (long)sizeof(float));
+			do_fio(&c__1, (char *)&pbar, (long)sizeof(float));
+			do_fio(&c__1, (char *)&tbar, (long)sizeof(float));
+			do_fio(&c__1, (char *)&rhobar, (long)sizeof(float));
 			e_wsfe();
 		}
 	L158:
@@ -16551,23 +16550,23 @@ L170:
 	return 0;
 } /* rfpath_ */
 
-/* Subroutine */ int fill_(real *ha, real *hb, integer *jnext)
+/* Subroutine */ int fill_(float *ha, float *hb, long *jnext)
 {
 	/* Format strings */
 	static char fmt_22[] = "(\0020SUBROUTINE FILL- ERROR, HA .GE. HB\002,//,"
 						   "10x,\002HA, HB, JNEXT = \002,2e25.15,i6)";
 
 	/* System generated locals */
-	integer i__1, i__2;
+	long i__1, i__2;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void);
-	/* Subroutine */ int s_stop(char *, ftnlen);
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void);
+	/* Subroutine */ int s_stop(char *, long);
 
 	/* Local variables */
-	static real a;
-	static integer i__, k, i1, i2, ia, ib;
-	extern /* Subroutine */ int expint_(real *, real *, real *, real *);
+	static float a;
+	static long i__, k, i1, i2, ia, ib;
+	extern /* Subroutine */ int expint_(float *, float *, float *, float *);
 
 	/* Fortran I/O blocks */
 	static cilist io___630 = {0, 0, 0, fmt_22, 0};
@@ -16584,11 +16583,11 @@ L170:
 	}
 	io___630.ciunit = ifil_1.ipr;
 	s_wsfe(&io___630);
-	do_fio(&c__1, (char *)&(*ha), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*hb), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*jnext), (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&(*ha), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*hb), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*jnext), (long)sizeof(long));
 	e_wsfe();
-	s_stop("", (ftnlen)0);
+	s_stop("", (long)0);
 L90:
 	/* *****FIND Z(IA): THE SMALLEST Z(I).GT.HA                               FLL  310 */
 	i__1 = parmtr_1.imax;
@@ -16699,29 +16698,29 @@ L160:
 	return 0;
 } /* fill_ */
 
-/* Subroutine */ int layer_(integer *j, real *sinai, real *cosai, real *cpath,
-							real *sh, real *gamma, integer *iamt, real *s, real *bend)
+/* Subroutine */ int layer_(long *j, float *sinai, float *cosai, float *cpath,
+							float *sh, float *gamma, long *iamt, float *s, float *bend)
 {
 	/* Initialized data */
 
-	static real epsiln = 1e-5f;
+	static float epsiln = 1e-5f;
 
 	/* System generated locals */
-	integer i__1;
-	real r__1, r__2, r__3;
+	long i__1;
+	float r__1, r__2, r__3;
 
 	/* Builtin functions */
-	double log(doublereal), sqrt(doublereal), exp(doublereal);
+	double log(double), sqrt(double), exp(double);
 
 	/* Local variables */
-	static integer k, n;
-	static real h1, h2, h3, r1, r2, r3, w1, x1, y1, z1, z2, y3, x3, w2, w3,
+	static long k, n;
+	static float h1, h2, h3, r1, r2, r3, w1, x1, y1, z1, z2, y3, x3, w2, w3,
 		x2, d21, d31, d32, dh, pa, pb, ta, tb, hp, dx, dz, ds, h3z1, dena[63], denb[63], hden[63], dhhp, dhrh, rhoa, rhob, hrho, dsdz,
 		dsdx1, dsdx2, dsdx3, dbend, dhmin;
-	extern doublereal andex_(real *, real *, real *);
-	static real cosai1, dbndx1, cosai3, cosai2, dbndx2, sinai1, sinai2,
+	extern double andex_(float *, float *, float *);
+	static float cosai1, dbndx1, cosai3, cosai2, dbndx2, sinai1, sinai2,
 		sinai3, dbndx3, ratio1, ratio2, ratio3;
-	extern doublereal radref_(real *, real *, real *);
+	extern double radref_(float *, float *, float *);
 
 	/* *****************************************************************      LYR  110 */
 	/*     THIS SUBROUTINE CALCULATES THE REFRACTED PATH FROM Z1 TO Z2       LYR  120 */
@@ -16980,8 +16979,8 @@ L160:
 	return 0;
 } /* layer_ */
 
-/* Subroutine */ int trans_(integer *iph, integer *isourc, integer *iday,
-							real *anglem)
+/* Subroutine */ int trans_(long *iph, long *isourc, long *iday,
+							float *anglem)
 {
 
 	/* Format strings */
@@ -17064,105 +17063,105 @@ L160:
 							"K\002,/,\002 BOUNDARY EMISSIVITY = \002,f11.3)";
 
 	/* System generated locals */
-	integer i__1, i__2;
-	real r__1;
-	doublereal d__1;
+	long i__1, i__2;
+	float r__1;
+	double d__1;
 
 	/* Builtin functions */
-	double exp(doublereal);
-	integer s_wsfe(cilist *), e_wsfe(void);
-	double pow_dd(doublereal *, doublereal *);
-	integer do_fio(integer *, char *, ftnlen);
-	double cos(doublereal), log(doublereal);
+	double exp(double);
+	long s_wsfe(cilist *), e_wsfe(void);
+	double pow_dd(double *, double *);
+	long do_fio(long *, char *, long);
+	double cos(double), log(double);
 
 	/* Local variables */
-	static integer k, n;
-	static real v, c0;
-	static integer n1;
-	static real t0, t1, ab;
-	static integer ib;
-	static real cp;
-	static integer ik, jk, iv;
-	static real xd, ss;
-	static integer ik1;
-	static real ct1, ct2;
-	static integer ml1, iv1, iv2;
-	static real w7d, wo3, wt2, fdg, bbg, dmf[34], abt, bet[68], w12d, w13d;
-	static integer idv;
-	static real umf[34], w14d, w16d, ext;
-	static integer ikm;
-	static real asy, sum, sct, rfd, w1o3, w2o3, sms, fh2o;
-	static integer ikp1;
-	extern /* Subroutine */ int hno3_(real *, real *);
-	static real xh2o;
-	extern /* Subroutine */ int o3uv_(real *, real *);
-	static real bbik;
-	extern doublereal bbfn_(real *, real *);
-	static real alam;
-	static integer ioff, imap[68];
-	static real dmfs[34], cssa;
-	static integer iiii;
-	static real dtau;
-	static integer dist, ient;
-	static real umfs[34];
-	static integer ikmx, imlt;
-	static real suma, rfls;
-	static integer init;
-	static real ssol;
-	static integer imol;
-	static real temp, unif, smss, sums, sumt, sumv;
-	extern /* Subroutine */ int c4dta_(real *, real *), c6dta_(real *, real *), c8dta_(real *, real *);
-	static integer indo3, indo2;
-	extern /* Subroutine */ int slf260_(real *, real *), slf296_(real *, real *), frn296_(real *, real *);
-	static real altx9;
-	extern /* Subroutine */ int fudge_(real *, real *);
-	static integer indco;
-	static real abbuv;
-	static integer phase;
-	extern /* Subroutine */ int cxdta_(real *, real *, integer *, integer *,
-									   real *, integer *);
-	static real sigo20;
-	static integer ipath, indno;
-	extern /* Subroutine */ int mapms_(integer *, integer *, real *, real *,
-									   integer *);
-	static real emiss, vrmin, alpha2, vrmax, stsol, train;
-	static integer indch4, indco2;
-	static real tlold, sh2ot0, sh2ot1, vtemp;
-	static integer indh2o, indnh3;
-	static real radfn0, radfn1, sigo2a;
-	static integer indn2o, indno2;
-	static real sigo2b;
-	static integer indso2;
-	extern /* Subroutine */ int o3hht0_(real *, real *), o3hht1_(real *, real *), o2cont_(real *, real *, real *, real *), o3hht2_(real *, real *), abcdta_(integer *);
-	static real total, summs, tmprn, rain63, asymr, denom;
-	extern doublereal dbltx_(real *, real *, real *);
-	static real trace;
-	extern /* Subroutine */ int ssrad_(integer *, integer *, integer *,
-									   integer *, real *, real *);
-	static real tlnew;
-	extern /* Subroutine */ int msrad_(integer *, real *, integer *, integer *, real *, real *, real *, real *, real *, real *);
-	static integer ikmax1;
-	static real cozen, sumvv, sumtt;
-	extern doublereal betabs_(real *, real *);
-	static real sumss, rflss, rflfac;
-	extern /* Subroutine */ int hertda_(real *, real *);
-	static real solil, radmin, radmax, soliv, factor, rainav;
-	extern /* Subroutine */ int aerext_(real *);
-	static integer iemiss;
-	static real radsum, rflsol;
-	static integer icount, iscttr;
-	static real wcrris, tcrris;
-	extern /* Subroutine */ int schrun_(real *, real *);
-	static integer itzero;
-	extern doublereal tnrain_(real *, real *, real *, real *);
-	extern /* Subroutine */ int rnscat_(real *, real *, real *, integer *,
-										integer *, integer *, real *, real *, integer *);
-	static real rnexph, traipl;
-	static integer ikmaxp;
-	static real surdtr;
-	extern /* Subroutine */ int source_(real *, integer *, integer *, real *,
-										real *);
-	static real surdsr, rflsss, tsoliv, tsolil, sumssr, sumsss;
+	static long k, n;
+	static float v, c0;
+	static long n1;
+	static float t0, t1, ab;
+	static long ib;
+	static float cp;
+	static long ik, jk, iv;
+	static float xd, ss;
+	static long ik1;
+	static float ct1, ct2;
+	static long ml1, iv1, iv2;
+	static float w7d, wo3, wt2, fdg, bbg, dmf[34], abt, bet[68], w12d, w13d;
+	static long idv;
+	static float umf[34], w14d, w16d, ext;
+	static long ikm;
+	static float asy, sum, sct, rfd, w1o3, w2o3, sms, fh2o;
+	static long ikp1;
+	extern /* Subroutine */ int hno3_(float *, float *);
+	static float xh2o;
+	extern /* Subroutine */ int o3uv_(float *, float *);
+	static float bbik;
+	extern double bbfn_(float *, float *);
+	static float alam;
+	static long ioff, imap[68];
+	static float dmfs[34], cssa;
+	static long iiii;
+	static float dtau;
+	static long dist, ient;
+	static float umfs[34];
+	static long ikmx, imlt;
+	static float suma, rfls;
+	static long init;
+	static float ssol;
+	static long imol;
+	static float temp, unif, smss, sums, sumt, sumv;
+	extern /* Subroutine */ int c4dta_(float *, float *), c6dta_(float *, float *), c8dta_(float *, float *);
+	static long indo3, indo2;
+	extern /* Subroutine */ int slf260_(float *, float *), slf296_(float *, float *), frn296_(float *, float *);
+	static float altx9;
+	extern /* Subroutine */ int fudge_(float *, float *);
+	static long indco;
+	static float abbuv;
+	static long phase;
+	extern /* Subroutine */ int cxdta_(float *, float *, long *, long *,
+									   float *, long *);
+	static float sigo20;
+	static long ipath, indno;
+	extern /* Subroutine */ int mapms_(long *, long *, float *, float *,
+									   long *);
+	static float emiss, vrmin, alpha2, vrmax, stsol, train;
+	static long indch4, indco2;
+	static float tlold, sh2ot0, sh2ot1, vtemp;
+	static long indh2o, indnh3;
+	static float radfn0, radfn1, sigo2a;
+	static long indn2o, indno2;
+	static float sigo2b;
+	static long indso2;
+	extern /* Subroutine */ int o3hht0_(float *, float *), o3hht1_(float *, float *), o2cont_(float *, float *, float *, float *), o3hht2_(float *, float *), abcdta_(long *);
+	static float total, summs, tmprn, rain63, asymr, denom;
+	extern double dbltx_(float *, float *, float *);
+	static float trace;
+	extern /* Subroutine */ int ssrad_(long *, long *, long *,
+									   long *, float *, float *);
+	static float tlnew;
+	extern /* Subroutine */ int msrad_(long *, float *, long *, long *, float *, float *, float *, float *, float *, float *);
+	static long ikmax1;
+	static float cozen, sumvv, sumtt;
+	extern double betabs_(float *, float *);
+	static float sumss, rflss, rflfac;
+	extern /* Subroutine */ int hertda_(float *, float *);
+	static float solil, radmin, radmax, soliv, factor, rainav;
+	extern /* Subroutine */ int aerext_(float *);
+	static long iemiss;
+	static float radsum, rflsol;
+	static long icount, iscttr;
+	static float wcrris, tcrris;
+	extern /* Subroutine */ int schrun_(float *, float *);
+	static long itzero;
+	extern double tnrain_(float *, float *, float *, float *);
+	extern /* Subroutine */ int rnscat_(float *, float *, float *, long *,
+										long *, long *, float *, float *, long *);
+	static float rnexph, traipl;
+	static long ikmaxp;
+	static float surdtr;
+	extern /* Subroutine */ int source_(float *, long *, long *, float *,
+										float *);
+	static float surdsr, rflsss, tsoliv, tsolil, sumssr, sumsss;
 
 	/* Fortran I/O blocks */
 	static cilist io___729 = {0, 0, 0, fmt_931, 0};
@@ -17530,7 +17529,7 @@ L20:
 	}
 	++icount;
 	/*                                                                       TRA 2850 */
-	v = (real)iv;
+	v = (float)iv;
 	/*                                                                       TRA 2870 */
 	/*      VALF,ALF2 AND FAC2 ARE USED TO MODIFY THE H2O CONTINUUM          TRA 2880 */
 	/*      AFTER THE CALLS TO SLF296 AND SLF260                             TRA 2890 */
@@ -17845,7 +17844,7 @@ L109:
 			xd = exp(-v / (tmprn * .6952f));
 			rfd = v * (1.f - xd) / (xd + 1.f);
 			rain63 = _BLNK__4.w[2] / _BLNK__4.w[61];
-			d__1 = (doublereal)rain63;
+			d__1 = (double)rain63;
 			rainav = pow_dd(&d__1, &c_b1423);
 			train = tnrain_(&rainav, &v, &tmprn, &rfd);
 			if (v < 250.f)
@@ -18264,12 +18263,12 @@ L109:
 			{
 				io___819.ciunit = ifil_1.ipr1;
 				s_wsfe(&io___819);
-				do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-				do_fio(&c__1, (char *)&path_1.aht[ik - 1], (ftnlen)sizeof(real));
-				do_fio(&c__1, (char *)&path_1.aht[ik], (ftnlen)sizeof(real));
-				do_fio(&c__1, (char *)&bbik, (ftnlen)sizeof(real));
-				do_fio(&c__1, (char *)&dtau, (ftnlen)sizeof(real));
-				do_fio(&c__1, (char *)&tlnew, (ftnlen)sizeof(real));
+				do_fio(&c__1, (char *)&v, (long)sizeof(float));
+				do_fio(&c__1, (char *)&path_1.aht[ik - 1], (long)sizeof(float));
+				do_fio(&c__1, (char *)&path_1.aht[ik], (long)sizeof(float));
+				do_fio(&c__1, (char *)&bbik, (long)sizeof(float));
+				do_fio(&c__1, (char *)&dtau, (long)sizeof(float));
+				do_fio(&c__1, (char *)&tlnew, (long)sizeof(float));
 				e_wsfe();
 			}
 			if (card1_2.iemsct < 2 && dtau < 1e-5f && tlnew < 1e-5f)
@@ -18301,15 +18300,15 @@ L109:
 				n = n1 + 1;
 				io___823.ciunit = ifil_1.ipr1;
 				s_wsfe(&io___823);
-				do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-				do_fio(&c__1, (char *)&path_1.aht[ik], (ftnlen)sizeof(real));
-				do_fio(&c__1, (char *)&dirst_1.umb[n - 1], (ftnlen)sizeof(real));
-				do_fio(&c__1, (char *)&dirst_1.umbs[n - 1], (ftnlen)sizeof(real));
-				do_fio(&c__1, (char *)&dirst_1.dmb[n - 1], (ftnlen)sizeof(real));
-				do_fio(&c__1, (char *)&dirst_1.dmbs[n - 1], (ftnlen)sizeof(real));
+				do_fio(&c__1, (char *)&v, (long)sizeof(float));
+				do_fio(&c__1, (char *)&path_1.aht[ik], (long)sizeof(float));
+				do_fio(&c__1, (char *)&dirst_1.umb[n - 1], (long)sizeof(float));
+				do_fio(&c__1, (char *)&dirst_1.umbs[n - 1], (long)sizeof(float));
+				do_fio(&c__1, (char *)&dirst_1.dmb[n - 1], (long)sizeof(float));
+				do_fio(&c__1, (char *)&dirst_1.dmbs[n - 1], (long)sizeof(float));
 				r__1 = dirst_1.sun * _BLNK__4.tx[8];
-				do_fio(&c__1, (char *)&r__1, (ftnlen)sizeof(real));
-				do_fio(&c__1, (char *)&_BLNK__4.tx[8], (ftnlen)sizeof(real));
+				do_fio(&c__1, (char *)&r__1, (long)sizeof(float));
+				do_fio(&c__1, (char *)&_BLNK__4.tx[8], (long)sizeof(float));
 				e_wsfe();
 			}
 			if (dtau < 1e-5f && _BLNK__4.tx[8] < 1e-5f)
@@ -18367,14 +18366,14 @@ L220:
 	{
 		io___833.ciunit = ifil_1.ipr1;
 		s_wsfe(&io___833);
-		do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&path_1.aht[0], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&dirst_1.umb[0], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&dirst_1.umbs[0], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&dirst_1.dmb[0], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&dirst_1.dmbs[0], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&dirst_1.sun, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&c_b1471, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&v, (long)sizeof(float));
+		do_fio(&c__1, (char *)&path_1.aht[0], (long)sizeof(float));
+		do_fio(&c__1, (char *)&dirst_1.umb[0], (long)sizeof(float));
+		do_fio(&c__1, (char *)&dirst_1.umbs[0], (long)sizeof(float));
+		do_fio(&c__1, (char *)&dirst_1.dmb[0], (long)sizeof(float));
+		do_fio(&c__1, (char *)&dirst_1.dmbs[0], (long)sizeof(float));
+		do_fio(&c__1, (char *)&dirst_1.sun, (long)sizeof(float));
+		do_fio(&c__1, (char *)&c_b1471, (long)sizeof(float));
 		e_wsfe();
 	}
 	/*                                                                       TRA 8630 */
@@ -18455,52 +18454,52 @@ L300:
 	_BLNK__4.tx[6] *= _BLNK__4.tx[15];
 	io___839.ciunit = ifil_1.ipr;
 	s_wsfe(&io___839);
-	do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&alam, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[16], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&unif, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[30], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&trace, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[3], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[4], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[5], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[6], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[10], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[9], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&suma, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&v, (long)sizeof(float));
+	do_fio(&c__1, (char *)&alam, (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[16], (long)sizeof(float));
+	do_fio(&c__1, (char *)&unif, (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[30], (long)sizeof(float));
+	do_fio(&c__1, (char *)&trace, (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[3], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[4], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[5], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[6], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[10], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[9], (long)sizeof(float));
+	do_fio(&c__1, (char *)&suma, (long)sizeof(float));
 	e_wsfe();
 	_BLNK__4.tx[49] *= _BLNK__4.tx[57];
 	io___840.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___840);
-	do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[16], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[30], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[35], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[43], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[45], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[46], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[49], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[51], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[53], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[54], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[55], (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&v, (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[16], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[30], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[35], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[43], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[45], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[46], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[49], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[51], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[53], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[54], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[55], (long)sizeof(float));
 	e_wsfe();
 	io___841.ciunit = ifil_1.ipu;
 	s_wsfe(&io___841);
-	do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[16], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&unif, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[30], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&trace, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[3], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[4], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[5], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[6], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[10], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[9], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&altx9, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&v, (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[16], (long)sizeof(float));
+	do_fio(&c__1, (char *)&unif, (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[30], (long)sizeof(float));
+	do_fio(&c__1, (char *)&trace, (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[3], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[4], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[5], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[6], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[10], (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[9], (long)sizeof(float));
+	do_fio(&c__1, (char *)&altx9, (long)sizeof(float));
 	e_wsfe();
 	goto L700;
 L400:
@@ -18544,19 +18543,19 @@ L400:
 	radsum += card4_1.dv * factor * sumv;
 	io___845.ciunit = ifil_1.ipr;
 	s_wsfe(&io___845);
-	do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&alam, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&sumv, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&sumvv, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&radsum, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&v, (long)sizeof(float));
+	do_fio(&c__1, (char *)&alam, (long)sizeof(float));
+	do_fio(&c__1, (char *)&sumv, (long)sizeof(float));
+	do_fio(&c__1, (char *)&sumvv, (long)sizeof(float));
+	do_fio(&c__1, (char *)&radsum, (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (long)sizeof(float));
 	e_wsfe();
 	io___846.ciunit = ifil_1.ipu;
 	s_wsfe(&io___846);
-	do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&sumv, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&altx9, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&v, (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (long)sizeof(float));
+	do_fio(&c__1, (char *)&sumv, (long)sizeof(float));
+	do_fio(&c__1, (char *)&altx9, (long)sizeof(float));
 	e_wsfe();
 	sumt = sumv;
 	sumtt = sumvv;
@@ -18638,53 +18637,53 @@ L510:
 	{
 		io___855.ciunit = ifil_1.ipr;
 		s_wsfe(&io___855);
-		do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&alam, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sumv, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sumvv, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sums, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sumssr, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&rfls, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&rflsol, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sumt, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sumtt, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&radsum, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&_BLNK__4.tx[8], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&v, (long)sizeof(float));
+		do_fio(&c__1, (char *)&alam, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sumv, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sumvv, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sums, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sumssr, (long)sizeof(float));
+		do_fio(&c__1, (char *)&rfls, (long)sizeof(float));
+		do_fio(&c__1, (char *)&rflsol, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sumt, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sumtt, (long)sizeof(float));
+		do_fio(&c__1, (char *)&radsum, (long)sizeof(float));
+		do_fio(&c__1, (char *)&_BLNK__4.tx[8], (long)sizeof(float));
 		e_wsfe();
 	}
 	else
 	{
 		io___856.ciunit = ifil_1.ipr;
 		s_wsfe(&io___856);
-		do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&alam, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sumv, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sumvv, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sums, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sumssr, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sumsss, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&rfls, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&rflsol, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&rflss, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sumt, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sumtt, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&radsum, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&_BLNK__4.tx[8], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&v, (long)sizeof(float));
+		do_fio(&c__1, (char *)&alam, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sumv, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sumvv, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sums, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sumssr, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sumsss, (long)sizeof(float));
+		do_fio(&c__1, (char *)&rfls, (long)sizeof(float));
+		do_fio(&c__1, (char *)&rflsol, (long)sizeof(float));
+		do_fio(&c__1, (char *)&rflss, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sumt, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sumtt, (long)sizeof(float));
+		do_fio(&c__1, (char *)&radsum, (long)sizeof(float));
+		do_fio(&c__1, (char *)&_BLNK__4.tx[8], (long)sizeof(float));
 		e_wsfe();
 	}
 	io___857.ciunit = ifil_1.ipu;
 	s_wsfe(&io___857);
-	do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&sumv, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&sums, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&sumsss, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&rfls, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&rflss, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&sumt, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&srad_1.teb1, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&srad_1.teb2sv, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&altx9, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&v, (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (long)sizeof(float));
+	do_fio(&c__1, (char *)&sumv, (long)sizeof(float));
+	do_fio(&c__1, (char *)&sums, (long)sizeof(float));
+	do_fio(&c__1, (char *)&sumsss, (long)sizeof(float));
+	do_fio(&c__1, (char *)&rfls, (long)sizeof(float));
+	do_fio(&c__1, (char *)&rflss, (long)sizeof(float));
+	do_fio(&c__1, (char *)&sumt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&srad_1.teb1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&srad_1.teb2sv, (long)sizeof(float));
+	do_fio(&c__1, (char *)&altx9, (long)sizeof(float));
 	e_wsfe();
 	goto L700;
 L600:
@@ -18704,23 +18703,23 @@ L600:
 	ssol += soliv * card4_1.dv * factor;
 	io___862.ciunit = ifil_1.ipr;
 	s_wsfe(&io___862);
-	do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&alam, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&tsoliv, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&tsolil, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&soliv, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&solil, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&stsol, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&ssol, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&v, (long)sizeof(float));
+	do_fio(&c__1, (char *)&alam, (long)sizeof(float));
+	do_fio(&c__1, (char *)&tsoliv, (long)sizeof(float));
+	do_fio(&c__1, (char *)&tsolil, (long)sizeof(float));
+	do_fio(&c__1, (char *)&soliv, (long)sizeof(float));
+	do_fio(&c__1, (char *)&solil, (long)sizeof(float));
+	do_fio(&c__1, (char *)&stsol, (long)sizeof(float));
+	do_fio(&c__1, (char *)&ssol, (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (long)sizeof(float));
 	e_wsfe();
 	io___863.ciunit = ifil_1.ipu;
 	s_wsfe(&io___863);
-	do_fio(&c__1, (char *)&v, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&tsoliv, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&soliv, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&altx9, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&v, (long)sizeof(float));
+	do_fio(&c__1, (char *)&_BLNK__4.tx[8], (long)sizeof(float));
+	do_fio(&c__1, (char *)&tsoliv, (long)sizeof(float));
+	do_fio(&c__1, (char *)&soliv, (long)sizeof(float));
+	do_fio(&c__1, (char *)&altx9, (long)sizeof(float));
 	e_wsfe();
 	sumt = tsoliv;
 	radsum = stsol;
@@ -18753,13 +18752,13 @@ L710:
 		goto L5;
 	}
 	/* *****END OF FREQUENCY LOOP                                             TRA10290 */
-	ab = 1.f - suma / (real)(iv - iv1);
+	ab = 1.f - suma / (float)(iv - iv1);
 	io___865.ciunit = ifil_1.ipr;
 	s_wsfe(&io___865);
-	do_fio(&c__1, (char *)&iv1, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&iv, (ftnlen)sizeof(integer));
-	do_fio(&c__1, (char *)&suma, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&ab, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&iv1, (long)sizeof(long));
+	do_fio(&c__1, (char *)&iv, (long)sizeof(long));
+	do_fio(&c__1, (char *)&suma, (long)sizeof(float));
+	do_fio(&c__1, (char *)&ab, (long)sizeof(float));
 	e_wsfe();
 	if (card1_2.iemsct == 0)
 	{
@@ -18769,27 +18768,27 @@ L710:
 	{
 		io___866.ciunit = ifil_1.ipr;
 		s_wsfe(&io___866);
-		do_fio(&c__1, (char *)&radsum, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&radmin, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&vrmin, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&radmax, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&vrmax, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&radsum, (long)sizeof(float));
+		do_fio(&c__1, (char *)&radmin, (long)sizeof(float));
+		do_fio(&c__1, (char *)&vrmin, (long)sizeof(float));
+		do_fio(&c__1, (char *)&radmax, (long)sizeof(float));
+		do_fio(&c__1, (char *)&vrmax, (long)sizeof(float));
 		e_wsfe();
 	}
 	else
 	{
 		io___867.ciunit = ifil_1.ipr;
 		s_wsfe(&io___867);
-		do_fio(&c__1, (char *)&radsum, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&radmin, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&vrmin, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&radmax, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&vrmax, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&radsum, (long)sizeof(float));
+		do_fio(&c__1, (char *)&radmin, (long)sizeof(float));
+		do_fio(&c__1, (char *)&vrmin, (long)sizeof(float));
+		do_fio(&c__1, (char *)&radmax, (long)sizeof(float));
+		do_fio(&c__1, (char *)&vrmax, (long)sizeof(float));
 		e_wsfe();
 		io___868.ciunit = ifil_1.ipr;
 		s_wsfe(&io___868);
-		do_fio(&c__1, (char *)&card1_2.tbound, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&emiss, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&card1_2.tbound, (long)sizeof(float));
+		do_fio(&c__1, (char *)&emiss, (long)sizeof(float));
 		e_wsfe();
 	}
 L770:
@@ -18803,13 +18802,13 @@ L770:
 	/* L720: */
 } /* trans_ */
 
-/* Subroutine */ int fudge_(real *v, real *sumy)
+/* Subroutine */ int fudge_(float *v, float *sumy)
 {
 	/* Builtin functions */
-	double log(doublereal), exp(doublereal);
+	double log(double), exp(double);
 
 	/* Local variables */
-	static real ya, yb, yainv, ybinv;
+	static float ya, yb, yainv, ybinv;
 
 	/*                                                                       FDG* 110 */
 	/*     TO CALCULATE H2O FAR WING CONTINUUM USING THE SUMS OF EXPONENTIALSFDG* 120 */
@@ -18830,16 +18829,16 @@ L770:
 	return 0;
 } /* fudge_ */
 
-doublereal andex_(real *h__, real *sh, real *gamma)
+double andex_(float *h__, float *sh, float *gamma)
 {
 	/* System generated locals */
-	real ret_val;
+	float ret_val;
 
 	/* Builtin functions */
-	double exp(doublereal);
+	double exp(double);
 
 	/* Local variables */
-	static real hsh;
+	static float hsh;
 
 	/* ***********************************************************************FAN  110 */
 	/*     COMPUTES THE INDEX OF REFRACTION AT HEIGHT H, SH IS THE           FAN  120 */
@@ -18869,22 +18868,22 @@ L20:
 	return ret_val;
 } /* andex_ */
 
-doublereal tnrain_(real *rr, real *v, real *tm, real *radfld)
+double tnrain_(float *rr, float *v, float *tm, float *radfld)
 {
 	/* Initialized data */
 
-	static real nzero = 8e3f;
+	static float nzero = 8e3f;
 
 	/* System generated locals */
-	real ret_val, r__1;
-	doublereal d__1;
+	float ret_val, r__1;
+	double d__1;
 
 	/* Builtin functions */
-	double pow_dd(doublereal *, doublereal *);
+	double pow_dd(double *, double *);
 
 	/* Local variables */
-	static real a;
-	extern doublereal gmrain_(real *, real *, real *);
+	static float a;
+	extern double gmrain_(float *, float *, float *);
 
 	/* CC                                                                     TNR  110 */
 	/* CC   CALCULATES TRANSMISSION DUE TO RAIN AS A FUNCTION OF              TNR  140 */
@@ -18900,7 +18899,7 @@ doublereal tnrain_(real *rr, real *v, real *tm, real *radfld)
 	/* CC   D=DROP DIAMETER (CM)                                              TNR  240 */
 	/* CC                                                                     TNR  250 */
 	/* CC                                                                     TNR  280 */
-	d__1 = (doublereal)(*rr);
+	d__1 = (double)(*rr);
 	a = 41.f / pow_dd(&d__1, &c_b1631);
 	/* CC                                                                     TNR  300 */
 	if (*rr <= 0.f)
@@ -18926,23 +18925,23 @@ doublereal tnrain_(real *rr, real *v, real *tm, real *radfld)
 	return ret_val;
 } /* tnrain_ */
 
-/* Subroutine */ int rnscat_(real *v, real *r__, real *tt, integer *phase,
-							 integer *dist, integer *ik, real *cssa, real *asymr, integer *ient)
+/* Subroutine */ int rnscat_(float *v, float *r__, float *tt, long *phase,
+							 long *dist, long *ik, float *cssa, float *asymr, long *ient)
 {
 	/* Initialized data */
 
-	static integer nf = 9;
-	static integer nt = 3;
-	static integer nsc = 4;
-	static integer maxi = 3;
-	static real tk = 273.15f;
-	static real cmt0 = 1.f;
-	static real c7500 = .5f;
-	static real g0 = 0.f;
-	static real g7500 = .85f;
-	static real temp[3] = {-10.f, 0.f, 10.f};
-	static real fr[9] = {19.35f, 37.f, 50.3f, 89.5f, 100.f, 118.f, 130.f, 183.f,
-						 231.f};
+	static long nf = 9;
+	static long nt = 3;
+	static long nsc = 4;
+	static long maxi = 3;
+	static float tk = 273.15f;
+	static float cmt0 = 1.f;
+	static float c7500 = .5f;
+	static float g0 = 0.f;
+	static float g7500 = .85f;
+	static float temp[3] = {-10.f, 0.f, 10.f};
+	static float fr[9] = {19.35f, 37.f, 50.3f, 89.5f, 100.f, 118.f, 130.f, 183.f,
+						  231.f};
 
 	/* Format strings */
 	static char fmt_801[] = "(2x,\002***  THE ASYMMETRY PARAMETER DUE TO RAI"
@@ -18957,27 +18956,27 @@ doublereal tnrain_(real *rr, real *v, real *tm, real *radfld)
 							"HE ASYMMETRY\002,\002 PARAMETER IS CALCULATED FOR 50 MM/HR\002)";
 
 	/* System generated locals */
-	integer i__1, i__2, i__3, i__4, i__5;
-	doublereal d__1;
+	long i__1, i__2, i__3, i__4, i__5;
+	double d__1;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), e_wsfe(void);
-	double pow_dd(doublereal *, doublereal *);
+	long s_wsfe(cilist *), e_wsfe(void);
+	double pow_dd(double *, double *);
 
 	/* Local variables */
-	static real f;
-	static integer i__, j, k;
-	static real t, s1, s2, s3, s4, al, am, cl, cm, fl, fm, sc[12] /*
+	static float f;
+	static long i__, j, k;
+	static float t, s1, s2, s3, s4, al, am, cl, cm, fl, fm, sc[12] /*
 	    was [3][4] */
 		;
-	static integer ki;
-	extern /* Subroutine */ int bs_(integer *, real *, real *, integer *,
-									real *);
-	static real sf, wc, st;
-	extern doublereal tab_(integer *, integer *, integer *, real *);
-	static integer isc, int__;
-	static real fdif, aamt, camt, fsav, atot, ctot, rsav, ftot, tsav;
-	static integer nopr;
+	static long ki;
+	extern /* Subroutine */ int bs_(long *, float *, float *, long *,
+									float *);
+	static float sf, wc, st;
+	extern double tab_(long *, long *, long *, float *);
+	static long isc, int__;
+	static float fdif, aamt, camt, fsav, atot, ctot, rsav, ftot, tsav;
+	static long nopr;
 
 	/* Fortran I/O blocks */
 	static cilist io___898 = {0, 6, 0, fmt_801, 0};
@@ -19119,12 +19118,12 @@ L10:
 	/*             THE WATER CONTENT IS                                      RNS 1130 */
 	if (*dist == 1)
 	{
-		d__1 = (doublereal)(*r__);
+		d__1 = (double)(*r__);
 		wc = pow_dd(&d__1, &c_b1641) * .0889f;
 	}
 	else
 	{
-		d__1 = (doublereal)(*r__);
+		d__1 = (double)(*r__);
 		wc = pow_dd(&d__1, &c_b1642) * .067f;
 	}
 	/*                                                                       RNS 1190 */
@@ -19248,9 +19247,9 @@ L40:
 	return 0;
 } /* rnscat_ */
 
-/* Subroutine */ int bs_(integer *i__, real *a, real *b, integer *n, real *s)
+/* Subroutine */ int bs_(long *i__, float *a, float *b, long *n, float *s)
 {
-	static integer j, m;
+	static long j, m;
 
 	/* ********************************************************************** BS   110 */
 	/*                                                                       BS   130 */
@@ -19283,112 +19282,112 @@ L10:
 	return 0;
 } /* bs_ */
 
-doublereal tab_(integer *i__, integer *j, integer *k, real *wc)
+double tab_(long *i__, long *j, long *k, float *wc)
 {
 	/* Initialized data */
 
-	static integer maxi[54] /* was [6][9] */ = {6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7,
-												7, 7, 7, 7, 7, 7, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
-												9, 9, 9, 9, 9, 9, 9, 9, 9};
-	static real a1[5] = {.611f, .655f, .958f, .538f, 1.58f};
-	static real a2[5] = {-.807f, -.772f, -1.f, -.696f, -1.5f};
-	static real alpha1[5] = {1.18f, 1.08f, .99f, 1.27f, 1.02f};
-	static real a[486] /* was [9][6][9] */ = {.284f, .363f, 0.f, .4908f, .035f,
-											  .002f, 0.f, 0.0, 0.0, .285f, .365f, 0.f, .487f, .035f, .00205f, 0.f, 0.0, 0.0,
-											  .294f, .375f, 0.f, .482f, .035f, .00208f, 0.f, 0.0, 0.0, .001336f, .0148f,
-											  .3147f, .528f, .047f, .00285f, 0.f, 0.0, 0.0, .36f, .528f, 0.f, .478f,
-											  .0482f, .0037f, 2.1e-4f, 0.0, 0.0, .00146f, .0317f, .438f, .538f, .0647f,
-											  .0048f, 1.6e-4f, 0.0, 0.0, .8f, 1.28f, .254f, .5f, .0965f, .0234f, .0037f,
-											  0.0, 0.0, .77f, 1.27f, .172f, .486f, .0936f, .0228f, .0037f, 0.0, 0.0, .73f,
-											  1.24f, 0.f, .4706f, .09f, .0221f, .0035f, 0.0, 0.0, .00344f, .162f, .93f,
-											  .69f, .159f, .034f, .005f, 0.0, 0.0, .76f, 1.43f, .32f, .481f, .151f, .057f,
-											  .011f, 0.0, 0.0, .0043f, .332f, 1.29f, .8f, .234f, .065f, .0106f, 0.0, 0.0,
-											  1.11f, 1.88f, .512f, .561f, .175f, .066f, .0169f, 0.0, 0.0, 1.07f, 1.89f,
-											  .425f, .534f, .165f, .064f, .0162f, 0.0, 0.0, 1.02f, 1.87f, .336f, .506f,
-											  .156f, .061f, .0156f, 0.0, 0.0, .0059f, .43f, 1.25f, .867f, .3f, .105f,
-											  .023f, 0.0, 0.0, .92f, 1.8f, .677f, .6f, .292f, .16f, .055f, 0.0, 0.0,
-											  .00775f, .77f, 1.55f, 1.07f, .49f, .22f, .056f, 0.0, 0.0, 1.51f, 2.73f,
-											  1.14f, .99f, .594f, .352f, .171f, .084f, .037f, 1.49f, 2.77f, 1.054f, .93f,
-											  .557f, .334f, .163f, .081f, .036f, 1.44f, 2.79f, .961f, .87f, .516f, .315f,
-											  .154f, .077f, .034f, .0163f, 1.61f, 1.57f, 1.31f, .77f, .43f, .18f, .106f,
-											  .029f, 1.12f, 2.18f, 1.36f, 1.33f, 1.02f, .73f, .47f, .29f, .16f, .0194f,
-											  1.9f, 1.66f, 1.63f, 1.16f, .8f, .43f, .32f, .11f, 1.55f, 2.82f, 1.266f,
-											  1.13f, .74f, .465f, .248f, .132f, .065f, 1.53f, 2.87f, 1.184f, 1.07f, .698f,
-											  .444f, .238f, .128f, .063f, 1.49f, 2.9f, 1.093f, 1.f, .649f, .418f, .225f,
-											  .122f, .06f, .0194f, 1.91f, 1.6f, 1.4f, .87f, .52f, .24f, .15f, .045f, 1.14f,
-											  2.22f, 1.48f, 1.51f, 1.24f, .94f, .65f, .43f, .26f, .0225f, 2.f, 1.65f,
-											  1.69f, 1.23f, .91f, .53f, .47f, .16f, 1.58f, 2.94f, 1.447f, 1.37f, 1.f, .68f,
-											  .41f, .25f, .136f, 1.58f, 2.97f, 1.374f, 1.31f, .96f, .66f, .4f, .24f, .133f,
-											  1.54f, 3.f, 1.288f, 1.234f, .898f, .62f, .38f, .23f, .127f, .0248f, 2.34f,
-											  1.62f, 1.52f, 1.01f, .66f, .33f, .23f, .081f, 1.15f, 2.25f, 1.64f, 1.8f,
-											  1.6f, 1.31f, .99f, .71f, .49f, .0279f, 2.2f, 1.63f, 1.77f, 1.3f, 1.07f, .66f,
-											  .56f, .26f, 1.6f, 2.98f, 1.546f, 1.52f, 1.18f, .84f, .54f, .34f, .2f, 1.59f,
-											  3.02f, 1.481f, 1.464f, 1.13f, .82f, .53f, .33f, .2f, 1.56f, 3.05f, 1.4f,
-											  1.388f, 1.07f, .78f, .5f, .32f, .19f, .0285f, 2.6f, 1.63f, 1.58f, 1.08f,
-											  .75f, .4f, .3f, .112f, 1.16f, 2.26f, 1.72f, 1.97f, 1.82f, 1.55f, 1.22f, .93f,
-											  .67f, .0314f, 2.3f, 1.62f, 1.8f, 1.33f, 1.16f, .74f, .67f, .33f, 1.6f, 3.08f,
-											  1.849f, 2.07f, 1.89f, 1.58f, 1.22f, .91f, .65f, 1.6f, 3.09f, 1.81f, 2.04f,
-											  1.86f, 1.56f, 1.21f, .91f, .65f, 1.58f, 3.1f, 1.75f, 1.98f, 1.81f, 1.52f,
-											  1.18f, .89f, .64f, .045f, 3.3f, 1.628f, 1.78f, 1.3f, 1.11f, .68f, .61f,
-											  .299f, 1.15f, 2.27f, 1.98f, 2.5f, 2.6f, 2.49f, 2.2f, 2.f, 1.6f, .0461f,
-											  2.32f, 1.606f, 1.946f, 1.508f, 1.57f, 1.11f, 1.18f, .73f, 1.58f, 3.09f,
-											  2.009f, 2.43f, 2.42f, 2.2f, 1.87f, 1.54f, 1.22f, 1.58f, 3.08f, 1.99f, 2.42f,
-											  2.42f, 2.2f, 1.88f, 1.54f, 1.22f, 1.56f, 3.08f, 1.95f, 2.38f, 2.38f, 2.17f,
-											  1.85f, 1.52f, 1.21f, .0587f, 3.39f, 1.624f, 1.902f, 1.454f, 1.4f, .94f,
-											  .93f, .53f, 1.13f, 2.26f, 2.11f, 2.8f, 3.09f, 3.1f, 3.f, 2.8f, 2.5f, .0579f,
-											  2.33f, 1.64f, 2.078f, 1.7f, 1.91f, 1.46f, 1.64f, 1.17f};
-	static real alpha[486] /* was [9][6][9] */ = {1.214f, 1.291f, 3.1f,
-												  -.009f, .398f, 1.06f, 0.f, 0.0, 0.0, 1.233f, 1.31f, 2.1f, -.013f, .399f,
-												  .97f, 0.f, 0.0, 0.0, 1.25f, 1.323f, 1.1f, -.016f, .4f, 1.03f, 0.f, 0.0, 0.0,
-												  1.035f, 1.63f, 5.005f, .028f, .473f, 1.03f, 0.f, 0.0, 0.0, 1.22f, 1.334f,
-												  4.1f, -.019f, .461f, 1.18f, 1.3f, 0.0, 0.0, 1.076f, 1.74f, .555f, .031f,
-												  .525f, 1.16f, 1.3f, 0.0, 0.0, 1.1f, 1.2f, .29f, 0.f, .386f, .92f, 1.32f, 0.0,
-												  0.0, 1.1f, 1.2f, .42f, -.01f, .378f, .91f, 1.26f, 0.0, 0.0, 1.09f, 1.15f,
-												  5.1f, -.0199f, .2f, .9f, 1.32f, 0.0, 0.0, 1.13f, 1.66f, .39f, .12f, .48f,
-												  .97f, 1.41f, 0.0, 0.0, 1.02f, 1.14f, .66f, -.01f, .485f, 1.15f, 1.69f, 0.0,
-												  0.0, 1.19f, 1.7f, .44f, .17f, .56f, 1.13f, 1.67f, 0.0, 0.0, 1.01f, 1.1f,
-												  .264f, .048f, .429f, .83f, 1.22f, 0.0, 0.0, 1.01f, 1.1f, .32f, .033f, .417f,
-												  .83f, 1.21f, 0.0, 0.0, 1.f, 1.1f, .445f, .018f, .402f, .82f, 1.2f, 0.0, 0.0,
-												  1.18f, 1.58f, .27f, .168f, .501f, .9f, 1.23f, 0.0, 0.0, .92f, 1.f, .416f,
-												  .09f, .528f, 1.01f, 1.51f, 0.0, 0.0, 1.23f, 1.57f, .27f, .224f, .62f, 1.11f,
-												  1.53f, 0.0, 0.0, .87f, .93f, .188f, .2f, .461f, .66f, .94f, 1.22f, 1.58f,
-												  .86f, .92f, .21f, .2f, .461f, .66f, .94f, 1.22f, 1.56f, .85f, .91f, .24f,
-												  .19f, .459f, .65f, .93f, 1.22f, 1.54f, 1.181f, 1.3f, .09f, .175f, .39f, .58f,
-												  .84f, 1.09f, 1.5f, .79f, .84f, .21f, .275f, .51f, .7f, 1.03f, 1.37f, 1.8f,
-												  1.16f, 1.18f, .06f, .2f, .41f, .64f, 1.01f, 1.4f, 1.9f, .85f, .9f, .172f,
-												  .222f, .452f, .63f, .89f, 1.14f, 1.44f, .84f, .89f, .191f, .221f, .454f,
-												  .68f, .89f, 1.13f, 1.41f, .83f, .88f, .216f, .22f, .456f, .63f, .89f, 1.12f,
-												  1.43f, 1.168f, 1.23f, .071f, .165f, .35f, .52f, .76f, .96f, 1.31f, .78f,
-												  .82f, .181f, .274f, .48f, .66f, .94f, 1.24f, 1.6f, 1.15f, 1.11f, .04f, .17f,
-												  .33f, .55f, .86f, 1.1f, 1.6f, .83f, .87f, .149f, .232f, .428f, .59f, .81f,
-												  1.02f, 1.25f, .81f, .86f, .165f, .236f, .433f, .59f, .81f, 1.01f, 1.25f, .8f,
-												  .85f, .184f, .238f, .438f, .59f, .81f, 1.01f, 1.24f, 1.145f, 1.14f, .046f,
-												  .146f, .28f, .44f, .64f, .81f, 1.07f, .762f, .799f, .148f, .255f, .44f, .59f,
-												  .83f, 1.06f, 1.36f, 1.12f, 1.f, .014f, .13f, .23f, .43f, .66f, .89f, 1.3f,
-												  .81f, .85f, .136f, .232f, .411f, .56f, .77f, .95f, 1.17f, .8f, .84f, .153f,
-												  .236f, .416f, .56f, .77f, .95f, 1.16f, .788f, .83f, .167f, .241f, .422f,
-												  .56f, .76f, .95f, 1.16f, 1.132f, 1.09f, .033f, .133f, .25f, .4f, .58f, .74f,
-												  .98f, .753f, .788f, .131f, .24f, .4f, .55f, .76f, .97f, 1.23f, 1.105f, .95f,
-												  .004f, .11f, .19f, .38f, .56f, .78f, 1.11f, .777f, .796f, .1f, .207f, .34f,
-												  .46f, .61f, .75f, .91f, .764f, .79f, .108f, .21f, .34f, .46f, .61f, .75f,
-												  .91f, .752f, .784f, .117f, .215f, .35f, .46f, .61f, .75f, .9f, 1.092f, .96f,
-												  .004f, .093f, .15f, .3f, .42f, .56f, .76f, .729f, .756f, .089f, .182f, .3f,
-												  .41f, .55f, .7f, .87f, 1.057f, .81f, -.006f, .075f, .122f, .28f, .394f, .55f,
-												  .79f, .757f, .766f, .084f, .183f, .29f, .4f, .52f, .63f, .76f, .746f, .764f,
-												  .087f, .182f, .29f, .39f, .52f, .63f, .75f, .736f, .761f, .092f, .184f, .29f,
-												  .39f, .51f, .62f, .75f, 1.06f, .86f, -.0018f, .078f, .128f, .264f, .367f,
-												  .49f, .67f, .717f, .74f, .069f, .148f, .24f, .33f, .44f, .55f, .67f, 1.024f,
-												  .763f, .007f, .075f, .13f, .256f, .36f, .47f, .66f};
+	static long maxi[54] /* was [6][9] */ = {6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7,
+											 7, 7, 7, 7, 7, 7, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
+											 9, 9, 9, 9, 9, 9, 9, 9, 9};
+	static float a1[5] = {.611f, .655f, .958f, .538f, 1.58f};
+	static float a2[5] = {-.807f, -.772f, -1.f, -.696f, -1.5f};
+	static float alpha1[5] = {1.18f, 1.08f, .99f, 1.27f, 1.02f};
+	static float a[486] /* was [9][6][9] */ = {.284f, .363f, 0.f, .4908f, .035f,
+											   .002f, 0.f, 0.0, 0.0, .285f, .365f, 0.f, .487f, .035f, .00205f, 0.f, 0.0, 0.0,
+											   .294f, .375f, 0.f, .482f, .035f, .00208f, 0.f, 0.0, 0.0, .001336f, .0148f,
+											   .3147f, .528f, .047f, .00285f, 0.f, 0.0, 0.0, .36f, .528f, 0.f, .478f,
+											   .0482f, .0037f, 2.1e-4f, 0.0, 0.0, .00146f, .0317f, .438f, .538f, .0647f,
+											   .0048f, 1.6e-4f, 0.0, 0.0, .8f, 1.28f, .254f, .5f, .0965f, .0234f, .0037f,
+											   0.0, 0.0, .77f, 1.27f, .172f, .486f, .0936f, .0228f, .0037f, 0.0, 0.0, .73f,
+											   1.24f, 0.f, .4706f, .09f, .0221f, .0035f, 0.0, 0.0, .00344f, .162f, .93f,
+											   .69f, .159f, .034f, .005f, 0.0, 0.0, .76f, 1.43f, .32f, .481f, .151f, .057f,
+											   .011f, 0.0, 0.0, .0043f, .332f, 1.29f, .8f, .234f, .065f, .0106f, 0.0, 0.0,
+											   1.11f, 1.88f, .512f, .561f, .175f, .066f, .0169f, 0.0, 0.0, 1.07f, 1.89f,
+											   .425f, .534f, .165f, .064f, .0162f, 0.0, 0.0, 1.02f, 1.87f, .336f, .506f,
+											   .156f, .061f, .0156f, 0.0, 0.0, .0059f, .43f, 1.25f, .867f, .3f, .105f,
+											   .023f, 0.0, 0.0, .92f, 1.8f, .677f, .6f, .292f, .16f, .055f, 0.0, 0.0,
+											   .00775f, .77f, 1.55f, 1.07f, .49f, .22f, .056f, 0.0, 0.0, 1.51f, 2.73f,
+											   1.14f, .99f, .594f, .352f, .171f, .084f, .037f, 1.49f, 2.77f, 1.054f, .93f,
+											   .557f, .334f, .163f, .081f, .036f, 1.44f, 2.79f, .961f, .87f, .516f, .315f,
+											   .154f, .077f, .034f, .0163f, 1.61f, 1.57f, 1.31f, .77f, .43f, .18f, .106f,
+											   .029f, 1.12f, 2.18f, 1.36f, 1.33f, 1.02f, .73f, .47f, .29f, .16f, .0194f,
+											   1.9f, 1.66f, 1.63f, 1.16f, .8f, .43f, .32f, .11f, 1.55f, 2.82f, 1.266f,
+											   1.13f, .74f, .465f, .248f, .132f, .065f, 1.53f, 2.87f, 1.184f, 1.07f, .698f,
+											   .444f, .238f, .128f, .063f, 1.49f, 2.9f, 1.093f, 1.f, .649f, .418f, .225f,
+											   .122f, .06f, .0194f, 1.91f, 1.6f, 1.4f, .87f, .52f, .24f, .15f, .045f, 1.14f,
+											   2.22f, 1.48f, 1.51f, 1.24f, .94f, .65f, .43f, .26f, .0225f, 2.f, 1.65f,
+											   1.69f, 1.23f, .91f, .53f, .47f, .16f, 1.58f, 2.94f, 1.447f, 1.37f, 1.f, .68f,
+											   .41f, .25f, .136f, 1.58f, 2.97f, 1.374f, 1.31f, .96f, .66f, .4f, .24f, .133f,
+											   1.54f, 3.f, 1.288f, 1.234f, .898f, .62f, .38f, .23f, .127f, .0248f, 2.34f,
+											   1.62f, 1.52f, 1.01f, .66f, .33f, .23f, .081f, 1.15f, 2.25f, 1.64f, 1.8f,
+											   1.6f, 1.31f, .99f, .71f, .49f, .0279f, 2.2f, 1.63f, 1.77f, 1.3f, 1.07f, .66f,
+											   .56f, .26f, 1.6f, 2.98f, 1.546f, 1.52f, 1.18f, .84f, .54f, .34f, .2f, 1.59f,
+											   3.02f, 1.481f, 1.464f, 1.13f, .82f, .53f, .33f, .2f, 1.56f, 3.05f, 1.4f,
+											   1.388f, 1.07f, .78f, .5f, .32f, .19f, .0285f, 2.6f, 1.63f, 1.58f, 1.08f,
+											   .75f, .4f, .3f, .112f, 1.16f, 2.26f, 1.72f, 1.97f, 1.82f, 1.55f, 1.22f, .93f,
+											   .67f, .0314f, 2.3f, 1.62f, 1.8f, 1.33f, 1.16f, .74f, .67f, .33f, 1.6f, 3.08f,
+											   1.849f, 2.07f, 1.89f, 1.58f, 1.22f, .91f, .65f, 1.6f, 3.09f, 1.81f, 2.04f,
+											   1.86f, 1.56f, 1.21f, .91f, .65f, 1.58f, 3.1f, 1.75f, 1.98f, 1.81f, 1.52f,
+											   1.18f, .89f, .64f, .045f, 3.3f, 1.628f, 1.78f, 1.3f, 1.11f, .68f, .61f,
+											   .299f, 1.15f, 2.27f, 1.98f, 2.5f, 2.6f, 2.49f, 2.2f, 2.f, 1.6f, .0461f,
+											   2.32f, 1.606f, 1.946f, 1.508f, 1.57f, 1.11f, 1.18f, .73f, 1.58f, 3.09f,
+											   2.009f, 2.43f, 2.42f, 2.2f, 1.87f, 1.54f, 1.22f, 1.58f, 3.08f, 1.99f, 2.42f,
+											   2.42f, 2.2f, 1.88f, 1.54f, 1.22f, 1.56f, 3.08f, 1.95f, 2.38f, 2.38f, 2.17f,
+											   1.85f, 1.52f, 1.21f, .0587f, 3.39f, 1.624f, 1.902f, 1.454f, 1.4f, .94f,
+											   .93f, .53f, 1.13f, 2.26f, 2.11f, 2.8f, 3.09f, 3.1f, 3.f, 2.8f, 2.5f, .0579f,
+											   2.33f, 1.64f, 2.078f, 1.7f, 1.91f, 1.46f, 1.64f, 1.17f};
+	static float alpha[486] /* was [9][6][9] */ = {1.214f, 1.291f, 3.1f,
+												   -.009f, .398f, 1.06f, 0.f, 0.0, 0.0, 1.233f, 1.31f, 2.1f, -.013f, .399f,
+												   .97f, 0.f, 0.0, 0.0, 1.25f, 1.323f, 1.1f, -.016f, .4f, 1.03f, 0.f, 0.0, 0.0,
+												   1.035f, 1.63f, 5.005f, .028f, .473f, 1.03f, 0.f, 0.0, 0.0, 1.22f, 1.334f,
+												   4.1f, -.019f, .461f, 1.18f, 1.3f, 0.0, 0.0, 1.076f, 1.74f, .555f, .031f,
+												   .525f, 1.16f, 1.3f, 0.0, 0.0, 1.1f, 1.2f, .29f, 0.f, .386f, .92f, 1.32f, 0.0,
+												   0.0, 1.1f, 1.2f, .42f, -.01f, .378f, .91f, 1.26f, 0.0, 0.0, 1.09f, 1.15f,
+												   5.1f, -.0199f, .2f, .9f, 1.32f, 0.0, 0.0, 1.13f, 1.66f, .39f, .12f, .48f,
+												   .97f, 1.41f, 0.0, 0.0, 1.02f, 1.14f, .66f, -.01f, .485f, 1.15f, 1.69f, 0.0,
+												   0.0, 1.19f, 1.7f, .44f, .17f, .56f, 1.13f, 1.67f, 0.0, 0.0, 1.01f, 1.1f,
+												   .264f, .048f, .429f, .83f, 1.22f, 0.0, 0.0, 1.01f, 1.1f, .32f, .033f, .417f,
+												   .83f, 1.21f, 0.0, 0.0, 1.f, 1.1f, .445f, .018f, .402f, .82f, 1.2f, 0.0, 0.0,
+												   1.18f, 1.58f, .27f, .168f, .501f, .9f, 1.23f, 0.0, 0.0, .92f, 1.f, .416f,
+												   .09f, .528f, 1.01f, 1.51f, 0.0, 0.0, 1.23f, 1.57f, .27f, .224f, .62f, 1.11f,
+												   1.53f, 0.0, 0.0, .87f, .93f, .188f, .2f, .461f, .66f, .94f, 1.22f, 1.58f,
+												   .86f, .92f, .21f, .2f, .461f, .66f, .94f, 1.22f, 1.56f, .85f, .91f, .24f,
+												   .19f, .459f, .65f, .93f, 1.22f, 1.54f, 1.181f, 1.3f, .09f, .175f, .39f, .58f,
+												   .84f, 1.09f, 1.5f, .79f, .84f, .21f, .275f, .51f, .7f, 1.03f, 1.37f, 1.8f,
+												   1.16f, 1.18f, .06f, .2f, .41f, .64f, 1.01f, 1.4f, 1.9f, .85f, .9f, .172f,
+												   .222f, .452f, .63f, .89f, 1.14f, 1.44f, .84f, .89f, .191f, .221f, .454f,
+												   .68f, .89f, 1.13f, 1.41f, .83f, .88f, .216f, .22f, .456f, .63f, .89f, 1.12f,
+												   1.43f, 1.168f, 1.23f, .071f, .165f, .35f, .52f, .76f, .96f, 1.31f, .78f,
+												   .82f, .181f, .274f, .48f, .66f, .94f, 1.24f, 1.6f, 1.15f, 1.11f, .04f, .17f,
+												   .33f, .55f, .86f, 1.1f, 1.6f, .83f, .87f, .149f, .232f, .428f, .59f, .81f,
+												   1.02f, 1.25f, .81f, .86f, .165f, .236f, .433f, .59f, .81f, 1.01f, 1.25f, .8f,
+												   .85f, .184f, .238f, .438f, .59f, .81f, 1.01f, 1.24f, 1.145f, 1.14f, .046f,
+												   .146f, .28f, .44f, .64f, .81f, 1.07f, .762f, .799f, .148f, .255f, .44f, .59f,
+												   .83f, 1.06f, 1.36f, 1.12f, 1.f, .014f, .13f, .23f, .43f, .66f, .89f, 1.3f,
+												   .81f, .85f, .136f, .232f, .411f, .56f, .77f, .95f, 1.17f, .8f, .84f, .153f,
+												   .236f, .416f, .56f, .77f, .95f, 1.16f, .788f, .83f, .167f, .241f, .422f,
+												   .56f, .76f, .95f, 1.16f, 1.132f, 1.09f, .033f, .133f, .25f, .4f, .58f, .74f,
+												   .98f, .753f, .788f, .131f, .24f, .4f, .55f, .76f, .97f, 1.23f, 1.105f, .95f,
+												   .004f, .11f, .19f, .38f, .56f, .78f, 1.11f, .777f, .796f, .1f, .207f, .34f,
+												   .46f, .61f, .75f, .91f, .764f, .79f, .108f, .21f, .34f, .46f, .61f, .75f,
+												   .91f, .752f, .784f, .117f, .215f, .35f, .46f, .61f, .75f, .9f, 1.092f, .96f,
+												   .004f, .093f, .15f, .3f, .42f, .56f, .76f, .729f, .756f, .089f, .182f, .3f,
+												   .41f, .55f, .7f, .87f, 1.057f, .81f, -.006f, .075f, .122f, .28f, .394f, .55f,
+												   .79f, .757f, .766f, .084f, .183f, .29f, .4f, .52f, .63f, .76f, .746f, .764f,
+												   .087f, .182f, .29f, .39f, .52f, .63f, .75f, .736f, .761f, .092f, .184f, .29f,
+												   .39f, .51f, .62f, .75f, 1.06f, .86f, -.0018f, .078f, .128f, .264f, .367f,
+												   .49f, .67f, .717f, .74f, .069f, .148f, .24f, .33f, .44f, .55f, .67f, 1.024f,
+												   .763f, .007f, .075f, .13f, .256f, .36f, .47f, .66f};
 
 	/* System generated locals */
-	real ret_val, r__1;
-	doublereal d__1, d__2;
+	float ret_val, r__1;
+	double d__1, d__2;
 
 	/* Builtin functions */
-	double pow_dd(doublereal *, doublereal *);
+	double pow_dd(double *, double *);
 
 	/* Local variables */
-	static integer l;
+	static long l;
 
 	/* ********************************************************************** TAB  110 */
 	/*                                                                       TAB  120 */
@@ -19428,15 +19427,15 @@ doublereal tab_(integer *i__, integer *j, integer *k, real *wc)
 	}
 	if ((r__1 = a[*i__ + (*j + *k * 6) * 9 - 64], dabs(r__1)) > 1e-8f)
 	{
-		d__1 = (doublereal)(*wc);
-		d__2 = (doublereal)alpha[*i__ + (*j + *k * 6) * 9 - 64];
+		d__1 = (double)(*wc);
+		d__2 = (double)alpha[*i__ + (*j + *k * 6) * 9 - 64];
 		ret_val = a[*i__ + (*j + *k * 6) * 9 - 64] * pow_dd(&d__1, &d__2);
 	}
 	else
 	{
 		l = alpha[*i__ + (*j + *k * 6) * 9 - 64];
-		d__1 = (doublereal)(*wc);
-		d__2 = (doublereal)alpha1[l - 1];
+		d__1 = (double)(*wc);
+		d__2 = (double)alpha1[l - 1];
 		ret_val = a1[l - 1] * pow_dd(&d__1, &d__2) + a2[l - 1] * *wc;
 	}
 	return ret_val;
@@ -19449,10 +19448,10 @@ doublereal tab_(integer *i__, integer *j, integer *k, real *wc)
 
 /* >    BLOCK DATA                                                        BAB  105 */
 
-/* Subroutine */ int abcdta_(integer *iv)
+/* Subroutine */ int abcdta_(long *iv)
 {
 
-	static integer iw, imol, iband;
+	static long iw, imol, iband;
 
 	/*                                                                       ABC  120 */
 	/*                                                                       ABC  270 */
@@ -19777,14 +19776,14 @@ doublereal tab_(integer *i__, integer *j, integer *k, real *wc)
 	return 0;
 } /* abcdta_ */
 
-/* Subroutine */ int cxdta_(real *cprime, real *v, integer *iwl, integer *iwh,
-							real *cp, integer *ind)
+/* Subroutine */ int cxdta_(float *cprime, float *v, long *iwl, long *iwh,
+							float *cp, long *ind)
 {
 	/* System generated locals */
-	integer i__1;
+	long i__1;
 
 	/* Local variables */
-	static integer i__, ic, iv, indm1;
+	static long i__, ic, iv, indm1;
 
 	/*     THIS SUBROUTINE FINDS THE CPRIME FOR THE WAVENUMBER V.            CXD  110 */
 	/*     INPUT:         V --- WAVENUMBER                                   CXD  120 */
@@ -19853,17 +19852,17 @@ L400:
 	return 0;
 } /* cxdta_ */
 
-doublereal dbltx_(real *w, real *cprime, real *qa)
+double dbltx_(float *w, float *cprime, float *qa)
 {
 	/* System generated locals */
-	real ret_val;
-	doublereal d__1;
+	float ret_val;
+	double d__1;
 
 	/* Builtin functions */
-	double r_lg10(real *), pow_dd(doublereal *, doublereal *), exp(doublereal);
+	double r_lg10(float *), pow_dd(double *, double *), exp(double);
 
 	/* Local variables */
-	static real ws, qaws;
+	static float ws, qaws;
 
 	ret_val = 1.f;
 	if (*w < 1e-20f)
@@ -19890,47 +19889,47 @@ L100:
 	ret_val = 1.f;
 	return ret_val;
 L200:
-	d__1 = (doublereal)qaws;
+	d__1 = (double)qaws;
 	ret_val = exp(-pow_dd(&c_b1661, &d__1));
 	return ret_val;
 } /* dbltx_ */
 
-/* Subroutine */ int cldprf_(integer *k, integer *icld, integer *iha1,
-							 integer *ic1)
+/* Subroutine */ int cldprf_(long *k, long *icld, long *iha1,
+							 long *ic1)
 {
 	/* Initialized data */
 
-	static real rhzone[4] = {0.f, 70.f, 80.f, 99.f};
-	static real elwcr[4] = {3.517e-4f, 3.74e-4f, 4.439e-4f, 9.529e-4f};
-	static real elwcm[4] = {4.675e-4f, 6.543e-4f, .001166f, .003154f};
-	static real elwcu[4] = {3.102e-4f, 3.802e-4f, 4.463e-4f, 9.745e-4f};
-	static real elwct[4] = {1.735e-4f, 1.82e-4f, 2.02e-4f, 2.408e-4f};
-	static real aflwc = .01295f;
-	static real rflwc = .001804f;
-	static real culwc = .007683f;
-	static real aslwc = .004509f;
-	static real stlwc = .005272f;
-	static real sclwc = .004177f;
-	static real snlwc = .007518f;
-	static real bslwc = 1.567e-4f;
-	static real fvlwc = 5.922e-4f;
-	static real avlwc = 1.675e-4f;
-	static real mdlwc = 4.775e-4f;
-	static real tnlwc = .003446f;
-	static real tklwc = .05811f;
+	static float rhzone[4] = {0.f, 70.f, 80.f, 99.f};
+	static float elwcr[4] = {3.517e-4f, 3.74e-4f, 4.439e-4f, 9.529e-4f};
+	static float elwcm[4] = {4.675e-4f, 6.543e-4f, .001166f, .003154f};
+	static float elwcu[4] = {3.102e-4f, 3.802e-4f, 4.463e-4f, 9.745e-4f};
+	static float elwct[4] = {1.735e-4f, 1.82e-4f, 2.02e-4f, 2.408e-4f};
+	static float aflwc = .01295f;
+	static float rflwc = .001804f;
+	static float culwc = .007683f;
+	static float aslwc = .004509f;
+	static float stlwc = .005272f;
+	static float sclwc = .004177f;
+	static float snlwc = .007518f;
+	static float bslwc = 1.567e-4f;
+	static float fvlwc = 5.922e-4f;
+	static float avlwc = 1.675e-4f;
+	static float mdlwc = 4.775e-4f;
+	static float tnlwc = .003446f;
+	static float tklwc = .05811f;
 
 	/* Builtin functions */
-	integer s_wsle(cilist *), do_lio(integer *, integer *, char *, ftnlen),
+	long s_wsle(cilist *), do_lio(long *, long *, char *, long),
 		e_wsle(void);
-	double log(doublereal), exp(doublereal);
+	double log(double), exp(double);
 
 	/* Local variables */
-	static integer i__, m, n;
-	static real x, e1, e2, x1, x2, ec;
-	static integer ih, ii, ita;
-	static real con;
-	static integer itc;
-	static real wrh;
+	static long i__, m, n;
+	static float x, e1, e2, x1, x2, ec;
+	static long ih, ii, ita;
+	static float con;
+	static long itc;
+	static float wrh;
 
 	/* Fortran I/O blocks */
 	static cilist io___964 = {0, 6, 0, 0, 0};
@@ -20008,7 +20007,7 @@ L200:
 		goto L205;
 	}
 	s_wsle(&io___964);
-	do_lio(&c__9, &c__1, " WARNING ICLD NOT SET ", (ftnlen)22);
+	do_lio(&c__9, &c__1, " WARNING ICLD NOT SET ", (long)22);
 	e_wsle();
 	return 0;
 L205:
@@ -20167,16 +20166,16 @@ L280:
 	return 0;
 } /* cldprf_ */
 
-doublereal bbfn_(real *t, real *v)
+double bbfn_(float *t, float *v)
 {
 	/* System generated locals */
-	real ret_val, r__1, r__2;
+	float ret_val, r__1, r__2;
 
 	/* Builtin functions */
-	double exp(doublereal);
+	double exp(double);
 
 	/* Local variables */
-	static real x;
+	static float x;
 
 	/* ***********************************************************************BBF  110 */
 	/*   PLANCK BLACK BODY FUNCTION IN UNITS OF WATTS/(CM2 STER MICROMETER)  BBF  120 */
@@ -20198,19 +20197,19 @@ doublereal bbfn_(real *t, real *v)
 	return ret_val;
 } /* bbfn_ */
 
-/* Subroutine */ int msrad_(integer *iv, real *v, integer *isourc, integer *iday, real *anglem, real *ss, real *dmf, real *dmfs, real *umf, real *umfs)
+/* Subroutine */ int msrad_(long *iv, float *v, long *isourc, long *iday, float *anglem, float *ss, float *dmf, float *dmfs, float *umf, float *umfs)
 {
 	/* System generated locals */
-	integer i__1;
+	long i__1;
 
 	/* Local variables */
-	static real s0;
-	static integer ik, ikm;
-	static real denom;
-	static integer ikmik;
-	extern /* Subroutine */ int flxadd_(real *, real *, real *, real *, real *, real *, integer *, integer *, real *, real *, real *, real *,
-										real *, real *, real *, real *, real *),
-		source_(real *, integer *, integer *, real *, real *);
+	static float s0;
+	static long ik, ikm;
+	static float denom;
+	static long ikmik;
+	extern /* Subroutine */ int flxadd_(float *, float *, float *, float *, float *, float *, long *, long *, float *, float *, float *, float *,
+										float *, float *, float *, float *, float *),
+		source_(float *, long *, long *, float *, float *);
 
 	/*                                                                       MSR  120 */
 	/*         (1) SETS UP OPTICAL PROPERTIES PROFILES FOR VERTICAL          MSR  130 */
@@ -20352,138 +20351,138 @@ doublereal bbfn_(real *t, real *v)
 	return 0;
 } /* msrad_ */
 
-/* Subroutine */ int flxadd_(real *tle, real *cosbar, real *taer, real *omega0, real *upf, real *dnf, integer *iwavn, integer *ikmax, real *cszen, real *s0, real *strn, real *fdnsrf, real *fdntrf, real *dmf,
-							 real *dmfs, real *umf, real *umfs)
+/* Subroutine */ int flxadd_(float *tle, float *cosbar, float *taer, float *omega0, float *upf, float *dnf, long *iwavn, long *ikmax, float *cszen, float *s0, float *strn, float *fdnsrf, float *fdntrf, float *dmf,
+							 float *dmfs, float *umf, float *umfs)
 {
 	/* Initialized data */
 
-	static real rupc[50] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-							0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-							0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-							0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
-	static real rupcs[34] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+	static float rupc[50] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+							 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
 							 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
 							 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
-	static real eups[34] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-							0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-							0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
-	static real edns[34] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-							0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-							0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
-	static real refs[34] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-							0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-							0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
-	static real tdfs[34] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-							0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-							0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
-	static real upfs[510] /* was [15][34] */ = {0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
-	static real dnfs[510] /* was [15][34] */ = {0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
-												0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
-	static real fac[3] = {1.f, .09f, .015f};
+	static float rupcs[34] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+							  0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+							  0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
+	static float eups[34] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+							 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+							 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
+	static float edns[34] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+							 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+							 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
+	static float refs[34] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+							 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+							 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
+	static float tdfs[34] = {0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+							 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+							 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
+	static float upfs[510] /* was [15][34] */ = {0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
+	static float dnfs[510] /* was [15][34] */ = {0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f,
+												 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
+	static float fac[3] = {1.f, .09f, .015f};
 
 	/* System generated locals */
-	integer i__1;
-	doublereal d__1, d__2;
+	long i__1;
+	double d__1, d__2;
 
 	/* Builtin functions */
-	double pow_dd(doublereal *, doublereal *), sqrt(doublereal), exp(doublereal);
+	double pow_dd(double *, double *), sqrt(double), exp(double);
 
 	/* Local variables */
-	static real g;
-	static integer k, m, n;
-	static real q, v, x, b0, fc;
-	static integer ib, mf, ng;
-	static real cs, sk;
-	static integer iw;
-	static real xp, ys, gm1;
-	static integer ng1;
-	static real gm2;
-	static doublereal ex1, ex2;
-	static real edn[50], dpc, tdf[50], ref[50], dpj[102] /* was [3][34]
+	static float g;
+	static long k, m, n;
+	static float q, v, x, b0, fc;
+	static long ib, mf, ng;
+	static float cs, sk;
+	static long iw;
+	static float xp, ys, gm1;
+	static long ng1;
+	static float gm2;
+	static double ex1, ex2;
+	static float edn[50], dpc, tdf[50], ref[50], dpj[102] /* was [3][34]
 	     */
 		,
 		eup[50];
-	static integer mol;
-	static real ekt, smu;
-	static doublereal aer1, aer2, dnm1;
-	static real ome0, ekt2, cp1s[11];
-	extern doublereal bbfn_(real *, real *);
-	static doublereal aera, aerc, deno, aeru, aerv, dnmo;
-	static real eupc[50], taum[150] /* was [3][50] */, bets[34], taut[34],
+	static long mol;
+	static float ekt, smu;
+	static double aer1, aer2, dnm1;
+	static float ome0, ekt2, cp1s[11];
+	extern double bbfn_(float *, float *);
+	static double aera, aerc, deno, aeru, aerv, dnmo;
+	static float eupc[50], taum[150] /* was [3][50] */, bets[34], taut[34],
 		twgp[102] /* was [3][34] */, gkwj[33] /* was [3][11] */,
 		dpwj[33] /* was [3][11] */, wavn, ektl, etmu, asxp, edncn,
 		pefdn;
-	static doublereal aercx;
-	static real denom, rdncn, denos, eupcn, smdpj, eupcs[34], gmmsk, gmpsk,
+	static double aercx;
+	static float denom, rdncn, denos, eupcn, smdpj, eupcs[34], gmmsk, gmpsk,
 		etmul, rupcn, asnew, bsnew, pefup;
-	extern doublereal betabs_(real *, real *);
-	static real omegak[34], edncns, pefdns, rdncns, eupcns, pefups, fupsrf,
+	extern double betabs_(float *, float *);
+	static float omegak[34], edncns, pefdns, rdncns, eupcns, pefups, fupsrf,
 		fuptrf;
-	static integer nlayrs;
-	static real rupcns, xcszen;
+	static long nlayrs;
+	static float rupcns, xcszen;
 
 	/*                                                                       FLX  130 */
 	/*         (1) CALCULATES UPWARD, F+ (UPF), AND DOWNWARD, F- (DNF),      FLX  140 */
@@ -20571,7 +20570,7 @@ doublereal bbfn_(real *t, real *v)
 	/* L300: */
 	/* L310: */
 	dpc = .33333333333333331f;
-	wavn = (real)(*iwavn);
+	wavn = (float)(*iwavn);
 	v = wavn;
 	/* C    PRINT 1900                                                        FLX 1150 */
 	/* L1900: */
@@ -20581,7 +20580,7 @@ doublereal bbfn_(real *t, real *v)
 	for (m = 1; m <= 11; ++m)
 	{
 		/* L1: */
-		d__1 = (doublereal)aabbcc_2.cps[m - 1];
+		d__1 = (double)aabbcc_2.cps[m - 1];
 		cp1s[m - 1] = pow_dd(&c_b1661, &d__1);
 	}
 	/*                                                                       FLX 1220 */
@@ -20862,13 +20861,13 @@ doublereal bbfn_(real *t, real *v)
 				/*      ( NON MACHINE DEPENDANT )                                        FLX 3140 */
 				/*                                                                       FLX 3150 */
 				g = cosbar[n];
-				d__1 = (doublereal)g;
+				d__1 = (double)g;
 				q = (1.f - pow_dd(&d__1, &c_b1716) * (1.f - smu)) * 4.f;
-				d__1 = (doublereal)g;
-				d__2 = (doublereal)g;
+				d__1 = (double)g;
+				d__2 = (double)g;
 				gm1 = (7.f - pow_dd(&d__1, &c_b1716) * 3.f - ome0 * (g * 3.f + 4.f) + ome0 * pow_dd(&d__2, &c_b1716) * (b0 * 4.f + g * 3.f)) / q;
-				d__1 = (doublereal)g;
-				d__2 = (doublereal)g;
+				d__1 = (double)g;
+				d__2 = (double)g;
 				gm2 = -(1.f - pow_dd(&d__1, &c_b1716) - ome0 * (4.f - g * 3.f) - ome0 * pow_dd(&d__2, &c_b1716) * (b0 * 4.f + g * 3.f - 4.f)) / q;
 				if (gm2 == 0.f)
 				{
@@ -21071,14 +21070,14 @@ doublereal bbfn_(real *t, real *v)
 	return 0;
 } /* flxadd_ */
 
-/* Subroutine */ int mapms_(integer *ml, integer *ikmax, real *zm, real *aht,
-							integer *imap)
+/* Subroutine */ int mapms_(long *ml, long *ikmax, float *zm, float *aht,
+							long *imap)
 {
 	/* System generated locals */
-	integer i__1, i__2;
+	long i__1, i__2;
 
 	/* Local variables */
-	static integer i__, j;
+	static long i__, j;
 
 	/*                                                                       MAP  110 */
 	/*     ZM MODEL ALTITUDES                                                MAP  120 */
@@ -21111,39 +21110,39 @@ doublereal bbfn_(real *t, real *v)
 	return 0;
 } /* mapms_ */
 
-doublereal betabs_(real *u, real *g)
+double betabs_(float *u, float *g)
 {
 	/* Initialized data */
 
-	static real u8[9] = {0.f, .1f, .2f, .3f, .4f, .5f, .6f, .8f, 1.f};
-	static real a9[50] /* was [10][5] */ = {.5f, .5f, .5f, .5f, .5f, .5f, .5f, .5f,
-											.5f, .5f, 0.f, .13979292889f, -.12019000482f, -.46017123188f,
-											-.406828796532f, -.3001541656f, -.553474414782f, -.626794663911f,
-											-.84678101f, -.406823676662f, 0.f, -1.5989873995f, -.2724219928f,
-											1.18747390274f, .49409050834f, -.35928947292f, .37397957743f,
-											.18057740986f, .50718036245f, .01406832224f, 0.f, 3.5184116963f,
-											.6385960123f, -2.081230849f, -1.0144699491f, .1589475781f,
-											-.74761782865f, -.37416958202f, -.374040109f, .1055607702f, 0.f,
-											-2.5592172257f, -.7459840146f, .85392041407f, .4272082373f,
-											4.9606046e-4f, .42711266606f, .32038683614f, .2136746594f,
-											-.2128054157f};
+	static float u8[9] = {0.f, .1f, .2f, .3f, .4f, .5f, .6f, .8f, 1.f};
+	static float a9[50] /* was [10][5] */ = {.5f, .5f, .5f, .5f, .5f, .5f, .5f, .5f,
+											 .5f, .5f, 0.f, .13979292889f, -.12019000482f, -.46017123188f,
+											 -.406828796532f, -.3001541656f, -.553474414782f, -.626794663911f,
+											 -.84678101f, -.406823676662f, 0.f, -1.5989873995f, -.2724219928f,
+											 1.18747390274f, .49409050834f, -.35928947292f, .37397957743f,
+											 .18057740986f, .50718036245f, .01406832224f, 0.f, 3.5184116963f,
+											 .6385960123f, -2.081230849f, -1.0144699491f, .1589475781f,
+											 -.74761782865f, -.37416958202f, -.374040109f, .1055607702f, 0.f,
+											 -2.5592172257f, -.7459840146f, .85392041407f, .4272082373f,
+											 4.9606046e-4f, .42711266606f, .32038683614f, .2136746594f,
+											 -.2128054157f};
 
 	/* Format strings */
 	static char fmt_105[] = "(//,\002 THE VALUE FOR MU OF \002,f12.6,\002 IS"
 							" > 1.0 ]]\002)";
 
 	/* System generated locals */
-	real ret_val;
+	float ret_val;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void);
-	/* Subroutine */ int s_stop(char *, ftnlen);
-	double pow_ri(real *, integer *);
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void);
+	/* Subroutine */ int s_stop(char *, long);
+	double pow_ri(float *, long *);
 
 	/* Local variables */
-	static integer j;
-	static real y3, y5, y6, y7, y8, y9;
-	static integer iq, jm1, iqp1;
+	static long j;
+	static float y3, y5, y6, y7, y8, y9;
+	static long iq, jm1, iqp1;
 
 	/* Fortran I/O blocks */
 	static cilist io___1080 = {0, 16, 0, fmt_105, 0};
@@ -21192,9 +21191,9 @@ doublereal betabs_(real *u, real *g)
 	if (iq == 0)
 	{
 		s_wsfe(&io___1080);
-		do_fio(&c__1, (char *)&(*u), (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&(*u), (long)sizeof(float));
 		e_wsfe();
-		s_stop(" ERROR ***", (ftnlen)10);
+		s_stop(" ERROR ***", (long)10);
 	}
 	/*                                                                       BET  450 */
 	y5 = 0.f;
@@ -21218,9 +21217,9 @@ doublereal betabs_(real *u, real *g)
 	return ret_val;
 } /* betabs_ */
 
-/* Subroutine */ int c4dta_(real *c4l, real *v)
+/* Subroutine */ int c4dta_(float *c4l, float *v)
 {
-	static integer l, iv;
+	static long l, iv;
 
 	/* **  N2 CONTINUUM                                                      C4D  110 */
 	*c4l = 0.f;
@@ -21238,10 +21237,10 @@ doublereal betabs_(real *u, real *g)
 	return 0;
 } /* c4dta_ */
 
-/* Subroutine */ int c6dta_(real *c6l, real *v)
+/* Subroutine */ int c6dta_(float *c6l, float *v)
 {
 	/* System generated locals */
-	real r__1, r__2;
+	float r__1, r__2;
 
 	/*     CALCULATES MOLECULAR RAYLEIGH SCATTERING COEFFICIENT              C6D* 110 */
 	/*     USES APPROXIMATION OF SHETTLE ET AL., 1980 (APPL OPT,2873-4)      C6D* 120 */
@@ -21258,12 +21257,12 @@ doublereal betabs_(real *u, real *g)
 	return 0;
 } /* c6dta_ */
 
-/* Subroutine */ int c8dta_(real *c8l, real *v)
+/* Subroutine */ int c8dta_(float *c8l, float *v)
 {
-	static integer n;
-	static real xd;
-	static integer iv;
-	static real xi;
+	static long n;
+	static float xd;
+	static long iv;
+	static float xi;
 
 	/* **  OZONE U.V + VISIBLE                                               C8D  110 */
 	*c8l = 0.f;
@@ -21286,21 +21285,21 @@ doublereal betabs_(real *u, real *g)
 		xi = (*v - 27500.f) / 500.f + 57.f;
 	}
 	n = xi + 1.001f;
-	xd = xi - (real)n;
+	xd = xi - (float)n;
 	*c8l = c4c8_1.c8[n - 1] + xd * (c4c8_1.c8[n - 1] - c4c8_1.c8[n - 2]);
 	return 0;
 } /* c8dta_ */
 
-/* Subroutine */ int hertda_(real *herz, real *v)
+/* Subroutine */ int hertda_(float *herz, float *v)
 {
 	/* System generated locals */
-	real r__1;
+	float r__1;
 
 	/* Builtin functions */
-	double log(doublereal), exp(doublereal);
+	double log(double), exp(double);
 
 	/* Local variables */
-	static real corr, rlosch, yratio;
+	static float corr, rlosch, yratio;
 
 	/*                                                                       HER  110 */
 	/*     HERZBERG O2 ABSORPTION                                            HER  120 */
@@ -21347,40 +21346,40 @@ doublereal betabs_(real *u, real *g)
 	return 0;
 } /* hertda_ */
 
-/* Subroutine */ int slf296_(real *v1c, real *sh2ot0)
+/* Subroutine */ int slf296_(float *v1c, float *sh2ot0)
 {
-	extern /* Subroutine */ int sint_(real *, real *, real *, integer *, real *, real *);
+	extern /* Subroutine */ int sint_(float *, float *, float *, long *, float *, float *);
 
 	/*     LOADS SELF CONTINUUM  296K                                        SLF  110 */
 	sint_(&sh2o_1.v1, v1c, &sh2o_1.dv, &sh2o_1.npt, sh2o_1.s296, sh2ot0);
 	return 0;
 } /* slf296_ */
 
-/* Subroutine */ int slf260_(real *v1c, real *sh2ot1)
+/* Subroutine */ int slf260_(float *v1c, float *sh2ot1)
 {
-	extern /* Subroutine */ int sint_(real *, real *, real *, integer *, real *, real *);
+	extern /* Subroutine */ int sint_(float *, float *, float *, long *, float *, float *);
 
 	/*     LOADS SELF CONTINUUM  260K                                        S26  110 */
 	sint_(&s260_1.v1, v1c, &s260_1.dv, &s260_1.npt, s260_1.s260, sh2ot1);
 	return 0;
 } /* slf260_ */
 
-/* Subroutine */ int frn296_(real *v1c, real *fh2o)
+/* Subroutine */ int frn296_(float *v1c, float *fh2o)
 {
-	extern /* Subroutine */ int sint_(real *, real *, real *, integer *, real *, real *);
+	extern /* Subroutine */ int sint_(float *, float *, float *, long *, float *, float *);
 
 	/*     LOADS FOREIGN CONTINUUM  296K                                     FRN  110 */
 	sint_(&fh2o_1.v1, v1c, &fh2o_1.dv, &fh2o_1.npt, fh2o_1.f296, fh2o);
 	return 0;
 } /* frn296_ */
 
-/* Subroutine */ int sint_(real *v1, real *v1c, real *dv, integer *npt, real *conti, real *conto)
+/* Subroutine */ int sint_(float *v1, float *v1c, float *dv, long *npt, float *conti, float *conto)
 {
 	/* Builtin functions */
-	double r_mod(real *, real *);
+	double r_mod(float *, float *);
 
 	/* Local variables */
-	static integer i__, imod;
+	static long i__, imod;
 
 	/*                                                                       SIN  110 */
 	/*     INTERPOLATION  FOR CONTINUUM WITH LOWTRAN                         SIN  120 */
@@ -21405,9 +21404,9 @@ L10:
 	return 0;
 } /* sint_ */
 
-/* Subroutine */ int o3int_(real *v1c, real *v1, real *dv, integer *npt, real *conti, real *conto)
+/* Subroutine */ int o3int_(float *v1c, float *v1, float *dv, long *npt, float *conti, float *conto)
 {
-	static integer i__;
+	static long i__;
 
 	/*                                                                       O3I  110 */
 	/*     INTERPOLATION  FOR  O3 CONTINUUM WITH LOWTRAN                     O3I  120 */
@@ -21431,10 +21430,10 @@ L10:
 	return 0;
 } /* o3int_ */
 
-/* Subroutine */ int o3hht0_(real *v, real *c__)
+/* Subroutine */ int o3hht0_(float *v, float *c__)
 {
-	extern /* Subroutine */ int o3int_(real *, real *, real *, integer *,
-									   real *, real *);
+	extern /* Subroutine */ int o3int_(float *, float *, float *, long *,
+									   float *, float *);
 
 	/*                                                                       O3H  120 */
 	o3int_(v, &o3hh0_1.v1s, &o3hh0_1.dvs, &o3hh0_1.npts, o3hh0_1.s, c__);
@@ -21494,10 +21493,10 @@ L10:
 /*                                                                       O30 1540 */
 /*                                                                       O30 6400 */
 
-/* Subroutine */ int o3hht1_(real *v, real *c__)
+/* Subroutine */ int o3hht1_(float *v, float *c__)
 {
-	extern /* Subroutine */ int o3int_(real *, real *, real *, integer *,
-									   real *, real *);
+	extern /* Subroutine */ int o3int_(float *, float *, float *, long *,
+									   float *, float *);
 
 	/*     SUBROUTINE O3HHT1(V1C,V2C,DVC,NPTC,C)                             OT1  110 */
 	/*                                                                       OT1  130 */
@@ -21536,10 +21535,10 @@ L10:
 /*     DATA V1C /29405./, V2C /40800./ ,DVC /5./, NC /2280/   BASS       O31  420 */
 /*                                                                       O31  440 */
 
-/* Subroutine */ int o3hht2_(real *v, real *c__)
+/* Subroutine */ int o3hht2_(float *v, float *c__)
 {
-	extern /* Subroutine */ int o3int_(real *, real *, real *, integer *,
-									   real *, real *);
+	extern /* Subroutine */ int o3int_(float *, float *, float *, long *,
+									   float *, float *);
 
 	/*                                                                       OT2  120 */
 	o3int_(v, &o3hh2_1.v1s, &o3hh2_1.dvs, &o3hh2_1.npts, o3hh2_1.s, c__);
@@ -21577,10 +21576,10 @@ L10:
 /*     DATA V1C /29405./, V2C /40800./ ,DVC /5./, NC /2280/   BASS       O32  420 */
 /*                                                                       O32  440 */
 
-/* Subroutine */ int o3uv_(real *v, real *c__)
+/* Subroutine */ int o3uv_(float *v, float *c__)
 {
-	static integer i__;
-	static real c0, am, vr;
+	static long i__;
+	static float c0, am, vr;
 
 	/*                                                                       O3V  120 */
 	/*     INTERPOLATION  FOR  O3 CONTINUUM WITH LOWTRAN                     O3V  130 */
@@ -21633,15 +21632,15 @@ L10:
 /*        DV = 100  CM-1                                                 O3F  220 */
 /*                                                                       O3F  230 */
 
-/* Subroutine */ int o2cont_(real *v, real *sigma, real *alpha, real *beta)
+/* Subroutine */ int o2cont_(float *v, float *sigma, float *alpha, float *beta)
 {
 	/* System generated locals */
-	real r__1;
+	float r__1;
 
 	/* Local variables */
-	static real a, b, c__;
-	extern /* Subroutine */ int o2int_(real *, real *, real *, integer *,
-									   real *, real *, real *, real *, real *, real *);
+	static float a, b, c__;
+	extern /* Subroutine */ int o2int_(float *, float *, float *, long *,
+									   float *, float *, float *, float *, float *, float *);
 
 	/*                                                                       O2C  110 */
 	/*     THIS ROUTINE IS DRIVEN BY FREQUENCY, RETURNING ONLY THE           O2C  120 */
@@ -21737,9 +21736,9 @@ L30:
 	return 0;
 } /* o2cont_ */
 
-/* Subroutine */ int o2int_(real *v1c, real *v1, real *dv, integer *npt, real *c__, real *carray, real *a, real *aarray, real *b, real *barray)
+/* Subroutine */ int o2int_(float *v1c, float *v1, float *dv, long *npt, float *c__, float *carray, float *a, float *aarray, float *b, float *barray)
 {
-	static integer i__;
+	static long i__;
 
 	/*                                                                       O2I  110 */
 	/*     INTERPOLATION FOR O2 PRESSURE INDUCED CONTINUUM, NECESSARY FOR    O2I  120 */
@@ -21786,38 +21785,38 @@ L10:
 {
 	/* Initialized data */
 
-	static real rhzone[4] = {0.f, 70.f, 80.f, 99.f};
-	static real elwcr[4] = {3.517e-4f, 3.74e-4f, 4.439e-4f, 9.529e-4f};
-	static real elwcm[4] = {4.675e-4f, 6.543e-4f, .001166f, .003154f};
-	static real elwcu[4] = {3.102e-4f, 3.802e-4f, 4.463e-4f, 9.745e-4f};
-	static real elwct[4] = {1.735e-4f, 1.82e-4f, 2.02e-4f, 2.408e-4f};
-	static real aflwc = .01295f;
-	static real rflwc = .001804f;
-	static real culwc = .007683f;
-	static real aslwc = .004509f;
-	static real stlwc = .005272f;
-	static real sclwc = .004177f;
-	static real snlwc = .007518f;
-	static real bslwc = 1.567e-4f;
-	static real fvlwc = 5.922e-4f;
-	static real avlwc = 1.675e-4f;
-	static real mdlwc = 4.775e-4f;
+	static float rhzone[4] = {0.f, 70.f, 80.f, 99.f};
+	static float elwcr[4] = {3.517e-4f, 3.74e-4f, 4.439e-4f, 9.529e-4f};
+	static float elwcm[4] = {4.675e-4f, 6.543e-4f, .001166f, .003154f};
+	static float elwcu[4] = {3.102e-4f, 3.802e-4f, 4.463e-4f, 9.745e-4f};
+	static float elwct[4] = {1.735e-4f, 1.82e-4f, 2.02e-4f, 2.408e-4f};
+	static float aflwc = .01295f;
+	static float rflwc = .001804f;
+	static float culwc = .007683f;
+	static float aslwc = .004509f;
+	static float stlwc = .005272f;
+	static float sclwc = .004177f;
+	static float snlwc = .007518f;
+	static float bslwc = 1.567e-4f;
+	static float fvlwc = 5.922e-4f;
+	static float avlwc = 1.675e-4f;
+	static float mdlwc = 4.775e-4f;
 
 	/* System generated locals */
-	integer i__1;
+	long i__1;
 
 	/* Builtin functions */
-	double log(doublereal), exp(doublereal);
+	double log(double), exp(double);
 
 	/* Local variables */
-	static real a;
-	static integer i__, m, n;
-	static real x, y, a1, a2, e1, e2, x1, x2, y2, y1, z2, z1, ec;
-	static integer ic, nb, ii, ne;
-	static real zk;
-	static integer ita, itc;
-	static real wrh;
-	static integer itas;
+	static float a;
+	static long i__, m, n;
+	static float x, y, a1, a2, e1, e2, x1, x2, y2, y1, z2, z1, ec;
+	static long ic, nb, ii, ne;
+	static float zk;
+	static long ita, itc;
+	static float wrh;
+	static long itas;
 
 	/*                                                                       EXA  110 */
 	/*      LOADS EXTINCTION, ABSORPTION AND ASYMMETRY COEFFICIENTS          EXA  120 */
@@ -22205,13 +22204,13 @@ L10:
 	/*                                                                       EXA 2430 */
 } /* exabin_ */
 
-/* Subroutine */ int aerext_(real *v)
+/* Subroutine */ int aerext_(float *v)
 {
-	static integer i__, n;
-	static real v0, xd;
-	static integer mr;
-	static real vxd, alam;
-	extern doublereal gamfog_(integer *, real *, real *, real *);
+	static long i__, n;
+	static float v0, xd;
+	static long mr;
+	static float vxd, alam;
+	extern double gamfog_(long *, float *, float *, float *);
 
 	/*                                                                       AEX  110 */
 	/*     INTERPOLATES AEROSOL EXTINCTION, ABSORPTION, AND ASYMMETRY        AEX  120 */
@@ -22308,11 +22307,11 @@ L50:
 /* Subroutine */ int aertmp_(void)
 {
 	/* System generated locals */
-	integer i__1;
+	long i__1;
 
 	/* Local variables */
-	static integer kk;
-	static real wdf7, sum7, wdf12, wdf13, wdf14, wdf16, sum12, sum13, sum14,
+	static long kk;
+	static float wdf7, sum7, wdf12, wdf13, wdf14, wdf16, sum12, sum13, sum14,
 		sum16;
 
 	sum7 = 0.f;
@@ -22399,13 +22398,13 @@ L50:
 	return 0;
 } /* aertmp_ */
 
-/* Subroutine */ int marine_(real *vis, integer *model, real *ws, real *wh,
-							 integer *icstl, real *bext, real *babs, integer *nl)
+/* Subroutine */ int marine_(float *vis, long *model, float *ws, float *wh,
+							 long *icstl, float *bext, float *babs, long *nl)
 {
 	/* Initialized data */
 
-	static real wspd[8] = {6.9f, 4.1f, 4.1f, 10.29f, 6.69f, 12.35f, 7.2f, 6.9f};
-	static real rhd[8] = {80.f, 75.63f, 76.2f, 77.13f, 75.24f, 80.53f, 45.89f, 80.f};
+	static float wspd[8] = {6.9f, 4.1f, 4.1f, 10.29f, 6.69f, 12.35f, 7.2f, 6.9f};
+	static float rhd[8] = {80.f, 75.63f, 76.2f, 77.13f, 75.24f, 80.53f, 45.89f, 80.f};
 
 	/* Format strings */
 	static char fmt_890[] = "(\0020MARINE AEROSOL MODEL USED\002)";
@@ -22420,17 +22419,17 @@ L50:
 	static char fmt_900[] = "(\0020\002,t10,\002VIS = \002,f10.2,\002 KM\002)";
 
 	/* System generated locals */
-	real r__1;
-	doublereal d__1, d__2, d__3;
+	float r__1;
+	double d__1, d__2, d__3;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), e_wsfe(void), do_fio(integer *, char *, ftnlen);
-	double pow_dd(doublereal *, doublereal *);
+	long s_wsfe(cilist *), e_wsfe(void), do_fio(long *, char *, long);
+	double pow_dd(double *, double *);
 
 	/* Local variables */
-	static real c__, f;
-	static integer i__, j;
-	static real a1, a2, a3, rh, qe1, qe2, qe3, t1av, t2av, t3av, t1xv, t2xv,
+	static float c__, f;
+	static long i__, j;
+	static float a1, a2, a3, rh, qe1, qe2, qe3, t1av, t2av, t3av, t1xv, t2xv,
 		t3xv, pisc, ext55, delrh, ratio, total, delrhv;
 
 	/* Fortran I/O blocks */
@@ -22523,23 +22522,23 @@ L10:
 	}
 	io___1179.ciunit = ifil_1.ipr;
 	s_wsfe(&io___1179);
-	do_fio(&c__1, (char *)&(*ws), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*wh), (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&rh, (ftnlen)sizeof(real));
-	do_fio(&c__1, (char *)&(*icstl), (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&(*ws), (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*wh), (long)sizeof(float));
+	do_fio(&c__1, (char *)&rh, (long)sizeof(float));
+	do_fio(&c__1, (char *)&(*icstl), (long)sizeof(long));
 	e_wsfe();
 	/*                                                                       MAR  600 */
 	/*        F IS A RELATIVE HUMIDITY DEPENDENT GROWTH CORRECTION           MAR  610 */
 	/*        TO THE ATTENUATION COEFFICIENT.                                MAR  620 */
 	/*                                                                       MAR  630 */
-	d__1 = (doublereal)((2.f - rh / 100.f) / ((1.f - rh / 100.f) * 6.f));
+	d__1 = (double)((2.f - rh / 100.f) / ((1.f - rh / 100.f) * 6.f));
 	f = pow_dd(&d__1, &c_b1830);
 	a1 = *icstl * 2e3f * *icstl;
 	/* Computing MAX */
 	r__1 = (*wh - 2.2f) * 5.866f;
-	a2 = dmax(r__1, .5f);
+	a2 = min(r__1, .5f);
 	/* CC   A3 = AMAX1(0.01527*(WS-2.2), 1.14E-5)                             MAR  670 */
-	d__1 = (doublereal)(*ws * .06f - 2.8f);
+	d__1 = (double)(*ws * .06f - 2.8f);
 	a3 = pow_dd(&c_b1661, &d__1);
 	/*                                                                       MAR  690 */
 	/*     FIND EXTINCTION AT 0.55 MICRONS AND NORMALIZE TO 1.               MAR  700 */
@@ -22567,9 +22566,9 @@ L42:
 	qe3 = a_1.t3qext[(j - 1) * 40 - 37] + (a_1.t3qext[j * 40 - 37] -
 										   a_1.t3qext[(j - 1) * 40 - 37]) *
 											  ratio;
-	d__1 = (doublereal)qe1;
-	d__2 = (doublereal)qe2;
-	d__3 = (doublereal)qe3;
+	d__1 = (double)qe1;
+	d__2 = (double)qe2;
+	d__3 = (double)qe3;
 	total = a1 * pow_dd(&c_b1661, &d__1) + a2 * pow_dd(&c_b1661, &d__2) + a3 * pow_dd(&c_b1661, &d__3);
 	ext55 = pisc * total / f;
 	/*                                                                       MAR  850 */
@@ -22594,19 +22593,19 @@ L42:
 		t1av = a_1.t1qabs[i__ + (j - 1) * 40 - 41] + (a_1.t1qabs[i__ + j * 40 - 41] - a_1.t1qabs[i__ + (j - 1) * 40 - 41]) * ratio;
 		t2av = a_1.t2qabs[i__ + (j - 1) * 40 - 41] + (a_1.t2qabs[i__ + j * 40 - 41] - a_1.t2qabs[i__ + (j - 1) * 40 - 41]) * ratio;
 		t3av = a_1.t3qabs[i__ + (j - 1) * 40 - 41] + (a_1.t3qabs[i__ + j * 40 - 41] - a_1.t3qabs[i__ + (j - 1) * 40 - 41]) * ratio;
-		d__1 = (doublereal)t1xv;
-		d__2 = (doublereal)t2xv;
-		d__3 = (doublereal)t3xv;
+		d__1 = (double)t1xv;
+		d__2 = (double)t2xv;
+		d__3 = (double)t3xv;
 		bext[*nl + i__ * 5] = a1 * pow_dd(&c_b1661, &d__1) + a2 * pow_dd(&c_b1661, &d__2) + a3 * pow_dd(&c_b1661, &d__3);
-		d__1 = (doublereal)t1av;
-		d__2 = (doublereal)t2av;
-		d__3 = (doublereal)t3av;
+		d__1 = (double)t1av;
+		d__2 = (double)t2av;
+		d__3 = (double)t3av;
 		babs[*nl + i__ * 5] = a1 * pow_dd(&c_b1661, &d__1) + a2 * pow_dd(&c_b1661, &d__2) + a3 * pow_dd(&c_b1661, &d__3);
 		/* L45: */
 	}
 	io___1201.ciunit = ifil_1.ipr;
 	s_wsfe(&io___1201);
-	do_fio(&c__1, (char *)&(*vis), (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&(*vis), (long)sizeof(float));
 	e_wsfe();
 	return 0;
 } /* marine_ */
@@ -22622,16 +22621,16 @@ L42:
 /*            CODED BY STU GATHMAN                  -  NRL               MDA  140 */
 /*                                                                       MDA  150 */
 
-/* Subroutine */ int vsa_(integer *ihaze, real *vis, real *ceilht, real *depth, real *zinvht, real *z__, real *rh, real *ahaze, integer *ih)
+/* Subroutine */ int vsa_(long *ihaze, float *vis, float *ceilht, float *depth, float *zinvht, float *z__, float *rh, float *ahaze, long *ih)
 {
 	/* Initialized data */
 
-	static real aa[2] = {92.1f, .3981f};
-	static real cc[3] = {-.014f, .0125f, -.03f};
-	static real kmtom = 1e3f;
-	static real ee[4] = {7.f, .7824f, .17009f, .012f};
-	static real fac1[9] = {0.f, .03f, .05f, .075f, .1f, .18f, .3f, .45f, 1.f};
-	static real fac2[9] = {0.f, .03f, .1f, .18f, .3f, .45f, .6f, .78f, 1.f};
+	static float aa[2] = {92.1f, .3981f};
+	static float cc[3] = {-.014f, .0125f, -.03f};
+	static float kmtom = 1e3f;
+	static float ee[4] = {7.f, .7824f, .17009f, .012f};
+	static float fac1[9] = {0.f, .03f, .05f, .075f, .1f, .18f, .3f, .45f, 1.f};
+	static float fac2[9] = {0.f, .03f, .1f, .18f, .3f, .45f, .6f, .78f, 1.f};
 
 	/* Format strings */
 	static char fmt_599[] = "(\0020 VERTICAL STRUCTURE ALGORITHM (VSA) USE"
@@ -22662,16 +22661,16 @@ L42:
 	static char fmt_620[] = "(7x,f7.4,7x,f5.1,8x,e12.4,11x,f7.4,10x,i2)";
 
 	/* System generated locals */
-	real r__1;
+	float r__1;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), e_wsfe(void), do_fio(integer *, char *, ftnlen);
-	double log(doublereal), exp(doublereal);
+	long s_wsfe(cilist *), e_wsfe(void), do_fio(long *, char *, long);
+	double log(double), exp(double);
 
 	/* Local variables */
-	static real a[2], b[2], c__[2], d__, e, f;
-	static integer i__, k, ic;
-	static real zc, zt, dak, eak, dof, ceil, hmax, anum, zinv, zhigh, zalgo,
+	static float a[2], b[2], c__[2], d__, e, f;
+	static long i__, k, ic;
+	static float zc, zt, dak, eak, dof, ceil, hmax, anum, zinv, zhigh, zalgo,
 		visib;
 
 	/* Fortran I/O blocks */
@@ -22913,7 +22912,7 @@ L10:
 	{
 		io___1245.ciunit = ifil_1.ipr;
 		s_wsfe(&io___1245);
-		do_fio(&c__1, (char *)&zt, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&zt, (long)sizeof(float));
 		e_wsfe();
 	}
 	/*     IF THE DISTANCE FROM THE GROUND TO THE CLOUD/FOG TOP IS LESS      VSA 1710 */
@@ -22924,7 +22923,7 @@ L10:
 	}
 	/* Computing MIN */
 	r__1 = zt + zc;
-	hmax = dmin(r__1, hmax);
+	hmax = min(r__1, hmax);
 	goto L60;
 /*                                                                       VSA 1760 */
 /*     CASE 2:  CLEAR/HAZY/LIGHTLY FOGGY; INCREASING EXTINCTION WITH HEIGHT    VSA 1770 */
@@ -22957,14 +22956,14 @@ L20:
 	{
 		io___1252.ciunit = ifil_1.ipr;
 		s_wsfe(&io___1252);
-		do_fio(&c__1, (char *)&ceil, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&ceil, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (zc > 0.f)
 	{
 		io___1253.ciunit = ifil_1.ipr;
 		s_wsfe(&io___1253);
-		do_fio(&c__1, (char *)&zc, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&zc, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (zc == 0.f)
@@ -23036,14 +23035,14 @@ L40:
 	{
 		io___1259.ciunit = ifil_1.ipr;
 		s_wsfe(&io___1259);
-		do_fio(&c__1, (char *)&zinv, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&zinv, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (zinv > 0.f && (*vis <= 2.f || *ihaze == 9))
 	{
 		io___1260.ciunit = ifil_1.ipr;
 		s_wsfe(&io___1260);
-		do_fio(&c__1, (char *)&zinv, (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&zinv, (long)sizeof(float));
 		e_wsfe();
 	}
 	if (zinv == 0.f && *vis > 2.f && *ihaze != 9)
@@ -23054,7 +23053,7 @@ L40:
 	{
 		zinv = 50.f;
 	}
-	hmax = dmin(zinv, hmax);
+	hmax = min(zinv, hmax);
 	zc = 0.f;
 	goto L60;
 	/*                                                                       VSA 2160 */
@@ -23081,7 +23080,7 @@ L60:
 	}
 	if (ic == 2)
 	{
-		hmax = dmin(zc, hmax);
+		hmax = min(zc, hmax);
 	}
 	zalgo = hmax;
 	if (ic < 0)
@@ -23113,7 +23112,7 @@ L60:
 		}
 		if (ic == 4)
 		{
-			z__[i__] = zalgo * (real)(i__ - 1) / 8.f;
+			z__[i__] = zalgo * (float)(i__ - 1) / 8.f;
 		}
 		if (ic < 0 && i__ < 5)
 		{
@@ -23150,11 +23149,11 @@ L60:
 		}
 		io___1266.ciunit = ifil_1.ipr;
 		s_wsfe(&io___1266);
-		do_fio(&c__1, (char *)&z__[i__], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&rh[i__], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&ahaze[i__], (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&visib, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&ih[i__], (ftnlen)sizeof(integer));
+		do_fio(&c__1, (char *)&z__[i__], (long)sizeof(float));
+		do_fio(&c__1, (char *)&rh[i__], (long)sizeof(float));
+		do_fio(&c__1, (char *)&ahaze[i__], (long)sizeof(float));
+		do_fio(&c__1, (char *)&visib, (long)sizeof(float));
+		do_fio(&c__1, (char *)&ih[i__], (long)sizeof(long));
 		e_wsfe();
 		/* L70: */
 	}
@@ -23164,18 +23163,18 @@ L60:
 	/* L613: */
 } /* vsa_ */
 
-/* Subroutine */ int hno3_(real *v, real *habs)
+/* Subroutine */ int hno3_(float *v, float *habs)
 {
 	/* Initialized data */
 
-	static real h1[15] = {2.197f, 3.911f, 6.154f, 8.15f, 9.217f, 9.461f, 11.56f,
-						  11.1f, 11.17f, 12.4f, 10.49f, 7.509f, 6.136f, 4.899f, 2.866f};
-	static real h2[16] = {2.828f, 4.611f, 6.755f, 8.759f, 10.51f, 13.74f, 18.f,
-						  21.51f, 23.09f, 21.68f, 21.32f, 16.82f, 16.42f, 17.87f, 14.86f, 8.716f};
-	static real h3[13] = {5.003f, 8.803f, 14.12f, 19.83f, 23.31f, 23.58f, 23.22f,
-						  21.09f, 26.99f, 25.84f, 24.79f, 17.68f, 9.42f};
+	static float h1[15] = {2.197f, 3.911f, 6.154f, 8.15f, 9.217f, 9.461f, 11.56f,
+						   11.1f, 11.17f, 12.4f, 10.49f, 7.509f, 6.136f, 4.899f, 2.866f};
+	static float h2[16] = {2.828f, 4.611f, 6.755f, 8.759f, 10.51f, 13.74f, 18.f,
+						   21.51f, 23.09f, 21.68f, 21.32f, 16.82f, 16.42f, 17.87f, 14.86f, 8.716f};
+	static float h3[13] = {5.003f, 8.803f, 14.12f, 19.83f, 23.31f, 23.58f, 23.22f,
+						   21.09f, 26.99f, 25.84f, 24.79f, 17.68f, 9.42f};
 
-	static integer i__;
+	static long i__;
 
 	/*                                                                       HNO  110 */
 	/*     HNO3  STATISTICAL BAND PARAMETERS                                 HNO  120 */
@@ -23211,8 +23210,8 @@ L15:
 	return 0;
 } /* hno3_ */
 
-/* Subroutine */ int ssgeo_(integer *ierror, integer *iph, integer *iparm,
-							real *parm1, real *parm2, real *parm3, real *parm4, real *psipo, real *g, integer *maxgeo)
+/* Subroutine */ int ssgeo_(long *ierror, long *iph, long *iparm,
+							float *parm1, float *parm2, float *parm3, float *parm4, float *psipo, float *g, long *maxgeo)
 {
 	/* Format strings */
 	static char fmt_960[] = "(2x,\002THETAO < 89.5, OBSERVER ASSUMED TO BE A"
@@ -23236,45 +23235,45 @@ L15:
 	static char fmt_951[] = "(1x,i3,6(1x,f7.2),(1x,e10.3))";
 
 	/* System generated locals */
-	integer i__1, i__2;
-	real r__1, r__2;
-	doublereal d__1;
+	long i__1, i__2;
+	float r__1, r__2;
+	double d__1;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), e_wsfe(void), do_fio(integer *, char *, ftnlen);
-	double cos(doublereal), pow_dd(doublereal *, doublereal *);
+	long s_wsfe(cilist *), e_wsfe(void), do_fio(long *, char *, long);
+	double cos(double), pow_dd(double *, double *);
 
 	/* Local variables */
-	static integer j, k, l, m;
-	static real az[35];
-	static integer ll;
-	static real h1d, h2d;
-	static integer lp1;
-	extern doublereal del_(real *, real *, real *, integer *);
-	static integer ljd[68];
-	extern /* Subroutine */ int geo_(integer *, real *, integer *);
-	static real rhd[35];
-	static integer itd;
-	extern doublereal psi_(real *, real *, real *, integer *, integer *);
-	static integer ljp1;
-	static real angd, betd;
-	static integer iarb, lend;
-	static real delo;
-	static integer ljdl;
-	static real rngd, relh, phio, phis, corr, psio, htop, angl0;
-	static integer iarbo;
-	static real tbdum[68];
-	static integer jiter;
-	static real wpdum[4284] /* was [68][63] */, psist, thtst, psist2,
+	static long j, k, l, m;
+	static float az[35];
+	static long ll;
+	static float h1d, h2d;
+	static long lp1;
+	extern double del_(float *, float *, float *, long *);
+	static long ljd[68];
+	extern /* Subroutine */ int geo_(long *, float *, long *);
+	static float rhd[35];
+	static long itd;
+	extern double psi_(float *, float *, float *, long *, long *);
+	static long ljp1;
+	static float angd, betd;
+	static long iarb, lend;
+	static float delo;
+	static long ljdl;
+	static float rngd, relh, phio, phis, corr, psio, htop, angl0;
+	static long iarbo;
+	static float tbdum[68];
+	static long jiter;
+	static float wpdum[4284] /* was [68][63] */, psist, thtst, psist2,
 		bendng, sangle, cosang;
-	static integer ikmaxd;
-	extern doublereal sctang_(real *, real *, real *, integer *);
-	static real thetao;
-	extern /* Subroutine */ int psidel_(real *, real *, real *, real *, real *, real *, real *, integer *);
-	static real betast, thetas;
-	extern /* Subroutine */ int interp_(integer *, real *, real *, real *,
-										real *, real *, real *);
-	static integer jturnd;
+	static long ikmaxd;
+	extern double sctang_(float *, float *, float *, long *);
+	static float thetao;
+	extern /* Subroutine */ int psidel_(float *, float *, float *, float *, float *, float *, float *, long *);
+	static float betast, thetas;
+	extern /* Subroutine */ int interp_(long *, float *, float *, float *,
+										float *, float *, float *);
+	static long jturnd;
 
 	/* Fortran I/O blocks */
 	static cilist io___1277 = {0, 0, 0, fmt_960, 0};
@@ -23482,7 +23481,7 @@ L5:
 			card3_2.len = 1;
 			io___1310.ciunit = ifil_1.ipr;
 			s_wsfe(&io___1310);
-			do_fio(&c__1, (char *)&l, (ftnlen)sizeof(integer));
+			do_fio(&c__1, (char *)&l, (long)sizeof(long));
 			e_wsfe();
 		L40:
 			htop = parmtr_1.zmax;
@@ -23510,7 +23509,7 @@ L5:
 			}
 			io___1313.ciunit = ifil_1.ipr;
 			s_wsfe(&io___1313);
-			do_fio(&c__1, (char *)&l, (ftnlen)sizeof(integer));
+			do_fio(&c__1, (char *)&l, (long)sizeof(long));
 			e_wsfe();
 			i__1 = cntrl_3.kmax;
 			for (k = 1; k <= i__1; ++k)
@@ -23526,7 +23525,7 @@ L5:
 			{
 				io___1314.ciunit = ifil_1.ipr;
 				s_wsfe(&io___1314);
-				do_fio(&c__1, (char *)&corr, (ftnlen)sizeof(real));
+				do_fio(&c__1, (char *)&corr, (long)sizeof(float));
 				e_wsfe();
 			}
 			if ((r__1 = corr - bendng, dabs(r__1)) < .1f)
@@ -23553,7 +23552,7 @@ L5:
 		r__1 = *g;
 		/* Computing 2nd power */
 		r__2 = *g;
-		d__1 = (doublereal)(1.f + r__2 * r__2 - 2.f * *g * cosang);
+		d__1 = (double)(1.f + r__2 * r__2 - 2.f * *g * cosang);
 		sols_1.pa[l - 1] = (1.f - r__1 * r__1) / (4.f * cnstns_1.pi * pow_dd(&d__1, &c_b1937));
 		goto L115;
 	L105:
@@ -23617,14 +23616,14 @@ L5:
 		sols_1.cszen[l - 1] = cos(card3_2.angle * cnstns_1.ca);
 		io___1321.ciunit = ifil_1.ipr;
 		s_wsfe(&io___1321);
-		do_fio(&c__1, (char *)&l, (ftnlen)sizeof(integer));
-		do_fio(&c__1, (char *)&card3_2.h1, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&betast, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&card3_2.angle, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&thtst, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&psist2, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sangle, (ftnlen)sizeof(real));
-		do_fio(&c__1, (char *)&sols_1.pr[l - 1], (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&l, (long)sizeof(long));
+		do_fio(&c__1, (char *)&card3_2.h1, (long)sizeof(float));
+		do_fio(&c__1, (char *)&betast, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_2.angle, (long)sizeof(float));
+		do_fio(&c__1, (char *)&thtst, (long)sizeof(float));
+		do_fio(&c__1, (char *)&psist2, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sangle, (long)sizeof(float));
+		do_fio(&c__1, (char *)&sols_1.pr[l - 1], (long)sizeof(float));
 		e_wsfe();
 		/* L130: */
 	}
@@ -23664,20 +23663,20 @@ L5:
 	return 0;
 } /* ssgeo_ */
 
-/* Subroutine */ int psidel_(real *thetas, real *phis, real *thetao, real *phio, real *psipo2, real *psio, real *delo, integer *iarbo)
+/* Subroutine */ int psidel_(float *thetas, float *phis, float *thetao, float *phio, float *psipo2, float *psio, float *delo, long *iarbo)
 {
 	/* Initialized data */
 
-	static real epsiln = 1e-5f;
+	static float epsiln = 1e-5f;
 
 	/* System generated locals */
-	real r__1;
+	float r__1;
 
 	/* Builtin functions */
-	double sin(doublereal), cos(doublereal), tan(doublereal), acos(doublereal), atan(doublereal);
+	double sin(double), cos(double), tan(double), acos(double), atan(double);
 
 	/* Local variables */
-	static real dph, cto, cts, sto, tto, sts, tts, dphi, dtht, thto, thts,
+	static float dph, cto, cts, sto, tto, sts, tts, dphi, dtht, thto, thts,
 		cdphi, denom, sdphi, psipo, psiso, anumer;
 
 	/*                                                                       PSI  110 */
@@ -23837,16 +23836,16 @@ L90:
 	return 0;
 } /* psidel_ */
 
-doublereal sctang_(real *anglst, real *thtst, real *psist, integer *iarb)
+double sctang_(float *anglst, float *thtst, float *psist, long *iarb)
 {
 	/* System generated locals */
-	real ret_val;
+	float ret_val;
 
 	/* Builtin functions */
-	double cos(doublereal), acos(doublereal), sin(doublereal);
+	double cos(double), acos(double), sin(double);
 
 	/* Local variables */
-	static real x, psi, pthzen, sunzen;
+	static float x, psi, pthzen, sunzen;
 
 	/*                                                                       SCT  110 */
 	/*     FUNCTION SCTANG RETURNS THE SCATTERING ANGLE (THAT IS, THE        SCT  120 */
@@ -23870,20 +23869,20 @@ L10:
 	return ret_val;
 } /* sctang_ */
 
-doublereal psi_(real *psio, real *delo, real *beta, integer *iarb, integer *iarbo)
+double psi_(float *psio, float *delo, float *beta, long *iarb, long *iarbo)
 {
 	/* Initialized data */
 
-	static real epsiln = 1e-5f;
+	static float epsiln = 1e-5f;
 
 	/* System generated locals */
-	real ret_val, r__1;
+	float ret_val, r__1;
 
 	/* Builtin functions */
-	double sin(doublereal), cos(doublereal), atan(doublereal);
+	double sin(double), cos(double), atan(double);
 
 	/* Local variables */
-	static real betar, denom, delor, psior, anumer;
+	static float betar, denom, delor, psior, anumer;
 
 	/*                                                                       FSI  110 */
 	/*     FUNCTION PSI RETURNS THE VALUE OF SOLAR AZIMUTH RELATIVE TO       FSI  120 */
@@ -23994,17 +23993,17 @@ L80:
 	return ret_val;
 } /* psi_ */
 
-doublereal del_(real *psio, real *delo, real *beta, integer *iarbo)
+double del_(float *psio, float *delo, float *beta, long *iarbo)
 {
 
 	/* System generated locals */
-	real ret_val;
+	float ret_val;
 
 	/* Builtin functions */
-	double cos(doublereal), sin(doublereal), acos(doublereal);
+	double cos(double), sin(double), acos(double);
 
 	/* Local variables */
-	static real x, betar, delor, psior;
+	static float x, betar, delor, psior;
 
 	/*                                                                       DEL  110 */
 	/*     FUNCTION DEL RETURNS THE VALUE OF THE SUN'S ZENITH ANGLE          DEL  120 */
@@ -24043,18 +24042,18 @@ L10:
 	return ret_val;
 } /* del_ */
 
-/* Subroutine */ int ssrad_(integer *iph, integer *ik, integer *itzero,
-							integer *ipath, real *v, real *sumssr)
+/* Subroutine */ int ssrad_(long *iph, long *ik, long *itzero,
+							long *ipath, float *v, float *sumssr)
 {
 	/* System generated locals */
-	integer i__1;
+	long i__1;
 
 	/* Local variables */
-	static real xa1, xa2, xm1, xm2, tx6, tx7, tx9;
-	static integer ikk;
-	static real tx10, dtasp, dtmsp;
-	extern /* Subroutine */ int phasef_(real *, integer *, real *, real *,
-										real *, real *);
+	static float xa1, xa2, xm1, xm2, tx6, tx7, tx9;
+	static long ikk;
+	static float tx10, dtasp, dtmsp;
+	extern /* Subroutine */ int phasef_(float *, long *, float *, float *,
+										float *, float *);
 
 	/*                                                                       SSR  110 */
 	/*     SUBROUTINE SSRAD PERFORMS THE LAYER BY LAYER SINGLE SCATTERING    SSR  120 */
@@ -24141,24 +24140,24 @@ L60:
 	return 0;
 } /* ssrad_ */
 
-/* Subroutine */ int source_(real *vv, integer *isourc, integer *iday, real *angle, real *ss)
+/* Subroutine */ int source_(float *vv, long *isourc, long *iday, float *angle, float *ss)
 {
 	/* Initialized data */
 
-	static integer nday[13] = {1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335,
-							   366};
-	static real rat[13] = {1.034f, 1.03f, 1.019f, 1.001f, .985f, .972f, .967f,
-						   .971f, .982f, .998f, 1.015f, 1.029f, 1.034f};
-	static real phs[17] = {100.f, 73.2f, 57.8f, 42.3f, 32.f, 23.3f, 16.7f, 12.4f,
-						   8.7f, 6.7f, 4.7f, 3.6f, 2.4f, 1.2f, .9f, .4f, .002f};
-	static real alb[29] = {.001f, .01f, .03f, .075f, .1f, .13f, .155f, .17f, .178f,
-						   .185f, .2f, .211f, .231f, .25f, .275f, .289f, .285f, .287f, .3f, .29f, .3f,
-						   .31f, .313f, .319f, .329f, .339f, .345f, .35f, .4f};
+	static long nday[13] = {1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335,
+							366};
+	static float rat[13] = {1.034f, 1.03f, 1.019f, 1.001f, .985f, .972f, .967f,
+							.971f, .982f, .998f, 1.015f, 1.029f, 1.034f};
+	static float phs[17] = {100.f, 73.2f, 57.8f, 42.3f, 32.f, 23.3f, 16.7f, 12.4f,
+							8.7f, 6.7f, 4.7f, 3.6f, 2.4f, 1.2f, .9f, .4f, .002f};
+	static float alb[29] = {.001f, .01f, .03f, .075f, .1f, .13f, .155f, .17f, .178f,
+							.185f, .2f, .211f, .231f, .25f, .275f, .289f, .285f, .287f, .3f, .29f, .3f,
+							.31f, .313f, .319f, .329f, .339f, .345f, .35f, .4f};
 
-	static integer i__;
-	static real v;
-	static integer i1, ip;
-	extern doublereal sun_(real *);
+	static long i__;
+	static float v;
+	static long i1, ip;
+	extern double sun_(float *);
 
 	/*     SUBROUITNE SOURCE CONTAINS THE SOLAR INTENSITY DATA AS A          SOR  120 */
 	/*     FUNTION OF WAVELENGTH. THIS ROUTINE IS ALSO CAPABLE OF CALCULATINGSOR  130 */
@@ -24187,7 +24186,7 @@ L60:
 		goto L20;
 	}
 	ip = *angle / 10.f;
-	if ((real)(ip * 10) == *angle)
+	if ((float)(ip * 10) == *angle)
 	{
 		goto L10;
 	}
@@ -24264,12 +24263,12 @@ L90:
 	return 0;
 } /* source_ */
 
-doublereal sun_(real *v)
+double sun_(float *v)
 {
 	/* Initialized data */
 
-	static real a = 3.50187e-13f;
-	static real b = 3.93281f;
+	static float a = 3.50187e-13f;
+	static float b = 3.93281f;
 
 	/* Format strings */
 	static char fmt_900[] = "(\0020 *****  WARNING - INPUT FREQUENCY = \002,"
@@ -24277,16 +24276,16 @@ doublereal sun_(real *v)
 							"CM-1    *******\002,/)";
 
 	/* System generated locals */
-	real ret_val, r__1, r__2;
-	doublereal d__1, d__2;
+	float ret_val, r__1, r__2;
+	double d__1, d__2;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void);
-	double pow_dd(doublereal *, doublereal *), r_mod(real *, real *);
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void);
+	double pow_dd(double *, double *), r_mod(float *, float *);
 
 	/* Local variables */
-	static integer i__;
-	static real p;
+	static long i__;
+	static float p;
 
 	/* Fortran I/O blocks */
 	static cilist io___1376 = {0, 6, 0, fmt_900, 0};
@@ -24315,7 +24314,7 @@ doublereal sun_(real *v)
 	{
 		ret_val = 0.f;
 		s_wsfe(&io___1376);
-		do_fio(&c__1, (char *)&(*v), (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&(*v), (long)sizeof(float));
 		e_wsfe();
 		return ret_val;
 		/*                                                                       SUN  400 */
@@ -24323,8 +24322,8 @@ doublereal sun_(real *v)
 	else if (*v >= 0.f && *v < 100.f)
 	{
 		/*         FOR LOW FREQUENCIES USE A POWER LAW APPROXIMATION             SUN  420 */
-		d__1 = (doublereal)(*v);
-		d__2 = (doublereal)b;
+		d__1 = (double)(*v);
+		d__2 = (double)b;
 		ret_val = a * pow_dd(&d__1, &d__2);
 		return ret_val;
 		/*                                                                       SUN  450 */
@@ -24333,7 +24332,7 @@ doublereal sun_(real *v)
 	{
 		/*         USE  4 POINT INTERPOLATION  ON  ARRAY  SOLARA                 SUN  470 */
 		/*               WHICH IS AT  20 CM-1  SPACING  FROM 0 TO 28720 CM-1     SUN  480 */
-		i__ = (integer)(*v / 20.f) + 1;
+		i__ = (long)(*v / 20.f) + 1;
 		p = r_mod(v, &c_b2008) / 20.f;
 		/* Computing 2nd power */
 		r__1 = p;
@@ -24347,7 +24346,7 @@ doublereal sun_(real *v)
 	{
 		/*         USE  4 POINT INTERPOLATION  ON  ARRAY  SOLARB                 SUN  560 */
 		/*             WHICH IS AT  10 CM-1  SPACING  FROM 28400 TO 57490 CM-1   SUN  570 */
-		i__ = (integer)(*v / 10.f) - 2839;
+		i__ = (long)(*v / 10.f) - 2839;
 		p = r_mod(v, &c_b1750) / 10.f;
 		/* Computing 2nd power */
 		r__1 = p;
@@ -24362,7 +24361,7 @@ doublereal sun_(real *v)
 		/*           IF  V  IS TOO LARGE,  WRITE WARNING  +  RETURN SUN = 0      SUN  650 */
 		ret_val = 0.f;
 		s_wsfe(&io___1379);
-		do_fio(&c__1, (char *)&(*v), (ftnlen)sizeof(real));
+		do_fio(&c__1, (char *)&(*v), (long)sizeof(float));
 		e_wsfe();
 		return ret_val;
 		/*                                                                       SUN  690 */
@@ -24414,19 +24413,19 @@ doublereal sun_(real *v)
 /*         SOLAR SPECTRUM FROM  55760 TO  57190 CM-1,  IN STEPS OF 10 CM-SOL 6090 */
 /*         SOLAR SPECTRUM FROM  57200 TO  57490 CM-1,  IN STEPS OF 10 CM-SOL 6290 */
 
-/* Subroutine */ int subsol_(real *thetas, real *phis, real *time, integer *iday)
+/* Subroutine */ int subsol_(float *thetas, float *phis, float *time, long *iday)
 {
 	/* Initialized data */
 
-	static integer nday[25] = {1, 9, 21, 32, 44, 60, 91, 121, 141, 152, 160, 172, 182,
-							   190, 202, 213, 244, 274, 305, 309, 325, 335, 343, 355, 366};
-	static real dec[25] = {-23.07f, -22.22f, -20.08f, -17.32f, -13.62f, -7.88f,
-						   4.23f, 14.83f, 20.03f, 21.95f, 22.87f, 23.45f, 23.17f, 22.47f, 20.63f,
-						   18.23f, 8.58f, -2.88f, -14.18f, -15.45f, -19.75f, -21.68f, -22.75f,
-						   -23.43f, -23.07f};
-	static real eqt[25] = {-3.23f, -6.83f, -11.17f, -13.57f, -14.33f, -12.63f,
-						   -4.2f, 2.83f, 3.57f, 2.45f, 1.1f, -1.42f, -3.52f, -4.93f, -6.25f, -6.28f,
-						   -.25f, 10.02f, 16.35f, 16.38f, 14.3f, 11.27f, 8.02f, 2.32f, -3.23f};
+	static long nday[25] = {1, 9, 21, 32, 44, 60, 91, 121, 141, 152, 160, 172, 182,
+							190, 202, 213, 244, 274, 305, 309, 325, 335, 343, 355, 366};
+	static float dec[25] = {-23.07f, -22.22f, -20.08f, -17.32f, -13.62f, -7.88f,
+							4.23f, 14.83f, 20.03f, 21.95f, 22.87f, 23.45f, 23.17f, 22.47f, 20.63f,
+							18.23f, 8.58f, -2.88f, -14.18f, -15.45f, -19.75f, -21.68f, -22.75f,
+							-23.43f, -23.07f};
+	static float eqt[25] = {-3.23f, -6.83f, -11.17f, -13.57f, -14.33f, -12.63f,
+							-4.2f, 2.83f, 3.57f, 2.45f, 1.1f, -1.42f, -3.52f, -4.93f, -6.25f, -6.28f,
+							-.25f, 10.02f, 16.35f, 16.38f, 14.3f, 11.27f, 8.02f, 2.32f, -3.23f};
 
 	/* Format strings */
 	static char fmt_901[] = "(\002 FROM SUBSOL - IDAY OUT OF RANGE, IDAY="
@@ -24435,12 +24434,12 @@ doublereal sun_(real *v)
 							"\002,e12.5)";
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void);
-	/* Subroutine */ int s_stop(char *, ftnlen);
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void);
+	/* Subroutine */ int s_stop(char *, long);
 
 	/* Local variables */
-	static integer i__;
-	static real decang, eqtime;
+	static long i__;
+	static float decang, eqtime;
 
 	/* Fortran I/O blocks */
 	static cilist io___1386 = {0, 0, 0, fmt_901, 0};
@@ -24500,30 +24499,30 @@ L40:
 L900:
 	io___1386.ciunit = ifil_1.ipr;
 	s_wsfe(&io___1386);
-	do_fio(&c__1, (char *)&(*iday), (ftnlen)sizeof(integer));
+	do_fio(&c__1, (char *)&(*iday), (long)sizeof(long));
 	e_wsfe();
-	s_stop("", (ftnlen)0);
+	s_stop("", (long)0);
 L910:
 	io___1387.ciunit = ifil_1.ipr;
 	s_wsfe(&io___1387);
-	do_fio(&c__1, (char *)&(*time), (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&(*time), (long)sizeof(float));
 	e_wsfe();
-	s_stop("", (ftnlen)0);
+	s_stop("", (long)0);
 	return 0;
 } /* subsol_ */
 
-/* Subroutine */ int phasef_(real *v, integer *ik, real *alt, real *sangle,
-							 real *rh, real *phfa)
+/* Subroutine */ int phasef_(float *v, long *ik, float *alt, float *sangle,
+							 float *rh, float *phfa)
 {
 	/* Initialized data */
 
-	static real ang[34] = {0.f, 2.f, 4.f, 6.f, 8.f, 10.f, 12.f, 16.f, 20.f, 24.f, 28.f,
-						   32.f, 36.f, 40.f, 50.f, 60.f, 70.f, 80.f, 90.f, 100.f, 110.f, 120.f, 125.f,
-						   130.f, 135.f, 140.f, 145.f, 150.f, 155.f, 160.f, 165.f, 170.f, 175.f, 180.f};
-	static real wave[27] = {.2f, .3f, .55f, .6943f, 1.06f, 1.536f, 2.f, 2.5f, 2.7f,
-							3.f, 3.2f, 3.39f, 5.f, 6.f, 7.2f, 7.9f, 8.7f, 9.2f, 10.f, 10.59f, 12.5f, 15.f,
-							17.2f, 18.5f, 21.3f, 30.f, 40.f};
-	static real rhpts[4] = {0.f, 70.f, 80.f, 99.f};
+	static float ang[34] = {0.f, 2.f, 4.f, 6.f, 8.f, 10.f, 12.f, 16.f, 20.f, 24.f, 28.f,
+							32.f, 36.f, 40.f, 50.f, 60.f, 70.f, 80.f, 90.f, 100.f, 110.f, 120.f, 125.f,
+							130.f, 135.f, 140.f, 145.f, 150.f, 155.f, 160.f, 165.f, 170.f, 175.f, 180.f};
+	static float wave[27] = {.2f, .3f, .55f, .6943f, 1.06f, 1.536f, 2.f, 2.5f, 2.7f,
+							 3.f, 3.2f, 3.39f, 5.f, 6.f, 7.2f, 7.9f, 8.7f, 9.2f, 10.f, 10.59f, 12.5f, 15.f,
+							 17.2f, 18.5f, 21.3f, 30.f, 40.f};
+	static float rhpts[4] = {0.f, 70.f, 80.f, 99.f};
 
 	/* Format strings */
 	static char fmt_901[] = "(\0020FROM PHASEF- SCATTERING ANGLE IS OUT OF R"
@@ -24532,25 +24531,25 @@ L910:
 							" = \002,e12.5)";
 
 	/* Builtin functions */
-	double cos(doublereal);
-	integer s_wsfe(cilist *), do_fio(integer *, char *, ftnlen), e_wsfe(void);
-	/* Subroutine */ int s_stop(char *, ftnlen);
+	double cos(double);
+	long s_wsfe(cilist *), do_fio(long *, char *, long), e_wsfe(void);
+	/* Subroutine */ int s_stop(char *, long);
 
 	/* Local variables */
-	static integer i__;
-	static real y;
-	static integer i1;
-	extern doublereal pf_(integer *, integer *, integer *);
-	static integer nn, nn0;
-	static real pf11, pf21, pf12, pf22;
-	static integer irh;
-	static real alam;
-	static integer iang1, iang2;
-	static real phfa1, phfa2, yang1, yang2;
-	static integer iwav1, iwav2, irhhi, irhlo;
-	static real cosang;
-	extern /* Subroutine */ int hengns_(real *, real *, real *), interp_(
-																	 integer *, real *, real *, real *, real *, real *, real *);
+	static long i__;
+	static float y;
+	static long i1;
+	extern double pf_(long *, long *, long *);
+	static long nn, nn0;
+	static float pf11, pf21, pf12, pf22;
+	static long irh;
+	static float alam;
+	static long iang1, iang2;
+	static float phfa1, phfa2, yang1, yang2;
+	static long iwav1, iwav2, irhhi, irhlo;
+	static float cosang;
+	extern /* Subroutine */ int hengns_(float *, float *, float *), interp_(
+																		long *, float *, float *, float *, float *, float *, float *);
 
 	/* Fortran I/O blocks */
 	static cilist io___1413 = {0, 0, 0, fmt_901, 0};
@@ -24852,26 +24851,26 @@ L400:
 L900:
 	io___1413.ciunit = ifil_1.ipr;
 	s_wsfe(&io___1413);
-	do_fio(&c__1, (char *)&(*sangle), (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&(*sangle), (long)sizeof(float));
 	e_wsfe();
-	s_stop("", (ftnlen)0);
+	s_stop("", (long)0);
 L910:
 	io___1414.ciunit = ifil_1.ipr;
 	s_wsfe(&io___1414);
-	do_fio(&c__1, (char *)&alam, (ftnlen)sizeof(real));
+	do_fio(&c__1, (char *)&alam, (long)sizeof(float));
 	e_wsfe();
-	s_stop("", (ftnlen)0);
+	s_stop("", (long)0);
 	return 0;
 } /* phasef_ */
 
-/* Subroutine */ int hengns_(real *zz, real *sangle, real *phfa)
+/* Subroutine */ int hengns_(float *zz, float *sangle, float *phfa)
 {
 	/* System generated locals */
-	real r__1, r__2;
-	doublereal d__1;
+	float r__1, r__2;
+	double d__1;
 
 	/* Builtin functions */
-	double pow_dd(doublereal *, doublereal *);
+	double pow_dd(double *, double *);
 
 	/*                                                                       HEN  110 */
 	/*    CALCULATES THE PHASE FUNCTION USING THE HENREY GREENSTEIN          HEN  120 */
@@ -24882,18 +24881,18 @@ L910:
 	r__1 = *zz;
 	/* Computing 2nd power */
 	r__2 = *zz;
-	d__1 = (doublereal)(1.f + r__2 * r__2 - 2.f * *zz * *sangle);
+	d__1 = (double)(1.f + r__2 * r__2 - 2.f * *zz * *sangle);
 	*phfa = (1.f - r__1 * r__1) / (4.f * cnstns_1.pi * pow_dd(&d__1, &c_b1937));
 	return 0;
 } /* hengns_ */
 
-doublereal pf_(integer *nn, integer *i__, integer *j)
+double pf_(long *nn, long *i__, long *j)
 {
 	/* System generated locals */
-	real ret_val;
+	float ret_val;
 
 	/* Local variables */
-	static integer m;
+	static long m;
 
 	/*     CALL THE APPROPRIATE PHASE FUNCTION                               PF   110 */
 	m = mnmphs_1.mnum[*i__ + *nn * 27 - 28];
@@ -24901,15 +24900,15 @@ doublereal pf_(integer *nn, integer *i__, integer *j)
 	return ret_val;
 } /* pf_ */
 
-/* Subroutine */ int interp_(integer *intype, real *x, real *x1, real *x2,
-							 real *f, real *f1, real *f2)
+/* Subroutine */ int interp_(long *intype, float *x, float *x1, float *x2,
+							 float *f, float *f1, float *f2)
 {
 	/* Builtin functions */
-	double log(doublereal), exp(doublereal);
+	double log(double), exp(double);
 
 	/* Local variables */
-	static real a, a1, a2;
-	static integer itype;
+	static float a, a1, a2;
+	static long itype;
 
 	/*     SUBROUTINE INTERP INTERPOLATES TO DETERMINE THE VALUE OF F        INT  110 */
 	/*     AT X, GIVEN F1 AT X1 AND F2 AT X2.                                INT  120 */
@@ -24935,10 +24934,10 @@ L100:
 	return 0;
 } /* interp_ */
 
-doublereal raysct_(real *v)
+double raysct_(float *v)
 {
 	/* System generated locals */
-	real ret_val, r__1, r__2;
+	float ret_val, r__1, r__2;
 
 	/*     RADIATION FLD OUT                                                 RAY  110 */
 	/* **  MOLECULAR SCATTERING                                              RAY  120 */
@@ -24956,21 +24955,21 @@ doublereal raysct_(real *v)
 	return ret_val;
 } /* raysct_ */
 
-/* Subroutine */ int expint_(real *x, real *x1, real *x2, real *a)
+/* Subroutine */ int expint_(float *x, float *x1, float *x2, float *a)
 {
 	/* System generated locals */
-	doublereal d__1, d__2;
+	double d__1, d__2;
 
 	/* Builtin functions */
-	double pow_dd(doublereal *, doublereal *);
+	double pow_dd(double *, double *);
 
 	/*     EXPONENTIAL INTERPOLATION                                         EXP  110 */
 	if (*x1 == 0.f || *x2 == 0.f)
 	{
 		goto L100;
 	}
-	d__1 = (doublereal)(*x2 / *x1);
-	d__2 = (doublereal)(*a);
+	d__1 = (double)(*x2 / *x1);
+	d__2 = (double)(*a);
 	*x = *x1 * pow_dd(&d__1, &d__2);
 	return 0;
 L100:
@@ -24981,10 +24980,10 @@ L100:
 /* Subroutine */ int equlwc_(void)
 {
 	/* System generated locals */
-	integer i__1;
+	long i__1;
 
 	/* Local variables */
-	static integer i__;
+	static long i__;
 
 	/* CC                                                                     EQU  110 */
 	/* CC   EQUIVALENT LIQUID  WATER CONSTANTS FOR BEXT (0.55UM)=1.0KM-1      EQU  120 */
@@ -25020,8 +25019,8 @@ L100:
 	return 0;
 } /* equlwc_ */
 
-/* Subroutine */ int indx_(real *wavl, real *tc, integer *key, real *reil,
-						   real *aimag)
+/* Subroutine */ int indx_(float *wavl, float *tc, long *key, float *reil,
+						   float *aimag)
 {
 	/* Format strings */
 	static char fmt_1[] = "(///,30x,\002ATTEMPTING TO EVALUATE FOR A WAVELEN"
@@ -25030,18 +25029,18 @@ L100:
 						  "TURE LESS THAN -20. DEGREES CENTIGRADE\002,//)";
 
 	/* System generated locals */
-	doublereal d__1;
+	double d__1;
 
 	/* Builtin functions */
-	integer s_wsfe(cilist *), e_wsfe(void);
-	double pow_dd(doublereal *, doublereal *), exp(doublereal);
+	long s_wsfe(cilist *), e_wsfe(void);
+	double pow_dd(double *, double *), exp(double);
 
 	/* Local variables */
-	static real r1, r2;
-	extern doublereal ab_(real *, real *, real *, real *, real *), dop_(real *, real *, real *, real *, real *, real *, real *, real *, real *,
-																		real *, real *);
-	extern /* Subroutine */ int debye_(real *, real *, integer *, real *,
-									   real *);
+	static float r1, r2;
+	extern double ab_(float *, float *, float *, float *, float *), dop_(float *, float *, float *, float *, float *, float *, float *, float *, float *,
+																		 float *, float *);
+	extern /* Subroutine */ int debye_(float *, float *, long *, float *,
+									   float *);
 
 	/* Fortran I/O blocks */
 	static cilist io___1423 = {0, 6, 0, fmt_1, 0};
@@ -25096,7 +25095,7 @@ L5:
 	}
 	/* L6: */
 	r2 = dop_(wavl, &c_b2088, &c_b2089, &c_b2090, &c_b2091, &c_b2092, &c_b2093, &c_b2094, &c_b2095, &c_b2096, &c_b2097);
-	d__1 = (doublereal)(*wavl * 2.5e-5f);
+	d__1 = (double)(*wavl * 2.5e-5f);
 	r2 += r2 * (*tc - 25.f) * 1e-4f * exp(pow_dd(&d__1, &c_b2098));
 	*reil = *reil * (*wavl - .034f) / .066f + r2 * (.1f - *wavl) / .066f;
 	goto L11;
@@ -25108,7 +25107,7 @@ L7:
 	goto L10;
 L8:
 	*reil = dop_(wavl, &c_b2088, &c_b2089, &c_b2090, &c_b2091, &c_b2092, &c_b2093, &c_b2094, &c_b2095, &c_b2096, &c_b2097);
-	d__1 = (doublereal)(*wavl * 2.5e-5f);
+	d__1 = (double)(*wavl * 2.5e-5f);
 	*reil += *reil * (*tc - 25.f) * 1e-4f * exp(pow_dd(&d__1, &c_b2098));
 	if (*wavl > 7e-4f)
 	{
@@ -25116,13 +25115,13 @@ L8:
 	}
 	/* L9: */
 	r1 = dop_(wavl, &c_b2113, &c_b2114, &c_b2115, &c_b2116, &c_b2089, &c_b2118, &c_b2119, &c_b2092, &c_b2121, &c_b2122);
-	d__1 = (doublereal)(*wavl * 2.5e-5f);
+	d__1 = (double)(*wavl * 2.5e-5f);
 	r1 += r1 * (*tc - 25.f) * 1e-4f * exp(pow_dd(&d__1, &c_b2098));
 	*reil = r1 * (7e-4f - *wavl) / 1e-4f + *reil * (*wavl - 6e-4f) / 1e-4f;
 	goto L11;
 L10:
 	*reil = dop_(wavl, &c_b2113, &c_b2114, &c_b2115, &c_b2116, &c_b2089, &c_b2118, &c_b2119, &c_b2092, &c_b2121, &c_b2122);
-	d__1 = (doublereal)(*wavl * 2.5e-5f);
+	d__1 = (double)(*wavl * 2.5e-5f);
 	*reil += *reil * (*tc - 25.f) * 1e-4f * exp(pow_dd(&d__1, &c_b2098));
 /* * *  TABLE 2 WATER PG. 1840                                           INX  660 */
 L11:
@@ -25189,18 +25188,18 @@ L57:
 	return 0;
 } /* indx_ */
 
-/* Subroutine */ int debye_(real *wavl, real *tc, integer *key, real *re,
-							real *ai)
+/* Subroutine */ int debye_(float *wavl, float *tc, long *key, float *re,
+							float *ai)
 {
 	/* System generated locals */
-	real r__1, r__2;
-	doublereal d__1, d__2, d__3, d__4;
+	float r__1, r__2;
+	double d__1, d__2, d__3, d__4;
 
 	/* Builtin functions */
-	double exp(doublereal), sin(doublereal), pow_dd(doublereal *, doublereal *), cos(doublereal), sqrt(doublereal);
+	double exp(double), sin(double), pow_dd(double *, double *), cos(double), sqrt(double);
 
 	/* Local variables */
-	static real t, c1, c2, e1, e2, es, t125, dem, sig, tau, efin, alpha;
+	static float t, c1, c2, e1, e2, es, t125, dem, sig, tau, efin, alpha;
 
 	/* CC                                                                     DBY  110 */
 	/* CC    CALCULATES WAVENUMBER DEPENDENCE OF DIELECTRIC CONSTANT          DBY  120 */
@@ -25247,13 +25246,13 @@ L3:
 	sig = 0.f;
 	/* CC                                                                     DBY  430 */
 	c2 = alpha * 1.5708f;
-	d__1 = (doublereal)c1;
-	d__2 = (doublereal)(1.f - alpha);
-	d__3 = (doublereal)c1;
-	d__4 = (doublereal)((1.f - alpha) * 2.f);
+	d__1 = (double)c1;
+	d__2 = (double)(1.f - alpha);
+	d__3 = (double)c1;
+	d__4 = (double)((1.f - alpha) * 2.f);
 	dem = pow_dd(&d__1, &d__2) * 2.f * sin(c2) + 1.f + pow_dd(&d__3, &d__4);
-	d__1 = (doublereal)c1;
-	d__2 = (doublereal)(1.f - alpha);
+	d__1 = (double)c1;
+	d__2 = (double)(1.f - alpha);
 	e1 = efin + (es - efin) * (pow_dd(&d__1, &d__2) * sin(c2) + 1.f) / dem;
 	if (*key != 0 && *wavl >= 300.f)
 	{
@@ -25263,8 +25262,8 @@ L3:
 	{
 		e1 = es;
 	}
-	d__1 = (doublereal)c1;
-	d__2 = (doublereal)(1.f - alpha);
+	d__1 = (double)c1;
+	d__2 = (double)(1.f - alpha);
 	e2 = (es - efin) * pow_dd(&d__1, &d__2) * cos(c2) / dem + sig * *wavl /
 																  1.88496e11f;
 	/* CC                                                                     DBY  500 */
@@ -25284,16 +25283,16 @@ L3:
 	return 0;
 } /* debye_ */
 
-doublereal dop_(real *wavl, real *a, real *cen1, real *b, real *c__, real *cen2, real *d__, real *e, real *cen3, real *f, real *g)
+double dop_(float *wavl, float *a, float *cen1, float *b, float *c__, float *cen2, float *d__, float *e, float *cen3, float *f, float *g)
 {
 	/* System generated locals */
-	real ret_val, r__1;
+	float ret_val, r__1;
 
 	/* Builtin functions */
-	double sqrt(doublereal);
+	double sqrt(double);
 
 	/* Local variables */
-	static real v, h1, h2, h3, v2;
+	static float v, h1, h2, h3, v2;
 
 	/* CC                                                                     DOP  110 */
 	/* CC    DESCRIBES THE REAL PART OF THE DIELECTRIC CONSTANT               DOP  120 */
@@ -25313,42 +25312,42 @@ doublereal dop_(real *wavl, real *a, real *cen1, real *b, real *c__, real *cen2,
 	return ret_val;
 } /* dop_ */
 
-doublereal ab_(real *wavl, real *a, real *cen, real *b, real *c__)
+double ab_(float *wavl, float *a, float *cen, float *b, float *c__)
 {
 	/* System generated locals */
-	real ret_val, r__1, r__2;
-	doublereal d__1, d__2;
+	float ret_val, r__1, r__2;
+	double d__1, d__2;
 
 	/* Builtin functions */
-	double r_lg10(real *), pow_dd(doublereal *, doublereal *), exp(doublereal);
+	double r_lg10(float *), pow_dd(double *, double *), exp(double);
 
 	/* CC                                                                     AB   110 */
 	/* CC    DESCRIBES THE IMAGINARY PART OF THE DIELECTRIC CONSTANT          AB   120 */
 	/* CC                                                                     AB   130 */
 	r__2 = *wavl * 1e4f / *cen;
-	d__1 = (r__1 = r_lg10(&r__2) / *b, (doublereal)dabs(r__1));
-	d__2 = (doublereal)(*c__);
+	d__1 = (r__1 = r_lg10(&r__2) / *b, (double)dabs(r__1));
+	d__2 = (double)(*c__);
 	ret_val = -(*a) * exp(-pow_dd(&d__1, &d__2));
 	return ret_val;
 } /* ab_ */
 
-doublereal gamfog_(integer *mr, real *freq, real *t, real *rho)
+double gamfog_(long *mr, float *freq, float *t, float *rho)
 {
 	/* System generated locals */
-	real ret_val;
+	float ret_val;
 	complex q__1, q__2, q__3, q__4, q__5, q__6;
 
 	/* Builtin functions */
-	void pow_ci(complex *, complex *, integer *), c_div(complex *, complex *,
-														complex *);
+	void pow_ci(complex *, complex *, long *), c_div(complex *, complex *,
+													 complex *);
 	double r_imag(complex *);
 
 	/* Local variables */
-	static real tc;
-	static integer key;
-	static real reil;
-	extern /* Subroutine */ int indx_(real *, real *, integer *, real *, real *);
-	static real wavl, aimak;
+	static float tc;
+	static long key;
+	static float reil;
+	extern /* Subroutine */ int indx_(float *, float *, long *, float *, float *);
+	static float wavl, aimak;
 	static complex cindex;
 
 	/*                                                                       GAM  110 */
@@ -25401,15 +25400,15 @@ L2:
 	return ret_val;
 } /* gamfog_ */
 
-doublereal aitk_(real *arg, real *val, real *x, integer *ndim)
+double aitk_(float *arg, float *val, float *x, long *ndim)
 {
 	/* System generated locals */
-	integer i__1, i__2;
-	real ret_val;
+	long i__1, i__2;
+	float ret_val;
 
 	/* Local variables */
-	static real h__;
-	static integer i__, j, ier, iend;
+	static float h__;
+	static long i__, j, ier, iend;
 
 	/*                                                                       AIT  110 */
 	/*      IBM SCIENTIFIC SUBROUTINE                                        AIT  120 */
@@ -25473,21 +25472,21 @@ L13:
 	goto L8;
 } /* aitk_ */
 
-doublereal gmrain_(real *freq, real *t, real *rate)
+double gmrain_(float *freq, float *t, float *rate)
 {
 	/* Initialized data */
 
-	static real wvntbl[35] = {0.f, .0667f, .1f, .1111f, .125f, .1429f, .1538f,
-							  .1667f, .1818f, .2f, .25f, .3333f, .5f, 1.f, 1.25f, 2.f, 3.3333f, 4.f, 5.f,
-							  6.6667f, 10.f, 13.3333f, 16.6667f, 20.f, 23.2558f, 26.6667f, 30.303f,
-							  33.3333f, 50.f, 80.f, 120.f, 180.f, 250.f, 300.f, 350.f};
-	static real rattab[9] = {.25f, 1.25f, 2.5f, 5.f, 12.5f, 25.f, 50.f, 100.f, 150.f};
-	static real tfreq[8] = {0.f, .1f, .3125f, .8f, 2.f, 10.f, 33.3333f, 350.f};
-	static real tmptab[5] = {273.15f, 283.15f, 293.15f, 303.15f, 313.15f};
-	static real ratlim = .05f;
+	static float wvntbl[35] = {0.f, .0667f, .1f, .1111f, .125f, .1429f, .1538f,
+							   .1667f, .1818f, .2f, .25f, .3333f, .5f, 1.f, 1.25f, 2.f, 3.3333f, 4.f, 5.f,
+							   6.6667f, 10.f, 13.3333f, 16.6667f, 20.f, 23.2558f, 26.6667f, 30.303f,
+							   33.3333f, 50.f, 80.f, 120.f, 180.f, 250.f, 300.f, 350.f};
+	static float rattab[9] = {.25f, 1.25f, 2.5f, 5.f, 12.5f, 25.f, 50.f, 100.f, 150.f};
+	static float tfreq[8] = {0.f, .1f, .3125f, .8f, 2.f, 10.f, 33.3333f, 350.f};
+	static float tmptab[5] = {273.15f, 283.15f, 293.15f, 303.15f, 313.15f};
+	static float ratlim = .05f;
 	static struct
 	{
-		real e_1[315];
+		float e_1[315];
 	} equiv_8 = {1.272f, 1.332f, 1.361f, 1.368f, 1.393f, 1.421f, 1.439f,
 				 1.466f, 1.499f, 1.541f, 1.682f, 1.951f, 2.571f, 3.575f,
 				 3.808f, 4.199f, 3.665f, 3.161f, 2.462f, 1.632f, .8203f,
@@ -25535,7 +25534,7 @@ doublereal gmrain_(real *freq, real *t, real *rate)
 
 	static struct
 	{
-		real e_1[200];
+		float e_1[200];
 	} equiv_13 = {1.606f, 1.252f, 1.f, .816f, .68f, 1.603f, 1.246f, 1.f,
 				  .817f, .684f, 1.444f, 1.207f, 1.f, .838f, .694f, 1.016f,
 				  .985f, 1.f, 1.034f, 1.058f, .95f, .976f, 1.f, 1.034f, 1.068f,
@@ -25561,40 +25560,40 @@ doublereal gmrain_(real *freq, real *t, real *rate)
 				  .966f, 1.f, 1.034f, 1.068f, .957f, .978f, 1.f, 1.022f, 1.044f};
 
 	/* System generated locals */
-	integer i__1;
-	real ret_val;
+	long i__1;
+	float ret_val;
 
 	/* Builtin functions */
-	double log(doublereal), exp(doublereal);
+	double log(double), exp(double);
 
 	/* Local variables */
-	static integer i__, j, k;
-	static real x[4], y[4];
-	static integer ij, ji, kj;
-	static real fac;
-	extern doublereal aitk_(real *, real *, real *, integer *);
-	static integer kmin, jmax;
-	static real attn[4];
-	static integer ilow, jlow;
-	static real facit[5];
-#define attab ((real *)&equiv_8)
-	static real tfact[5], rates[4];
-#define faceq1 ((real *)&equiv_13)
-#define faceq2 ((real *)&equiv_13 + 40)
-#define faceq3 ((real *)&equiv_13 + 80)
-#define faceq4 ((real *)&equiv_13 + 120)
-#define faceq5 ((real *)&equiv_13 + 160)
-	static real wvlth;
-#define attab1 ((real *)&equiv_8)
-#define attab2 ((real *)&equiv_8 + 35)
-#define attab3 ((real *)&equiv_8 + 70)
-#define attab4 ((real *)&equiv_8 + 105)
-#define attab5 ((real *)&equiv_8 + 140)
-#define attab6 ((real *)&equiv_8 + 175)
-#define attab7 ((real *)&equiv_8 + 210)
-#define attab8 ((real *)&equiv_8 + 245)
-#define attab9 ((real *)&equiv_8 + 280)
-#define factor ((real *)&equiv_13)
+	static long i__, j, k;
+	static float x[4], y[4];
+	static long ij, ji, kj;
+	static float fac;
+	extern double aitk_(float *, float *, float *, long *);
+	static long kmin, jmax;
+	static float attn[4];
+	static long ilow, jlow;
+	static float facit[5];
+#define attab ((float *)&equiv_8)
+	static float tfact[5], rates[4];
+#define faceq1 ((float *)&equiv_13)
+#define faceq2 ((float *)&equiv_13 + 40)
+#define faceq3 ((float *)&equiv_13 + 80)
+#define faceq4 ((float *)&equiv_13 + 120)
+#define faceq5 ((float *)&equiv_13 + 160)
+	static float wvlth;
+#define attab1 ((float *)&equiv_8)
+#define attab2 ((float *)&equiv_8 + 35)
+#define attab3 ((float *)&equiv_8 + 70)
+#define attab4 ((float *)&equiv_8 + 105)
+#define attab5 ((float *)&equiv_8 + 140)
+#define attab6 ((float *)&equiv_8 + 175)
+#define attab7 ((float *)&equiv_8 + 210)
+#define attab8 ((float *)&equiv_8 + 245)
+#define attab9 ((float *)&equiv_8 + 280)
+#define factor ((float *)&equiv_13)
 
 	/*                                                                       GMR  110 */
 	/*        COMPUTES ATTENUATION OF CONDENSED WATER IN FORM OF RAIN        GMR  120 */
@@ -25776,37 +25775,37 @@ L45:
 #undef faceq1
 #undef attab
 
-/* Subroutine */ int cirrus_(real *cthik, real *calt, integer *iseed, real *cprob, real *cext)
+/* Subroutine */ int cirrus_(float *cthik, float *calt, long *iseed, float *cprob, float *cext)
 {
 	/* Initialized data */
 
-	static real camean[5] = {11.f, 10.f, 8.f, 7.f, 5.f};
-	static real ptab[5] = {.8f, .4f, .5f, .45f, .4f};
-	static real tstat[11] = {0.f, .291f, .509f, .655f, .764f, .837f, .892f, .928f,
-							 .96f, .982f, 1.f};
+	static float camean[5] = {11.f, 10.f, 8.f, 7.f, 5.f};
+	static float ptab[5] = {.8f, .4f, .5f, .45f, .4f};
+	static float tstat[11] = {0.f, .291f, .509f, .655f, .764f, .837f, .892f, .928f,
+							  .96f, .982f, 1.f};
 	static struct
 	{
-		real e_1[10];
+		float e_1[10];
 	} equiv_1 = {7.5f, 7.3f, 4.5f, 4.5f, 2.5f, 16.5f, 13.5f, 14.f, 9.5f,
 				 10.f};
 
 	/* System generated locals */
-	integer i__1;
+	long i__1;
 
 	/* Local variables */
-	static integer i__, iv1, iv2, mdl, iml;
-	static real top, urn, pct1, pct2, hmax;
-	static integer idum;
-	static real zmin, zmax;
-	static integer ihgt1, ihgt2;
-#define cbase ((real *)&equiv_1)
-	static real denom;
-#define cbase1 ((real *)&equiv_1)
-#define cbase2 ((real *)&equiv_1 + 5)
-	static real brange, dencir;
-	extern doublereal ranfun_(integer *);
-	extern /* Subroutine */ int ranset_(integer *);
-	static real bottom;
+	static long i__, iv1, iv2, mdl, iml;
+	static float top, urn, pct1, pct2, hmax;
+	static long idum;
+	static float zmin, zmax;
+	static long ihgt1, ihgt2;
+#define cbase ((float *)&equiv_1)
+	static float denom;
+#define cbase1 ((float *)&equiv_1)
+#define cbase2 ((float *)&equiv_1 + 5)
+	static float brange, dencir;
+	extern double ranfun_(long *);
+	extern /* Subroutine */ int ranset_(long *);
+	static float bottom;
 
 	/* *********************************************************************  CIR  110 */
 	/* *  ROUTINE TO GENERATE ALTITUDE PROFILES OF CIRRUS DENSITY         **  CIR  120 */
@@ -25888,7 +25887,7 @@ L15:
 	{
 		if (urn >= tstat[i__ - 1] && urn < tstat[i__])
 		{
-			*cthik = (real)(i__ - 1);
+			*cthik = (float)(i__ - 1);
 		}
 		/* L20: */
 	}
@@ -25937,8 +25936,8 @@ L27:
 	{
 		goto L60;
 	}
-	iv1 = (integer)(*calt);
-	iv2 = (integer)(*calt + *cthik);
+	iv1 = (long)(*calt);
+	iv2 = (long)(*calt + *cthik);
 	for (i__ = 2; i__ <= 16; ++i__)
 	{
 		if (i__ >= iv1 && i__ <= iv2)
@@ -25951,8 +25950,8 @@ L27:
 	/*  ADJUST FIRST AND LAST CIRRUS LEVEL IF CLOUD DOES NOT ENTIRELY        CIR 1320 */
 	/*  FILL EACH LEVEL.                                                     CIR 1330 */
 	/*                                                                       CIR 1340 */
-	ihgt1 = (integer)(*calt);
-	ihgt2 = (integer)(*calt + *cthik);
+	ihgt1 = (long)(*calt);
+	ihgt2 = (long)(*calt + *cthik);
 	if (ihgt1 != ihgt2)
 	{
 		goto L35;
@@ -26012,16 +26011,16 @@ L60:
 #undef cbase
 
 // ADDED BY GP
-int ranset_(integer *seed)
+int ranset_(long *seed)
 {
 	srand((unsigned int)*seed);
 	return 0;
 }
 
-doublereal ranfun_(integer *idum)
+double ranfun_(long *idum)
 {
 	/* System generated locals */
-	real ret_val;
+	float ret_val;
 
 	// TODO ignores idum
 	//print(idum);
@@ -26030,20 +26029,20 @@ doublereal ranfun_(integer *idum)
 } /* ranfun_ */
 // ADDED BY GP
 
-doublereal abslim_(real *tk, real *awlwc)
+double abslim_(float *tk, float *awlwc)
 {
 	/* Initialized data */
 
-	static real pi = 3.14159265f;
+	static float pi = 3.14159265f;
 
 	/* System generated locals */
-	real ret_val, r__1, r__2;
+	float ret_val, r__1, r__2;
 
 	/* Builtin functions */
-	double exp(doublereal);
+	double exp(double);
 
 	/* Local variables */
-	static real tc, es, efin, eqlwc, esmie2, slambd;
+	static float tc, es, efin, eqlwc, esmie2, slambd;
 
 	/* CC                                                                     ALM  110 */
 	/* CC    FOR CLOUD OR AEROSOL ATTENUATION AS FREQ APPROACHES ZERO         ALM  120 */
@@ -26443,21 +26442,21 @@ doublereal abslim_(real *tk, real *awlwc)
 /*     DATA O2        /                                                  MLT 6650 */
 /*     DATA DENSITY   /                                                  MLT 6770 */
 
-/* Subroutine */ int schrun_(real *v, real *cprun)
+/* Subroutine */ int schrun_(float *v, float *cprun)
 {
 	/* Initialized data */
 
-	static real v1 = 49600.f;
-	static real v2 = 51710.f;
-	static real dv = 5.f;
-	static integer inum = 425;
+	static float v1 = 49600.f;
+	static float v2 = 51710.f;
+	static float dv = 5.f;
+	static long inum = 425;
 
 	/* Builtin functions */
-	integer s_wsle(cilist *), do_lio(integer *, integer *, char *, ftnlen),
+	long s_wsle(cilist *), do_lio(long *, long *, char *, long),
 		e_wsle(void);
 
 	/* Local variables */
-	static integer ind;
+	static long ind;
 
 	/* Fortran I/O blocks */
 	static cilist io___1531 = {0, 6, 0, 0, 0};
@@ -26475,9 +26474,9 @@ doublereal abslim_(real *tk, real *awlwc)
 	if (ind > inum)
 	{
 		s_wsle(&io___1531);
-		do_lio(&c__9, &c__1, "  IND GT INUM  V IND ", (ftnlen)21);
-		do_lio(&c__4, &c__1, (char *)&(*v), (ftnlen)sizeof(real));
-		do_lio(&c__3, &c__1, (char *)&ind, (ftnlen)sizeof(integer));
+		do_lio(&c__9, &c__1, "  IND GT INUM  V IND ", (long)21);
+		do_lio(&c__4, &c__1, (char *)&(*v), (long)sizeof(float));
+		do_lio(&c__3, &c__1, (char *)&ind, (long)sizeof(long));
 		e_wsle();
 		goto L20;
 	}

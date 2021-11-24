@@ -2,6 +2,13 @@
   "files.associations": {
     "fio.h": "c",
     "stdio.h": "c",
-    "complex": "c"
+    "complex": "c",
+    "algorithm": "c",
+    "random": "c",
+    "complex.h": "c",
+    "ccomplex": "c",
+    "version": "c",
+    "numeric": "c",
+    "cmath": "c"
   }
 }

@@ -4,12 +4,12 @@
 
 int main()
 {
+    struct timespec start, end;
+
+    clock_gettime(CLOCK_MONOTONIC, &start);
 
     MAIN__();
 
-    struct timespec ts;
-    timespec_get(&ts, TIME_UTC);
-    char buff[100];
-    strftime(buff, sizeof buff, "%D %T", gmtime(&ts.tv_sec));
-    printf("\nCurrent time: %s.%09ld UTC\n", buff, ts.tv_nsec);
+    clock_gettime(CLOCK_MONOTONIC, &end);
+    printf("%lf milliseconds", (end.tv_nsec - start.tv_nsec) / 1e6 + (end.tv_sec - start.tv_sec) * 1e3);
 }

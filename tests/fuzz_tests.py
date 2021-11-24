@@ -87,9 +87,9 @@ def main():
 
         # print(time_taken)
 
-    plt.hist(times, bins=1000, log=True)
-    print(np.min(times))
-    plt.show()
+    # plt.hist(times, bins=1000, log=True)
+    print(np.average(times) / 1e6, "milliseconds")
+    # plt.show()
     # drop time as object for some reason
 
     # df.drop('time', axis=1, inplace=True)
