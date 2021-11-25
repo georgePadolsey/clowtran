@@ -2,7 +2,11 @@
 
 // #include <complex.h> @todo change complex to this
 
+// #define DO_FIO_IN 1
+// #define DO_FIO_OUT 1
+
 #include "stdio.h"
+#include "atmos_data.c"
 #include "math.h"
 #include "stdlib.h"
 #include "dolio.c"

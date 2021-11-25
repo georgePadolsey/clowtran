@@ -499,6 +499,11 @@ type_f(int n)
     integer do_fio(ftnint *number, char *ptr, ftnlen len)
 
     {
+#ifndef DO_FIO_OUT
+        // @todo
+        return 0;
+#endif
+
         struct syl *p;
         int n, i;
         for (i = 0; i < *number; i++, ptr += len)

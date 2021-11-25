@@ -7,6 +7,8 @@ include_directories(
     ${PROEJCT_SOURCE_DIR}/src
 )
 
+# @todo change to dbeug variable
+set(CMAKE_BUILD_TYPE Debug)
 
 add_executable(clowtran src/lowtran_driver.cpp)
 

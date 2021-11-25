@@ -59,6 +59,9 @@ f__bufadj(int n, int c)
 f__putbuf(int c)
 #endif
     {
+#ifndef DO_FIO_OUT
+        return 0;
+#endif
         char *s, *se;
         int n;
 
