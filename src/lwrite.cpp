@@ -121,9 +121,8 @@ l_g(char *buf, double n)
 #else
         return sprintf(buf, fmt, n);
 #endif
-
 #else
-    register char *b, c, c1;
+    char *b, c, c1;
 
     b = buf;
     *b++ = ' ';
@@ -150,7 +149,7 @@ l_g(char *buf, double n)
     {
 #ifndef WANT_LEAD_0
     case '0':
-        while (b[0] = b[1])
+        while ((b[0] = b[1]))
             b++;
         break;
 #endif
@@ -178,7 +177,7 @@ l_g(char *buf, double n)
                     ;
                 goto f__ret;
             case 'E':
-                for (c1 = '.', c = 'E'; *b = c1;
+                for (c1 = '.', c = 'E'; (*b = c1);
                      c1 = c, c = *++b)
                     ;
                 goto f__ret;
@@ -190,20 +189,16 @@ f__ret:
     }
 
     static VOID
-#ifdef KR_headers
-        l_put(s) register char *s;
-#else
-l_put(register char *s)
-#endif
-    {
-#ifdef KR_headers
-        register void (*pn)() = f__putn;
-#else
-    register void (*pn)(int) = f__putn;
-#endif
-        register int c;
 
-        while (c = *s++)
+    l_put(char *s)
+
+    {
+
+        void (*pn)(int) = f__putn;
+
+        int c;
+
+        while ((c = *s++))
             (*pn)(c);
     }
 

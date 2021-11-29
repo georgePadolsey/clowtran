@@ -1,6 +1,44 @@
 #include "f2c.h"
 #include "fio.h"
 #include "fmt.h"
+
+#define RET1 1
+#define REVERT 2
+#define GOTO 3
+#define X 4
+#define SLASH 5
+#define STACK 6
+#define I 7
+#define ED 8
+#define NED 9
+#define IM 10
+#define APOS 11
+#define H 12
+#define TL 13
+#define TR 14
+#define T 15
+#define COLON 16
+#define S 17
+#define SP 18
+#define SS 19
+#define P 20
+#define BN 21
+#define BZ 22
+#define F 23
+#define E 24
+#define EE 25
+#define D 26
+#define G 27
+#define GE 28
+#define L 29
+#define A 30
+#define AW 31
+#define O 32
+#define NONL 33
+#define OM 34
+#define Z 35
+#define ZM 36
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -86,8 +124,8 @@ extern "C"
 wrt_Z(Uint *n, int w, int minlen, ftnlen len)
 #endif
     {
-        register char *s, *se;
-        register int i, w1;
+        char *s, *se;
+        int i, w1;
         static int one = 1;
         static char hex[] = "0123456789ABCDEF";
         s = (char *)n;
@@ -140,13 +178,8 @@ wrt_Z(Uint *n, int w, int minlen, ftnlen len)
     }
 
     static int
-#ifdef KR_headers
-        wrt_I(n, w, len, base) Uint *n;
-    ftnlen len;
-    register int base;
-#else
-wrt_I(Uint *n, int w, ftnlen len, register int base)
-#endif
+
+    wrt_I(Uint *n, int w, ftnlen len, int base)
     {
         int ndigit, sign, spare, i;
         longint x;
@@ -461,3 +494,40 @@ w_ned(struct syl *p)
 #ifdef __cplusplus
 }
 #endif
+
+#undef RET1
+#undef REVERT
+#undef GOTO
+#undef X
+#undef SLASH
+#undef STACK
+#undef I
+#undef ED
+#undef NED
+#undef IM
+#undef APOS
+#undef H
+#undef TL
+#undef TR
+#undef T
+#undef COLON
+#undef S
+#undef SP
+#undef SS
+#undef P
+#undef BN
+#undef BZ
+#undef F
+#undef E
+#undef EE
+#undef D
+#undef G
+#undef GE
+#undef L
+#undef A
+#undef AW
+#undef O
+#undef NONL
+#undef OM
+#undef Z
+#undef ZM

@@ -4,10 +4,6 @@
 /* Compile this with -DNO_TRUNCATE if unistd.h does not exist or */
 /* if it does not define int truncate(const char *name, off_t). */
 
-#ifndef NO_TRUNCATE
-#include "unistd.h"
-#endif
-
 #include "stdlib.h"
 #include "string.h"
 #ifdef __cplusplus
@@ -30,7 +26,7 @@ extern "C"
         {
             char nbuf[10];
             sprintf(nbuf, "fort.%ld", (long)a->aunit);
-            if (tf = FOPEN(nbuf, f__w_mode[0]))
+            if ((tf = FOPEN(nbuf, f__w_mode[0])))
                 fclose(tf);
             return (0);
         }

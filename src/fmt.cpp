@@ -618,3 +618,40 @@ type_f(int n)
 #ifdef __cplusplus
 }
 #endif
+
+#undef RET1
+#undef REVERT
+#undef GOTO
+#undef X
+#undef SLASH
+#undef STACK
+#undef I
+#undef ED
+#undef NED
+#undef IM
+#undef APOS
+#undef H
+#undef TL
+#undef TR
+#undef T
+#undef COLON
+#undef S
+#undef SP
+#undef SS
+#undef P
+#undef BN
+#undef BZ
+#undef F
+#undef E
+#undef EE
+#undef D
+#undef G
+#undef GE
+#undef L
+#undef A
+#undef AW
+#undef O
+#undef NONL
+#undef OM
+#undef Z
+#undef ZM

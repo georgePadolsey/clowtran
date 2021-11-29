@@ -1,14 +1,46 @@
 #include "f2c.h"
 #include "fio.h"
 
-#ifdef KR_headers
-extern double atof();
-#define Const /*nothing*/
-#else
 #define Const const
 
+#define RET1 1
+#define REVERT 2
+#define GOTO 3
+#define X 4
+#define SLASH 5
+#define STACK 6
+#define I 7
+#define ED 8
+#define NED 9
+#define IM 10
+#define APOS 11
+#define H 12
+#define TL 13
+#define TR 14
+#define T 15
+#define COLON 16
+#define S 17
+#define SP 18
+#define SS 19
+#define P 20
+#define BN 21
+#define BZ 22
+#define F 23
+#define E 24
+#define EE 25
+#define D 26
+#define G 27
+#define GE 28
+#define L 29
+#define A 30
+#define AW 31
+#define O 32
+#define NONL 33
+#define OM 34
+#define Z 35
+#define ZM 36
+
 #include "stdlib.h"
-#endif
 
 #include "fmt.h"
 #include "fp.h"
@@ -19,12 +51,9 @@ extern "C"
 #endif
 
     static int
-#ifdef KR_headers
-        rd_Z(n, w, len) Uint *n;
-    ftnlen len;
-#else
-rd_Z(Uint *n, int w, ftnlen len)
-#endif
+
+    rd_Z(Uint *n, int w, ftnlen len)
+
     {
         long x[9];
         char *s, *s0, *s1, *se, *t;
@@ -37,10 +66,10 @@ rd_Z(Uint *n, int w, ftnlen len)
         if (!hex['0'])
         {
             sc = "0123456789";
-            while (ch = *sc++)
+            while ((ch = *sc++))
                 hex[ch] = ch - '0' + 1;
             sc = "ABCDEF";
-            while (ch = *sc++)
+            while ((ch = *sc++))
                 hex[ch] = hex[ch + 'a' - 'A'] = ch - 'A' + 11;
         }
         s = s0 = (char *)x;
@@ -72,7 +101,7 @@ rd_Z(Uint *n, int w, ftnlen len)
             return errno = 115;
         w = (int)len;
         w1 = s - s0;
-        w2 = w1 + 1 >> 1;
+        w2 = (w1 + 1) >> 1;
         t = (char *)n;
         if (*(char *)&one)
         {
@@ -97,7 +126,7 @@ rd_Z(Uint *n, int w, ftnlen len)
         }
         do
         {
-            *t = hex[*s0 & 0xff] - 1 << 4 | hex[s0[1] & 0xff] - 1;
+            *t = (hex[*s0 & 0xff] - 1) << 4 | hex[s0[1] & 0xff] - 1;
             t += i;
             s0 += 2;
         } while (--w);
@@ -109,9 +138,9 @@ rd_Z(Uint *n, int w, ftnlen len)
         rd_I(n, w, len, base) Uint *n;
     int w;
     ftnlen len;
-    register int base;
+    int base;
 #else
-rd_I(Uint *n, int w, ftnlen len, register int base)
+rd_I(Uint *n, int w, ftnlen len, int base)
 #endif
     {
         int ch, sign;
@@ -262,8 +291,8 @@ rd_F(ufloat *p, int w, int d, ftnlen len)
 #endif
     {
         char s[FMAX + EXPMAXDIGS + 4];
-        register int ch;
-        register char *sp, *spe, *sp1;
+        int ch;
+        char *sp, *spe, *sp1;
         double x;
         int scale1, se;
         long e, exp;
@@ -672,3 +701,40 @@ rd_ned(struct syl *p)
 #ifdef __cplusplus
 }
 #endif
+
+#undef RET1
+#undef REVERT
+#undef GOTO
+#undef X
+#undef SLASH
+#undef STACK
+#undef I
+#undef ED
+#undef NED
+#undef IM
+#undef APOS
+#undef H
+#undef TL
+#undef TR
+#undef T
+#undef COLON
+#undef S
+#undef SP
+#undef SS
+#undef P
+#undef BN
+#undef BZ
+#undef F
+#undef E
+#undef EE
+#undef D
+#undef G
+#undef GE
+#undef L
+#undef A
+#undef AW
+#undef O
+#undef NONL
+#undef OM
+#undef Z
+#undef ZM

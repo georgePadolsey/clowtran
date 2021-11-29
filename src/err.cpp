@@ -5,10 +5,6 @@
 #include "fio.h"
 #include "fmt.h" /* for struct syl */
 
-/* Compile this with -DNO_ISATTY if unistd.h does not exist or */
-/* if it does not define int isatty(int). */
-#include <unistd.h>
-
 #ifdef __cplusplus
 extern "C"
 {

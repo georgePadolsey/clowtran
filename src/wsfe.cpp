@@ -50,6 +50,10 @@ extern "C"
 integer s_wsfe(cilist *a) /*start*/
 #endif
     {
+#ifndef DO_FIO_OUT
+        // @todo
+        return 0;
+#endif
         int n;
         if (!f__init)
             f_init();
@@ -57,7 +61,7 @@ integer s_wsfe(cilist *a) /*start*/
         f__sequential = 1;
         f__formatted = 1;
         f__external = 1;
-        if (n = c_sfe(a))
+        if ((n = c_sfe(a)))
             return (n);
         f__elist = a;
         f__hiwater = f__cursor = f__recpos = 0;

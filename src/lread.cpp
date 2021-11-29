@@ -100,8 +100,8 @@ extern int ungetc(int, FILE *); /* for systems with a buggy stdio.h */
     int f__lcount, f__ltype, nml_read;
     char *f__lchar;
     double f__lx, f__ly;
-#define ERR(x)   \
-    if (n = (x)) \
+#define ERR(x)     \
+    if ((n = (x))) \
     return (n)
 #define GETC(x) (x = (*l_getc)())
 #define Ungetc(x, y) (*l_ungetc)(x, y)
@@ -115,8 +115,8 @@ l_R(int poststar, int reqint)
 #endif
     {
         char s[FMAX + EXPMAXDIGS + 4];
-        register int ch;
-        register char *sp, *spe, *sp1;
+        int ch;
+        char *sp, *spe, *sp1;
         long e, exp;
         int havenum, havestar, se;
 
@@ -285,9 +285,9 @@ l_R(int poststar, int reqint)
 
     static int
 #ifdef KR_headers
-        rd_count(ch) register int ch;
+        rd_count(ch) int ch;
 #else
-rd_count(register int ch)
+rd_count(int ch)
 #endif
     {
         if (ch < '0' || ch > '9')
@@ -318,9 +318,13 @@ rd_count(register int ch)
             }
             if (rd_count(ch))
                 if (!f__cf || !feof(f__cf))
+                {
                     errfl(f__elist->cierr, 112, "complex format");
+                }
                 else
+                {
                     err(f__elist->cierr, (EOF), "lread");
+                }
             if (GETC(ch) != '*')
             {
                 if (!f__cf || !feof(f__cf))
@@ -335,13 +339,15 @@ rd_count(register int ch)
             }
         }
         else
+        {
             f__lcount = 1;
+        }
         while (iswhit(GETC(ch)))
             ;
         Ungetc(ch, f__cf);
         nml_save = nml_read;
         nml_read = 0;
-        if (ch = l_R(1, 0))
+        if ((ch = l_R(1, 0)))
             return ch;
         if (!f__ltype)
             errfl(f__elist->cierr, 112, "no real part");
@@ -356,7 +362,7 @@ rd_count(register int ch)
         while (iswhit(GETC(ch)))
             ;
         (void)Ungetc(ch, f__cf);
-        if (ch = l_R(1, 0))
+        if ((ch = l_R(1, 0)))
             return ch;
         if (!f__ltype)
             errfl(f__elist->cierr, 112, "no imaginary part");
@@ -385,7 +391,7 @@ static int (*nmL_ungetc_save)(int, FILE *);
         nmL_getc(Void)
     {
         int rv;
-        if (rv = *nmL_next++)
+        if ((rv = *nmL_next++))
             return rv;
         l_getc = nmL_getc_save;
         l_ungetc = nmL_ungetc_save;
@@ -863,7 +869,7 @@ integer s_rsle(cilist *a)
         f__reading = 1;
         f__external = 1;
         f__formatted = 1;
-        if (n = c_le(a))
+        if ((n = c_le(a)))
             return (n);
         f__lioproc = l_read;
         f__lquit = 0;

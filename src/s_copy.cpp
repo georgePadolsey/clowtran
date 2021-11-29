@@ -10,9 +10,9 @@ extern "C"
 
 	/* assign strings:  a = b */
 
-	void s_copy(register char *a, register char *b, long int la, long int lb)
+	void s_copy(char *a, char *b, long int la, long int lb)
 	{
-		register char *aend, *bend;
+		char *aend, *bend;
 
 		aend = a + la;
 

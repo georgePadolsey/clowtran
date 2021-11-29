@@ -1,0 +1,54 @@
+{
+
+  "name": "lowtran_demo",
+
+  "version": "1.0.0",
+
+  "main": "index.js",
+
+  "devDependencies": {
+
+    "@types/react": "^17.0.37",
+
+    "typescript": "^4.5.2"
+
+  },
+
+  "scripts": {
+
+    "dev": "next dev",
+
+    "build": "next build",
+
+    "start": "next start",
+
+    "lint": "next lint"
+
+  },
+
+  "author": "",
+
+  "description": "",
+
+  "dependencies": {
+
+    "@emotion/react": "^11.7.0",
+
+    "@emotion/styled": "^11.6.0",
+
+    "@mui/material": "^5.2.2",
+
+    "next": "^12.0.4",
+
+    "plotly.js": "^2.6.4",
+
+    "react": "^17.0.2",
+
+    "react-dom": "^17.0.2",
+
+    "react-plotly.js": "^2.5.1"
+
+  }
+
+}
+

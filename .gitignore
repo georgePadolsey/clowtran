@@ -5,3 +5,6 @@ CMakeFiles/
 includes/libf2c/*.o
 includes/libf2c/a.out.*
 includes/libf2c/*.h
+build
+.vscode/
+.idea/

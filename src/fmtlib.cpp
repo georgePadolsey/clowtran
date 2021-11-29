@@ -13,16 +13,10 @@ extern "C"
 #define ulongint unsigned long
 #endif
 
-#ifdef KR_headers
-    char *f__icvt(value, ndigit, sign, base) longint value;
-    int *ndigit, *sign;
-    register int base;
-#else
-char *f__icvt(longint value, int *ndigit, int *sign, int base)
-#endif
+    char *f__icvt(longint value, int *ndigit, int *sign, int base)
     {
         static char buf[MAXINTLENGTH + 1];
-        register int i;
+        int i;
         ulongint uvalue;
 
         if (value > 0)

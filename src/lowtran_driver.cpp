@@ -3,28 +3,72 @@
 #include <stdio.h>
 #include <iostream>
 
-int main()
+#define PY_SSIZE_T_CLEAN
+#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
+#include <Python.h>
+#include <numpy/arrayobject.h>
+
+static PyObject *run(PyObject *self, PyObject *args)
 {
+
     struct timespec start, end;
 
-    clock_gettime(CLOCK_MONOTONIC, &start);
-    MAIN__();
-    clock_gettime(CLOCK_MONOTONIC, &end);
+    long model;
+    long itype;
 
-    int rows = sizeof BIG_BUF / sizeof BIG_BUF[0];
-    int cols = sizeof BIG_BUF[0] / sizeof(float);
-
-    for (int i = 0; i < rows; i++)
+    if (!PyArg_ParseTuple(args, "ll", &model, &itype))
     {
-
-        bool printingRow = BIG_BUF[i][0] != 0 && BIG_BUF[i][1] != NULL;
-
-        if (printingRow)
-        {
-            printingRow = true;
-            std::cout << BIG_BUF[i][0] << '\t' << BIG_BUF[i][1] << std::endl;
-        }
+        return nullptr;
     }
 
-    // printf("%lf milliseconds", (end.tv_nsec - start.tv_nsec) / 1e6 + (end.tv_sec - start.tv_sec) * 1e3);
+    clock_gettime(CLOCK_MONOTONIC, &start);
+
+    LOWTRAN_Card1 card1 = {.model = model, .itype = itype, .im = 1};
+    LOWTRAN_Card2 card2 = {};
+    LOWTRAN_Card3 card3 = {.h1 = 5, .h2 = 10, .range = 10};
+
+    LOWTRAN_ResultBuffer buf;
+
+    _runLowtran(&buf, &card1, nullptr, &card2, nullptr, &card3, nullptr);
+
+    clock_gettime(CLOCK_MONOTONIC, &end);
+
+    const npy_intp dims[2] = {
+        buf.length / 2, 2};
+
+    // PyArray_SimpleNew allocates the memory needed for the array.
+    PyObject *arr = PyArray_SimpleNewFromData(2, dims, NPY_FLOAT, (void *)buf.data);
+
+    // perhaps needed?
+    // PyArray_ENABLEFLAGS((PyArrayObject *)arr, NPY_ARRAY_OWNDATA);
+    /* do work */
+
+    return arr;
+}
+static PyMethodDef SpamMethods[] = {
+    {"run", run, METH_VARARGS,
+     "Execute a basic test."},
+    {NULL, NULL, 0, NULL} /* Sentinel */
+};
+
+static struct PyModuleDef clowtran_module = {
+    PyModuleDef_HEAD_INIT,
+    "clowtran", /* name of module */
+    NULL,       /* module documentation, may be NULL */
+    -1,         /* size of per-interpreter state of the module,
+                 or -1 if the module keeps state in global variables. */
+    SpamMethods};
+
+PyMODINIT_FUNC
+PyInit_clowtran(void)
+{
+    // @see https://scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html
+    PyObject *module;
+    module = PyModule_Create(&clowtran_module);
+    if (module == NULL)
+        return NULL;
+    import_array();
+    if (PyErr_Occurred())
+        return NULL;
+    return module;
 }

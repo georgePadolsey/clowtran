@@ -88,7 +88,8 @@ def main():
         # print(time_taken)
 
     # plt.hist(times, bins=1000, log=True)
-    print(np.average(times) / 1e6, "milliseconds")
+    print("{:.2f} +- {:.2f} milliseconds".format(np.average(times) /
+          1e6, np.std(times) / 1e6))
     # plt.show()
     # drop time as object for some reason
 
