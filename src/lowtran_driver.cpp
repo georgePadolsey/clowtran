@@ -11,7 +11,9 @@
 static PyObject *run(PyObject *self, PyObject *args)
 {
 
-    struct timespec start, end;
+    struct timespec start
+    {
+    }, end{};
 
     long model;
     long itype;
@@ -27,9 +29,9 @@ static PyObject *run(PyObject *self, PyObject *args)
     LOWTRAN_Card2 card2 = {};
     LOWTRAN_Card3 card3 = {.h1 = 5, .h2 = 10, .range = 10};
 
-    LOWTRAN_ResultBuffer buf;
+    LOWTRAN_ResultBuffer buf{};
 
-    _runLowtran(&buf, &card1, nullptr, &card2, nullptr, &card3, nullptr);
+    _runLowtran(&buf, &card1, nullptr, nullptr, &card2, nullptr, nullptr, nullptr, nullptr, &card3, nullptr, nullptr, nullptr);
 
     clock_gettime(CLOCK_MONOTONIC, &end);
 
@@ -48,7 +50,7 @@ static PyObject *run(PyObject *self, PyObject *args)
 static PyMethodDef SpamMethods[] = {
     {"run", run, METH_VARARGS,
      "Execute a basic test."},
-    {NULL, NULL, 0, NULL} /* Sentinel */
+    {nullptr, nullptr, 0, nullptr} /* Sentinel */
 };
 
 static struct PyModuleDef clowtran_module = {

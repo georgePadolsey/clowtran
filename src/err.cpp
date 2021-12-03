@@ -111,11 +111,15 @@ f__fatal(int n, const char *s)
 		fprintf(stderr, "lately %s %s %s %s", f__reading ? "reading" : "writing",
 				f__sequential ? "sequential" : "direct", f__formatted ? "formatted" : "unformatted",
 				f__external ? "external" : "internal");
+		// GP Addition
+		printf("Attempted to sig die because of IO failure");
+		return;
+		// GP END
 		sig_die(" IO", 1);
 	}
 	/*initialization routine*/
 	VOID
-		f_init(Void)
+	f_init(Void)
 	{
 		unit *p;
 
@@ -139,7 +143,8 @@ f__fatal(int n, const char *s)
 
 	int
 #ifdef KR_headers
-		f__nowreading(x) unit *x;
+	f__nowreading(x)
+	unit *x;
 #else
 f__nowreading(unit *x)
 #endif
@@ -174,7 +179,8 @@ f__nowreading(unit *x)
 
 	int
 #ifdef KR_headers
-		f__nowwriting(x) unit *x;
+	f__nowwriting(x)
+	unit *x;
 #else
 f__nowwriting(unit *x)
 #endif

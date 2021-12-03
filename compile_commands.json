@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/Users/georgepadolsey/src/masters-proj/clowtran",
+  "command": "/usr/bin/g++  -I/Users/georgepadolsey/src/masters-proj/clowtran/includes -I/src  -g -arch x86_64 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -mmacosx-version-min=11.4 -std=gnu++11 -o CMakeFiles/clowtran_exe.dir/src/profile.cpp.o -c /Users/georgepadolsey/src/masters-proj/clowtran/src/profile.cpp",
+  "file": "/Users/georgepadolsey/src/masters-proj/clowtran/src/profile.cpp"
+},
+{
+  "directory": "/Users/georgepadolsey/src/masters-proj/clowtran",
+  "command": "/usr/bin/g++ -Dclowtran_EXPORTS -I/Users/georgepadolsey/src/masters-proj/clowtran/includes -I/src -I/Users/georgepadolsey/opt/anaconda3/lib/python3.8/site-packages/numpy/core/include -isystem /Users/georgepadolsey/opt/anaconda3/include/python3.8  -g -arch x86_64 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -mmacosx-version-min=11.4 -fPIC -std=gnu++11 -o CMakeFiles/clowtran.dir/src/lowtran_driver.cpp.o -c /Users/georgepadolsey/src/masters-proj/clowtran/src/lowtran_driver.cpp",
+  "file": "/Users/georgepadolsey/src/masters-proj/clowtran/src/lowtran_driver.cpp"
+}
+]

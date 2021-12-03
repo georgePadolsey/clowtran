@@ -42,7 +42,7 @@ union
 		long ich[4];
 		float vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68],
 			absc[235] /* was [5][47] */, extc[235] /* was [5][47]
-		 */
+													*/
 			,
 			asym[235] /* was [5][47] */, vx2[47], awccon[5];
 	} _1;
@@ -52,7 +52,7 @@ union
 		long ich[4];
 		float vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68],
 			absc[235] /* was [5][47] */, extc[235] /* was [5][47]
-		 */
+													*/
 			,
 			asym[235] /* was [5][47] */, vx2[47], awccon[5];
 	} _2;
@@ -68,7 +68,7 @@ union
 		long ich[4];
 		float vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68],
 			absc[235] /* was [5][47] */, extc[235] /* was [5][47]
-		 */
+													*/
 			,
 			asyc[235] /* was [5][47] */, vx2[47], awccon[5];
 	} _4;
@@ -78,7 +78,7 @@ union
 		long ich[4];
 		float vh[17], tx[63], w[63], wpath[4284] /* was [68][63] */, tbby[68],
 			absc[235] /* was [5][47] */, extc[235] /* was [5][47]
-		 */
+													*/
 			,
 			asym[235] /* was [5][47] */, vx0[47], awccon[5];
 	} _5;
@@ -90,39 +90,65 @@ union
 #define _BLNK__4 (_BLNK__._4)
 #define _BLNK__5 (_BLNK__._5)
 
-union
+struct
 {
-	struct
-	{
-		long ird, ipr, ipu, npr, ipr1;
-	} _1;
-	struct
-	{
-		long ird, ipr, ipu, nopr, nfhdrf;
-	} _2;
+	long ird, ipr, ipu, npr, ipr1;
 } ifil_;
 
-#define ifil_1 (ifil_._1)
-#define ifil_2 (ifil_._2)
+#define ifil_1 (ifil_)
 
 struct LOWTRAN_Card1
 {
-	long model, itype, iemsct, m1, m2, m3, im, noprt;
-	float tbound, salb;
-};
+	//
+	// m4, m5, m6, mdef not inclduded as on the 1a card below
+	// this card is not listed on the documentation
+	// however seems to be an additional card for card 1
+	//
+	/**
+	 * @brief MODEL selects one of the six geographical-seasonal model
+	 * atmospheres or specifies that user defined meteorological data
+	 * are to be used.<br>
+	 * MODEL = 0 if meterological data are specified (horizontal path only)
+	 * 		 = 1 Tropical Atmopshere
+	 * 		 = 2 Midlatitude Summer
+	 * 		 = 3 Midlatitude Winter
+	 * 		 = 4 Subartic Summer
+	 *  	 = 5 Subartic Winter
+	 * 		 = 6 1976 US Standard
+	 * 		 = 7 If a new model atmopshere (e.g. radiosonde data) is to be read in
+	 *
+	 */
+	long model;
 
-union
-{
-	LOWTRAN_Card1 _1;
-	struct
-	{
-		long model, itype, iemsct, m1, m2, m3, im, noprnt;
-		float tbound, salb;
-	} _2;
+	/**
+	 * @brief ITYPE indicates the type of atmospheric path
+	 * ITYPE = 1 For a horizontal (constant-pressure) path
+	 * 		 = 2 Vertical or slant path between two altitudes
+	 * 		 = 3 For a vertical or slant path to space.
+	 *
+	 */
+	long itype;
+
+	/**
+	 * @brief IEMSCT Determines the mode of execution of the program
+	 * IEMSCT = 0 Program execution in transmittance mode
+	 * 		  = 1 Program execution in thermal radiance mode
+	 * 		  = 2 Program execution in radiance mode with solar/lunar single scattered radiance included
+	 * 		  = 3 Program calculates directly transmitted solar irradiance
+	 */
+	long iemsct;
+	/**
+	 * @brief IMULT Determines the execution with multiple scattering
+	 * IMULT = 0 Program executed without multiple scattering
+	 * 		 = 1 Program executed with multiple scattering
+	 *
+	 */
+	long imult;
+	long m1, m2, m3, /* m4, m5, m6, mdef,*/ im, noprt;
+	float tbound, salb;
 } card1_;
 
-#define card1_1 (card1_._1)
-#define card1_2 (card1_._2)
+#define card1_1 (card1_)
 
 struct LOWTRAN_Card1a
 {
@@ -134,56 +160,93 @@ struct LOWTRAN_Card1a
 struct LOWTRAN_Card2
 {
 	long ihaze, iseasn, ivulcn, icstl, icld, ivsa;
-	float vis, wss, whh, rainrt;
-};
-
-union
-{
-	struct LOWTRAN_Card2 _1;
-	struct
-	{
-		long ihaze, iseasn, ivulcn, icstl, icir, ivsa;
-		float vis, wss, whh, rainrt;
-	} _2;
+	float vis, wss, whh, rainrt, gndalt;
 } card2_;
 
-#define card2_1 (card2_._1)
-#define card2_2 (card2_._2)
+#define card2_1 (card2_)
 
+/**
+ * @brief Optional card
+ * only needed if CLD=18, 19, 20 See Page 19
+ */
 struct LOWTRAN_Card2a
 {
 	float cthik, calt, cext;
+	long iseed;
 } card2a_;
 
 #define card2a_1 card2a_
 
+/**
+ * @brief Optional card
+ * only needed if Card2.IVSA=1
+ *
+ */
+struct LOWTRAN_Card2b
+{
+	float zcvsa, ztvsa, zinvsa;
+} card2b_;
+
+#define card2b_1 card2b_
+
+/**
+ * @brief Optional card
+ * only needed if Card1.MODEL=0 or 7 and Card1.IM=1
+ */
+struct LOWTRAN_Card2c
+{
+	long ml /*,  ird1, ird2 included in non-standard card1a  */;
+	/**
+	 * @deprecated
+	 */
+	std::string title;
+} card2c_;
+
+#define card2c_1 card2c_
+
+// @todo card 2c1 -> 2c3
+
 struct LOWTRAN_Card2d
 {
 	long ireg[4];
-	float altb[4];
-	long iregc[4];
+	float altb[4]; // not in the original definition?
+	long iregc[4]; // not in the original definition?
 } card2d_;
 
 #define card2d_1 card2d_
 
+/** @todo Can be different card 3 if imesct = 3 perhaps need union or alternative def? */
 struct LOWTRAN_Card3
 {
 	float h1, h2, angle, range, beta, re;
 	long len;
-};
-
-union
-{
-	LOWTRAN_Card3 _1;
-	struct
-	{
-		float h1, h2, angle, range, beta, ree;
-		long len;
-	} _2;
 } card3_;
 
-#define card3_1 (card3_._1)
-#define card3_2 (card3_._2)
+#define card3_1 (card3_)
+
+/**
+ * @brief
+ *
+ */
+struct LOWTRAN_Card3a1
+{
+	long iparm, iph, iday, isourc;
+} card3a1_;
+
+#define card3a1_1 card3a1_1;
+
+/**
+ * @brief Optional card if IEMSCT = 2
+ *
+ */
+struct LOWTRAN_Card3a2
+{
+	float parm1, parm2, parm3, parm4, time, psio, anglem, g;
+} card3a2_;
+
+#define card3a2_1 card3a2_1;
+
+// @todo card 3a1 -> 3b2 proeprly
 
 struct LOWTRAN_Card4
 {
@@ -192,6 +255,12 @@ struct LOWTRAN_Card4
 
 #define card4_1 card4_
 
+struct LOWTRAN_Card5
+{
+	long irpt;
+} card5_;
+#define card5_1 card5_;
+
 struct
 {
 	float pi, ca, deg, gcair, bignum, bigexp;
@@ -199,30 +268,12 @@ struct
 
 #define cnstns_1 cnstns_
 
-union
+struct
 {
-	struct
-	{
-		long kmax, m, ikmax, nl, ml, iklo, issgeo, imult;
-	} _1;
-	struct
-	{
-		long kmax, m7, jkmax, nl, ml, jklo, issgeo, imult;
-	} _2;
-	struct
-	{
-		long kmax, mm, ikmax, nl, ml, iklo, issgeo, imult;
-	} _3;
-	struct
-	{
-		long kmax, m, ikmax, nl, ml, iklo, iss, imult;
-	} _4;
+	long kmax, m, ikmax, nl, ml, iklo, issgeo, imult;
 } cntrl_;
 
-#define cntrl_1 (cntrl_._1)
-#define cntrl_2 (cntrl_._2)
-#define cntrl_3 (cntrl_._3)
-#define cntrl_4 (cntrl_._4)
+#define cntrl_1 (cntrl_)
 
 union
 {
@@ -313,20 +364,20 @@ struct titl_1_
 {
 	char hhaze[320] /* was [5][16] */, hseasn[40] /* was [5][2] */,
 		hvulcn[160] /* was [5][8] */, blank[4], hmet[40] /* was [5][2]
-	    */
+														  */
 		,
 		hmodel[160] /* was [5][8] */, htrrad[96] /* was [6][4]
-	    */
+												  */
 		;
 };
 struct titl_2_
 {
 	char hz[320] /* was [5][16] */, seasn[40] /* was [5][2] */,
 		vulcn[160] /* was [5][8] */, blank[4], hmet[40] /* was [5][2]
-	    */
+														 */
 		,
 		hmodel[160] /* was [5][8] */, htrrad[96] /* was [6][4]
-	    */
+												  */
 		;
 };
 
@@ -349,24 +400,16 @@ struct
 
 #define mnlt_1 mnlt_
 
-union
+struct
 {
-	struct
-	{
-		float pl[68], qtheta[68];
-		long itest;
-		float hi, hf, aht[68];
-	} _1;
-	struct
-	{
-		float pl[68], qtheta[68];
-		long itest;
-		float h1s, h2s, aht[68];
-	} _2;
+
+	float pl[68], qtheta[68];
+	long itest;
+	float hi, hf, aht[68];
+
 } path_;
 
-#define path_1 (path_._1)
-#define path_2 (path_._2)
+#define path_1 (path_)
 
 union
 {
@@ -383,14 +426,16 @@ union
 #define aertm_1 (aertm_._1)
 #define aertm_2 (aertm_._2)
 
+struct LOWTRAN_Card1b
+{
+	long junit[15];
+	float wmol[12], wair1;
+	long jlow;
+};
+
 union
 {
-	struct
-	{
-		long junit[15];
-		float wmol[12], wair1;
-		long jlow;
-	} _1;
+	LOWTRAN_Card1b _1;
 	struct
 	{
 		long junitp, junitt, junit1[13];
@@ -427,14 +472,14 @@ struct mdata_1_
 {
 	float z__[50], p[50], t[50], wh[50], wco2[50], wo[50], wn2o[50], wco[50],
 		wch4[50], wo2[50], cld[350] /* was [50][7] */, rr[350] /*
-	    was [50][7] */
+		was [50][7] */
 		;
 };
 struct mdata_2_
 {
 	float zz[50], p[50], t[50], wh[50], wco2[50], wo[50], wn2o[50], wco[50],
 		wch4[50], wo2[50], cld[350] /* was [50][7] */, rr[350] /*
-	    was [50][7] */
+		was [50][7] */
 		;
 };
 struct mdata_3_
@@ -510,7 +555,7 @@ union
 struct mlatm_1_
 {
 	float alt[50], pmatm[300] /* was [50][6] */, tmatm[300] /* was [50][6]
-	     */
+															 */
 		,
 		amol[2400] /* was [50][8][6] */;
 };
@@ -554,7 +599,7 @@ struct
 {
 	float zp[35], pp[35], tp[35], rfndxp[35], sp[35], ppsum[35], tpsum[35],
 		rhopsm[35], denp[2205] /* was [63][35] */, amtp[2205] /*
-	    was [63][35] */
+		was [63][35] */
 		;
 } rfrpth_;
 
@@ -597,28 +642,16 @@ struct
 
 #define tran_1 tran_
 
-union
+struct
 {
-	struct
-	{
-		float tle[34], cosbar[34], omega0[34], upf[340] /* was [10][34] */,
-			dnf[340] /* was [10][34] */, taer[50], dtx7[34], daers[34], asyik[34], asydm[34], strn[35], dmols[34], dstrn[35],
-			fdnsrf, fdnsrt;
-		long ikdm;
-		float fdntrf, fdntrt;
-	} _1;
-	struct
-	{
-		float tle[34], cosbar[34], omega0[34], upf[340] /* was [10][34] */,
-			dnf[340] /* was [10][34] */, taer[50], dtx7[34], daers[34], asyik[34], asydm[34], strn[35], dmols[34], dstrn[35],
-			fdnsrf, fdnsrt;
-		long ikmx;
-		float fdntrf, fdntrt;
-	} _2;
+	float tle[34], cosbar[34], omega0[34], upf[340] /* was [10][34] */,
+		dnf[340] /* was [10][34] */, taer[50], dtx7[34], daers[34], asyik[34], asydm[34], strn[35], dmols[34], dstrn[35],
+		fdnsrf, fdnsrt;
+	long ikdm;
+	float fdntrf, fdntrt;
 } msrd_;
 
-#define msrd_1 (msrd_._1)
-#define msrd_2 (msrd_._2)
+#define msrd_1 (msrd_)
 
 struct
 {
@@ -910,22 +943,22 @@ struct o2c_1_
 struct extd_1_
 {
 	float vx2[47], rurext[188] /* was [47][4] */, rurabs[188] /* was [47][4]
-	     */
+															   */
 		,
 		rursym[188] /* was [47][4] */, urbext[188] /* was [47][4]
-	     */
+													*/
 		,
 		urbabs[188] /* was [47][4] */, urbsym[188] /* was [47][4]
-	     */
+													*/
 		,
 		ocnext[188] /* was [47][4] */, ocnabs[188] /* was [47][4]
-	     */
+													*/
 		,
 		ocnsym[188] /* was [47][4] */, troext[188] /* was [47][4]
-	     */
+													*/
 		,
 		troabs[188] /* was [47][4] */, trosym[188] /* was [47][4]
-	     */
+													*/
 		,
 		fg1ext[47], fg1abs[47], fg1sym[47], fg2ext[47], fg2abs[47],
 		fg2sym[47], bstext[47], bstabs[47], bstsym[47], avoext[47],
@@ -1213,78 +1246,19 @@ static float c_b2214 = .025f;
 static long c__4 = 4;
 static long c__3 = 3;
 
-// card2_1.iseasn = 0;
-// card2_1.ihaze = 0;
-// card2_1.ivulcn = 0;
-// card2_1.icstl = 0;
-// card2_1.icld = 0;
-// card2_1.ivsa = 0;
-// card2_1.vis = 0;
-// card2_1.wss = 0;
-// card2_1.whh = 0;
-// card2_1.rainrt = 0;
-
-// gndalt = 0;
-
-// cntrl_1.ml = 0;
-
-// // @todo cntrl_1
-
-// card3_1.h1 = 5;
-// card3_1.h2 = 10;
-// card3_1.range = 10;
-// card3_1.len = 0;
-// card3_1.beta = 0;
-// ro = 0;
-
-// card4_1.v1 = 3000;
-// card4_1.v2 = 50000.0;
-// card4_1.dv = 5;
-
-/** GP Helper Functions */
-int slantedTransmittance(long GP_MODEL,
-						 long GP_ITYPE /* Should be 2 */,
-						 long GP_ISEASN,
-						 long GP_IHAZE,
-						 long GP_ICSTL,
-						 long GP_ICLD,
-						 long GP_IVSA,
-						 long GP_VIS,
-						 long GP_WSS,
-						 long GP_WHH,
-						 long GP_RAINRT,
-						 long GP_ML,
-						 long GP_H1,
-						 long GP_H2,
-						 long GP_RANGE,
-						 long GP_LEN,
-						 long GP_BETA,
-						 long GP_V1,
-						 long GP_V2,
-						 long GP_DV,
-						 long GP_IEMSCT,
-						 long GP_M1,
-						 long GP_M2,
-						 long GP_M3,
-						 long GP_M4,
-						 long GP_M5,
-						 long GP_M6,
-						 long GP_MDEF,
-						 long GP_IMULT,
-						 long GP_TBOUND,
-						 long GP_SALB,
-						 long GP_NOPRT)
-{
-}
-/** END GP Helper Functions */
-
 /* Main program */ int _runLowtran(LOWTRAN_ResultBuffer *resultBuffer,
-								   LOWTRAN_Card1 *lowtran_card1,
-								   LOWTRAN_Card1a *lowtran_card1a,
-								   LOWTRAN_Card2 *lowtran_card2,
-								   LOWTRAN_Card2a *lowtran_card2a,
-								   LOWTRAN_Card3 *lowtran_card3,
-								   LOWTRAN_Card4 *lowtran_card4)
+								   const LOWTRAN_Card1 *lowtran_card1,
+								   const LOWTRAN_Card1a *lowtran_card1a,
+								   const LOWTRAN_Card1b *lowtran_card1b,
+								   const LOWTRAN_Card2 *lowtran_card2,
+								   const LOWTRAN_Card2a *lowtran_card2a,
+								   const LOWTRAN_Card2b *lowtran_card2b,
+								   const LOWTRAN_Card2c *lowtran_card2c,
+								   const LOWTRAN_Card2d *lowtran_card2d,
+								   const LOWTRAN_Card3 *lowtran_card3,
+								   const LOWTRAN_Card3a1 *lowtran_card3a1,
+								   const LOWTRAN_Card3a2 *lowtran_card3a2,
+								   const LOWTRAN_Card4 *lowtran_card4)
 {
 
 	/* Initialized data */
@@ -1436,13 +1410,13 @@ int slantedTransmittance(long GP_MODEL,
 	static float time;
 	static long lens, jprt;
 	static float plst[68], w15sv, alam1, alam2, parm1, parm2, parm3, parm4;
-	static long iflga, iseed;
+	static long iflga;
 	static float betas;
 	static long mdels, iflgt;
 	static float cprob;
 	extern /* Subroutine */ int rdexa_(void);
 	static long iparm;
-	static float rangs, zcvsa;
+	static float rangs;
 	extern /* Subroutine */ int rdnsm_(void);
 	static long ihvul;
 	static float psipo;
@@ -1450,9 +1424,9 @@ int slantedTransmittance(long GP_MODEL,
 	extern /* Subroutine */ int ssgeo_(long *, long *, long *, float *, float *, float *, float *, float *, float *, long *);
 	static long irain;
 	extern /* Subroutine */ int trans_(LOWTRAN_ResultBuffer *, long *, long *, long *, float *);
-	static float ztvsa, bendng, anglem;
+	static float bendng, anglem;
 	extern /* Subroutine */ int exabin_(void);
-	static float gndalt;
+
 	extern /* Subroutine */ int marine_(float *, long *, float *, float *,
 										long *, float *, float *, long *);
 	static float angles;
@@ -1464,7 +1438,6 @@ int slantedTransmittance(long GP_MODEL,
 	static float qthets[68];
 	extern /* Subroutine */ int cirrus_(float *, float *, long *, float *,
 										float *);
-	static float zinvsa;
 	extern /* Subroutine */ int subsol_(float *, float *, float *, long *);
 	static long itypes;
 
@@ -2417,10 +2390,10 @@ int slantedTransmittance(long GP_MODEL,
 	/* *****IRD, IPR, AND IPU ARE UNIT NUMBERS FOR INPUT, OUTPUT, AND         LWT 8970 */
 	/* *****  IPR1 = OUTPUT OF MOLECULAR TRANSMITTANCE                        LWT 8980 */
 
-	ifil_1.ird = 5;	  //5
-	ifil_1.ipr = 6;	  //6
-	ifil_1.ipu = 7;	  //7
-	ifil_1.ipr1 = 18; //8
+	ifil_1.ird = 5;	  // 5
+	ifil_1.ipr = 6;	  // 6
+	ifil_1.ipu = 7;	  // 7
+	ifil_1.ipr1 = 18; // 8
 
 	// GP remove card read
 	// o__1.oerr = 0;
@@ -2549,6 +2522,12 @@ L100:
 
 	memcpy(&card1_, lowtran_card1, sizeof(LOWTRAN_Card1));
 
+	// card not mandatory
+	if (lowtran_card1a != nullptr)
+	{
+		memcpy(&card1a_, lowtran_card1a, sizeof(LOWTRAN_Card1a));
+	}
+
 	if (lowtran_card2 == nullptr)
 	{
 		printf("No Card 2");
@@ -2563,84 +2542,80 @@ L100:
 		return -1;
 	}
 
+	if (lowtran_card2a != nullptr)
+	{
+		memcpy(&card2a_, lowtran_card2a, sizeof(LOWTRAN_Card2a));
+	}
+	if (lowtran_card2b != nullptr)
+	{
+		memcpy(&card2b_, lowtran_card2b, sizeof(LOWTRAN_Card2b));
+	}
+	if (lowtran_card2c != nullptr)
+	{
+		memcpy(&card2c_, lowtran_card2c, sizeof(LOWTRAN_Card2c));
+	}
+	if (lowtran_card2d != nullptr)
+	{
+		memcpy(&card2d_, lowtran_card2d, sizeof(LOWTRAN_Card2d));
+	}
+
+	if (lowtran_card3 == nullptr)
+	{
+		printf("No Card3");
+		return -1;
+	}
+
 	memcpy(&card3_, lowtran_card3, sizeof(LOWTRAN_Card3));
 
 	// printf("Model: %i from %i\n", card1_1.model, lowtran_card1->model);
 	// printf("h1: %f from %f\n", card3_1.h1, lowtran_card3->h1);
 	// printf("h2: %f from %f\n", card3_1.h2, lowtran_card3->h2);
-	printf("range: %f from %f\n", card3_1.range, lowtran_card3->range);
+	// printf("range: %f from %f\n", card3_1.range, lowtran_card3->range);
 
-	// memcpy()
-
-	// card1_1.model = GP_MODEL;
-	//    printf( "Using model %ld",GP_MODEL);
-	// card1_1.itype = GP_ITYPE;
-	//    printf( "Using itype %ld",GP_ITYPE);
-	// card1_1.im = 1;
-	// card1_1.iemsct = 0;
-	// card1_1.m1 = 0;
-	// card1_1.m2 = 0;
-	// card1_1.m3 = 0;
-
-	card1a_1.m4 = 0;
-	card1a_1.m5 = 0;
-	card1a_1.m6 = 0;
-	card1a_1.mdef = 0;
+	//
+	// @gp SPECIAL CASE set IMULT = card1, why is it like this?
+	// I honestly don't know
+	//
+	cntrl_1.imult = lowtran_card1->imult;
 
 	cntrl_1.imult = 0;
 	card1_1.tbound = 0;
 	card1_1.salb = 0;
 	card1_1.noprt = 0;
-
-	card1a_1.ird1 = 1;
-
-	// card1b_1.wmol = newArr;
-
-	// card1b_1.
-
-	// Only do following when using user transmittance model
-
-	// for (int i = 0; i < 12; i++)
-	// {
-	// 	card1b_1.wmol[i] = 0;
-	// }
-	// card1b_1.junit[0] = 10;
-	// card1b_1.junit[1] = 10;
-	// card1b_1.junit[2] = 17;
-
-	// for (int i = 0; i < 16; i++)
-	// {
-	// 	card1b_1.junit[i] = 14;
-	// }
-
-	card2_1.iseasn = 0;
-	card2_1.ihaze = 0;
-	card2_1.ivulcn = 0;
-	card2_1.icstl = 0;
-	card2_1.icld = 0;
-	card2_1.ivsa = 0;
-	card2_1.vis = 0;
-	card2_1.wss = 0;
-	card2_1.whh = 0;
-	card2_1.rainrt = 0;
-
-	// card 2a,2b,2c optional
-
-	// gndalt = 0;
-
 	cntrl_1.ml = 0;
+
+	if (card1_1.im == 1 && (card1_1.model == 7 || card1_1.model == 0))
+	{
+		printf("TODO NOT IMPLEMENTED\n");
+		card1b_1.junit[0] = 10;
+		card1b_1.junit[1] = 10;
+		card1b_1.junit[2] = 17;
+
+		for (int i = 3; i < 14; i++)
+		{
+			card1b_1.junit[i] = 14;
+		}
+
+		for (int i = 0; i < 11; i++)
+		{
+			card1b_1.wmol[i] = 0; // todo wmol py
+		}
+	}
 
 	// @todo cntrl_1
 	// ro = 0;
 
-	card4_1.v1 = 3000;
+	card4_1.v1 = 2000;
 	card4_1.v2 = 50000.0;
 	card4_1.dv = 5;
 
 	irpt = 0;
 
-	// @todo fixme! easy case
-	// iph = 2;
+	ro = 0;
+
+	// Use internal MIE-generated database of aerosol phase functions
+	// for lowtran models
+	iph = 2;
 
 #endif
 	PRINT_LINE_READ()
@@ -2748,7 +2723,7 @@ L110:
 	do_fio(&c__1, (char *)&card2_1.wss, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2_1.whh, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2_1.rainrt, (long)sizeof(float));
-	do_fio(&c__1, (char *)&gndalt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.gndalt, (long)sizeof(float));
 	e_rsfe();
 #endif
 	io___12.ciunit = ifil_1.ipr;
@@ -2763,23 +2738,23 @@ L110:
 	do_fio(&c__1, (char *)&card2_1.wss, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2_1.whh, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2_1.rainrt, (long)sizeof(float));
-	do_fio(&c__1, (char *)&gndalt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.gndalt, (long)sizeof(float));
 	e_wsfe();
 
-	if (gndalt > 0.f)
+	if (card2_1.gndalt > 0.f)
 	{
 		io___13.ciunit = ifil_1.ipr;
 		s_wsfe(&io___13);
-		do_fio(&c__1, (char *)&gndalt, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card2_1.gndalt, (long)sizeof(float));
 		e_wsfe();
 	}
-	if (gndalt >= 6.f)
+	if (card2_1.gndalt >= 6.f)
 	{
 		io___14.ciunit = ifil_1.ipr;
 		s_wsfe(&io___14);
-		do_fio(&c__1, (char *)&gndalt, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card2_1.gndalt, (long)sizeof(float));
 		e_wsfe();
-		gndalt = 0.f;
+		card2_1.gndalt = 0.f;
 	}
 	/*                                                                       LWT 9970 */
 	if (card2_1.vis <= 0.f && card2_1.ihaze > 0)
@@ -2837,7 +2812,7 @@ L210:
 	card2a_1.cthik = -99.f;
 	card2a_1.calt = -99.f;
 	card2a_1.cext = -99.f;
-	iseed = -99;
+	card2a_1.iseed = -99;
 	if (card2_1.icld < 18)
 	{
 		goto L230;
@@ -2852,7 +2827,7 @@ L210:
 	do_fio(&c__1, (char *)&card2a_1.calt, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2a_1.cext, (long)sizeof(float));
 
-	do_fio(&c__1, (char *)&iseed, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2a_1.iseed, (long)sizeof(long));
 
 	e_rsfe();
 #endif
@@ -2863,15 +2838,15 @@ L210:
 	do_fio(&c__1, (char *)&card2a_1.calt, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2a_1.cext, (long)sizeof(float));
 
-	do_fio(&c__1, (char *)&iseed, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2a_1.iseed, (long)sizeof(long));
 
 	e_wsfe();
 
 L230:
 	/* *****CARD 2B VERTICAL STRUCTURE ALGORITHM                              LWT10330 */
-	zcvsa = -99.f;
-	ztvsa = -99.f;
-	zinvsa = -99.f;
+	card2b_1.zcvsa = -99.f;
+	card2b_1.ztvsa = -99.f;
+	card2b_1.zinvsa = -99.f;
 	/*                                                                       LWT10370 */
 	if (card2_1.ivsa == 0)
 	{
@@ -2882,20 +2857,20 @@ L230:
 	io___24.ciunit = ifil_1.ird;
 
 	s_rsfe(&io___24);
-	do_fio(&c__1, (char *)&zcvsa, (long)sizeof(float));
-	do_fio(&c__1, (char *)&ztvsa, (long)sizeof(float));
-	do_fio(&c__1, (char *)&zinvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2b_1.zcvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2b_1.ztvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2b_1.zinvsa, (long)sizeof(float));
 	e_rsfe();
 #endif
 	io___25.ciunit = ifil_1.ipr;
 	s_wsfe(&io___25);
-	do_fio(&c__1, (char *)&zcvsa, (long)sizeof(float));
-	do_fio(&c__1, (char *)&ztvsa, (long)sizeof(float));
-	do_fio(&c__1, (char *)&zinvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2b_1.zcvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2b_1.ztvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2b_1.zinvsa, (long)sizeof(float));
 	e_wsfe();
 
 	/*                                                                       LWT10430 */
-	vsa_(&card2_1.ihaze, &card2_1.vis, &zcvsa, &ztvsa, &zinvsa, zvsaly_1.zvsa,
+	vsa_(&card2_1.ihaze, &card2_1.vis, &card2b_1.zcvsa, &card2b_1.ztvsa, &card2b_1.zinvsa, zvsaly_1.zvsa,
 		 zvsaly_1.rhvsa, zvsaly_1.ahvsa, zvsaly_1.ihvsa);
 /*                                                                       LWT10450 */
 /*     END OF VSA MODEL SET-UP                                           LWT10460 */
@@ -2927,9 +2902,7 @@ L240:
 			/*                                                                       LWT10570 */
 			/* *****CARD 2C  USER SUPPLIED ATMOSPHERIC PROFILE                        LWT10580 */
 			/*                                                                       LWT10590 */
-			printf("LINE:");
-			printf(FILE_LINE);
-			printf("\n");
+			PRINT_LINE_READ();
 #ifdef DO_FIO_IN
 			io___27.ciunit = ifil_1.ird;
 
@@ -2966,7 +2939,7 @@ L240:
 		}
 	}
 	cntrl_1.m = 7;
-	aernsm_(&jprt, &gndalt);
+	aernsm_(&jprt, &card2_1.gndalt);
 	if (card2_1.icld < 20)
 	{
 		goto L260;
@@ -2982,15 +2955,12 @@ L240:
 	{
 		iflga = 1;
 	}
-	if (iseed == 0)
+	if (card2a_1.iseed == 0)
 	{
 		iflgt = 2;
-	}
-	if (iseed == 0)
-	{
 		iflga = 2;
 	}
-	cirrus_(&card2a_1.cthik, &card2a_1.calt, &iseed, &cprob, &card2a_1.cext);
+	cirrus_(&card2a_1.cthik, &card2a_1.calt, &card2a_1.iseed, &cprob, &card2a_1.cext);
 	io___30.ciunit = ifil_1.ipr;
 	s_wsfe(&io___30);
 	e_wsfe();
@@ -3843,7 +3813,7 @@ L560:
 	do_fio(&c__1, (char *)&card2_1.wss, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2_1.whh, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2_1.rainrt, (long)sizeof(float));
-	do_fio(&c__1, (char *)&gndalt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.gndalt, (long)sizeof(float));
 	e_wsfe();
 	io___123.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___123);
@@ -3857,33 +3827,33 @@ L560:
 	do_fio(&c__1, (char *)&card2_1.wss, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2_1.whh, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2_1.rainrt, (long)sizeof(float));
-	do_fio(&c__1, (char *)&gndalt, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2_1.gndalt, (long)sizeof(float));
 	e_wsfe();
 	io___124.ciunit = ifil_1.ipu;
 	s_wsfe(&io___124);
 	do_fio(&c__1, (char *)&card2a_1.cthik, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2a_1.calt, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2a_1.cext, (long)sizeof(float));
-	do_fio(&c__1, (char *)&iseed, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2a_1.iseed, (long)sizeof(long));
 	e_wsfe();
 	io___125.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___125);
 	do_fio(&c__1, (char *)&card2a_1.cthik, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2a_1.calt, (long)sizeof(float));
 	do_fio(&c__1, (char *)&card2a_1.cext, (long)sizeof(float));
-	do_fio(&c__1, (char *)&iseed, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card2a_1.iseed, (long)sizeof(long));
 	e_wsfe();
 	io___126.ciunit = ifil_1.ipu;
 	s_wsfe(&io___126);
-	do_fio(&c__1, (char *)&zcvsa, (long)sizeof(float));
-	do_fio(&c__1, (char *)&ztvsa, (long)sizeof(float));
-	do_fio(&c__1, (char *)&zinvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2b_1.zcvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2b_1.ztvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2b_1.zinvsa, (long)sizeof(float));
 	e_wsfe();
 	io___127.ciunit = ifil_1.ipr1;
 	s_wsfe(&io___127);
-	do_fio(&c__1, (char *)&zcvsa, (long)sizeof(float));
-	do_fio(&c__1, (char *)&ztvsa, (long)sizeof(float));
-	do_fio(&c__1, (char *)&zinvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2b_1.zcvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2b_1.ztvsa, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card2b_1.zinvsa, (long)sizeof(float));
 	e_wsfe();
 	io___128.ciunit = ifil_1.ipu;
 	s_wsfe(&io___128);
@@ -4030,9 +4000,7 @@ L560:
 L630:
 	if (ierror > 0)
 	{
-		printf("LINE:");
-		printf(FILE_LINE);
-		printf("\n");
+		PRINT_LINE_READ()
 #ifdef DO_FIO_IN
 		io___144.ciunit = ifil_1.ird;
 		s_rsfe(&io___144);
@@ -4241,14 +4209,14 @@ L900:
 	iconv = 1;
 	ird0 = 1;
 	icldl = card2_1.icld;
-	if ((float)card1_2.model == 0.f || card1_2.model == 7)
+	if ((float)card1_1.model == 0.f || card1_1.model == 7)
 	{
-		if (card1_2.im != 1)
+		if (card1_1.im != 1)
 		{
 			return 0;
 		}
 	}
-	if ((float)card1_2.model > 0.f && card1_2.model < 7)
+	if ((float)card1_1.model > 0.f && card1_1.model < 7)
 	{
 		ird0 = 0;
 	}
@@ -4273,13 +4241,13 @@ L900:
 		zvsaly_1.rhvsa[9] = 0.f;
 		zvsaly_1.ahvsa[9] = 0.f;
 		zvsaly_1.ihvsa[9] = 0;
-		if (card1_2.model == 0)
+		if (card1_1.model == 0)
 		{
 			io___167.ciunit = ifil_1.ipr;
 			s_wsfe(&io___167);
 			e_wsfe();
 		}
-		if (card1_2.model == 0)
+		if (card1_1.model == 0)
 		{
 			s_stop((char *)"", (long)0);
 		}
@@ -4303,9 +4271,9 @@ L900:
 		/*          CLD2 LST Z OF CIRRUS                                         ANS 1340 */
 		/*                                                                       ANS 1350 */
 	}
-	flayz_(&cntrl_1.ml, &card1_2.model, &card2_1.icld, model_2.zmdl, gndalt, &card2_1.ivsa);
+	flayz_(&cntrl_1.ml, &card1_1.model, &card2_1.icld, model_2.zmdl, gndalt, &card2_1.ivsa);
 	*jprt = 1;
-	if (card1_2.model == 0 || card1_2.model == 7)
+	if (card1_1.model == 0 || card1_1.model == 7)
 	{
 		*jprt = 0;
 	}
@@ -4352,10 +4320,10 @@ L900:
 	{
 		io___179.ciunit = ifil_1.ipr;
 		s_wsfe(&io___179);
-		do_fio(&c__1, (char *)&card1_2.model, (long)sizeof(long));
+		do_fio(&c__1, (char *)&card1_1.model, (long)sizeof(long));
 		do_fio(&c__1, (char *)&card2_1.icld, (long)sizeof(long));
 		e_wsfe();
-		if (card1_2.model == 7)
+		if (card1_1.model == 7)
 		{
 			io___180.ciunit = ifil_1.ipr;
 			s_wsfe(&io___180);
@@ -4404,7 +4372,8 @@ L900:
 			{
 				goto L10;
 			}
-			card1b_1.wmol[km - 1] = 0.f;
+			// done in python
+			// card1b_1.wmol[km - 1] = 0.f;
 		L10:;
 		}
 		/*                                                                       ANS 1980 */
@@ -4464,9 +4433,7 @@ L900:
 		/*                                                                       ANS 2520 */
 		if (ird0 == 1)
 		{
-			printf("LINE:");
-			printf(FILE_LINE);
-			printf("\n");
+			PRINT_LINE_READ();
 #ifdef DO_FIO_IN
 			io___194.ciunit = ifil_1.ird;
 			s_rsfe(&io___194);
@@ -4500,9 +4467,7 @@ L900:
 		}
 		if (card1a_1.ird1 == 1)
 		{
-			printf("LINE:");
-			printf(FILE_LINE);
-			printf("\n");
+			PRINT_LINE_READ();
 #ifdef DO_FIO_IN
 			io___196.ciunit = ifil_1.ird;
 			s_rsfe(&io___196);
@@ -4549,9 +4514,7 @@ L900:
 		/*                                                                       ANS 2930 */
 		if (card1a_1.ird2 == 1)
 		{
-			printf("LINE:");
-			printf(FILE_LINE);
-			printf("\n");
+			PRINT_LINE_READ();
 #ifdef DO_FIO_IN
 			io___198.ciunit = ifil_1.ird;
 			s_rsfe(&io___198);
@@ -4603,7 +4566,7 @@ L900:
 				}
 			}
 		}
-		if (card1_2.model == 0)
+		if (card1_1.model == 0)
 		{
 			mdlz_1.hmdlz[0] = model_2.zmdl[k - 1];
 			mdlz_1.hmdlz[1] = mdata_1.p[k - 1];
@@ -4616,15 +4579,16 @@ L900:
 		for (km = 1; km <= 15; ++km)
 		{
 			/* L12: */
-			card1b_1.junit[km - 1] = jou_(jchar + (km - 1), (long)1);
+			// ignore?
+			// card1b_1.junit[km - 1] = jou_(jchar + (km - 1), (long)1);
 		}
 		if (ird0 == 0)
 		{
-			card1b_1.junit[0] = card1_2.m1;
-			card1b_1.junit[1] = card1_2.m1;
-			card1b_1.junit[2] = card1_2.m2;
+			card1b_1.junit[0] = card1_1.m1;
+			card1b_1.junit[1] = card1_1.m1;
+			card1b_1.junit[2] = card1_1.m2;
 			card1b_1.junit[3] = 6;
-			card1b_1.junit[4] = card1_2.m3;
+			card1b_1.junit[4] = card1_1.m3;
 			card1b_1.junit[5] = card1a_1.m5;
 			card1b_1.junit[6] = card1a_1.m6;
 			card1b_1.junit[7] = card1a_1.m4;
@@ -4639,26 +4603,26 @@ L900:
 		else
 		{
 			*(unsigned char *)bl = ' ';
-			if (card1_2.m1 > 0 && *(unsigned char *)&jchar[0] == *(unsigned char *)bl)
+			if (card1_1.m1 > 0 && *(unsigned char *)&jchar[0] == *(unsigned char *)bl)
 			{
-				card1b_1.junit[0] = card1_2.m1;
+				card1b_1.junit[0] = card1_1.m1;
 			}
-			if (card1_2.m1 > 0 && *(unsigned char *)&jchar[1] == *(unsigned char *)bl)
+			if (card1_1.m1 > 0 && *(unsigned char *)&jchar[1] == *(unsigned char *)bl)
 			{
-				card1b_1.junit[1] = card1_2.m1;
+				card1b_1.junit[1] = card1_1.m1;
 			}
-			if (card1_2.m2 > 0 && *(unsigned char *)&jchar[2] == *(unsigned char *)bl)
+			if (card1_1.m2 > 0 && *(unsigned char *)&jchar[2] == *(unsigned char *)bl)
 			{
-				card1b_1.junit[2] = card1_2.m2;
+				card1b_1.junit[2] = card1_1.m2;
 			}
 			if (card1a_1.mdef > 0 && *(unsigned char *)&jchar[3] == *(
 																		unsigned char *)bl)
 			{
 				card1b_1.junit[3] = 6;
 			}
-			if (card1_2.m3 > 0 && *(unsigned char *)&jchar[4] == *(unsigned char *)bl)
+			if (card1_1.m3 > 0 && *(unsigned char *)&jchar[4] == *(unsigned char *)bl)
 			{
-				card1b_1.junit[4] = card1_2.m3;
+				card1b_1.junit[4] = card1_1.m3;
 			}
 			if (card1a_1.m5 > 0 && *(unsigned char *)&jchar[5] == *(unsigned char *)bl)
 			{
@@ -4774,7 +4738,7 @@ L900:
 		/* CC   IF(RRATZ.NE.0.) GO TO 8                                           ANS*4130 */
 		if (card2_1.ivsa == 1 && icld1 == 0)
 		{
-			if (card1_2.model != 7)
+			if (card1_1.model != 7)
 			{
 				layvsa_(&k, &rh, &ahaze, &iha1, model_2.zmdl);
 			}
@@ -4844,7 +4808,7 @@ L900:
 			icld1 = 0;
 		}
 		model_2.rramt[k - 1] = rratz;
-		if (card1_2.model == 0 || card1_2.model == 7)
+		if (card1_1.model == 0 || card1_1.model == 7)
 		{
 			/*     DONT CHANGE RH                                                    ANS 4510 */
 		}
@@ -5148,7 +5112,7 @@ L900:
 		}
 		if (ityaer == 3 && icl == 0)
 		{
-			marine_(&vis1, &card1_2.model, &card2_1.wss, &card2_1.whh, &card2_1.icstl, _BLNK__2.extc, _BLNK__2.absc, &ic1);
+			marine_(&vis1, &card1_1.model, &card2_1.wss, &card2_1.whh, &card2_1.icstl, _BLNK__2.extc, _BLNK__2.absc, &ic1);
 			card2d_1.ireg[ic1 - 1] = 1;
 			card2_1.vis = vis1;
 			++icl;
@@ -5393,9 +5357,7 @@ L900:
 		{
 			goto L1300;
 		}
-		printf("LINE:");
-		printf(FILE_LINE);
-		printf("\n");
+		PRINT_LINE_READ()
 #ifdef DO_FIO_IN
 		io___239.ciunit = ifil_1.ird;
 
@@ -5413,9 +5375,7 @@ L900:
 		s_wsfe(&io___242);
 		e_wsfe();
 		/*                                                                       RDE  360 */
-		printf("LINE:");
-		printf(FILE_LINE);
-		printf("\n");
+		PRINT_LINE_READ()
 #ifdef DO_FIO_IN
 		io___243.ciunit = ifil_1.ird;
 
@@ -5511,7 +5471,7 @@ L900:
 	/* *********************************************************************  C18  360 */
 	/*                                                                       C18  370 */
 	/*                                                                       C18  520 */
-	mdl = card1_2.model;
+	mdl = card1_1.model;
 	/*                                                                       C18  600 */
 	/*  CHECK IF USER WANTS TO USE A THICKNESS VALUE HE PROVIDES             C18  610 */
 	/*  DEFAULTED MEAN CIRRUS THICKNESS IS 1.0KM  OR 0.2 KM.                 C18  620 */
@@ -5536,7 +5496,7 @@ L25:
 	/*                                                                       C18  680 */
 	/*  BASE HEIGHT CALCULATIONS                                             C18  690 */
 	/*                                                                       C18  700 */
-	if (card1_2.model < 1 || card1_2.model > 5)
+	if (card1_1.model < 1 || card1_1.model > 5)
 	{
 		mdl = 2;
 	}
@@ -5973,7 +5933,7 @@ L600:
 	static float r__, wtem, wmol;
 	static long junit;
 	static float rhoair;
-	extern /* Subroutine */ int watvap_(float *, float *);
+	extern /* Subroutine */ int watvap_(const float *, const float *);
 
 	/* Fortran I/O blocks */
 	static cilist io___307 = {0, 0, 0, fmt_951, 0};
@@ -6000,7 +5960,7 @@ L600:
 	/*                                                                       COV  300 */
 	/* *****                                                                  COV  370 */
 	rhoair = constn_1.alosmt * (*p / constn_1.pzero) * (constn_1.tzero / *t);
-	/*     NOPRNT = 0                                                        COV  390 */
+	/*     NOPRT = 0                                                        COV  390 */
 	/*     A = TZERO/T                                                       COV  400 */
 	for (k = 1; k <= 12; ++k)
 	{
@@ -6076,7 +6036,7 @@ L299:
 	return 0;
 } /* convrt_ */
 
-/* Subroutine */ int watvap_(float *p, float *t)
+/* Subroutine */ int watvap_(const float *p, const float *t)
 {
 	/* Initialized data */
 
@@ -6147,6 +6107,7 @@ L299:
 	r__ = constn_1.airmwt / constn_1.amwt[0];
 	junit = card1b_3.junit1[0];
 	wmol = card1b_3.wmol1[0];
+
 	if (junit != 10)
 	{
 		goto L110;
@@ -6244,9 +6205,10 @@ L199:
 L200:
 	card1b_3.wmol1[0] = card1b_3.wmol1[0] * 2.989e-23f * card1b_3.wair;
 	/* Computing 2nd power */
-	r__1 = a;
-	denst = a * b * exp(c1 + c2 * a + c3 * (r__1 * r__1)) * 1e-6f;
+
+	denst = a * b * exp(c1 + c2 * a + c3 * (a * a)) * 1e-6f;
 	dennum = wtem;
+
 	/*     RHP = 100.0*(DENNUM/DENST)*((RHOAIR-DENST)/(RHOAIR-DENNUM))       WAT 1160 */
 	rhp = dennum / denst * 100.f;
 	/* L12: */
@@ -6916,7 +6878,7 @@ L30:
 	*ahaze = 0.f;
 	*iha1 = 0;
 	/*     HMXVSA=ZVSA(9)                                                    LVS  310 */
-	if (card1_2.model == 0 || card1_2.model == 7)
+	if (card1_1.model == 0 || card1_1.model == 7)
 	{
 		return 0;
 	}
@@ -6992,7 +6954,7 @@ long jou_(char *char__, long char_len)
 L110:
 	if (indx == 0)
 	{
-		io___390.ciunit = ifil_2.ipr;
+		io___390.ciunit = ifil_1.ipr;
 		s_wsfe(&io___390);
 		do_fio(&c__1, char__, (long)1);
 		e_wsfe();
@@ -7307,11 +7269,11 @@ L140:
 		}
 		ird0 = 1;
 		iconv = 1;
-		if ((float)card1_2.model > 0.f && card1_2.model < 7)
+		if ((float)card1_1.model > 0.f && card1_1.model < 7)
 		{
 			ird0 = 0;
 		}
-		if (ird0 == 1 && card2_2.ivsa == 1)
+		if (ird0 == 1 && card2_1.ivsa == 1)
 		{
 			ird0 = 0;
 			iconv = 0;
@@ -7370,9 +7332,7 @@ L140:
 		/*      THEREFORE, WHEN  'JCHAR(K) = 1-5', JCHAR(K) WILL BE RESET TO 6   RDN  940 */
 		/*                                                                       RDN  950 */
 		/*                                                                       RDN  960 */
-		printf("LINE:");
-		printf(FILE_LINE);
-		printf("\n");
+		PRINT_LINE_READ()
 #ifdef DO_FIO_IN
 		io___412.ciunit = ifil_1.ird;
 		s_rsfe(&io___412);
@@ -7454,9 +7414,7 @@ L140:
 		/*                                                                       RDN 1340 */
 		if (card1a_1.ird2 == 1)
 		{
-			printf("LINE:");
-			printf(FILE_LINE);
-			printf("\n");
+			PRINT_LINE_READ();
 #ifdef DO_FIO_IN
 			io___416.ciunit = ifil_1.ird;
 			s_rsfe(&io___416);
@@ -7485,17 +7443,18 @@ L140:
 			/* L12: */
 			card1b_1.junit[km - 1] = jou_(jchar + (km - 1), (long)1);
 		}
-		if (card1_2.m1 != 0)
+		if (card1_1.m1 != 0)
 		{
-			card1b_1.junit[0] = card1_2.m1;
+			card1b_1.junit[0] = card1_1.m1;
 		}
-		if (card1_2.m1 != 0)
+		if (card1_1.m1 != 0)
 		{
-			card1b_1.junit[1] = card1_2.m1;
+			card1b_1.junit[1] = card1_1.m1;
 		}
 		check_(&nsinp_2.p[k - 1], card1b_1.junit, &c__1);
 		check_(&nsinp_2.t[k - 1], &card1b_1.junit[1], &c__2);
 		defalt_(&nsinp_2.zmdl[k - 1], &nsinp_2.p[k - 1], &nsinp_2.t[k - 1]);
+
 		convrt_(&nsinp_2.p[k - 1], &nsinp_2.t[k - 1]);
 		for (km = 1; km <= 12; ++km)
 		{
@@ -8058,7 +8017,7 @@ L200:
 	parmtr_1.deltas = 5.f;
 	jmaxst = 1;
 	*ierror = 0;
-	parmtr_1.re = card3_2.ree;
+	parmtr_1.re = card3_1.re;
 	parmtr_1.imod = cntrl_1.ml;
 	parmtr_1.imax = cntrl_1.ml;
 	/* *****ZERO OUT CUMULATIVE VARIABLES                                     GEO  530 */
@@ -8081,23 +8040,23 @@ L200:
 	{
 		goto L200;
 	}
-	if (card1_2.itype >= 2)
+	if (card1_1.itype >= 2)
 	{
 		goto L200;
 	}
 	/* *****HORIZONTAL PATH, MODEL EQ 1 TO 7:  INTERPOLATE PROFILE TO H1      GEO  660 */
-	rfrpth_1.zp[0] = card3_2.h1;
+	rfrpth_1.zp[0] = card3_1.h1;
 	if (cntrl_1.ml == 1)
 	{
 		rfrpth_1.pp[0] = model_1.pm[0];
 		rfrpth_1.tp[0] = model_1.tm[0];
 		sols_1.lj[0] = 1;
-		rfrpth_1.sp[0] = card3_2.range;
-		path_1.pl[0] = card3_2.range;
+		rfrpth_1.sp[0] = card3_1.range;
+		path_1.pl[0] = card3_1.range;
 	}
 	else
 	{
-		if (card1_2.model == 0)
+		if (card1_1.model == 0)
 		{
 			goto L145;
 		}
@@ -8105,7 +8064,7 @@ L200:
 		for (i__ = 2; i__ <= i__1; ++i__)
 		{
 			i2 = i__;
-			if (card3_2.h1 < model_1.zm[i__ - 1])
+			if (card3_1.h1 < model_1.zm[i__ - 1])
 			{
 				goto L130;
 			}
@@ -8113,7 +8072,7 @@ L200:
 		}
 	L130:
 		i1 = i2 - 1;
-		fac = (card3_2.h1 - model_1.zm[i1 - 1]) / (model_1.zm[i2 - 1] -
+		fac = (card3_1.h1 - model_1.zm[i1 - 1]) / (model_1.zm[i2 - 1] -
 												   model_1.zm[i1 - 1]);
 		expint_(rfrpth_1.pp, &model_1.pm[i1 - 1], &model_1.pm[i2 - 1], &fac);
 		rfrpth_1.tp[0] = model_1.tm[i1 - 1] + (model_1.tm[i2 - 1] -
@@ -8125,7 +8084,7 @@ L200:
 			ii1 = i2;
 		}
 		sols_1.lj[0] = ii1;
-		rfrpth_1.sp[ii1 - 1] = card3_2.range;
+		rfrpth_1.sp[ii1 - 1] = card3_1.range;
 		i__1 = cntrl_1.kmax;
 		for (k = 1; k <= i__1; ++k)
 		{
@@ -8138,13 +8097,13 @@ L200:
 L145:
 	io___469.ciunit = ifil_1.ipr;
 	s_wsfe(&io___469);
-	do_fio(&c__1, (char *)&card3_2.h1, (long)sizeof(float));
-	do_fio(&c__1, (char *)&card3_2.range, (long)sizeof(float));
-	do_fio(&c__1, (char *)&card1_2.model, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.range, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card1_1.model, (long)sizeof(long));
 	e_wsfe();
 	cntrl_1.ikmax = 1;
 	immax = 1;
-	if (card1_2.model == 0)
+	if (card1_1.model == 0)
 	{
 		rfrpth_1.tp[0] = model_1.tm[0];
 	}
@@ -8156,7 +8115,7 @@ L145:
 		{
 			rfrpth_1.denp[k - 1] = model_1.densty[k - 1];
 		}
-		_BLNK__1.w[k - 1] = rfrpth_1.denp[k - 1] * card3_2.range;
+		_BLNK__1.w[k - 1] = rfrpth_1.denp[k - 1] * card3_1.range;
 		_BLNK__1.wpath[k * 68 - 68] = _BLNK__1.w[k - 1];
 		/* L160: */
 	}
@@ -8181,7 +8140,7 @@ L145:
 L200:
 	/* *****SLANT PATH SELECTED                                               GEO 1170 */
 	/* *****INTERPRET SLANT PATH PARAMETERS                                   GEO 1180 */
-	geoinp_(&card3_2.h1, &card3_2.h2, &card3_2.angle, &card3_2.range, &card3_2.beta, &card1_2.itype, &card3_2.len, &hmin, &phi, ierror);
+	geoinp_(&card3_1.h1, &card3_1.h2, &card3_1.angle, &card3_1.range, &card3_1.beta, &card1_1.itype, &card3_1.len, &hmin, &phi, ierror);
 	if (*ierror == 0)
 	{
 		goto L210;
@@ -8196,23 +8155,23 @@ L200:
 L210:
 	/* *****CALCULATE THE PATH THROUGH THE ATMOSPHERE                         GEO 1260 */
 	iamt = 1;
-	rfpath_(&card3_2.h1, &card3_2.h2, &card3_2.angle, &phi, &card3_2.len, &hmin, &iamt, &card3_2.beta, &card3_2.range, bendng);
+	rfpath_(&card3_1.h1, &card3_1.h2, &card3_1.angle, &phi, &card3_1.len, &hmin, &iamt, &card3_1.beta, &card3_1.range, bendng);
 	/* *****UNFOLD LAYER AMOUNTS IN AMTP INTO THE CUMULATIVE                  GEO 1290 */
 	/* *****AMOUNTS IN WPATH FROM H1 TO H2                                    GEO 1300 */
 	i__1 = parmtr_1.ipath;
 	for (i__ = 1; i__ <= i__1; ++i__)
 	{
-		if (card3_2.h1 == rfrpth_1.zp[i__ - 1])
+		if (card3_1.h1 == rfrpth_1.zp[i__ - 1])
 		{
 			ih1 = i__;
 		}
-		if (card3_2.h2 == rfrpth_1.zp[i__ - 1])
+		if (card3_1.h2 == rfrpth_1.zp[i__ - 1])
 		{
 			ih2 = i__;
 		}
 		/* L220: */
 	}
-	jmax = parmtr_1.ipath - 1 + card3_2.len * (min(ih1, ih2) - 1);
+	jmax = parmtr_1.ipath - 1 + card3_1.len * (min(ih1, ih2) - 1);
 	cntrl_1.ikmax = jmax;
 	/* *****DETERMINE LJ(J), WHICH IS THE NUMBER OF THE LAYER IN AMTP(K,L),   GEO 1370 */
 	/* *****STARTING FROM HMIN, WHICH CORRESPONDS TO THE LAYER J IN           GEO 1380 */
@@ -8220,7 +8179,7 @@ L210:
 	/* *****INITIAL DIRECTION OF PATH IS DOWN                                 GEO 1400 */
 	l = ih1;
 	ldel = -1;
-	if (card3_2.len == 1 || card3_2.h1 > card3_2.h2)
+	if (card3_1.len == 1 || card3_1.h1 > card3_1.h2)
 	{
 		goto L230;
 	}
@@ -8316,9 +8275,9 @@ L230:
 	/* *****    1. NON ZERO TBOUND IS READ IN ON CARD 1                       GEO 1930 */
 	/* *****    2. SLANT PATH INTERSECTS THE EARTH (TBOUND                    GEO 1940 */
 	/* *****       SET TO TEMPERATURE OF LOWEST BOUNDARY)                     GEO 1950 */
-	if (card1_2.tbound == 0.f && card3_2.h2 == model_1.zm[0])
+	if (card1_1.tbound == 0.f && card3_1.h2 == model_1.zm[0])
 	{
-		card1_2.tbound = model_1.tm[0];
+		card1_1.tbound = model_1.tm[0];
 	}
 	/* *****PRINT CUMULATIVE ABSORBER AMOUNTS                                 GEO 1970 */
 	if (ifil_1.npr == 1)
@@ -8330,11 +8289,11 @@ L230:
 	e_wsfe();
 	/* *****GOING DOWN, LP = 0,    GOING UP, LP = 1                           GEO 2090 */
 	lp = 1;
-	if (card3_2.len == 1 || card3_2.h1 > card3_2.h2)
+	if (card3_1.len == 1 || card3_1.h1 > card3_1.h2)
 	{
 		lp = 0;
 	}
-	path_1.aht[0] = card3_2.h1;
+	path_1.aht[0] = card3_1.h1;
 	i__1 = jmax;
 	for (j = 1; j <= i__1; ++j)
 	{
@@ -8368,7 +8327,7 @@ L230:
 		e_wsfe();
 	}
 	lp = 1;
-	if (card3_2.len == 1 || card3_2.h1 > card3_2.h2)
+	if (card3_1.len == 1 || card3_1.h1 > card3_1.h2)
 	{
 		lp = 0;
 	}
@@ -8408,7 +8367,7 @@ L315:
 		e_wsfe();
 	}
 	lp = 1;
-	if (card3_2.len == 1 || card3_2.h1 > card3_2.h2)
+	if (card3_1.len == 1 || card3_1.h1 > card3_1.h2)
 	{
 		lp = 0;
 	}
@@ -8445,15 +8404,15 @@ L315:
 	io___493.ciunit = ifil_1.ipr;
 	s_wsfe(&io___493);
 
-	do_fio(&c__1, (char *)&card3_2.h1, (long)sizeof(float));
-	do_fio(&c__1, (char *)&card3_2.h2, (long)sizeof(float));
-	do_fio(&c__1, (char *)&card3_2.angle, (long)sizeof(float));
-	do_fio(&c__1, (char *)&card3_2.range, (long)sizeof(float));
-	do_fio(&c__1, (char *)&card3_2.beta, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.h2, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.angle, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.range, (long)sizeof(float));
+	do_fio(&c__1, (char *)&card3_1.beta, (long)sizeof(float));
 	do_fio(&c__1, (char *)&phi, (long)sizeof(float));
 	do_fio(&c__1, (char *)&hmin, (long)sizeof(float));
 	do_fio(&c__1, (char *)&(*bendng), (long)sizeof(float));
-	do_fio(&c__1, (char *)&card3_2.len, (long)sizeof(long));
+	do_fio(&c__1, (char *)&card3_1.len, (long)sizeof(long));
 
 	e_wsfe();
 L320:
@@ -10402,6 +10361,11 @@ L150:
 	dbndx1 = dbndx3;
 	goto L115;
 L160:
+	if (sinai3 > 1)
+	{
+		sinai3 = 1;
+		printf("WARNING: Possible loss of accuracy. Clamping SINAI3 -> 1");
+	}
 	*sinai = sinai3;
 	*cosai = cosai3;
 	rfrpth_1.sp[*j - 1] = *s;
@@ -10412,11 +10376,11 @@ L160:
 							float *anglem)
 {
 
-	float *resultData = new float[static_cast<int>(2 * (card4_1.v2 - card4_1.v1) / card4_1.dv)];
+	float *resultData = new float[static_cast<int>(2 * (card4_1.v2 - card4_1.v1) / card4_1.dv) + 2];
 
 	long resultDataLen = 0;
 	resBuff->data = resultData;
-	resBuff->length = 2 * static_cast<int>((card4_1.v2 - card4_1.v1) / card4_1.dv);
+	resBuff->length = 2 * static_cast<int>((card4_1.v2 - card4_1.v1) / card4_1.dv) + 2;
 
 	/* Format strings */
 	static char fmt_931[] = "(\002  FREQ   TOTAL     H2O     CO2+ \002,\002O"
@@ -10750,7 +10714,7 @@ L160:
 	radmin = 1e30f;
 	radmax = 0.f;
 	ient = 0;
-	emiss = 1.f - card1_2.salb;
+	emiss = 1.f - card1_1.salb;
 	vrmin = 0.f;
 	vrmax = 0.f;
 	/*                                                                       TRA 1620 */
@@ -10787,11 +10751,11 @@ L160:
 	icll_1.icall = 0;
 	iemiss = 0;
 	iscttr = 0;
-	if (card1_2.iemsct == 1 || card1_2.iemsct == 2)
+	if (card1_1.iemsct == 1 || card1_1.iemsct == 2)
 	{
 		iemiss = 1;
 	}
-	if (card1_2.iemsct == 2)
+	if (card1_1.iemsct == 2)
 	{
 		iscttr = 1;
 	}
@@ -10813,39 +10777,39 @@ L160:
 	{
 		cntrl_1.ikmax = cntrl_1.iklo;
 	}
-	if (card1_2.iemsct == 0)
+	if (card1_1.iemsct == 0)
 	{
 		io___729.ciunit = ifil_1.ipu;
 		s_wsfe(&io___729);
 		e_wsfe();
 	}
 	/*     IPR1 IS THE LOGICAL UNIT FOR THE MOLECULAR TRANSMITTANCE OUTPUTS  TRA 2090 */
-	if (card1_2.iemsct == 0)
+	if (card1_1.iemsct == 0)
 	{
 		io___730.ciunit = ifil_1.ipr1;
 		s_wsfe(&io___730);
 		e_wsfe();
 	}
-	if (card1_2.iemsct == 1)
+	if (card1_1.iemsct == 1)
 	{
 		io___731.ciunit = ifil_1.ipu;
 		s_wsfe(&io___731);
 		e_wsfe();
 	}
-	if (card1_2.iemsct == 2)
+	if (card1_1.iemsct == 2)
 	{
 		io___732.ciunit = ifil_1.ipu;
 		s_wsfe(&io___732);
 		e_wsfe();
 	}
-	if (card1_2.iemsct == 3)
+	if (card1_1.iemsct == 3)
 	{
 		io___733.ciunit = ifil_1.ipu;
 		s_wsfe(&io___733);
 		e_wsfe();
 	}
 	/*                                                                       TRA 2170 */
-	if (card1_2.noprnt == -1)
+	if (card1_1.noprt == -1)
 	{
 		if (cntrl_1.imult == 1)
 		{
@@ -10855,7 +10819,7 @@ L160:
 		}
 		else
 		{
-			if (card1_2.iemsct > 0)
+			if (card1_1.iemsct > 0)
 			{
 				io___735.ciunit = ifil_1.ipr1;
 				s_wsfe(&io___735);
@@ -10921,31 +10885,31 @@ L5:
 	goto L20;
 L15:
 	icount = 0;
-	if (card1_2.iemsct == 0)
+	if (card1_1.iemsct == 0)
 	{
 		io___753.ciunit = ifil_1.ipr;
 		s_wsfe(&io___753);
 		e_wsfe();
 	}
-	if (card1_2.iemsct == 1)
+	if (card1_1.iemsct == 1)
 	{
 		io___754.ciunit = ifil_1.ipr;
 		s_wsfe(&io___754);
 		e_wsfe();
 	}
-	if (card1_2.iemsct == 2 && imlt == 0)
+	if (card1_1.iemsct == 2 && imlt == 0)
 	{
 		io___755.ciunit = ifil_1.ipr;
 		s_wsfe(&io___755);
 		e_wsfe();
 	}
-	if (card1_2.iemsct == 2 && imlt == 1)
+	if (card1_1.iemsct == 2 && imlt == 1)
 	{
 		io___756.ciunit = ifil_1.ipr;
 		s_wsfe(&io___756);
 		e_wsfe();
 	}
-	if (card1_2.iemsct == 3)
+	if (card1_1.iemsct == 3)
 	{
 		io___757.ciunit = ifil_1.ipr;
 		s_wsfe(&io___757);
@@ -11613,7 +11577,7 @@ L109:
 			{
 				msrd_1.dstrn[ik] = _BLNK__4.tx[8];
 			}
-			if (card1_2.iemsct == 1)
+			if (card1_1.iemsct == 1)
 			{
 				msrd_1.dstrn[ik] = 1.f;
 			}
@@ -11670,7 +11634,7 @@ L109:
 		{
 			alam = 1e4f / v;
 		}
-		if (card1_2.iemsct == 0 || card1_2.iemsct == 3)
+		if (card1_1.iemsct == 0 || card1_1.iemsct == 3)
 		{
 			goto L220;
 		}
@@ -11694,7 +11658,7 @@ L109:
 		}
 		if (cntrl_1.imult == 0)
 		{
-			if (card1_2.noprnt == -1)
+			if (card1_1.noprt == -1)
 			{
 				io___819.ciunit = ifil_1.ipr1;
 				s_wsfe(&io___819);
@@ -11706,9 +11670,9 @@ L109:
 				do_fio(&c__1, (char *)&tlnew, (long)sizeof(float));
 				e_wsfe();
 			}
-			if (card1_2.iemsct < 2 && dtau < 1e-5f && tlnew < 1e-5f)
+			if (card1_1.iemsct < 2 && dtau < 1e-5f && tlnew < 1e-5f)
 			{
-				if (card1_2.noprnt == -1)
+				if (card1_1.noprt == -1)
 				{
 					io___820.ciunit = ifil_1.ipr1;
 					s_wsfe(&io___820);
@@ -11730,7 +11694,7 @@ L109:
 			{
 				n1 = cntrl_1.ml - 1;
 			}
-			if (card1_2.noprnt == -1)
+			if (card1_1.noprt == -1)
 			{
 				n = n1 + 1;
 				io___823.ciunit = ifil_1.ipr1;
@@ -11748,7 +11712,7 @@ L109:
 			}
 			if (dtau < 1e-5f && _BLNK__4.tx[8] < 1e-5f)
 			{
-				if (card1_2.noprnt == -1)
+				if (card1_1.noprt == -1)
 				{
 					io___824.ciunit = ifil_1.ipr1;
 					s_wsfe(&io___824);
@@ -11797,7 +11761,7 @@ L220:
 	}
 	msrad_(&iv, &v, isourc, iday, anglem, &ss, dmf, dmfs, umf, umfs);
 	/*                                                                       TRA 8570 */
-	if (card1_2.noprnt == -1)
+	if (card1_1.noprt == -1)
 	{
 		io___833.ciunit = ifil_1.ipr1;
 		s_wsfe(&io___833);
@@ -11866,7 +11830,7 @@ L266:
 		factor = .5f;
 	}
 	suma += factor * card4_1.dv * (1.f - _BLNK__4.tx[8]);
-	iiii = card1_2.iemsct + 1;
+	iiii = card1_1.iemsct + 1;
 	altx9 = cnstns_1.bignum;
 	if (_BLNK__4.tx[8] > 0.f)
 	{
@@ -11955,15 +11919,15 @@ L400:
 	surdtr = 0.f;
 	if (imlt == 1 && card3_1.h2 == 0.f)
 	{
-		surdtr = card1_2.salb * msrd_1.fdntrt * _BLNK__4.tx[8] / cnstns_1.pi;
+		surdtr = card1_1.salb * msrd_1.fdntrt * _BLNK__4.tx[8] / cnstns_1.pi;
 	}
-	if (card1_2.tbound <= 0.f)
+	if (card1_1.tbound <= 0.f)
 	{
 		bbg = 0.f;
 	}
 	else
 	{
-		bbg = bbfn_(&card1_2.tbound, &v) * _BLNK__4.tx[8] * emiss + surdtr;
+		bbg = bbfn_(&card1_1.tbound, &v) * _BLNK__4.tx[8] * emiss + surdtr;
 	}
 	/*                                                                       TRA 9420 */
 	/*   ADD THERMAL BOUNDARY AND MULTIPLE SCATTERED RADIANCE                TRA 9430 */
@@ -11976,7 +11940,7 @@ L400:
 		r__1 = v;
 		sumv = 1e4f / (r__1 * r__1) * sumv;
 	}
-	if (card1_2.iemsct == 2)
+	if (card1_1.iemsct == 2)
 	{
 		goto L500;
 	}
@@ -12043,7 +12007,7 @@ L500:
 	}
 	if (sols_1.angsun >= 0.f)
 	{
-		rflfac = card1_2.salb * cos(sols_1.angsun * cnstns_1.ca) /
+		rflfac = card1_1.salb * cos(sols_1.angsun * cnstns_1.ca) /
 				 cnstns_1.pi;
 	}
 	/*                                                                       TRA 9800 */
@@ -12051,7 +12015,7 @@ L500:
 	/*                                                                       TRA 9820 */
 	if (imlt == 1)
 	{
-		surdsr = card1_2.salb * msrd_1.fdnsrt * _BLNK__4.tx[8] / cnstns_1.pi;
+		surdsr = card1_1.salb * msrd_1.fdnsrt * _BLNK__4.tx[8] / cnstns_1.pi;
 	}
 	rflsss = rflfac * srad_1.teb1 * ss;
 	rflsol = rflsss + surdsr;
@@ -12165,7 +12129,7 @@ L600:
 	radsum = stsol;
 /* *****                                                                  TRA10190 */
 L700:
-	if (card1_2.iemsct == 0)
+	if (card1_1.iemsct == 0)
 	{
 		goto L710;
 	}
@@ -12200,11 +12164,11 @@ L710:
 	do_fio(&c__1, (char *)&suma, (long)sizeof(float));
 	do_fio(&c__1, (char *)&ab, (long)sizeof(float));
 	e_wsfe();
-	if (card1_2.iemsct == 0)
+	if (card1_1.iemsct == 0)
 	{
 		goto L770;
 	}
-	if (card1_2.iemsct == 3)
+	if (card1_1.iemsct == 3)
 	{
 		io___866.ciunit = ifil_1.ipr;
 		s_wsfe(&io___866);
@@ -12227,7 +12191,7 @@ L710:
 		e_wsfe();
 		io___868.ciunit = ifil_1.ipr;
 		s_wsfe(&io___868);
-		do_fio(&c__1, (char *)&card1_2.tbound, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card1_1.tbound, (long)sizeof(float));
 		do_fio(&c__1, (char *)&emiss, (long)sizeof(float));
 		e_wsfe();
 	}
@@ -12408,7 +12372,7 @@ double tnrain_(float *rr, float *v, float *tm, float *radfld)
 	static float f;
 	static long i__, j, k;
 	static float t, s1, s2, s3, s4, al, am, cl, cm, fl, fm, sc[12] /*
-	    was [3][4] */
+		was [3][4] */
 		;
 	static long ki;
 	extern /* Subroutine */ int bs_(long *, float *, float *, long *,
@@ -13686,33 +13650,33 @@ double bbfn_(float *t, float *v)
 		/*                                                                       MSR  560 */
 		/*  SOLAR TRANSMITTANCE FROM TOP OF ATMOSPHERE                           MSR  570 */
 		/*                                                                       MSR  580 */
-		msrd_2.strn[ik - 1] = msrd_2.dstrn[cntrl_1.ikmax - ik];
+		msrd_1.strn[ik - 1] = msrd_1.dstrn[cntrl_1.ikmax - ik];
 		if (card2_1.ihaze > 0)
 		{
 			/*                                                                       MSR  610 */
 			/*  CALCULATE AEROSOL ASYMMETRY FACTOR FOR GIVEN LAYER                   MSR  620 */
 			/*                                                                       MSR  630 */
-			denom = msrd_2.asydm[ik - 1];
+			denom = msrd_1.asydm[ik - 1];
 			if (denom <= 0.f)
 			{
-				msrd_2.cosbar[ikm - ik - 1] = 0.f;
+				msrd_1.cosbar[ikm - ik - 1] = 0.f;
 			}
 			else
 			{
-				msrd_2.cosbar[ikm - ik - 1] = msrd_2.asyik[ik - 1] / denom;
+				msrd_1.cosbar[ikm - ik - 1] = msrd_1.asyik[ik - 1] / denom;
 			}
 		}
 		/*                                                                       MSR  710 */
 		/*  TAER,TAERS, AND TMOLS ARE TOTAL AEROSOL, AEROSOL SCATTERING, AND     MSR  720 */
 		/*  MOLECULAR SCATTERING OPTICAL THICKNESS FOR GIVEN LAYER               MSR  730 */
 		/*                                                                       MSR  740 */
-		msrd_2.taer[ikm - ik - 1] = msrd_2.dtx7[ik] - msrd_2.dtx7[ik - 1];
-		tran_1.taers[ikm - ik - 1] = msrd_2.daers[ik] - msrd_2.daers[ik - 1];
-		tran_1.tmols[ikm - ik - 1] = msrd_2.dmols[ik] - msrd_2.dmols[ik - 1];
+		msrd_1.taer[ikm - ik - 1] = msrd_1.dtx7[ik] - msrd_1.dtx7[ik - 1];
+		tran_1.taers[ikm - ik - 1] = msrd_1.daers[ik] - msrd_1.daers[ik - 1];
+		tran_1.tmols[ikm - ik - 1] = msrd_1.dmols[ik] - msrd_1.dmols[ik - 1];
 		ikmik = ikm - ik;
-		if (msrd_2.taer[ikmik - 1] < 0.f)
+		if (msrd_1.taer[ikmik - 1] < 0.f)
 		{
-			msrd_2.taer[ikmik - 1] = 0.f;
+			msrd_1.taer[ikmik - 1] = 0.f;
 		}
 		if (tran_1.taers[ikmik - 1] < 0.f)
 		{
@@ -13727,11 +13691,11 @@ double bbfn_(float *t, float *v)
 		/*                                                                       MSR  800 */
 		if (tran_1.taers[ikm - ik - 1] <= 0.f)
 		{
-			msrd_2.cosbar[ikm - ik - 1] = 0.f;
+			msrd_1.cosbar[ikm - ik - 1] = 0.f;
 		}
 		else
 		{
-			msrd_2.cosbar[ikm - ik - 1] = msrd_2.cosbar[ikm - ik - 1] *
+			msrd_1.cosbar[ikm - ik - 1] = msrd_1.cosbar[ikm - ik - 1] *
 										  tran_1.taers[ikm - ik - 1] / (tran_1.taers[ikm - ik - 1] + tran_1.tmols[ikm - ik - 1]);
 		}
 		/*                                                                       MSR  870 */
@@ -13745,31 +13709,31 @@ double bbfn_(float *t, float *v)
 		/*                                                                       MSR  920 */
 		/*  CALCULATE ASYMMETRY FACTOR FOR BOTTOM OF ATMOSPHERE                  MSR  930 */
 		/*                                                                       MSR  940 */
-		denom = msrd_2.asydm[0];
+		denom = msrd_1.asydm[0];
 		if (denom <= 0.f)
 		{
-			msrd_2.cosbar[ikm - 1] = 0.f;
+			msrd_1.cosbar[ikm - 1] = 0.f;
 		}
 		else
 		{
-			msrd_2.cosbar[ikm - 1] = msrd_2.asyik[ik - 1] / denom;
+			msrd_1.cosbar[ikm - 1] = msrd_1.asyik[ik - 1] / denom;
 		}
 	}
-	msrd_2.strn[ikm - 1] = msrd_2.dstrn[cntrl_1.ikmax - ikm];
-	msrd_2.strn[ikm] = msrd_2.dstrn[0];
-	msrd_2.taer[ikm - 1] = msrd_2.dtx7[0];
-	tran_1.taers[ikm - 1] = msrd_2.daers[0];
-	tran_1.tmols[ikm - 1] = msrd_2.dmols[0];
+	msrd_1.strn[ikm - 1] = msrd_1.dstrn[cntrl_1.ikmax - ikm];
+	msrd_1.strn[ikm] = msrd_1.dstrn[0];
+	msrd_1.taer[ikm - 1] = msrd_1.dtx7[0];
+	tran_1.taers[ikm - 1] = msrd_1.daers[0];
+	tran_1.tmols[ikm - 1] = msrd_1.dmols[0];
 	/*                                                                       MSR 1070 */
 	/*   WEIGHT ASYMMETRY FACTOR                                             MSR 1080 */
 	/*                                                                       MSR 1090 */
 	if (tran_1.taers[ikm - 1] <= 0.f)
 	{
-		msrd_2.cosbar[ikm - 1] = 0.f;
+		msrd_1.cosbar[ikm - 1] = 0.f;
 	}
 	else
 	{
-		msrd_2.cosbar[ikm - 1] = msrd_2.cosbar[ikm - 1] * tran_1.taers[ikm - 1] / (tran_1.taers[ikm - 1] + tran_1.tmols[ikm - 1]);
+		msrd_1.cosbar[ikm - 1] = msrd_1.cosbar[ikm - 1] * tran_1.taers[ikm - 1] / (tran_1.taers[ikm - 1] + tran_1.tmols[ikm - 1]);
 	}
 	tran_1.tcont[ikm - 1] = tran_1.dcont[0];
 	/*                                                                       MSR 1160 */
@@ -13779,7 +13743,7 @@ double bbfn_(float *t, float *v)
 	/*   CALCULATE SOLAR INTENSITY AT TOP OF ATMOSPHERE                      MSR 1200 */
 	/*                                                                       MSR 1210 */
 	s0 = 0.f;
-	if (card1_2.iemsct == 2)
+	if (card1_1.iemsct == 2)
 	{
 		source_(v, isourc, iday, anglem, &s0);
 	}
@@ -13787,8 +13751,8 @@ double bbfn_(float *t, float *v)
 	/*                                                                       MSR 1250 */
 	/*   CALL FLUX ADDING SUBROUTINE                                         MSR 1260 */
 	/*                                                                       MSR 1270 */
-	flxadd_(msrd_2.tle, msrd_2.cosbar, msrd_2.taer, msrd_2.omega0, msrd_2.upf,
-			msrd_2.dnf, iv, &cntrl_1.ikmax, sols_1.cszen, &s0, msrd_2.strn, &msrd_2.fdnsrt, &msrd_2.fdntrt, &dmf[1], &dmfs[1], &umf[1], &umfs[1]);
+	flxadd_(msrd_1.tle, msrd_1.cosbar, msrd_1.taer, msrd_1.omega0, msrd_1.upf,
+			msrd_1.dnf, iv, &cntrl_1.ikmax, sols_1.cszen, &s0, msrd_1.strn, &msrd_1.fdnsrt, &msrd_1.fdntrt, &dmf[1], &dmfs[1], &umf[1], &umfs[1]);
 	return 0;
 } /* msrad_ */
 
@@ -13903,7 +13867,7 @@ double bbfn_(float *t, float *v)
 	static float gm2;
 	static double ex1, ex2;
 	static float edn[50], dpc, tdf[50], ref[50], dpj[102] /* was [3][34]
-	     */
+														   */
 		,
 		eup[50];
 	static long mol;
@@ -14015,7 +13979,7 @@ double bbfn_(float *t, float *v)
 	v = wavn;
 	/* C    PRINT 1900                                                        FLX 1150 */
 	/* L1900: */
-	nlayrs = cntrl_2.ml - 1;
+	nlayrs = cntrl_1.ml - 1;
 	ng = nlayrs + 1;
 	ng1 = ng + 1;
 	for (m = 1; m <= 11; ++m)
@@ -14084,7 +14048,7 @@ double bbfn_(float *t, float *v)
 			}
 			else
 			{
-				if (card1_2.iemsct == 2 || card1_2.iemsct == 3)
+				if (card1_1.iemsct == 2 || card1_1.iemsct == 3)
 				{
 					bets[n - 1] = betabs_(&cszen[n], &cosbar[n]);
 				}
@@ -14117,7 +14081,7 @@ double bbfn_(float *t, float *v)
 				}
 				_BLNK__1.w[ib - 1] = model_5.densty[ib + (*ikmax - n) * 63 -
 													64] *
-									 path_2.pl[*ikmax - n - 1] * gkwj[k + mol * 3 - 4];
+									 path_1.pl[*ikmax - n - 1] * gkwj[k + mol * 3 - 4];
 				taum[k + n * 3 - 4] += _BLNK__1.w[ib - 1] * cp1s[mol - 1];
 				twgp[k + n * 3 - 4] += _BLNK__1.w[ib - 1] * cp1s[mol - 1] *
 									   dpwj[k + mol * 3 - 4];
@@ -14164,8 +14128,8 @@ double bbfn_(float *t, float *v)
 		/*                                                                       FLX 2110 */
 		/*   DEFINE INITIAL UPWARD COMPOSITE SURFACE REFLECTANCE                 FLX 2120 */
 		/*                                                                       FLX 2130 */
-		rupcn = card1_2.salb;
-		rupcns = card1_2.salb;
+		rupcn = card1_1.salb;
+		rupcns = card1_1.salb;
 		/*                                                                       FLX 2160 */
 		/*   SURFACE THERMAL EMISSION                                            FLX 2170 */
 		/*                                                                       FLX 2180 */
@@ -14176,9 +14140,9 @@ double bbfn_(float *t, float *v)
 		eupcn = (1.f - rupcn) * tran_1.btop[ng1 - 1];
 		eup[ng - 1] = eupcn;
 		eupc[ng - 1] = eupcn;
-		if (card1_2.iemsct == 2)
+		if (card1_1.iemsct == 2)
 		{
-			mf = cntrl_2.ml - 1;
+			mf = cntrl_1.ml - 1;
 			eupcns = rupcns * cszen[mf] * strn[mf] * *s0;
 		}
 		else
@@ -14232,7 +14196,7 @@ double bbfn_(float *t, float *v)
 			/*    X IS THE NORMAL PATH OPTICAL THICKNESS FOR A GIVEN LAYER           FLX 2640 */
 			/*                                                                       FLX 2650 */
 			x = xp * (model_5.zm[*ikmax - n] - model_5.zm[*ikmax - n - 1]) /
-				path_2.pl[*ikmax - n - 1];
+				path_1.pl[*ikmax - n - 1];
 			omegak[n - 1] = (tran_1.taers[n - 1] + tran_1.tmols[n - 1]) / xp;
 			/*                                                                       FLX 2680 */
 			/*   USE TWO STREAM APPROXIMATION FOR THERMAL                            FLX 2690 */
@@ -14280,7 +14244,7 @@ double bbfn_(float *t, float *v)
 			eup[n - 1] = 0.f;
 			edn[n - 1] = 0.f;
 		L114:
-			if (card1_2.iemsct == 2)
+			if (card1_1.iemsct == 2)
 			{
 				/*                                                                       FLX 3000 */
 				/*     CALCULATE PARAMETERS FOR SOLAR HYBRID MODIFIED                    FLX 3010 */
@@ -14406,7 +14370,7 @@ double bbfn_(float *t, float *v)
 		edncns = 0.f;
 		dnf[k + 10] = edncn;
 		upf[k + 10] = eupc[0];
-		if (card1_2.iemsct == 2)
+		if (card1_1.iemsct == 2)
 		{
 			dnfs[k - 1] = edncns;
 			upfs[k - 1] = eupcs[0];
@@ -14426,7 +14390,7 @@ double bbfn_(float *t, float *v)
 			/* L132: */
 			pefup = (eupc[n - 1] + edncn * rupc[n - 1]) / deno;
 			pefdn = (edncn + eupc[n - 1] * rdncn) / deno;
-			if (card1_2.iemsct == 2)
+			if (card1_1.iemsct == 2)
 			{
 				edncns = edns[m - 1] + (edncns + eups[m - 1] * rdncns) * tdfs[m - 1] / denos;
 				rdncns = refs[m - 1] + tdfs[m - 1] * tdfs[m - 1] * rdncns /
@@ -16736,9 +16700,9 @@ L15:
 	/*     NOTE; UNITS ARE (STER-1), X=COS(SCATTERING ANGLE)                 SSG  400 */
 	/*     PFMOL(X) = (3/16*PI)*((1+DPL)+(1-DPL)*X**2)*2/(2+DPL)             SSG* 402 */
 	/*     WHERE: DPL (THE DEPOLARIZATION RATIO) = 0.0279                    SSG* 406 */
-	cntrl_3.iklo = 1;
+	cntrl_1.iklo = 1;
 	ifil_1.npr = 1;
-	cntrl_3.issgeo = 1;
+	cntrl_1.issgeo = 1;
 	/*     SPECIFY THE GEOMETRICAL CONFIGURATION                             SSG  460 */
 	if (*iparm == 2)
 	{
@@ -16793,16 +16757,16 @@ L5:
 	/*     SAVE OPTICAL PATH PARAMETERS AND AMOUNTS                          SSG  780 */
 	/*                                                                       SSG  790 */
 	jturnd = sols_1.jturn;
-	ikmaxd = cntrl_3.ikmax + 1;
-	h1d = card3_2.h1;
-	h2d = card3_2.h2;
-	angd = card3_2.angle;
-	rngd = card3_2.range;
-	betd = card3_2.beta;
-	card3_2.beta = 0.f;
-	lend = card3_2.len;
-	itd = card1_2.itype;
-	parmtr_1.imax = cntrl_3.ml;
+	ikmaxd = cntrl_1.ikmax + 1;
+	h1d = card3_1.h1;
+	h2d = card3_1.h2;
+	angd = card3_1.angle;
+	rngd = card3_1.range;
+	betd = card3_1.beta;
+	card3_1.beta = 0.f;
+	lend = card3_1.len;
+	itd = card1_1.itype;
+	parmtr_1.imax = cntrl_1.ml;
 	i__1 = parmtr_1.imax;
 	for (j = 1; j <= i__1; ++j)
 	{
@@ -16819,7 +16783,7 @@ L5:
 		{
 			ljd[j - 1] = parmtr_1.imax;
 		}
-		i__2 = cntrl_3.kmax;
+		i__2 = cntrl_1.kmax;
 		for (k = 1; k <= i__2; ++k)
 		{
 			/* L11: */
@@ -16830,7 +16794,7 @@ L5:
 	/*                                                                       SSG 1010 */
 	/*     ESTABLISH PSIO AND DELO                                           SSG 1020 */
 	iarbo = 0;
-	if (card3_2.angle < .01f || card3_2.angle > 179.99f)
+	if (card3_1.angle < .01f || card3_1.angle > 179.99f)
 	{
 		iarbo = 1;
 	}
@@ -16857,14 +16821,14 @@ L5:
 	s_wsfe(&io___1302);
 	e_wsfe();
 	i__2 = ikmaxd;
-	for (l = cntrl_3.iklo; l <= i__2; ++l)
+	for (l = cntrl_1.iklo; l <= i__2; ++l)
 	{
 		if (lend == 1 || jturnd != 0)
 		{
 			goto L20;
 		}
 		/*     SHORT PATH, UP                                                    SSG 1240 */
-		card3_2.h1 = az[l - 1];
+		card3_1.h1 = az[l - 1];
 		relh = rhd[l - 1];
 		thtst = sols_1.atheta[l - 1];
 		if (l >= 2)
@@ -16883,13 +16847,13 @@ L5:
 			goto L25;
 		}
 		ljp1 = ljd[l - 1] + 1;
-		card3_2.h1 = az[ljp1 - 1];
+		card3_1.h1 = az[ljp1 - 1];
 		relh = rhd[ljp1 - 1];
 		thtst = 180.f - sols_1.atheta[ljp1 - 1];
 		goto L30;
 	L25:
 		ljdl = ljd[l - 1];
-		card3_2.h1 = az[ljdl - 1];
+		card3_1.h1 = az[ljdl - 1];
 		relh = rhd[ljdl - 1];
 		thtst = sols_1.atheta[ljdl - 1];
 		if (l == jturnd)
@@ -16897,7 +16861,7 @@ L5:
 			thtst = 180.f - sols_1.atheta[ljdl - 1];
 		}
 	L30:
-		sols_1.ah1[l - 1] = card3_2.h1;
+		sols_1.ah1[l - 1] = card3_1.h1;
 		sols_1.arh[l - 1] = relh;
 		if (l < 2)
 		{
@@ -16908,30 +16872,30 @@ L5:
 	L35:
 		corr = 0.f;
 		/*     RANGE=UNKNOWN                                                     SSG 1510 */
-		card1_2.itype = 3;
+		card1_1.itype = 3;
 		for (jiter = 1; jiter <= 4; ++jiter)
 		{
-			card3_2.h2 = 0.f;
-			card3_2.angle = angl0 - corr;
-			card3_2.len = 0;
-			if (card3_2.angle <= 90.f)
+			card3_1.h2 = 0.f;
+			card3_1.angle = angl0 - corr;
+			card3_1.len = 0;
+			if (card3_1.angle <= 90.f)
 			{
 				goto L40;
 			}
-			card3_2.len = 1;
+			card3_1.len = 1;
 			io___1310.ciunit = ifil_1.ipr;
 			s_wsfe(&io___1310);
 			do_fio(&c__1, (char *)&l, (long)sizeof(long));
 			e_wsfe();
 		L40:
 			htop = parmtr_1.zmax;
-			if (card3_2.h1 < htop || card3_2.len == 1)
+			if (card3_1.h1 < htop || card3_1.len == 1)
 			{
 				goto L60;
 			}
 			/*     SCATTERING POINT IS AT OR ABOVE HTOP AND LEN=0,                   SSG 1640 */
 			/*     SET W(K)=0.0 AND CONTINUE                                         SSG 1650 */
-			i__1 = cntrl_3.kmax;
+			i__1 = cntrl_1.kmax;
 			for (k = 1; k <= i__1; ++k)
 			{
 				/* L50: */
@@ -16951,7 +16915,7 @@ L5:
 			s_wsfe(&io___1313);
 			do_fio(&c__1, (char *)&l, (long)sizeof(long));
 			e_wsfe();
-			i__1 = cntrl_3.kmax;
+			i__1 = cntrl_1.kmax;
 			for (k = 1; k <= i__1; ++k)
 			{
 				/* L70: */
@@ -16976,7 +16940,7 @@ L5:
 			corr = bendng;
 		}
 	L100:
-		sangle = sctang_(&card3_2.angle, &thtst, &psist, &iarb);
+		sangle = sctang_(&card3_1.angle, &thtst, &psist, &iarb);
 		cosang = cos(cnstns_1.ca * sangle);
 		/*     LOAD MOLECULAR PHASE FUNCTION ARRAY                               SSG 1880 */
 		/* Computing 2nd power */
@@ -17003,15 +16967,15 @@ L5:
 		/*     USER SUPPLIED PHASE FUNCTION                                      SSG 1970 */
 		/*     DETERMINE ALTITUDE AND ANGLE INDICES                              SSG 1980 */
 		m = 4;
-		if (card3_2.h1 <= 30.f)
+		if (card3_1.h1 <= 30.f)
 		{
 			m = 3;
 		}
-		if (card3_2.h1 <= 10.f)
+		if (card3_1.h1 <= 10.f)
 		{
 			m = 2;
 		}
-		if (card3_2.h1 <= 2.f)
+		if (card3_1.h1 <= 2.f)
 		{
 			m = 1;
 		}
@@ -17042,7 +17006,7 @@ L5:
 		sols_1.pa[l - 1] = sangle;
 	L115:
 		/*     LOAD AMOUNTS FROM W(K) INTO WPATHS(L,K)                           SSG 2210 */
-		i__1 = cntrl_3.kmax;
+		i__1 = cntrl_1.kmax;
 		for (k = 1; k <= i__1; ++k)
 		{
 			/* L120: */
@@ -17053,13 +17017,13 @@ L5:
 		/*                                                                       SSG 2260 */
 		/*    CSZEN IS COSINE OF SOLAR ZENTIH FOR EACH LAYER                     SSG 2270 */
 		/*                                                                       SSG 2280 */
-		sols_1.cszen[l - 1] = cos(card3_2.angle * cnstns_1.ca);
+		sols_1.cszen[l - 1] = cos(card3_1.angle * cnstns_1.ca);
 		io___1321.ciunit = ifil_1.ipr;
 		s_wsfe(&io___1321);
 		do_fio(&c__1, (char *)&l, (long)sizeof(long));
-		do_fio(&c__1, (char *)&card3_2.h1, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.h1, (long)sizeof(float));
 		do_fio(&c__1, (char *)&betast, (long)sizeof(float));
-		do_fio(&c__1, (char *)&card3_2.angle, (long)sizeof(float));
+		do_fio(&c__1, (char *)&card3_1.angle, (long)sizeof(float));
 		do_fio(&c__1, (char *)&thtst, (long)sizeof(float));
 		do_fio(&c__1, (char *)&psist2, (long)sizeof(float));
 		do_fio(&c__1, (char *)&sangle, (long)sizeof(float));
@@ -17070,28 +17034,28 @@ L5:
 	/*                                                                       SSG 2330 */
 	/*     RESTORE OPTICAL PATH AMOUNTS                                      SSG 2340 */
 	/*                                                                       SSG 2350 */
-	cntrl_3.ikmax = ikmaxd - 1;
-	card3_2.h1 = h1d;
-	card3_2.h2 = h2d;
-	sols_1.angsun = card3_2.angle;
-	card3_2.angle = angd;
-	card3_2.range = rngd;
-	card3_2.beta = betd;
-	card3_2.len = lend;
-	card1_2.itype = itd;
+	cntrl_1.ikmax = ikmaxd - 1;
+	card3_1.h1 = h1d;
+	card3_1.h2 = h2d;
+	sols_1.angsun = card3_1.angle;
+	card3_1.angle = angd;
+	card3_1.range = rngd;
+	card3_1.beta = betd;
+	card3_1.len = lend;
+	card1_1.itype = itd;
 	i__2 = ikmaxd;
 	for (j = 1; j <= i__2; ++j)
 	{
 		_BLNK__4.tbby[j - 1] = tbdum[j - 1];
 		sols_1.lj[j - 1] = ljd[j - 1];
-		i__1 = cntrl_3.kmax;
+		i__1 = cntrl_1.kmax;
 		for (k = 1; k <= i__1; ++k)
 		{
 			/* L160: */
 			_BLNK__4.wpath[j + k * 68 - 69] = wpdum[j + k * 68 - 69];
 		}
 	}
-	ifil_1.npr = card1_2.noprnt;
+	ifil_1.npr = card1_1.noprt;
 	/*                                                                       SSG 2510 */
 	/*     FORMATS                                                           SSG 2520 */
 	/*                                                                       SSG 2530 */
@@ -17590,7 +17554,7 @@ L60:
 
 	@see https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html
 	@see https://www.atmos.anl.gov/ANLMET/OrdinalDay.txt
-    */
+	*/
 	static long nday[13] = {1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335,
 							366};
 
@@ -18439,7 +18403,7 @@ L100:
 	/* CC   IN SUBROUTINE EXABIN AND MULTIPLIED BY THE BEXT (DENSTY(N,I))     EQU  140 */
 	/* CC   WHERE N=7,12,13 OR 14 AND I IS THE NUMBER OF LAYERS               EQU  150 */
 	/* CC                                                                     EQU  160 */
-	i__1 = cntrl_4.ml;
+	i__1 = cntrl_1.ml;
 	for (i__ = 1; i__ <= i__1; ++i__)
 	{
 		if (model_1.densty[i__ * 63 - 57] != 0.f)
@@ -18997,7 +18961,7 @@ L13:
 	/*  SET CIRRUS PROBABILITY AND PROFILE TO ALL ZEROES                     CIR  720 */
 	/*                                                                       CIR  730 */
 	*cprob = 0.f;
-	mdl = card1_2.model;
+	mdl = card1_1.model;
 	/*                                                                       CIR  760 */
 	for (i__ = 1; i__ <= 34; ++i__)
 	{
@@ -19052,7 +19016,7 @@ L25:
 	/*                                                                       CIR 1080 */
 	/*  BASE HEIGHT CALCULATIONS                                             CIR 1090 */
 	/*                                                                       CIR 1100 */
-	if (card1_2.model < 1 || card1_2.model > 5)
+	if (card1_1.model < 1 || card1_1.model > 5)
 	{
 		mdl = 2;
 	}
@@ -19077,7 +19041,7 @@ L26:
 /*  INTERPOLATE EH(16,I) FOR NON-STANDARD ALTITUDE BOUNDARIES.           CIR 1230 */
 /*                                                                       CIR 1240 */
 L27:
-	if (card1_2.model == 7)
+	if (card1_1.model == 7)
 	{
 		goto L60;
 	}
@@ -19168,7 +19132,7 @@ double ranfun_(long *idum)
 	float ret_val;
 
 	// TODO ignores idum
-	//print(idum);
+	// print(idum);
 
 	return rand();
 } /* ranfun_ */

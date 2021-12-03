@@ -15,8 +15,7 @@ int main()
 
         LOWTRAN_ResultBuffer buf;
 
-        _runLowtran(&buf, &card1, nullptr, &card2, nullptr, &card3, nullptr);
-
+        _runLowtran(&buf, &card1, nullptr, nullptr, &card2, nullptr, nullptr, nullptr, nullptr, &card3, nullptr, nullptr, nullptr);
         printf("%f %f\n", buf.data[500], buf.data[501]);
     }
 

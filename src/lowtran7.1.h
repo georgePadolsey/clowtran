@@ -4,6 +4,7 @@
 
 // #define DO_FIO_IN 1
 // #define DO_FIO_OUT 1
+#include <string>
 #include "stdio.h"
 #include "atmos_data.cpp"
 #include "math.h"

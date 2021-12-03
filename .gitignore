@@ -8,3 +8,4 @@ includes/libf2c/*.h
 build
 .vscode/
 .idea/
+.DS_Store

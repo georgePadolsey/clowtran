@@ -1,2 +1,5 @@
 node_modules
 .next
+out
+public/a.out.js
+public/a.out.wasm
